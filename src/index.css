@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-oneplus-black text-oneplus-textPrimary font-sans antialiased;
+    background-color: #0B0C0E;
+    background-image: radial-gradient(circle at 50% 0%, rgba(235, 0, 41, 0.04) 0%, transparent 60%);
+    background-attachment: fixed;
+    color: #FFFFFF;
+  }
+}
+
+/* Custom OnePlus subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0C0E;
+}
+::-webkit-scrollbar-thumb {
+  background: #22252C;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #EB0029;
+}
+
+/* KaTeX Math overrides */
+.katex-display {
+  margin: 0.85em 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.3em 0;
+}
+.katex {
+  font-size: 1.05em;
+  color: #FFFFFF;
+}
+
+/* Peaceful clean cards */
+.oneplus-card {
+  background: #14161C;
+  border: 1px solid #22252C;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.oneplus-card:hover {
+  border-color: #323642;
+}
+
+.oneplus-red-pill {
+  background: rgba(235, 0, 41, 0.12);
+  border: 1px solid rgba(235, 0, 41, 0.3);
+  color: #EB0029;
+}
