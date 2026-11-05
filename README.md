@@ -1,85 +1,76 @@
-# OnePrep — VIT Vellore Exam Preparation & Revision Platform
+# OnePrep
 
-> **A peaceful, distraction-free paired study operating system built strictly according to official VIT Vellore VTOP Course Syllabi.**
+A personal study planner and revision dashboard for 1st-year engineering courses at VIT Vellore.
 
----
-
-## ⚡ Overview
-
-**OnePrep** is an engineering revision workspace tailored for VIT Vellore students preparing for **CAT-1**, **CAT-2**, and **FAT (Final Assessment Test)** examinations. 
-
-Designed around the **OnePlus aesthetic** (matte obsidian dark mode, `#EB0029` crimson red accents, serene typography, and high information density), OnePrep eliminates study friction by pairing day-by-day adaptive revision schedules directly with **unabridged official PDF textbooks** for every module.
+Built to stay organized and manage revision schedules during CAT-1, CAT-2, and FAT (Final Assessment Test) exam periods.
 
 ---
 
-## 📚 Enrolled Course Syllabi & Textbooks
+## What It Does
 
-Every module includes a fully formatted, complete study textbook (compiled with Typst) featuring the official **VIT Exam Blueprint**, **Master Formula Sheet**, **Complete Theory & Derivations**, and **Fully Worked VIT Question Bank & Past FAT Papers**:
-
-| Course Title | VTOP Code | Credits | Syllabus & Textbook Modules |
-| :--- | :--- | :--- | :--- |
-| **Multivariable Calculus & Differential Equations** | `BAMAT101` | 4.0 | • **Mod 1:** Functions of Several Variables (CO: 1)<br>• **Mod 2:** Multiple Integrals (CO: 2)<br>• **Mod 3:** Vector Differentiation & Integration (CO: 3)<br>• **Mod 4:** Ordinary Differential Equations (CO: 4)<br>• **Mod 5:** Partial Differential Equations (CO: 5) |
-| **Applied Chemistry** | `BACHY101` | 4.0 | • **Mod 1:** Chemical Thermodynamics and Kinetics (CO: 1)<br>• **Mod 2:** Energy Devices (Li-ion, SOFC, DSSC) (CO: 2)<br>• **Mod 3:** Functional Materials (Semiconductors, Magnets, Nano) (CO: 2)<br>• **Mod 4:** Spectroscopic & Diffraction Techniques (UV-Vis, XRD) (CO: 3)<br>• **Mod 5:** Computational Chemistry (MOT, PES, AI screening) (CO: 4)<br>• **Mod 6:** Contemporary Topics (CO: 2) |
-| **Basic Engineering** | `BACEE101` | 4.0 | • **Mod 1:** Principles of Electrical Engineering (Circuits & Machines) (CO: 1)<br>• **Mod 2:** Foundations of Electronics & Communications (Op-Amps, Radar) (CO: 2)<br>• **Mod 3:** Engineering Graphics and CAD (1st/3rd Angle, Orthographic, Isometric) (CO: 3)<br>• **Mod 4:** Manufacturing Processes, Energy & Automation (Casting, AM, Robotics) (CO: 4)<br>• **Mod 5:** Bio-Inspired Design in Engineering (Lotus, Shark skin, Gecko) (CO: 5) |
-| **Technical English Communication** | `BAENG101` | 4.0 | • **Mod 1:** Introduction to Technical Communication (5Cs, Taxonomy) (CO: 2)<br>• **Mod 2:** Grammar (Concord, Tense shifts, Conditionals, Passive) (CO: 3)<br>• **Mod 3:** Reading (Technical Definitions, IMRAD dissection) (CO: 4)<br>• **Mod 4:** Writing (Review papers, IEEE & APA Referencing) (CO: 1)<br>• **Mod 5:** Interpersonal Communication (Belbin 9 Roles, TKI Conflict, SOP) (CO: 6)<br>• **Mod 6:** Contemporary Topics (CO: 5) |
-| **Environmental Sciences** | `BCHY102T` | 2.0 | **100% Online Computer-Based Test (CBT) Examination**<br>• Dedicated CBT MCQ Practice Simulator with instant answer checking and detailed rationales<br>• Complete 5-module ecosystem textbooks |
-
----
-
-## 🎯 Key Features
-
-1. **4-Tier Module Categorization:**
-   - 🔴 **Not Confident**: High-friction topics automatically prioritized first in daily schedules with maximum worked derivations.
-   - 🟡 **Need to Revise**: Topics that need quick formula audits and tricky problem recalculations.
-   - ⚪ **Yet to Start**: Unexplored topics waiting for first contact.
-   - 🟢 **Strong**: Solid mastery ready for timed mock exams.
-
-2. **1-Click Textbook Launch:**
-   - On the **Today's Schedule** view, clicking **"Launch PDF Book"** opens the full textbook immediately in an embedded viewer with zero hunting for files.
-
-3. **Master Formula Vault:**
-   - Searchable, copyable LaTeX mathematical and engineering equations rendered crisply with KaTeX across all subjects.
-
-4. **Exam Scope Filtering:**
-   - Toggle seamlessly between **FAT (Final Exam)** (all modules), **CAT-1** (Modules 1 & 2), and **CAT-2** (Modules 3 & 4).
-
-5. **Local-First & Private:**
-   - All study progress, ratings, and completed tasks persist in browser `localStorage`.
+- **Syllabus Checklist:** Breaks down each course module by module with 4 confidence tags:
+  - 🔴 **Not Confident** (prioritized first in revision)
+  - 🟡 **Need to Revise** (needs a formula refresh or problem practice)
+  - ⚪ **Yet to Start**
+  - 🟢 **Strong** (ready for mock exams)
+- **Daily Revision Planner:** Generates a daily schedule based on what's marked as unconfident or needs revision.
+- **Formula Sheet Vault:** Searchable LaTeX mathematical and engineering formulas rendered with KaTeX.
+- **Exam Scope Filtering:** Filter syllabus views between CAT-1 (Modules 1–2), CAT-2 (Modules 3–4), and FAT (all modules).
+- **Embedded PDF Note Links:** Quick-launch buttons to open compiled lecture notes / textbook PDFs.
+- **MCQ Practice Mode:** Simple multiple-choice question simulator for online test prep (e.g. Environmental Science).
 
 ---
 
-## 🛠️ Tech Stack
+## Enrolled Courses Included
 
-- **Framework:** React 19 + Vite 8
-- **Styling:** Tailwind CSS (OnePlus Dark / Zen theme)
+The app currently has modules and syllabus topics mapped for:
+
+- **Multivariable Calculus & Differential Equations** (`BAMAT101`)
+- **Applied Chemistry** (`BACHY101`)
+- **Basic Engineering** (`BACEE101`)
+- **Technical English Communication** (`BAENG101`)
+- **Environmental Sciences** (`BCHY102T`)
+
+---
+
+## ⚠️ Flaws & Known Limitations
+
+1. **Curriculum is hardcoded:** The course codes, module outlines, and formula sheets are hardcoded to a specific first-year VIT Vellore syllabus in `src/data/`. If you take different subjects or a different curriculum, you'll need to manually edit the data files.
+2. **Local storage only:** All checklist progress, ratings, and schedules are stored in browser `localStorage`. If you clear your browser cookies or open the app on another computer/phone, your revision progress won't be synced.
+3. **Textbook PDFs are not in git:** Large compiled study PDFs are not tracked in this repository to keep git history lightweight. You'll need to compile your own Typst notes or place PDFs into `public/textbooks/` for the "Launch PDF Book" links to resolve.
+4. **Heuristic schedule logic:** The schedule generator uses simple rule-based sorting (grouping weak topics first), not spaced repetition algorithms like Anki or SuperMemo.
+
+---
+
+## Tech Stack
+
+- **Framework:** React 19 + Vite
+- **Styling:** Tailwind CSS (Dark theme)
 - **Math Rendering:** KaTeX
 - **Icons:** Lucide React
-- **Document Engine:** Typst 0.15 (for compiling authentic engineering textbooks)
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
-- Node.js (v18+)
-- npm
 
-### Installation
+- Node.js 18+ and npm
+
+### Setup
+
 ```bash
-# Clone the repository
 git clone https://github.com/yeashaswi/OnePrep.git
 cd OnePrep
 
-# Install dependencies
 npm install
-
-# Start local dev server
 npm run dev
 ```
 
-Visit `http://localhost:5173` to start studying!
+Visit [http://localhost:5173](http://localhost:5173) in your browser.
 
-### Production Build
+### Build for Production
+
 ```bash
 npm run build
 npm run preview
@@ -87,5 +78,6 @@ npm run preview
 
 ---
 
-## 📄 License
-MIT License. Built for VIT Vellore students.
+## License
+
+MIT
