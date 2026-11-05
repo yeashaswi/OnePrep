@@ -146,7 +146,7 @@ export default function ModuleReaderModal({
               href={finalPdfUrl}
               download={pdfFileName}
               className="p-1.5 sm:px-3 sm:py-1 rounded-lg bg-[#1B1E26] hover:bg-[#252834] text-[#8E93A0] hover:text-white border border-[#2B2F3A] transition-colors flex items-center gap-1.5 text-xs font-medium"
-              title="Download unabridged PDF textbook"
+              title="Download module PDF notes"
             >
               <Download className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Download</span>

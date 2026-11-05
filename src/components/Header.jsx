@@ -43,7 +43,7 @@ export default function Header({
                 </span>
               </div>
               <p className="text-xs text-[#8E93A0] hidden sm:block">
-                Official Syllabi • Authentic Full PDF Textbooks • CBT & FAT Question Banks
+                Study Planner • Formula Vault • Question Banks
               </p>
             </div>
           </div>
