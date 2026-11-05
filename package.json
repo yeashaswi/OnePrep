@@ -1,7 +1,7 @@
 {
   "name": "oneprep",
   "version": "1.0.0",
-  "description": "OnePrep — The All-in-One Exam Preparation & Unabridged Textbook Platform for VIT Vellore",
+  "description": "A study planner and revision dashboard for 1st-year engineering courses at VIT Vellore",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,7 +14,7 @@
     "cat-exam",
     "engineering"
   ],
-  "author": "Antigravity & Student",
+  "author": "Yashaswi Vunnam",
   "license": "MIT",
   "dependencies": {
     "clsx": "^2.1.1",

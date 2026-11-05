@@ -28,10 +28,10 @@ export default function Header({
         {/* Top Navigation Row */}
         <div className="flex items-center justify-between h-18 py-3 gap-4">
           
-          {/* Logo with OnePlus Aesthetic */}
+          {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#EB0029] text-white font-black text-lg shadow-sm">
-              1+
+            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#EB0029] text-white font-black text-sm tracking-tight shadow-sm">
+              OP
             </div>
             <div>
               <div className="flex items-center gap-2">
