@@ -13,6 +13,7 @@ import {
   courseMap, 
   generateAdaptiveSchedule 
 } from './data/courses/index.js';
+import { officialFatRoadmap } from './data/courses/fatSchedulePreset.js';
 
 export default function App() {
   // State with LocalStorage Persistence
@@ -94,8 +95,13 @@ export default function App() {
     });
   }, [daysLeft, selectedExam, selectedCourseIds, moduleStatuses]);
 
-  // Today's schedule (Day 1)
-  const todaySchedule = schedule[0] || null;
+  // Today's schedule: Use official timetable Day 1 for FAT, or adaptive Day 1 for CATs
+  const todaySchedule = useMemo(() => {
+    if (selectedExam === 'fat' && officialFatRoadmap.length > 0) {
+      return officialFatRoadmap[0];
+    }
+    return schedule[0] || null;
+  }, [selectedExam, schedule]);
 
   // Calculate overall Readiness Percentage
   const readinessPercentage = useMemo(() => {

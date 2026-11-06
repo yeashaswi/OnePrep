@@ -1,33 +1,33 @@
 export const environmentalCourse = {
   id: 'BCHY102',
-  code: 'BCHY102T',
-  title: 'Environmental Sciences',
+  code: 'BACHY101 / BCHY102T',
+  title: 'Environmental Sciences (Online Course)',
   shortTitle: 'Environmental Sciences',
   category: 'University Core',
   credits: 2,
   semester: 'Fall Semester 2026-27',
   color: 'emerald',
-  badge: '100% Online CBT MCQ Examination',
+  badge: '100% Online CBT MCQ Exam (21-Nov-2026, 09:00 - 10:00 AM)',
   isMCQExam: true,
-  description: 'Complete CBT Study Textbook, High-Yield Multiple Choice Question (MCQ) Bank & Step-by-Step Rationales aligned with official VIT BCHY102T Online CBT Exam Syllabus, VTOP / Moodle Question Bank & Past Papers.',
+  description: 'Complete CBT Study Textbook, High-Yield Multiple Choice Question (MCQ) Bank & Step-by-Step Rationales aligned with official VIT Moodle LMS 6-Week Curriculum, VTOP Question Bank & Past Papers.',
   targetMarks: {
-    cat1: '50 Marks CBT MCQs (Modules 1 & 2)',
-    cat2: '50 Marks CBT MCQs (Modules 3 & 4)',
-    fat: '100 Marks CBT MCQs (All 5 Modules — 50 to 100 Objective Questions)'
+    cat1: '50 Marks CBT MCQs (Weeks 1 & 2)',
+    cat2: '50 Marks CBT MCQs (Weeks 3 & 4)',
+    fat: '100 Marks CBT MCQs (Weeks 1 to 6 — 50 to 100 Objective Questions in 60 Minutes)'
   },
   modules: [
     {
       id: 'evs-m1',
       moduleNum: 1,
       pdfUrl: '/pdfs/environmental/EVS_MOD-1.pdf',
-      title: 'Fundamentals of Environment and Ecosystems',
+      title: 'Week 1: Fundamentals of Environment and Ecosystems',
       co: 'CO: 1',
       examScope: 'CAT-1 & FAT (CBT MCQ)',
-      weightage: '20% of CBT Exam',
+      weightage: '15-20% of CBT Exam',
       status: 'not_confident',
       scope: 'Definition and scope of environmental science, Earth as a life-support system (Lithosphere, Hydrosphere, Atmosphere, Biosphere), Ecosystem definition, biotic and abiotic components, Structure and function: Food chains (grazing & detritus), Food webs, Trophic levels, Energy flow and Lindeman\'s 10% rule, Ecological pyramids (numbers, biomass, energy), and Biogeochemical cycles (Carbon and Nitrogen cycles).',
       blueprint: {
-        marksTotal: '20% of CBT Exam (approx 15-20 MCQs)',
+        marksTotal: '15-20% of CBT Exam (approx 15-20 MCQs)',
         questionTypes: [
           { type: 'CBT MCQ Category 1', desc: 'Lindemans 10% ecological energy transfer calculations and reasons why the Pyramid of Energy is strictly upright.' },
           { type: 'CBT MCQ Category 2', desc: 'Nitrogen cycle microbial transformations: Nitrosomonas vs Nitrobacter vs Rhizobium vs Pseudomonas denitrificans.' }
@@ -58,51 +58,51 @@ export const environmentalCourse = {
       mcqs: [
         {
           id: 'evs-mcq-1-1',
-          question: 'Which ecological pyramid is NEVER inverted under any terrestrial or aquatic condition?',
+          question: 'According to Lindeman\'s 10% law of ecological efficiency, if primary producers synthesize 10,000 Joules of energy, how much energy is available to tertiary consumers?',
           options: [
-            'A. Pyramid of Numbers',
-            'B. Pyramid of Biomass in marine ecosystems',
-            'C. Pyramid of Energy',
-            'D. Pyramid of Biomass in tree ecosystems'
+            'A. 1,000 J',
+            'B. 100 J',
+            'C. 10 J',
+            'D. 1 J'
           ],
           correct: 'C',
-          rationale: 'Energy flow obeys the Second Law of Thermodynamics: energy is lost as heat at each transfer, so higher trophic levels always receive strictly less energy than lower levels.'
+          rationale: 'Producers (10,000 J) -> Primary Consumers / Herbivores (1,000 J) -> Secondary Consumers (100 J) -> Tertiary Consumers (10 J). Only ~10% is passed to each successive trophic level.'
         },
         {
           id: 'evs-mcq-1-2',
-          question: 'In the biological Nitrogen cycle, which specific bacterium oxidizes nitrite (NO2-) to nitrate (NO3-)?',
+          question: 'Which of the following ecological pyramids can NEVER be inverted in any natural terrestrial or aquatic ecosystem?',
           options: [
-            'A. Rhizobium',
-            'B. Nitrosomonas',
-            'C. Nitrobacter',
-            'D. Clostridium'
+            'A. Pyramid of Numbers',
+            'B. Pyramid of Biomass',
+            'C. Pyramid of Energy',
+            'D. Both Pyramid of Numbers and Biomass'
           ],
           correct: 'C',
-          rationale: 'Nitrosomonas oxidizes ammonia (NH4+) to nitrite (NO2-), while Nitrobacter carries out the second oxidation step from nitrite (NO2-) to nitrate (NO3-).'
+          rationale: 'The Pyramid of Energy is always strictly upright because energy is lost as metabolic heat at each trophic transition in compliance with the Second Law of Thermodynamics.'
         },
         {
           id: 'evs-mcq-1-3',
-          question: 'If net primary production in a grassland is 20,000 kcal/m²/yr, how much energy is expected at the tertiary consumer level under Lindeman\'s 10% rule?',
+          question: 'In the biological nitrogen cycle, which genus of chemoautotrophic bacteria is responsible for oxidizing toxic nitrites (NO2-) into bioavailable nitrates (NO3-)?',
           options: [
-            'A. 2,000 kcal/m²/yr',
-            'B. 200 kcal/m²/yr',
-            'C. 20 kcal/m²/yr',
-            'D. 2 kcal/m²/yr'
+            'A. Nitrosomonas',
+            'B. Nitrobacter',
+            'C. Rhizobium',
+            'D. Pseudomonas'
           ],
-          correct: 'C',
-          rationale: 'Producers = 20,000 -> Herbivores (10%) = 2,000 -> Secondary consumers (10%) = 200 -> Tertiary consumers (10%) = 20 kcal/m²/yr.'
+          correct: 'B',
+          rationale: 'Nitrosomonas oxidizes ammonia into nitrites (2NH3 + 3O2 -> 2NO2- + 2H+ + 2H2O), while Nitrobacter oxidizes nitrites into nitrates (2NO2- + O2 -> 2NO3-).'
         },
         {
           id: 'evs-mcq-1-4',
-          question: 'An inverted pyramid of biomass is characteristically observed in which of the following biomes?',
+          question: 'Which biogeochemical cycle does NOT possess a significant gaseous atmospheric reservoir phase?',
           options: [
-            'A. Tropical Rainforest',
-            'B. Open Ocean / Marine ecosystem',
-            'C. Temperate Grassland',
-            'D. Desert Scrub'
+            'A. Nitrogen cycle',
+            'B. Carbon cycle',
+            'C. Phosphorus cycle',
+            'D. Sulfur cycle'
           ],
-          correct: 'B',
-          rationale: 'Phytoplankton reproduce and turn over extremely rapidly, so their instantaneous standing dry biomass is lower than that of the zooplankton feeding on them.'
+          correct: 'C',
+          rationale: 'The phosphorus cycle is a sedimentary cycle; its primary reservoirs are mineral rocks and ocean sediments, with negligible atmospheric gaseous exchange.'
         }
       ]
     },
@@ -110,88 +110,89 @@ export const environmentalCourse = {
       id: 'evs-m2',
       moduleNum: 2,
       pdfUrl: '/pdfs/environmental/EVS_MOD-2.pdf',
-      title: 'Biodiversity and Environmental Quality',
+      title: 'Week 2: Biodiversity and Environmental Quality',
       co: 'CO: 2',
       examScope: 'CAT-1 & FAT (CBT MCQ)',
       weightage: '20% of CBT Exam',
       status: 'need_to_revise',
-      scope: 'Biodiversity: Definition, genetic, species, and ecosystem diversity, Consumptive and productive values, Global biodiversity hotspots and Megadiverse countries (Norman Myers criteria: >=1500 endemic vascular plants, >=70% habitat lost), Threats: Habitat loss, poaching, invasive alien species, IUCN Red Data Book categories (Extinct, Critically Endangered, Endangered, Vulnerable), In-situ conservation (National Parks, Sanctuaries, Biosphere Reserves) vs Ex-situ conservation (Gene banks, Cryopreservation, Botanical gardens), and GM crops.',
+      scope: 'Levels of biodiversity (Genetic, Species, Ecosystem diversity), Biodiversity Hotspots (Criteria: >=1,500 endemic vascular plant species and >=70% habitat loss), India\'s 4 Biodiversity Hotspots (Western Ghats & Sri Lanka, Indo-Burma, Eastern Himalaya, Sundaland/Nicobar), In-situ vs. Ex-situ conservation methods, Red Data Book categories (IUCN), Value of biodiversity, and Air and Water quality parameters.',
       blueprint: {
         marksTotal: '20% of CBT Exam',
         questionTypes: [
-          { type: 'CBT MCQ Category 1', desc: 'Hotspot criteria, Indian hotspots (Western Ghats, Indo-Burma, Himalayas, Sundaland), and endemic flora/fauna.' },
-          { type: 'CBT MCQ Category 2', desc: 'In-situ vs Ex-situ conservation techniques and IUCN Red List threat criteria.' }
+          { type: 'CBT MCQ Category 1', desc: 'Identification of In-situ (National Parks, Sanctuaries, Biosphere Reserves) vs Ex-situ (Cryopreservation, Botanical Gardens, Seed banks) conservation.' },
+          { type: 'CBT MCQ Category 2', desc: 'Norman Myers Hotspot qualification benchmarks and the 4 Indian hotspots.' }
         ]
       },
       formulaSheet: [
-        { name: 'Myers Hotspot Criteria', formula: '\\ge 1500 \\text{ endemic vascular plants} \\quad \\& \\quad \\ge 70\\% \\text{ primary habitat lost}', note: '36 global hotspots; 4 cover India' }
+        { name: 'Norman Myers Hotspot Criteria', formula: '\\ge 1,500 \\text{ Endemic Vascular Plants} \\quad \\& \\quad \\le 30\\% \\text{ Original Habitat Remaining}', note: 'Global critical conservation priority' },
+        { name: 'Shannon-Wiener Diversity Index', formula: 'H\' = -\\sum p_i \\ln(p_i)', note: 'Measures species richness and evenness' }
       ],
       examInsights: [
         {
-          title: 'National Park vs Wildlife Sanctuary',
-          desc: 'National Parks have the highest legal protection (IUCN Cat II): human habitation, grazing, and private rights are strictly prohibited. In Wildlife Sanctuaries (IUCN Cat IV), regulated traditional grazing is permitted.'
+          title: 'In-situ vs Ex-situ Classification Rule',
+          desc: 'VIT Moodle questions repeatedly test whether botanical gardens, zoological parks, and seed banks are in-situ or ex-situ. Remember: If organisms are maintained outside their natural evolutionary habitat, it is EX-SITU.'
         }
       ],
       topics: [
         {
           id: 'evs-t2-1',
-          title: 'Topic 1: Biodiversity Levels & Hotspots',
-          theory: 'Biodiversity sustains ecological resilience across genetic, species, and habitat levels. Hotspots are exceptional reservoirs of endemic species undergoing severe habitat destruction.'
+          title: 'Topic 1: Biodiversity Hotspots & Endemism',
+          theory: 'Biodiversity hotspots represent biogeographical regions with significant biodiversity reservoirs that are under severe anthropogenic threat. India hosts 4 of the world\'s 36 global hotspots.'
         },
         {
           id: 'evs-t2-2',
-          title: 'Topic 2: Conservation Protocols & IUCN Classifications',
-          theory: 'In-situ preserves entire dynamic ecosystems in their native landscapes. Ex-situ protects endangered germplasm in controlled facilities like cryo-vaults and seed banks.'
+          title: 'Topic 2: Conservation Protocols',
+          theory: 'In-situ conservation protects species in natural ecosystems (e.g. Project Tiger, Biosphere Reserves). Ex-situ preserves genetic germplasm off-site under cryopreservation or controlled environments.'
         }
       ],
       mcqs: [
         {
           id: 'evs-mcq-2-1',
-          question: 'To be designated as a global biodiversity hotspot under Norman Myers\' criteria, an area must contain at least how many endemic vascular plant species?',
+          question: 'Which of the following is strictly an EX-SITU method of biodiversity conservation?',
           options: [
-            'A. 500',
-            'B. 1,000',
-            'C. 1,500',
-            'D. 2,500'
+            'A. Biosphere Reserve',
+            'B. National Park',
+            'C. Botanical Garden & Seed Bank',
+            'D. Wildlife Sanctuary'
           ],
           correct: 'C',
-          rationale: 'The primary qualification threshold is >= 1,500 endemic vascular plant species and the loss of at least 70% of original primary habitat.'
+          rationale: 'Botanical gardens, zoos, gene banks, and cryopreservation maintain species outside their natural evolutionary habitats, making them ex-situ methods.'
         },
         {
           id: 'evs-mcq-2-2',
-          question: 'Which of the following is an example of an ex-situ conservation strategy?',
+          question: 'To be designated as a Global Biodiversity Hotspot under Norman Myers\' criteria, a region must contain at least how many endemic species of vascular plants?',
           options: [
-            'A. Jim Corbett National Park',
-            'B. Sundarbans Biosphere Reserve',
-            'C. National Gene and Seed Vault',
-            'D. Mudumalai Wildlife Sanctuary'
+            'A. 500 species',
+            'B. 1,000 species',
+            'C. 1,500 species',
+            'D. 2,500 species'
           ],
           correct: 'C',
-          rationale: 'Ex-situ conservation preserves biological genetic material outside the natural habitat (e.g., seed banks, cryopreservation, botanical gardens).'
+          rationale: 'The two quantitative criteria are: (1) It must contain at least 1,500 species of vascular plants (>0.5% of the world total) as endemics, and (2) It must have lost at least 70% of its primary native vegetation.'
         },
         {
           id: 'evs-mcq-2-3',
-          question: 'Which Indian biodiversity hotspot encompasses the Nicobar Islands?',
+          question: 'Which of the following global biodiversity hotspots covers the Andaman & Nicobar group of islands and extends into southern Thailand and Indonesia?',
           options: [
-            'A. Western Ghats',
+            'A. Eastern Himalaya',
             'B. Indo-Burma',
             'C. Sundaland',
-            'D. Eastern Himalayas'
+            'D. Western Ghats'
           ],
           correct: 'C',
-          rationale: 'The Nicobar group of islands forms an integral part of the Sundaland hotspot, which also spans Malaysia, Indonesia, and Singapore.'
+          rationale: 'The Nicobar Islands form part of the Sundaland biodiversity hotspot, which extends across the Indo-Malayan archipelago.'
         },
         {
           id: 'evs-mcq-2-4',
-          question: 'In which protected area category are livestock grazing, private land ownership, and timber harvesting totally prohibited by Indian law?',
+          question: 'The Red Data Book, which catalogs threatened and endangered species across the globe, is published by which international agency?',
           options: [
-            'A. Wildlife Sanctuary',
-            'B. National Park',
-            'C. Biosphere Reserve buffer zone',
-            'D. Reserved Forest'
+            'A. UNEP',
+            'B. IUCN (International Union for Conservation of Nature)',
+            'C. WWF',
+            'D. UNESCO'
           ],
           correct: 'B',
-          rationale: 'Under the Wildlife Protection Act 1972, National Parks have total prohibition of human exploitation, grazing, and private ownership rights.'
+          rationale: 'The IUCN Red List of Threatened Species was established in 1964 and assesses the global extinction risk of thousands of species.'
         }
       ]
     },
@@ -199,89 +200,89 @@ export const environmentalCourse = {
       id: 'evs-m3',
       moduleNum: 3,
       pdfUrl: '/pdfs/environmental/EVS_MOD-3.pdf',
-      title: 'Pollution and Its Management Techniques',
+      title: 'Week 3: Pollution and its Management Techniques',
       co: 'CO: 3',
       examScope: 'CAT-2 & FAT (CBT MCQ)',
-      weightage: '25% of CBT Exam',
-      status: 'not_confident',
-      scope: 'Air, water, soil, noise, thermal, and radiation pollution: Causes, effects, and engineering control devices, Air emission controls: Cyclone separators, Electrostatic Precipitators (ESP), Wet scrubbers, Water pollution: Biochemical Oxygen Demand (BOD), Chemical Oxygen Demand (COD), Eutrophication stages, Wastewater treatment engineering: Primary, Secondary (Activated Sludge Process), and Tertiary treatment, Water management: Water footprint, Virtual water, and Hazardous solid waste handling.',
+      weightage: '20% of CBT Exam',
+      status: 'yet_to_start',
+      scope: 'Air pollution: Criteria air pollutants (PM2.5, PM10, SOx, NOx, CO, O3, Pb), Primary vs. secondary pollutants, Photochemical smog (NOx + VOCs + sunlight -> Ozone, PAN), Acid rain mechanism (H2SO4, HNO3, pH < 5.6), Water pollution: Point vs non-point sources, Biochemical Oxygen Demand (BOD) vs Chemical Oxygen Demand (COD), Wastewater treatment stages: Primary (screening, sedimentation), Secondary (activated sludge biological oxidation), Tertiary (disinfection, reverse osmosis), and Solid waste management.',
       blueprint: {
-        marksTotal: '25% of CBT Exam (Highest Weightage)',
+        marksTotal: '20% of CBT Exam',
         questionTypes: [
-          { type: 'CBT MCQ Category 1', desc: 'BOD vs COD mathematical relations, 5-day BOD incubation tests, and dissolved oxygen sag curves.' },
-          { type: 'CBT MCQ Category 2', desc: 'Air pollution control technologies (ESP corona discharge, wet scrubber FGD) and secondary activated sludge aeration.' }
+          { type: 'CBT MCQ Category 1', desc: 'BOD vs COD ratios: COD is strictly >= BOD because potassium dichromate chemically oxidizes both biodegradable and non-biodegradable organics.' },
+          { type: 'CBT MCQ Category 2', desc: 'Photochemical smog chemical prerequisites and electrostatic precipitator particulate collection mechanisms.' }
         ]
       },
       formulaSheet: [
-        { name: 'BOD vs COD Invariant', formula: '\\text{COD} \\ge \\text{BOD} \\quad (\\text{Always strictly true})', note: 'COD oxidizes both biodegradable & non-biodegradable organics' },
-        { name: 'BOD Biodegradability Ratio', formula: '\\frac{\\text{BOD}}{\\text{COD}} > 0.6 \\implies \\text{Biodegradable}', note: '< 0.3 indicates refractory/toxic wastewater' }
+        { name: 'BOD Calculation Formula', formula: '\\text{BOD}_5 = (D_0 - D_5) \\times \\text{Dilution Factor}', note: 'Measured after 5 days incubation at 20 °C' },
+        { name: 'COD vs BOD Empirical Relation', formula: '\\text{COD} \\ge \\text{BOD}_5', note: 'Strong K2Cr2O7 oxidant digests non-biodegradable refractory organics' }
       ],
       examInsights: [
         {
-          title: 'COD is Always >= BOD',
-          desc: 'VIT Moodle test traps: COD oxidizes everything using boiling K2Cr2O7 in concentrated H2SO4, whereas BOD only oxidizes biologically degradable matter. Hence COD is always >= BOD.'
+          title: 'The COD >= BOD Inequality (Exam Classic)',
+          desc: 'VIT exams test whether COD can ever be less than BOD. COD is always GREATER THAN or EQUAL TO BOD because chemical oxidants oxidize both biologically degradable and inert organics.'
         }
       ],
       topics: [
         {
           id: 'evs-t3-1',
-          title: 'Topic 1: Air Abatement & Electrostatic Precipitators',
-          theory: 'Electrostatic precipitators achieve >99% collection of fine fly ash (PM2.5, PM10) by imparting negative charge via high-voltage corona wires and precipitating particles onto grounded collector plates.'
+          title: 'Topic 1: Photochemical Smog & Atmospheric Chemistry',
+          theory: 'Photochemical smog forms in warm, sunny urban regions from primary emissions of nitrogen oxides (NOx) and volatile organic compounds (VOCs). Photolysis produces tropospheric ozone and Peroxyacetyl Nitrate (PAN).'
         },
         {
           id: 'evs-t3-2',
-          title: 'Topic 2: Water Quality, BOD/COD & Eutrophication',
-          theory: 'Eutrophication occurs when excess nitrogen and phosphorus cause algal blooms. Decomposition of dead biomass by aerobic bacteria depletes dissolved oxygen (DO < 2 mg/L), causing widespread fish asphyxiation.'
+          title: 'Topic 2: Water Quality & Wastewater Treatment',
+          theory: 'Sewage treatment utilizes primary physical screening, secondary microbial activated sludge biological oxidation, and tertiary advanced disinfection to reduce BOD and pathogen loads.'
         }
       ],
       mcqs: [
         {
           id: 'evs-mcq-3-1',
-          question: 'Which air pollution control device is most effective (>99%) for capturing fine particulate matter (PM2.5 and PM10) from coal-fired power plant stacks?',
+          question: 'Why is the Chemical Oxygen Demand (COD) of a municipal wastewater sample consistently greater than its Biochemical Oxygen Demand (BOD)?',
           options: [
-            'A. Gravity Settling Chamber',
-            'B. Cyclone Separator',
-            'C. Electrostatic Precipitator (ESP)',
-            'D. Spray Chamber'
+            'A. COD uses living aerobic bacteria that digest more contaminants',
+            'B. COD measures both biodegradable and non-biodegradable organic matter via strong chemical oxidation',
+            'C. BOD includes inorganic reducing agents, whereas COD does not',
+            'D. COD test is conducted at 4 °C preventing microbial death'
           ],
-          correct: 'C',
-          rationale: 'Electrostatic precipitators utilize high-voltage corona discharge to ionize fine particles and electrostatically precipitate them onto grounded collection plates with >99% efficiency.'
+          correct: 'B',
+          rationale: 'COD employs a strong chemical oxidant (potassium dichromate in acidic medium) which oxidizes both biodegradable and biologically inert/refractory organic substances, whereas BOD only measures biodegradable organics.'
         },
         {
           id: 'evs-mcq-3-2',
-          question: 'For any wastewater effluent sample, which mathematical relationship between COD and BOD is always true?',
+          question: 'Which of the following compounds is classified as a SECONDARY air pollutant formed through photochemical atmospheric reactions?',
           options: [
-            'A. COD < BOD',
-            'B. COD = BOD / 2',
-            'C. COD >= BOD',
-            'D. COD is completely independent of BOD'
+            'A. Carbon monoxide (CO)',
+            'B. Sulfur dioxide (SO2)',
+            'C. Peroxyacetyl nitrate (PAN)',
+            'D. Nitric oxide (NO)'
           ],
           correct: 'C',
-          rationale: 'COD measures all chemically oxidizable organic matter (both biodegradable and recalcitrant), whereas BOD measures only biologically degradable organics. Therefore, COD is always >= BOD.'
+          rationale: 'PAN (Peroxyacetyl nitrate) and tropospheric Ozone are secondary pollutants formed when primary emissions (NOx and VOCs) react in the presence of solar ultraviolet radiation.'
         },
         {
           id: 'evs-mcq-3-3',
-          question: 'In an Activated Sludge biological wastewater treatment plant, organic matter is consumed primarily by:',
+          question: 'What is the principal biological mechanism occurring within the Secondary (Biological) Treatment aeration tank of an activated sludge wastewater plant?',
           options: [
-            'A. Anaerobic methanogens',
-            'B. Aerobic microbial flocs in suspension',
-            'C. Coagulants like alum',
-            'D. Ultraviolet light lamps'
+            'A. Gravitational settling of large heavy grit particles',
+            'B. Aerobic microbial oxidation of dissolved organic matter into biomass, CO2, and water',
+            'C. Chlorination for pathogen eradication',
+            'D. Heavy metal precipitation by alum addition'
           ],
           correct: 'B',
-          rationale: 'Activated sludge systems use air diffusers in aeration tanks where suspended aerobic microbial flocs oxidize dissolved organic matter into carbon dioxide, water, and new biomass.'
+          rationale: 'Secondary treatment relies on aerobic microorganisms suspended in an agitated aeration basin to consume dissolved organic carbon, converting it into cellular biomass (activated sludge) and CO2.'
         },
         {
           id: 'evs-mcq-3-4',
-          question: 'The primary limiting nutrients whose agricultural runoff triggers cultural eutrophication in aquatic lakes are:',
+          question: 'Rainwater is classified as "acid rain" when its measured pH falls below what threshold level?',
           options: [
-            'A. Sodium and Potassium',
-            'B. Nitrogen and Phosphorus',
-            'C. Calcium and Magnesium',
-            'D. Silicon and Sulfur'
+            'A. pH 7.0',
+            'B. pH 6.5',
+            'C. pH 5.6',
+            'D. pH 4.0'
           ],
-          correct: 'B',
-          rationale: 'Nitrogen and phosphorus are key plant nutrients; their excessive runoff from synthetic fertilizers triggers explosive algal blooms and subsequent dissolved oxygen collapse.'
+          correct: 'C',
+          rationale: 'Normal atmospheric unpolluted rain has a pH around 5.6 due to the dissolution of atmospheric CO2 forming weak carbonic acid (H2CO3). Rain with pH below 5.6 is defined as acid rain.'
         }
       ]
     },
@@ -289,12 +290,12 @@ export const environmentalCourse = {
       id: 'evs-m4',
       moduleNum: 4,
       pdfUrl: '/pdfs/environmental/EVS_MOD-4.pdf',
-      title: 'Environmental Laws, Policies & Renewable Energy',
+      title: 'Week 4: Environmental Laws and Sustainable Development Goals',
       co: 'CO: 4',
       examScope: 'CAT-2 & FAT (CBT MCQ)',
       weightage: '20% of CBT Exam',
       status: 'strong',
-      scope: 'Indian environmental legislation: The Wildlife Protection Act 1972, The Water Act 1974 (CPCB/SPCB creation), The Air Act 1981 (1987 amendment including Noise), The Environment (Protection) Act 1986 (Umbrella act after Bhopal disaster), Constitutional Articles 48A and 51A(g), International treaties: Montreal Protocol (1987, ODS phase-out), Kyoto Protocol (1997, 6 greenhouse gases and CDM), Paris Agreement (1.5°C limit), UN Sustainable Development Goals (SDG 1-17), and Renewable energy (solar, wind, biomass, hydrogen, electric vehicles).',
+      scope: 'Indian environmental legislation: The Wildlife Protection Act 1972, The Water Act 1974 (CPCB/SPCB creation), The Air Act 1981 (1987 amendment including Noise), The Environment (Protection) Act 1986 (Umbrella act enacted under Article 253 after Bhopal disaster), Constitutional Articles 48A and 51A(g), International treaties: Montreal Protocol (1987, ODS phase-out), Kyoto Protocol (1997, 6 greenhouse gases and CDM), Paris Agreement (1.5°C limit), and UN Sustainable Development Goals (SDG 1-17).',
       blueprint: {
         marksTotal: '20% of CBT Exam',
         questionTypes: [
@@ -304,7 +305,7 @@ export const environmentalCourse = {
       },
       formulaSheet: [
         { name: 'Milestone Act Enactments', formula: '\\text{Wildlife (1972) } \\to \\text{ Water (1974) } \\to \\text{ Air (1981) } \\to \\text{ EPA (1986)}', note: 'Noise added to Air Act in 1987' },
-        { name: 'Key UN SDGs', formula: '\\text{SDG 6: Clean Water, SDG 7: Clean Energy, SDG 13: Climate Action}', note: 'Target year: 2030' }
+        { name: 'Key UN SDGs', formula: '\\text{SDG 6: Clean Water, SDG 7: Clean Energy, SDG 12: Responsible Consumption, SDG 13: Climate Action}', note: 'Target year: 2030' }
       ],
       examInsights: [
         {
@@ -320,58 +321,58 @@ export const environmentalCourse = {
         },
         {
           id: 'evs-t4-2',
-          title: 'Topic 2: Montreal, Kyoto & Paris International Protocols',
-          theory: 'Montreal Protocol phased out CFCs and ozone-depleting substances. Kyoto Protocol created legally binding GHG targets and carbon credits. Paris Agreement targets limiting warming to 1.5°C.'
+          title: 'Topic 2: International Environmental Treaties & UN SDGs',
+          theory: 'Montreal Protocol phased out ozone-depleting substances. Kyoto Protocol introduced binding emission limits. UN 2030 Agenda includes 17 SDGs balancing social, economic, and ecological goals.'
         }
       ],
       mcqs: [
         {
           id: 'evs-mcq-4-1',
-          question: 'In India, the Environment (Protection) Act was passed in which year following the catastrophic Bhopal Gas Tragedy?',
+          question: 'The Environment (Protection) Act, 1986 was enacted by the Parliament of India in the immediate aftermath of which catastrophic industrial tragedy?',
           options: [
-            'A. 1974',
-            'B. 1981',
-            'C. 1986',
-            'D. 1991'
+            'A. Chernobyl Nuclear Disaster',
+            'B. Bhopal Gas Tragedy (Union Carbide methyl isocyanate leak)',
+            'C. Minamata Mercury Poisoning',
+            'D. London Great Smog'
           ],
-          correct: 'C',
-          rationale: 'Enacted in May 1986 under Article 253 of the Constitution to serve as comprehensive umbrella legislation following the December 1984 Union Carbide Bhopal disaster.'
+          correct: 'B',
+          rationale: 'The Bhopal Gas Tragedy in December 1984 demonstrated severe gaps in Indian environmental legislation, prompting the passage of the omnibus Environment (Protection) Act in 1986.'
         },
         {
           id: 'evs-mcq-4-2',
-          question: 'In which year was the Air (Prevention and Control of Pollution) Act amended to officially incorporate "Noise" as an air pollutant?',
+          question: 'In which year was noise pollution officially recognized and incorporated as an environmental pollutant under the Air (Prevention and Control of Pollution) Act, 1981?',
           options: [
             'A. 1981',
-            'B. 1984',
+            'B. 1986',
             'C. 1987',
             'D. 1992'
           ],
           correct: 'C',
-          rationale: 'The Air Act was originally passed in 1981 and amended in 1987 to bring noise within the statutory purview of air pollution.'
+          rationale: 'The Air Act was enacted in 1981 and amended in 1987 under Section 2(a) to explicitly bring noise pollution within the regulatory definition of air pollutants.'
         },
         {
           id: 'evs-mcq-4-3',
-          question: 'The Montreal Protocol (1987) is an international agreement successfully mandated to phase out:',
+          question: 'Which international treaty is considered the most successful environmental agreement in history for achieving the phased global elimination of Chlorofluorocarbons (CFCs)?',
           options: [
-            'A. Carbon dioxide and methane emissions',
-            'B. Ozone-depleting substances such as CFCs and Halons',
-            'C. Persistent heavy metal discharge into rivers',
-            'D. Global electronic and radioactive waste trade'
+            'A. Kyoto Protocol (1997)',
+            'B. Basel Convention (1989)',
+            'C. Montreal Protocol (1987)',
+            'D. Stockholm Convention (2001)'
           ],
-          correct: 'B',
-          rationale: 'The Montreal Protocol was designed to protect the stratospheric ozone layer by systematically phasing out the production and consumption of ozone-depleting substances (ODS).'
+          correct: 'C',
+          rationale: 'The Montreal Protocol on Substances that Deplete the Ozone Layer (1987) successfully mandated the phase-out of CFCs and halons to protect the stratospheric ozone shield.'
         },
         {
           id: 'evs-mcq-4-4',
-          question: 'Which United Nations Sustainable Development Goal (SDG) is explicitly dedicated to "Climate Action"?',
+          question: 'Which United Nations Sustainable Development Goal (SDG) is specifically dedicated to "Climate Action"?',
           options: [
             'A. SDG 6',
             'B. SDG 7',
-            'C. SDG 11',
+            'C. SDG 12',
             'D. SDG 13'
           ],
           correct: 'D',
-          rationale: 'SDG 13 focuses specifically on Climate Action; SDG 6 is Clean Water and Sanitation; SDG 7 is Affordable and Clean Energy.'
+          rationale: 'SDG 13 focuses on Climate Action; SDG 6 is Clean Water & Sanitation; SDG 7 is Affordable & Clean Energy; SDG 12 is Responsible Consumption & Production.'
         }
       ]
     },
@@ -379,14 +380,14 @@ export const environmentalCourse = {
       id: 'evs-m5',
       moduleNum: 5,
       pdfUrl: '/pdfs/environmental/EVS_MOD-5.pdf',
-      title: 'Climate Change, Emerging Issues & EIA',
+      title: 'Week 5: Climate Change and Emerging Environmental Issues',
       co: 'CO: 5',
       examScope: 'FAT Only (CBT MCQ)',
-      weightage: '15-20% of CBT Exam',
+      weightage: '15% of CBT Exam',
       status: 'yet_to_start',
-      scope: 'Climate change science, Enhanced greenhouse effect, Global Warming Potential (GWP: CO2=1, CH4=28, N2O=265, SF6=23500), Carbon footprint, Technological tools: Role of AI and IoT in environmental monitoring and disaster forecasting, Environmental Impact Assessment (EIA Notification 2006): Objectives, Category A vs Category B projects, The 4 sequential stages of EIA: Screening, Scoping, Public Consultation (Public Hearing), and Appraisal, Environmental Management Plan (EMP).',
+      scope: 'Climate change science, Enhanced greenhouse effect, Global Warming Potential (GWP: CO2=1, CH4=28, N2O=265, SF6=23500), Carbon footprint, Environmental Impact Assessment (EIA Notification 2006): Objectives, Category A vs Category B projects, The 4 sequential stages of EIA: Screening, Scoping, Public Consultation (Public Hearing), and Appraisal, Environmental Management Plan (EMP).',
       blueprint: {
-        marksTotal: '15 to 20% of CBT Exam',
+        marksTotal: '15% of CBT Exam',
         questionTypes: [
           { type: 'CBT MCQ Category 1', desc: 'The 4 sequential stages of EIA (Screening -> Scoping -> Public Consultation -> Appraisal) and Category A (Central) vs Category B (State) clearance.' },
           { type: 'CBT MCQ Category 2', desc: 'Global Warming Potential rankings and functions of the Environmental Management Plan (EMP).' }
@@ -462,6 +463,96 @@ export const environmentalCourse = {
           ],
           correct: 'B',
           rationale: 'The Environmental Management Plan (EMP) outlines all action plans, mitigation measures, responsibilities, and financial budgets required during project construction and operation.'
+        }
+      ]
+    },
+    {
+      id: 'evs-m6',
+      moduleNum: 6,
+      pdfUrl: '/pdfs/environmental/EVS_MOD-5.pdf',
+      title: 'Week 6: Contemporary Topics (Green Building, Carbon Footprint & IoT in Ecology)',
+      co: 'CO: 5',
+      examScope: 'FAT Only (CBT MCQ)',
+      weightage: '10-15% of CBT Exam',
+      status: 'yet_to_start',
+      scope: 'Carbon Footprinting protocols: Scope 1 (Direct emissions from company facilities/vehicles), Scope 2 (Indirect emissions from purchased electricity/heating), and Scope 3 (All other upstream and downstream supply chain lifecycle emissions), Carbon Credits, Carbon Offsetting and Clean Development Mechanism (CDM), Green Building certification rating systems (GRIHA - Green Rating for Integrated Habitat Assessment in India, LEED, IGBC), Circular Economy and cradle-to-cradle product lifecycles, and Technological innovations: Role of IoT, Remote Sensing, and Artificial Intelligence in wildlife monitoring, smart water management, and disaster forecasting.',
+      blueprint: {
+        marksTotal: '10-15% of CBT Exam',
+        questionTypes: [
+          { type: 'CBT MCQ Category 1', desc: 'Scope 1 vs Scope 2 vs Scope 3 greenhouse gas carbon footprint definitions under the GHG Protocol.' },
+          { type: 'CBT MCQ Category 2', desc: 'GRIHA green building ratings (developed by TERI & MNRE) and circular economy principles.' }
+        ]
+      },
+      formulaSheet: [
+        { name: 'Carbon Footprint Scopes', formula: '\\text{Total Footprint} = \\text{Scope 1 (Direct)} + \\text{Scope 2 (Electricity)} + \\text{Scope 3 (Supply Chain)}', note: 'GHG Protocol Corporate Standard' },
+        { name: 'Carbon Credit Equivalent', formula: '1 \\text{ Carbon Credit} = 1 \\text{ Metric Tonne of } \\text{CO}_2\\text{ Equivalent Reduced/Sequestered}', note: 'Certified Emission Reduction (CER)' }
+      ],
+      examInsights: [
+        {
+          title: 'Scope 1 vs Scope 2 vs Scope 3 Carbon Footprint (Exam Must-Know)',
+          desc: 'VIT Moodle questions repeatedly test scenarios: "A university purchases electricity from the state grid. What scope of emissions does this represent?" Purchased electricity is strictly SCOPE 2. Fuel burned in company vehicles is SCOPE 1. Student commuting is SCOPE 3.'
+        }
+      ],
+      topics: [
+        {
+          id: 'evs-t6-1',
+          title: 'Topic 1: Carbon Footprinting & GHG Emission Scopes',
+          theory: 'The Greenhouse Gas Protocol categorizes greenhouse emissions into Scope 1 (direct combustion), Scope 2 (indirect from purchased electricity/steam), and Scope 3 (value chain, product transport, waste disposal).'
+        },
+        {
+          id: 'evs-t6-2',
+          title: 'Topic 2: Green Buildings (GRIHA & LEED) & Circular Economy',
+          theory: 'GRIHA evaluates energy consumption, water harvesting, and sustainable building materials. Circular economy replaces linear take-make-dispose with closed-loop cradle-to-cradle recycling.'
+        }
+      ],
+      mcqs: [
+        {
+          id: 'evs-mcq-6-1',
+          question: 'Under the international Greenhouse Gas (GHG) Protocol, emissions resulting from purchased electricity, steam, heating, and cooling consumed by an organization are categorized as:',
+          options: [
+            'A. Scope 1 Emissions',
+            'B. Scope 2 Emissions',
+            'C. Scope 3 Emissions',
+            'D. Fugitive Offsets'
+          ],
+          correct: 'B',
+          rationale: 'Scope 2 accounts for indirect GHG emissions from the generation of purchased electricity, heat, or steam consumed by the reporting company.'
+        },
+        {
+          id: 'evs-mcq-6-2',
+          question: 'One certified Carbon Credit (CER) in international carbon trading markets corresponds to the verified reduction or avoidance of:',
+          options: [
+            'A. 1 kilogram of CO2 equivalent',
+            'B. 100 kilograms of CO2 equivalent',
+            'C. 1 metric tonne (1,000 kg) of CO2 equivalent',
+            'D. 1 megatonne of CO2 equivalent'
+          ],
+          correct: 'C',
+          rationale: 'A single carbon credit is a tradable certificate permitting the holder to emit one metric tonne of carbon dioxide or an equivalent greenhouse gas quantity.'
+        },
+        {
+          id: 'evs-mcq-6-3',
+          question: 'What is India\'s national green building rating tool developed jointly by TERI (The Energy and Resources Institute) and the Ministry of New and Renewable Energy (MNRE)?',
+          options: [
+            'A. LEED India',
+            'B. BREEAM',
+            'C. GRIHA (Green Rating for Integrated Habitat Assessment)',
+            'D. CASBEE'
+          ],
+          correct: 'C',
+          rationale: 'GRIHA was established by TERI and adopted by the Government of India in 2007 as the national green building certification rating system.'
+        },
+        {
+          id: 'evs-mcq-6-4',
+          question: 'Which economic model advocates transitioning from the traditional linear "Take-Make-Dispose" model to an regenerative industrial system that designs out waste and keeps materials in continuous circulation?',
+          options: [
+            'A. Carbon Neutral Economy',
+            'B. Circular Economy',
+            'C. Subsistence Economy',
+            'D. Planned Economy'
+          ],
+          correct: 'B',
+          rationale: 'A Circular Economy is based on three principles: eliminate waste and pollution, circulate products and materials at their highest value (cradle-to-cradle), and regenerate nature.'
         }
       ]
     }
