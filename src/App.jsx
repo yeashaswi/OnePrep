@@ -166,9 +166,15 @@ export default function App() {
   };
 
   // Active module reader object
-  const readerCourse = activeReader ? courseMap[activeReader.courseId] : null;
+  const readerCourse = activeReader 
+    ? (courseMap[activeReader.courseId] || allCourses.find(c => c.id === activeReader.courseId || c.code.includes(activeReader.courseId)))
+    : null;
   const readerModule = readerCourse && activeReader 
-    ? readerCourse.modules.find(m => m.id === activeReader.moduleId)
+    ? (readerCourse.modules.find(m => m.id === activeReader.moduleId) ||
+       readerCourse.modules.find(m => {
+         const mNum = activeReader.moduleId?.match(/\d+/)?.[0];
+         return mNum && m.moduleNum === parseInt(mNum, 10);
+       }))
     : null;
   const readerStatus = readerModule ? (moduleStatuses[readerModule.id] || readerModule.status) : 'yet_to_start';
 

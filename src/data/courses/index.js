@@ -12,10 +12,25 @@ export const allCourses = [
   environmentalCourse
 ];
 
-export const courseMap = allCourses.reduce((acc, course) => {
-  acc[course.id] = course;
-  return acc;
-}, {});
+export const courseMap = {};
+// 1. Primary IDs first so they are never overwritten
+allCourses.forEach(c => {
+  courseMap[c.id] = c;
+});
+// 2. Code aliases if not already set
+allCourses.forEach(c => {
+  if (c.code) {
+    if (!courseMap[c.code]) courseMap[c.code] = c;
+    const cleanCodes = c.code.split(/[\/\s]+/).filter(Boolean);
+    cleanCodes.forEach(code => {
+      if (!courseMap[code]) courseMap[code] = c;
+    });
+  }
+});
+// 3. Explicit canonical shortcuts
+courseMap['BACHY105'] = chemistryCourse;
+courseMap['BAMAT101'] = calculusCourse;
+courseMap['BAEEE101'] = basicEngCourse;
 
 // Status weights for intelligent schedule prioritization
 export const STATUS_WEIGHTS = {
