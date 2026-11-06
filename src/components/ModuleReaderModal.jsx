@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import { STATUS_CONFIG } from '../data/courses/index.js';
 import KaTeXMath, { FormattedText } from './KaTeXMath.jsx';
-import { englishWordBank } from '../data/courses/englishWordBank.js';
+import { englishWordBank, topTrickyDefinitions, wordBankClusters } from '../data/courses/englishWordBank.js';
 
 export default function ModuleReaderModal({
   isOpen,
@@ -34,6 +34,7 @@ export default function ModuleReaderModal({
   const [activeTab, setActiveTab] = useState('pdf'); // 'pdf' | 'skim' | 'pyqs'
   const [expandedSolutions, setExpandedSolutions] = useState({});
   const [wordBankSearch, setWordBankSearch] = useState('');
+  const [selectedCluster, setSelectedCluster] = useState('All');
   const [mcqAnswers, setMcqAnswers] = useState({});
   const [revealedRationales, setRevealedRationales] = useState({});
 
@@ -95,13 +96,17 @@ export default function ModuleReaderModal({
   const pyqCount = module.pyqs ? module.pyqs.length : 0;
   const mcqCount = module.mcqs ? module.mcqs.length : 0;
 
-  // Filter word bank if in English course
+  // Filter word bank if in English course with cluster and query matching
   const filteredWords = englishWordBank.filter(item => {
     const q = wordBankSearch.toLowerCase().trim();
+    const matchesCluster = selectedCluster === 'All' || item.cluster === selectedCluster;
+    if (!matchesCluster) return false;
     if (!q) return true;
     return item.term.toLowerCase().includes(q) || 
            item.class.toLowerCase().includes(q) || 
-           item.differentia.toLowerCase().includes(q);
+           item.differentia.toLowerCase().includes(q) ||
+           (item.cluster && item.cluster.toLowerCase().includes(q)) ||
+           (item.contrastWith && item.contrastWith.toLowerCase().includes(q));
   });
 
   return (
@@ -394,23 +399,100 @@ export default function ModuleReaderModal({
 
               {/* Special Addition: 100-Word Official Definition Bank (Integrated inside Skim Notes for English Mod 3) */}
               {isEnglishCourse && module.moduleNum === 3 && (
-                <div className="space-y-4 pt-4 border-t border-[#22252C]">
+                <div className="space-y-6 pt-4 border-t border-[#22252C]">
+                  
+                  {/* Top 15 Tricky & Confusable Words Card */}
+                  <div className="bg-[#14161C] border border-amber-500/30 rounded-xl p-5 space-y-4">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <AlertTriangle className="w-5 h-5 text-amber-400" />
+                          <h4 className="text-sm sm:text-base font-bold text-white">
+                            Top 15 Tricky & Obscure Definitions (Highest Faculty Trap Probability)
+                          </h4>
+                        </div>
+                        <p className="text-xs text-[#8E93A0]">
+                          Words most students struggle to define formally or confuse with similar concepts (e.g., <em>Bionote vs Resume</em>, <em>Walkalator vs Escalator</em>, <em>Dias vs Stage</em>, <em>Emoticon vs Emoji</em>).
+                        </p>
+                      </div>
+                      <span className="text-xs font-mono font-bold px-2.5 py-1 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30 shrink-0">
+                        15 High-Yield Traps
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {topTrickyDefinitions.map((item) => (
+                        <div key={item.id} className="bg-[#0B0C0E] border border-amber-500/20 rounded-lg p-3.5 space-y-2 text-xs">
+                          <div className="flex items-center justify-between gap-2 flex-wrap">
+                            <div className="flex items-center gap-1.5 font-bold text-white">
+                              <span className="text-[10px] font-mono text-amber-400">#{item.id}</span>
+                              <span className="text-amber-200">{item.term}</span>
+                              {item.phonetic && (
+                                <span className="text-[10px] text-[#8E93A0] font-mono">[{item.phonetic}]</span>
+                              )}
+                            </div>
+                            {item.contrastWith && (
+                              <span className="text-[9px] px-1.5 py-0.5 rounded font-mono bg-red-950/40 text-red-300 border border-red-500/30">
+                                ⚠️ Contrast: {item.contrastWith}
+                              </span>
+                            )}
+                          </div>
+                          <div className="space-y-1 text-[11px] text-[#A0A5B5] leading-relaxed">
+                            <div><strong className="text-gray-300">Class:</strong> {item.class}</div>
+                            <div><strong className="text-gray-300">Differentia:</strong> {item.differentia}</div>
+                            <div className="pt-1 text-[#E5E7EB] italic bg-[#14161C]/60 p-2 rounded border border-[#22252C]">
+                              "{item.formalDefinition}"
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Complete 100-Word Bank Filterable System */}
                   <div className="bg-[#14161C] border border-pink-500/30 rounded-xl p-5 space-y-4">
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <Sparkles className="w-5 h-5 text-pink-400" />
                           <h4 className="text-sm sm:text-base font-bold text-white">
-                            BAENG101 Official Definition Word Bank (100 Words)
+                            BAENG101 Complete 100-Word Definition Bank (Semantic Clusters)
                           </h4>
                         </div>
                         <p className="text-xs text-[#8E93A0]">
-                          FAT Question 5 carries 10 Marks testing these exact 100 words. Format strictly as: <strong>Term = Class (Genus) + Differentia</strong>.
+                          FAT Question 5 carries 10 Marks. Definitions are clustered by theme with confusable pairs placed adjacent for easy contrast learning.
                         </p>
                       </div>
                       <span className="text-xs font-mono font-bold px-3 py-1.5 rounded-lg bg-pink-950/40 text-pink-300 border border-pink-500/30 shrink-0">
-                        {filteredWords.length} / 100 Words
+                        {filteredWords.length} / 100 Words Matching
                       </span>
+                    </div>
+
+                    {/* Semantic Cluster Filter Pills */}
+                    <div className="flex items-center gap-1.5 overflow-x-auto pb-2 no-scrollbar">
+                      <button
+                        onClick={() => setSelectedCluster('All')}
+                        className={`px-3 py-1 rounded-md text-xs font-semibold whitespace-nowrap transition-all ${
+                          selectedCluster === 'All'
+                            ? 'bg-pink-600 text-white'
+                            : 'bg-[#0B0C0E] border border-[#22252C] text-[#8E93A0] hover:text-white'
+                        }`}
+                      >
+                        All (100)
+                      </button>
+                      {wordBankClusters.map(c => (
+                        <button
+                          key={c.name}
+                          onClick={() => setSelectedCluster(c.name)}
+                          className={`px-3 py-1 rounded-md text-xs font-semibold whitespace-nowrap transition-all ${
+                            selectedCluster === c.name
+                              ? 'bg-pink-600 text-white'
+                              : 'bg-[#0B0C0E] border border-[#22252C] text-[#8E93A0] hover:text-white'
+                          }`}
+                        >
+                          {c.name} ({c.count})
+                        </button>
+                      ))}
                     </div>
 
                     {/* Search Bar */}
@@ -418,7 +500,7 @@ export default function ModuleReaderModal({
                       <Search className="w-4 h-4 text-[#8E93A0] absolute left-3.5 top-1/2 -translate-y-1/2" />
                       <input
                         type="text"
-                        placeholder="Search any word (e.g. satellite, drone, walkalator, phishing, renewable energy)..."
+                        placeholder="Search any word or concept (e.g. satellite, drone, walkalator, phishing, renewable energy)..."
                         value={wordBankSearch}
                         onChange={(e) => setWordBankSearch(e.target.value)}
                         className="w-full bg-[#0B0C0E] border border-[#22252C] rounded-xl pl-10 pr-4 py-2 text-xs text-white placeholder-[#656A76] focus:outline-none focus:border-[#EB0029]"
@@ -427,26 +509,29 @@ export default function ModuleReaderModal({
                   </div>
 
                   {/* Words Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-96 overflow-y-auto pr-1">
-                    {filteredWords.slice(0, 30).map((item) => (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[500px] overflow-y-auto pr-1">
+                    {filteredWords.map((item) => (
                       <div key={item.id} className="bg-[#14161C] border border-[#22252C] rounded-lg p-3 space-y-1.5 text-xs">
-                        <div className="flex items-center justify-between font-bold text-white">
+                        <div className="flex items-center justify-between gap-2 flex-wrap font-bold text-white">
                           <span className="flex items-center gap-1.5">
                             <span className="text-[10px] font-mono text-[#EB0029]">#{item.id}</span>
                             <span>{item.term}</span>
+                            {item.phonetic && (
+                              <span className="text-[10px] text-[#656A76] font-mono font-normal">[{item.phonetic}]</span>
+                            )}
                           </span>
+                          {item.contrastWith && (
+                            <span className="text-[9px] px-1.5 py-0.2 rounded font-mono bg-[#1E212B] text-amber-300 border border-amber-500/20">
+                              vs {item.contrastWith}
+                            </span>
+                          )}
                         </div>
-                        <p className="text-[11px] text-[#8E93A0] italic">
+                        <p className="text-[11px] text-[#A0A5B5] leading-relaxed">
                           "{item.formalDefinition}"
                         </p>
                       </div>
                     ))}
                   </div>
-                  {filteredWords.length > 30 && (
-                    <p className="text-center text-xs text-[#8E93A0] italic">
-                      Showing first 30 matching words. All 100 complete words are printed inside the Module 3 PDF Book!
-                    </p>
-                  )}
                 </div>
               )}
 

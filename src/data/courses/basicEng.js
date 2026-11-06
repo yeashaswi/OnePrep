@@ -268,60 +268,6 @@ export const basicEngCourse = {
           solution: 'Part (a) TIG (GTAW) vs MIG (GMAW) Welding Comparison:\\n1. Electrode: TIG uses a Non-consumable pure or thoriated Tungsten electrode. MIG uses a Consumable metallic wire electrode continuously fed from a motorized spool.\\n2. Shielding Gas: TIG uses 100% pure inert Argon or Helium gas. MIG uses inert Argon or active gas mixtures ($\\text{Ar} + \\text{CO}_2$ or pure $\\text{CO}_2$ for GMAW/MAG).\\n3. Filler Metal: TIG requires the welder to manually feed a separate filler rod with the opposite hand. MIG feeds filler automatically through the welding gun.\\n4. Weld Quality & Speed: TIG produces aesthetic, high-precision, spatter-free welds at low travel speeds (used in aerospace aluminum and stainless steel pipework). MIG provides high deposition rates and fast speeds (used in automotive body fabrication and heavy structural steel).\\n\\nPart (b) Casting Defects & Remedies:\\n1. Blowholes: Smooth, rounded gas cavities inside the casting. Cause: Excessive moisture in moulding sand or low permeability. Remedy: Increase venting holes in sand mould and bake sand properly.\\n2. Cold Shut: A distinct crack-like line with rounded edges where two converging streams of molten metal fail to fuse completely. Cause: Low pouring temperature or excessively slow pouring rate. Remedy: Increase pouring temperature and enlarge gating runner cross-section.\\n3. Hot Tears: Severe jagged, irregular cracks formed as the casting solidifies. Cause: Non-uniform cooling and excessive mould rigidity preventing natural thermal contraction. Remedy: Ensure collapsible moulding sand mixes and round off sharp internal re-entrant corners with generous fillets.'
         }
       ]
-    },
-    {
-      id: 'bacee-m5',
-      moduleNum: 5,
-      pdfUrl: '/pdfs/basic_eng/BEEE_MOD-5.pdf',
-      title: 'Bio-Inspired Design in Engineering',
-      co: 'CO: 5',
-      examScope: 'FAT Only',
-      weightage: '10-15 Marks in FAT',
-      status: 'yet_to_start',
-      scope: 'Principles of Biomimicry and Bio-Inspired Design in Engineering, Case studies of nature\'s engineering: Self-cleaning superhydrophobic surfaces (The Lotus Effect - Cassie-Baxter state), Aerodynamic and hydrodynamic drag reduction (Shark-skin denticles and riblet micro-grooves, Kingfisher beak biomimicry in Shinkansen bullet train nose design), Dry reversible adhesion (Gecko footpad nanoscale spatulae and van der Waals forces), Structural lightweight design (Bee honeycomb hexagonal sandwich composite panels), and Biomimetic robotics.',
-      blueprint: {
-        marksTotal: '10 to 15 Marks in FAT',
-        questionTypes: [
-          { type: 'Question Type A (10 Marks)', desc: 'Bio-Inspired Engineering Case Studies: Explain with neat diagrams any two bio-inspired designs (e.g. Lotus effect self-cleaning surfaces and Gecko footpad dry adhesion) and their modern engineering applications.' }
-        ]
-      },
-      formulaSheet: [
-        { name: 'Cassie-Baxter Superhydrophobicity', formula: '\\cos \\theta^* = f_1 \\cos \\theta - f_2', note: 'Contact angle θ > 150°, roll-off angle < 5°' },
-        { name: 'Van der Waals Gecko Adhesion', formula: 'F_{\\text{adh}} \\approx \\frac{A_H R}{6 D^2}', note: 'Billions of nanoscale spatulae conforming to surface' }
-      ],
-      examInsights: [
-        {
-          title: 'Structure-Function Engineering Mapping',
-          desc: 'VIT examiners require students to clearly state: (1) The Biological Organism, (2) The Natural Physical/Chemical Mechanism, and (3) The Commercial Engineering Implementation.'
-        }
-      ],
-      topics: [
-        { id: 'bacee-t5-1', title: '1-Bio-Inspired Design & Biomimicry Principles', theory: 'Translating biological evolution adaptations into sustainable engineering solutions. 5-step biomimetic design spiral.' },
-        { id: 'bacee-t5-2', title: 'Case Studies: Lotus Effect, Shark Skin, Gecko Adhesion, Kingfisher', theory: 'Lotus leaf micro-papillae, shark denticle drag reduction, gecko van der Waals dry adhesion, bullet train nose.' }
-      ],
-      pyqs: [
-        {
-          id: 'bacee-q5-1',
-          exam: 'BACEE101 FAT April 2025 Slot D1 — 10 Marks',
-          marks: '10 Marks',
-          question: 'Explain the scientific principle behind the "Lotus Effect" and discuss how it has been applied to design self-cleaning and anti-icing surfaces in modern engineering.',
-          solution: 'Scientific Principle: The leaves of the sacred lotus (Nelumbo nucifera) exhibit extreme water repellency (superhydrophobicity). Scanning electron microscopy reveals a dual-scale hierarchy: microscopic epidermal papillae (10-20 μm) coated with hydrophobic epicuticular wax nanostructures (100 nm).\nAccording to the Cassie-Baxter model, air is trapped in the valleys between papillae beneath the water droplet. This minimizes the solid-liquid contact area to less than 2-3%, resulting in a contact angle exceeding 150° and a roll-off tilt angle under 5°.\nSelf-Cleaning Mechanism: As spherical water droplets roll off effortlessly under slight gravity or wind, they pick up dirt and debris particles rather than sliding across them, keeping the leaf pristine.\nEngineering Applications:\n1. Self-cleaning exterior building glass and architectural facade coatings.\n2. Anti-icing and de-icing surfaces on commercial aircraft wings and wind turbine blades.\n3. Superhydrophobic anti-fouling coatings for marine ship hulls to reduce biological slime accumulation.'
-        },
-        {
-          id: 'bacee-q5-2',
-          exam: 'BACEE101 FAT Nov 2024 Slot D1 & SMEC QB Q5 — 10 Marks',
-          marks: '10 Marks',
-          question: 'CASE STUDY: The Japanese Shinkansen 500 Series high-speed bullet train initially generated a deafening tunnel sonic boom that rattled residential windows 400 meters away whenever it entered narrow mountain tunnels at 270 km/h. (a) Explain the fluid dynamics phenomenon causing this tunnel sonic boom. (b) How did engineering director Eiji Nakatsu use biomimicry of the Kingfisher bird to eliminate the boom? (c) State the resulting quantitative engineering improvements in speed, energy consumption, and noise levels.',
-          solution: 'Part (a) The Aerodynamic Tunnel Sonic Boom Problem:\\nWhen a high-speed train traveling at $>250\\text{ km/h}$ enters a narrow tunnel, the front profile acts as a massive aerodynamic piston compressing the air in front of it. This generates atmospheric micro-pressure shockwaves that travel down the tunnel at the speed of sound and discharge explosively at the tunnel exit with a gunshot-like boom ($>70\\text{ dB}$), causing severe urban acoustic pollution.\\n\\nPart (b) Kingfisher Biomimetic Solution:\\n- Biological Inspiration: The Kingfisher bird dives seamlessly from air (low density, low resistance) into water (high density, $800\\times$ higher resistance) with virtually zero splash to catch fish. Its beak has a distinctive streamlined diamond/parabolic cross-section that parts water with minimal boundary layer separation.\\n- Engineering Implementation: Eiji Nakatsu redesigned the entire 15-meter front locomotive nose of the Shinkansen 500 into a continuous wedge-shaped profile mimicking the upper and lower bill geometry of the Kingfisher beak. This gradual aerodynamic profile displaces air smoothly, eliminating the pressure shockwave front.\\n\\nPart (c) Quantitative Engineering Gains:\\n1. Acoustic Elimination: The tunnel exit micro-pressure wave boom was reduced below statutory environmental limits ($<70\\text{ dB}$).\\n2. Speed Increase: Train operating speed safely increased from $270\\text{ km/h}$ to $300\\text{ km/h}$ (a $10\\%$ increase), establishing the world speed record at the time.\\n3. Energy Reduction: Aerodynamic drag decreased by $30\\%$, resulting in a net $15\\%$ reduction in electric traction power consumption.'
-        },
-        {
-          id: 'bacee-q5-3',
-          exam: 'SMEC Question Bank Q7 — Gecko Footpad Dry Adhesion — 10 Marks',
-          marks: '10 Marks',
-          question: '(a) Explain the biological mechanism of reversible dry adhesion in Gecko lizards. (b) Explain why geckos do not require chemical glues or suction cups to climb smooth vertical glass. (c) How has this mechanism been translated into modern synthetic dry adhesive tapes and robotic grippers for space debris retrieval?',
-          solution: 'Part (a) Gecko Footpad Nanostructure Mechanism:\\nGecko toe pads possess a multi-tier hierarchical mechanical architecture:\\n1. Macroscale: Lamellae (soft ridge ridges on toes).\\n2. Microscale: Setae (millions of microscopic keratin hairs, $\\sim 100\\ \\mu\\text{m}$ long, $5\\ \\mu\\text{m}$ wide).\\n3. Nanoscale: Spatulae (each seta branches into hundreds of terminal triangular spatulae, $\\sim 200\\text{ nm}$ wide).\\nWhen the gecko presses its toe against a surface, these billions of flexible spatulae conform intimately to atomic surface roughness down to sub-nanometer gaps ($<1\\text{ nm}$).\\n\\nPart (b) Physical Origin of Adhesion (Van der Waals Forces):\\nAt distances $<1\\text{ nm}$, neutral atoms experience temporary dipole-induced dipole electromagnetic attractions known as Van der Waals forces. While individual intermolecular bonds are feeble ($\\sim 10^{-19}\\text{ J}$), the massive macroscopic surface area of billions of conforming spatulae generates an astonishing combined adhesive force of over $100\\text{ Newtons}$ per footpad (sufficient to support 40 times the lizard\'s body weight!).\\n- Reversible Detachment: The adhesion is directional (shear-activated). Peeling the footpad at an angle ($>30^\\circ$) breaks the van der Waals alignment with near-zero detachment force, enabling rapid locomotion without sticky residue.\\n\\nPart (c) Engineering Applications:\\n1. Synthetic Gecko Tapes: Fabricated from micro-molded polydimethylsiloxane (PDMS) or carbon nanotube arrays, enabling cleanroom wall-climbing robots.\\n2. Space Robotic Grippers: Chemical adhesives dry out and suction cups fail in the vacuum of outer space. NASA\'s JPL developed gecko-inspired robotic grippers that grasp smooth non-magnetic space debris and solar panels purely through mechanical van der Waals contact.'
-        }
-      ]
     }
   ]
 };
