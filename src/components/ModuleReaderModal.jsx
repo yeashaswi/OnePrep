@@ -31,7 +31,7 @@ export default function ModuleReaderModal({
   currentStatus,
   onUpdateStatus
 }) {
-  const [activeTab, setActiveTab] = useState('pdf'); // 'pdf' | 'pyqs' | 'formulas' | 'insights' | 'wordbank' | 'mcqs'
+  const [activeTab, setActiveTab] = useState('pdf'); // 'pdf' | 'skim' | 'pyqs'
   const [expandedSolutions, setExpandedSolutions] = useState({});
   const [wordBankSearch, setWordBankSearch] = useState('');
   const [mcqAnswers, setMcqAnswers] = useState({});
@@ -198,100 +198,50 @@ export default function ModuleReaderModal({
           </div>
         </div>
 
-        {/* Dynamic Navigation Tab Bar */}
+        {/* Strict 3-Category Navigation Tab Bar */}
         <div className="flex-shrink-0 bg-[#0F1117] border-b border-[#22252C] px-4 sm:px-6 flex items-center gap-2 overflow-x-auto no-scrollbar">
           
-          {/* Tab 1: PDF Textbook */}
+          {/* Category 1: Full Detailed Books (Unabridged PDF) */}
           <button
             onClick={() => setActiveTab('pdf')}
-            className={`py-2.5 px-3.5 text-xs font-semibold whitespace-nowrap transition-all border-b-2 -mb-[1px] flex items-center gap-2 ${
+            className={`py-2.5 px-4 text-xs font-bold whitespace-nowrap transition-all border-b-2 -mb-[1px] flex items-center gap-2 ${
               activeTab === 'pdf'
                 ? 'border-[#EB0029] text-white bg-[#14161C]/50'
                 : 'border-transparent text-[#8E93A0] hover:text-white'
             }`}
           >
             <BookOpen className="w-3.5 h-3.5 text-[#EB0029]" />
-            <span>📖 Unabridged PDF Book</span>
+            <span>📚 Full Detailed Book</span>
           </button>
 
-          {/* Tab 2: Question Bank & Past FAT PYQs */}
+          {/* Category 2: Skim Notes (Formulas + Blueprint + Faculty Traps) */}
+          <button
+            onClick={() => setActiveTab('skim')}
+            className={`py-2.5 px-4 text-xs font-bold whitespace-nowrap transition-all border-b-2 -mb-[1px] flex items-center gap-2 ${
+              activeTab === 'skim'
+                ? 'border-[#EB0029] text-white bg-[#14161C]/50'
+                : 'border-transparent text-[#8E93A0] hover:text-white'
+            }`}
+          >
+            <FileText className="w-3.5 h-3.5 text-blue-400" />
+            <span>⚡ Skim Notes</span>
+          </button>
+
+          {/* Category 3: FAT PYQ with Dropdown Solutions */}
           <button
             onClick={() => setActiveTab('pyqs')}
-            className={`py-2.5 px-3.5 text-xs font-semibold whitespace-nowrap transition-all border-b-2 -mb-[1px] flex items-center gap-2 ${
+            className={`py-2.5 px-4 text-xs font-bold whitespace-nowrap transition-all border-b-2 -mb-[1px] flex items-center gap-2 ${
               activeTab === 'pyqs'
                 ? 'border-[#EB0029] text-white bg-[#14161C]/50'
                 : 'border-transparent text-[#8E93A0] hover:text-white'
             }`}
           >
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-            <span>🎯 Question Bank & FAT PYQs</span>
+            <span>🎯 FAT PYQ with Dropdown Solutions</span>
             <span className="text-[10px] px-1.5 py-0.2 rounded font-mono bg-[#1E212B] text-emerald-300">
               {pyqCount || mcqCount} Solved
             </span>
           </button>
-
-          {/* Tab 3: Master Formula Sheet & Blueprint */}
-          {module.formulaSheet && module.formulaSheet.length > 0 && (
-            <button
-              onClick={() => setActiveTab('formulas')}
-              className={`py-2.5 px-3.5 text-xs font-semibold whitespace-nowrap transition-all border-b-2 -mb-[1px] flex items-center gap-2 ${
-                activeTab === 'formulas'
-                  ? 'border-[#EB0029] text-white bg-[#14161C]/50'
-                  : 'border-transparent text-[#8E93A0] hover:text-white'
-              }`}
-            >
-              <FileText className="w-3.5 h-3.5 text-blue-400" />
-              <span>📐 Master Formulas & Blueprint</span>
-            </button>
-          )}
-
-          {/* Tab 4: Faculty Exam Traps & Insights */}
-          {module.examInsights && module.examInsights.length > 0 && (
-            <button
-              onClick={() => setActiveTab('insights')}
-              className={`py-2.5 px-3.5 text-xs font-semibold whitespace-nowrap transition-all border-b-2 -mb-[1px] flex items-center gap-2 ${
-                activeTab === 'insights'
-                  ? 'border-[#EB0029] text-white bg-[#14161C]/50'
-                  : 'border-transparent text-[#8E93A0] hover:text-white'
-              }`}
-            >
-              <Lightbulb className="w-3.5 h-3.5 text-amber-400" />
-              <span>💡 Exam Traps & Faculty Advice</span>
-            </button>
-          )}
-
-          {/* Special Tab 5: 100-Word Official Definition Bank (For English) */}
-          {isEnglishCourse && (
-            <button
-              onClick={() => setActiveTab('wordbank')}
-              className={`py-2.5 px-3.5 text-xs font-semibold whitespace-nowrap transition-all border-b-2 -mb-[1px] flex items-center gap-2 ${
-                activeTab === 'wordbank'
-                  ? 'border-[#EB0029] text-white bg-[#14161C]/50'
-                  : 'border-transparent text-[#8E93A0] hover:text-white'
-              }`}
-            >
-              <Sparkles className="w-3.5 h-3.5 text-pink-400" />
-              <span>🔤 100-Word Definition Bank (FAT Q5)</span>
-              <span className="text-[10px] px-1.5 py-0.2 rounded font-mono bg-pink-950/50 text-pink-300">
-                100 Words
-              </span>
-            </button>
-          )}
-
-          {/* Special Tab 6: CBT MCQs (For Environmental Sciences) */}
-          {isEvsCourse && (
-            <button
-              onClick={() => setActiveTab('mcqs')}
-              className={`py-2.5 px-3.5 text-xs font-semibold whitespace-nowrap transition-all border-b-2 -mb-[1px] flex items-center gap-2 ${
-                activeTab === 'mcqs'
-                  ? 'border-[#EB0029] text-white bg-[#14161C]/50'
-                  : 'border-transparent text-[#8E93A0] hover:text-white'
-              }`}
-            >
-              <Layers className="w-3.5 h-3.5 text-emerald-400" />
-              <span>⚡ CBT MCQ Practice Test</span>
-            </button>
-          )}
 
         </div>
 
@@ -342,7 +292,168 @@ export default function ModuleReaderModal({
             </div>
           )}
 
-          {/* TAB 2: Worked Question Bank & Past FAT PYQs */}
+          {/* CATEGORY 2: Skim Notes (Formulas, Blueprint & Faculty Traps Combined) */}
+          {activeTab === 'skim' && (
+            <div className="w-full h-full overflow-y-auto p-4 sm:p-6 space-y-6 max-w-5xl mx-auto">
+              
+              {/* Header Banner */}
+              <div className="bg-[#14161C] border border-[#22252C] rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <FileText className="w-5 h-5 text-blue-400" />
+                    <h3 className="text-base sm:text-lg font-bold text-white">
+                      Module {module.moduleNum} Skim Notes & Quick Reference
+                    </h3>
+                  </div>
+                  <p className="text-xs text-[#8E93A0]">
+                    High-yield summary: Master formulas, official FAT question archetypes, and faculty evaluation traps.
+                  </p>
+                </div>
+                <button
+                  onClick={() => setActiveTab('pyqs')}
+                  className="px-3.5 py-1.5 rounded-lg bg-[#EB0029] hover:bg-[#d00024] text-white text-xs font-bold transition-all flex items-center gap-1.5 shrink-0"
+                >
+                  <span>Practice FAT PYQs</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              {/* 1. Exam Blueprint & Weightage */}
+              {module.blueprint && (
+                <div className="bg-[#14161C] border border-[#22252C] rounded-xl p-5 space-y-3">
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    <div className="flex items-center gap-2">
+                      <Award className="w-4 h-4 text-[#EB0029]" />
+                      <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+                        VIT FAT Exam Blueprint & Question Distribution
+                      </h4>
+                    </div>
+                    <span className="px-2.5 py-0.5 rounded text-xs font-bold font-mono bg-[#EB0029]/10 text-[#FF4A5A] border border-[#EB0029]/30">
+                      Total Weightage: {module.blueprint.marksTotal}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+                    {module.blueprint.questionTypes?.map((qt, qtIdx) => (
+                      <div key={qtIdx} className="bg-[#0B0C0E] p-3.5 rounded-lg border border-[#22252C] space-y-1">
+                        <span className="text-xs font-bold text-white block">{qt.type}</span>
+                        <p className="text-[11px] text-[#8E93A0] leading-relaxed">
+                          <FormattedText text={qt.desc} />
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 2. Master Formulas Sheet */}
+              {module.formulaSheet && module.formulaSheet.length > 0 && (
+                <div className="space-y-3">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+                    <FileText className="w-4 h-4 text-blue-400" />
+                    <span>Master Formulas & Substitution Identities</span>
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {module.formulaSheet.map((f, fIdx) => (
+                      <div key={fIdx} className="bg-[#14161C] rounded-xl p-4 border border-[#22252C] space-y-2">
+                        <div className="flex items-center justify-between text-xs font-bold text-white">
+                          <span>{f.name}</span>
+                          {f.note && <span className="text-[10px] text-[#8E93A0] italic font-normal">{f.note}</span>}
+                        </div>
+                        <div className="bg-[#0B0C0E] p-3 rounded-lg border border-[#22252C] overflow-x-auto text-center text-xs text-white">
+                          <KaTeXMath math={f.formula} display={true} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 3. Faculty Exam Traps & Evaluation Insights */}
+              {module.examInsights && module.examInsights.length > 0 && (
+                <div className="space-y-3">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-2">
+                    <AlertTriangle className="w-4 h-4 text-amber-400" />
+                    <span>Faculty Exam Traps & Evaluation Guidelines</span>
+                  </h4>
+                  <div className="space-y-3">
+                    {module.examInsights.map((ins, insIdx) => (
+                      <div key={insIdx} className="bg-[#14161C] border border-amber-500/20 rounded-xl p-4 sm:p-5 space-y-2">
+                        <div className="flex items-center gap-2 text-amber-400 font-bold text-xs sm:text-sm">
+                          <AlertTriangle className="w-4 h-4 shrink-0" />
+                          <span>{ins.title}</span>
+                        </div>
+                        <div className="text-xs text-[#D1D5DB] leading-relaxed pl-6">
+                          <FormattedText text={ins.desc} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Special Addition: 100-Word Official Definition Bank (Integrated inside Skim Notes for English Mod 3) */}
+              {isEnglishCourse && module.moduleNum === 3 && (
+                <div className="space-y-4 pt-4 border-t border-[#22252C]">
+                  <div className="bg-[#14161C] border border-pink-500/30 rounded-xl p-5 space-y-4">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <Sparkles className="w-5 h-5 text-pink-400" />
+                          <h4 className="text-sm sm:text-base font-bold text-white">
+                            BAENG101 Official Definition Word Bank (100 Words)
+                          </h4>
+                        </div>
+                        <p className="text-xs text-[#8E93A0]">
+                          FAT Question 5 carries 10 Marks testing these exact 100 words. Format strictly as: <strong>Term = Class (Genus) + Differentia</strong>.
+                        </p>
+                      </div>
+                      <span className="text-xs font-mono font-bold px-3 py-1.5 rounded-lg bg-pink-950/40 text-pink-300 border border-pink-500/30 shrink-0">
+                        {filteredWords.length} / 100 Words
+                      </span>
+                    </div>
+
+                    {/* Search Bar */}
+                    <div className="relative">
+                      <Search className="w-4 h-4 text-[#8E93A0] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                      <input
+                        type="text"
+                        placeholder="Search any word (e.g. satellite, drone, walkalator, phishing, renewable energy)..."
+                        value={wordBankSearch}
+                        onChange={(e) => setWordBankSearch(e.target.value)}
+                        className="w-full bg-[#0B0C0E] border border-[#22252C] rounded-xl pl-10 pr-4 py-2 text-xs text-white placeholder-[#656A76] focus:outline-none focus:border-[#EB0029]"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Words Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-96 overflow-y-auto pr-1">
+                    {filteredWords.slice(0, 30).map((item) => (
+                      <div key={item.id} className="bg-[#14161C] border border-[#22252C] rounded-lg p-3 space-y-1.5 text-xs">
+                        <div className="flex items-center justify-between font-bold text-white">
+                          <span className="flex items-center gap-1.5">
+                            <span className="text-[10px] font-mono text-[#EB0029]">#{item.id}</span>
+                            <span>{item.term}</span>
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-[#8E93A0] italic">
+                          "{item.formalDefinition}"
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                  {filteredWords.length > 30 && (
+                    <p className="text-center text-xs text-[#8E93A0] italic">
+                      Showing first 30 matching words. All 100 complete words are printed inside the Module 3 PDF Book!
+                    </p>
+                  )}
+                </div>
+              )}
+
+            </div>
+          )}
+
+          {/* CATEGORY 3: FAT PYQ with Dropdown Solutions */}
           {activeTab === 'pyqs' && (
             <div className="w-full h-full overflow-y-auto p-4 sm:p-6 space-y-6 max-w-5xl mx-auto">
               
@@ -352,11 +463,11 @@ export default function ModuleReaderModal({
                   <div className="flex items-center gap-2 mb-1">
                     <CheckCircle2 className="w-5 h-5 text-emerald-400" />
                     <h3 className="text-base sm:text-lg font-bold text-white">
-                      Module {module.moduleNum} Question Bank & Past FAT Vault
+                      Module {module.moduleNum} FAT PYQs & Dropdown Solutions
                     </h3>
                   </div>
                   <p className="text-xs text-[#8E93A0]">
-                    Fully worked, step-by-step solutions to official VIT Department Question Bank and recent FAT exam papers.
+                    Authentic VIT past paper questions and pattern problems. Click any problem to toggle its complete step-by-step dropdown solution.
                   </p>
                 </div>
                 <button
@@ -372,14 +483,14 @@ export default function ModuleReaderModal({
               {module.pyqs && module.pyqs.length > 0 ? (
                 <div className="space-y-4">
                   {module.pyqs.map((q, qIdx) => {
-                    const isExpanded = expandedSolutions[q.id] !== false; // default expanded
+                    const isExpanded = !!expandedSolutions[q.id];
                     return (
                       <div 
                         key={q.id || qIdx}
-                        className="bg-[#14161C] border border-[#22252C] rounded-xl overflow-hidden transition-all"
+                        className="bg-[#14161C] border border-[#22252C] hover:border-[#383D4D] rounded-xl overflow-hidden transition-all"
                       >
                         {/* Question Header */}
-                        <div className="p-4 sm:p-5 border-b border-[#1C1F26] space-y-3">
+                        <div className="p-4 sm:p-5 space-y-3">
                           <div className="flex items-center justify-between gap-2 flex-wrap">
                             <div className="flex items-center gap-2">
                               <span className="px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
@@ -391,22 +502,21 @@ export default function ModuleReaderModal({
                             </div>
                             <button
                               onClick={() => toggleSolution(q.id)}
-                              className="text-xs text-[#8E93A0] hover:text-white flex items-center gap-1 font-medium transition-colors"
+                              className="px-3 py-1 rounded bg-[#1B1E26] hover:bg-[#252834] text-xs font-semibold text-[#8E93A0] hover:text-white transition-colors flex items-center gap-1.5"
                             >
-                              <span>{isExpanded ? 'Hide Solution' : 'Reveal Solution'}</span>
-                              {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                              <span>{isExpanded ? 'Hide Solution ▲' : 'View Dropdown Solution ▼'}</span>
                             </button>
                           </div>
 
                           {/* The Problem Statement with KaTeX math */}
-                          <div className="text-sm font-semibold text-white leading-relaxed">
+                          <div className="text-xs sm:text-sm font-semibold text-white leading-relaxed">
                             <FormattedText text={q.question} />
                           </div>
                         </div>
 
-                        {/* Step-by-Step Solution */}
+                        {/* Dropdown Step-by-Step Solution */}
                         {isExpanded && (
-                          <div className="bg-[#0B0C0E]/70 p-4 sm:p-5 border-t border-[#1C1F26] space-y-3 animate-in fade-in duration-100">
+                          <div className="bg-[#0B0C0E] p-4 sm:p-5 border-t border-[#1C1F26] space-y-3 animate-in fade-in duration-100">
                             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400">
                               <Sparkles className="w-3.5 h-3.5" />
                               <span>Step-by-Step Rigorous Derivation / Solution:</span>
@@ -422,50 +532,36 @@ export default function ModuleReaderModal({
                   })}
                 </div>
               ) : module.mcqs && module.mcqs.length > 0 ? (
-                /* If module has MCQs instead of traditional written PYQs (e.g. EVS) */
+                /* CBT MCQs with dropdown answers */
                 <div className="space-y-4">
                   {module.mcqs.map((mcq, mIdx) => {
-                    const selected = mcqAnswers[mcq.id];
-                    const isRevealed = revealedRationales[mcq.id];
+                    const isExpanded = !!expandedSolutions[mcq.id];
                     return (
                       <div key={mcq.id || mIdx} className="bg-[#14161C] border border-[#22252C] rounded-xl p-5 space-y-4">
                         <div className="flex items-start justify-between gap-4">
                           <h4 className="text-sm font-bold text-white leading-snug">
                             {mIdx + 1}. {mcq.question}
                           </h4>
+                          <button
+                            onClick={() => toggleSolution(mcq.id)}
+                            className="px-3 py-1 rounded bg-[#1B1E26] hover:bg-[#252834] text-xs font-semibold text-[#8E93A0] hover:text-white transition-colors shrink-0"
+                          >
+                            <span>{isExpanded ? 'Hide Answer ▲' : 'Show Answer ▼'}</span>
+                          </button>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {mcq.options.map((opt, optIdx) => {
-                            const optKey = opt.charAt(0);
-                            const isCorrectOpt = optKey === mcq.correct;
-                            const isSelectedOpt = selected === optKey;
-
-                            let optStyle = 'bg-[#0B0C0E] border-[#22252C] text-[#D1D5DB] hover:border-[#383D4D]';
-                            if (isRevealed) {
-                              if (isCorrectOpt) {
-                                optStyle = 'bg-emerald-950/40 border-emerald-500/50 text-emerald-300 font-bold';
-                              } else if (isSelectedOpt && !isCorrectOpt) {
-                                optStyle = 'bg-red-950/40 border-red-500/50 text-red-300';
-                              }
-                            }
-
-                            return (
-                              <button
-                                key={optIdx}
-                                onClick={() => handleSelectMCQ(mcq.id, optKey)}
-                                className={`p-3 rounded-lg border text-left text-xs transition-all flex items-start gap-2 ${optStyle}`}
-                              >
-                                <span>{opt}</span>
-                              </button>
-                            );
-                          })}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                          {mcq.options.map((opt, optIdx) => (
+                            <div key={optIdx} className="p-3 rounded-lg border border-[#22252C] bg-[#0B0C0E] text-[#D1D5DB]">
+                              <span>{opt}</span>
+                            </div>
+                          ))}
                         </div>
 
-                        {isRevealed && (
-                          <div className="bg-[#0B0C0E] p-3 rounded-lg border border-[#22252C] text-xs text-[#8E93A0] space-y-1">
+                        {isExpanded && (
+                          <div className="bg-emerald-950/20 border border-emerald-500/30 rounded-lg p-3 text-xs space-y-1">
                             <span className="text-emerald-400 font-bold">Correct Answer: Option {mcq.correct}</span>
-                            <p>{mcq.rationale}</p>
+                            <p className="text-[#B0B5C2]">{mcq.rationale}</p>
                           </div>
                         )}
                       </div>
@@ -479,234 +575,6 @@ export default function ModuleReaderModal({
                 </div>
               )}
 
-            </div>
-          )}
-
-          {/* TAB 3: Master Formula Sheet & Blueprint */}
-          {activeTab === 'formulas' && (
-            <div className="w-full h-full overflow-y-auto p-4 sm:p-6 space-y-6 max-w-5xl mx-auto">
-              
-              {/* Module Blueprint */}
-              {module.blueprint && (
-                <div className="bg-[#14161C] border border-[#22252C] rounded-xl p-5 space-y-3">
-                  <div className="flex items-center gap-2">
-                    <Award className="w-4 h-4 text-[#EB0029]" />
-                    <h3 className="text-sm font-bold text-white uppercase tracking-wider">
-                      VIT FAT Exam Weightage & Question Archetypes
-                    </h3>
-                  </div>
-                  <p className="text-xs font-semibold text-[#EB0029]">
-                    Total Weightage: {module.blueprint.marksTotal}
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
-                    {module.blueprint.questionTypes.map((qt, qtIdx) => (
-                      <div key={qtIdx} className="bg-[#0B0C0E] p-3 rounded-lg border border-[#22252C] space-y-1">
-                        <span className="text-xs font-bold text-white block">{qt.type}</span>
-                        <p className="text-[11px] text-[#8E93A0] leading-relaxed">
-                          <FormattedText text={qt.desc} />
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Master Formula Cards */}
-              <div className="space-y-3">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-blue-400" />
-                  <span>Master Formulas & Substitution Identities</span>
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {module.formulaSheet.map((f, fIdx) => (
-                    <div key={fIdx} className="bg-[#14161C] rounded-xl p-4 border border-[#22252C] space-y-2">
-                      <div className="flex items-center justify-between text-xs font-bold text-white">
-                        <span>{f.name}</span>
-                        {f.note && <span className="text-[10px] text-[#8E93A0] italic font-normal">{f.note}</span>}
-                      </div>
-                      <div className="bg-[#0B0C0E] p-3 rounded-lg border border-[#22252C] overflow-x-auto text-center text-xs text-white">
-                        <KaTeXMath math={f.formula} display={true} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-            </div>
-          )}
-
-          {/* TAB 4: Faculty Exam Traps & Insights */}
-          {activeTab === 'insights' && (
-            <div className="w-full h-full overflow-y-auto p-4 sm:p-6 space-y-4 max-w-5xl mx-auto">
-              <div className="bg-[#14161C] border border-[#22252C] rounded-xl p-5 space-y-2">
-                <div className="flex items-center gap-2">
-                  <Lightbulb className="w-5 h-5 text-amber-400" />
-                  <h3 className="text-base font-bold text-white">
-                    Faculty Exam Insights & High-Scoring Techniques
-                  </h3>
-                </div>
-                <p className="text-xs text-[#8E93A0]">
-                  Common evaluation traps where VIT examiners deduct marks, and exact presentation guidelines to secure full 10/10.
-                </p>
-              </div>
-
-              <div className="space-y-3">
-                {module.examInsights.map((ins, insIdx) => (
-                  <div key={insIdx} className="bg-[#14161C] border border-amber-500/20 rounded-xl p-5 space-y-2">
-                    <div className="flex items-center gap-2 text-amber-400 font-bold text-sm">
-                      <AlertTriangle className="w-4 h-4" />
-                      <span>{ins.title}</span>
-                    </div>
-                    <div className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed pl-6">
-                      <FormattedText text={ins.desc} />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* SPECIAL TAB 5: 100-Word Official Definition Bank (English Q5) */}
-          {activeTab === 'wordbank' && (
-            <div className="w-full h-full overflow-y-auto p-4 sm:p-6 space-y-6 max-w-5xl mx-auto">
-              
-              {/* Header & Search */}
-              <div className="bg-[#14161C] border border-[#22252C] rounded-xl p-5 space-y-4">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <Sparkles className="w-5 h-5 text-pink-400" />
-                      <h3 className="text-base sm:text-lg font-bold text-white">
-                        BAENG101 Official Definition Word Bank (100 Words)
-                      </h3>
-                    </div>
-                    <p className="text-xs text-[#8E93A0]">
-                      FAT Question 5 carries 10 Marks testing these exact 100 words. Format strictly as: <strong>Term = Class (Genus) + Differentia</strong>.
-                    </p>
-                  </div>
-                  <span className="text-xs font-mono font-bold px-3 py-1.5 rounded-lg bg-pink-950/40 text-pink-300 border border-pink-500/30 shrink-0">
-                    {filteredWords.length} / 100 Words
-                  </span>
-                </div>
-
-                {/* Search Bar */}
-                <div className="relative">
-                  <Search className="w-4 h-4 text-[#8E93A0] absolute left-3.5 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="text"
-                    placeholder="Search any word (e.g. satellite, drone, walkalator, phishing, renewable energy)..."
-                    value={wordBankSearch}
-                    onChange={(e) => setWordBankSearch(e.target.value)}
-                    className="w-full bg-[#0B0C0E] border border-[#22252C] rounded-xl pl-10 pr-4 py-2.5 text-xs text-white placeholder-[#656A76] focus:outline-none focus:border-[#EB0029]"
-                  />
-                </div>
-              </div>
-
-              {/* 100 Words Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {filteredWords.map((item) => (
-                  <div key={item.id} className="bg-[#14161C] border border-[#22252C] hover:border-[#383D4D] rounded-xl p-4 space-y-2.5 transition-all">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-bold text-white flex items-center gap-2">
-                        <span className="text-xs font-mono text-[#EB0029]">#{item.id}</span>
-                        <span>{item.term}</span>
-                      </span>
-                    </div>
-
-                    <div className="space-y-1.5 text-xs bg-[#0B0C0E] p-3 rounded-lg border border-[#22252C]">
-                      <div>
-                        <span className="text-[10px] uppercase font-bold text-emerald-400 block">Class / Genus:</span>
-                        <span className="text-[#D1D5DB]">{item.class}</span>
-                      </div>
-                      <div className="pt-1">
-                        <span className="text-[10px] uppercase font-bold text-blue-400 block">Differentia:</span>
-                        <span className="text-[#D1D5DB]">{item.differentia}</span>
-                      </div>
-                    </div>
-
-                    <div className="pt-1 border-t border-[#1C1F26]">
-                      <span className="text-[10px] uppercase font-bold text-[#8E93A0] block mb-0.5">Exam Formal Definition:</span>
-                      <p className="text-xs text-[#E5E7EB] font-medium leading-relaxed italic">
-                        "{item.formalDefinition}"
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-            </div>
-          )}
-
-          {/* SPECIAL TAB 6: CBT MCQs (For Environmental Sciences) */}
-          {activeTab === 'mcqs' && (
-            <div className="w-full h-full overflow-y-auto p-4 sm:p-6 space-y-6 max-w-5xl mx-auto">
-              <div className="bg-[#14161C] border border-[#22252C] rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <Layers className="w-5 h-5 text-emerald-400" />
-                    <h3 className="text-base sm:text-lg font-bold text-white">
-                      Online CBT MCQ Exam Simulator (Module {module.moduleNum})
-                    </h3>
-                  </div>
-                  <p className="text-xs text-[#8E93A0]">
-                    Official 1-hour MCQ test on Nov 21. Practice with instant feedback and statutory explanations.
-                  </p>
-                </div>
-              </div>
-
-              {module.mcqs && module.mcqs.length > 0 ? (
-                <div className="space-y-4">
-                  {module.mcqs.map((mcq, mIdx) => {
-                    const selected = mcqAnswers[mcq.id];
-                    const isRevealed = revealedRationales[mcq.id];
-                    return (
-                      <div key={mcq.id || mIdx} className="bg-[#14161C] border border-[#22252C] rounded-xl p-5 space-y-4">
-                        <h4 className="text-sm font-bold text-white leading-snug">
-                          {mIdx + 1}. {mcq.question}
-                        </h4>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {mcq.options.map((opt, optIdx) => {
-                            const optKey = opt.charAt(0);
-                            const isCorrectOpt = optKey === mcq.correct;
-                            const isSelectedOpt = selected === optKey;
-
-                            let optStyle = 'bg-[#0B0C0E] border-[#22252C] text-[#D1D5DB] hover:border-[#383D4D]';
-                            if (isRevealed) {
-                              if (isCorrectOpt) {
-                                optStyle = 'bg-emerald-950/40 border-emerald-500/50 text-emerald-300 font-bold';
-                              } else if (isSelectedOpt && !isCorrectOpt) {
-                                optStyle = 'bg-red-950/40 border-red-500/50 text-red-300';
-                              }
-                            }
-
-                            return (
-                              <button
-                                key={optIdx}
-                                onClick={() => handleSelectMCQ(mcq.id, optKey)}
-                                className={`p-3 rounded-lg border text-left text-xs transition-all flex items-start gap-2 ${optStyle}`}
-                              >
-                                <span>{opt}</span>
-                              </button>
-                            );
-                          })}
-                        </div>
-
-                        {isRevealed && (
-                          <div className="bg-[#0B0C0E] p-3 rounded-lg border border-[#22252C] text-xs text-[#8E93A0] space-y-1">
-                            <span className="text-emerald-400 font-bold">Correct Answer: Option {mcq.correct}</span>
-                            <p>{mcq.rationale}</p>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              ) : (
-                <div className="bg-[#14161C] border border-[#22252C] rounded-xl p-8 text-center space-y-2">
-                  <p className="text-xs text-[#8E93A0]">Loading question bank...</p>
-                </div>
-              )}
             </div>
           )}
 
