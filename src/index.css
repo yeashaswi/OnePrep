@@ -2,30 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: dark;
+  --bg: #18181A;
+  --side: #1E1E21;
+  --panel: #232326;
+  --raised: #2C2C30;
+  --line: #36363B;
+  --line-soft: #2A2A2E;
+  --dim: #85858D;
+  --text: #BFBFC5;
+  --hi: #F4F4F6;
+  --accent: #E05656;
+  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --sans: "Figtree", "Inter", system-ui, -apple-system, sans-serif;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+
 @layer base {
   body {
-    @apply bg-oneplus-black text-oneplus-textPrimary font-sans antialiased;
-    background-color: #0B0C0E;
-    background-image: radial-gradient(circle at 50% 0%, rgba(235, 0, 41, 0.04) 0%, transparent 60%);
-    background-attachment: fixed;
-    color: #FFFFFF;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15.5px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--serif);
   }
 }
 
-/* Custom OnePlus subtle scrollbars */
+/* Custom peaceful scrollbars (subtle, non-distracting) */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B0C0E;
+  background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #22252C;
+  background: var(--line);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #EB0029;
+  background: #4E4E56;
 }
 
 /* KaTeX Math overrides */
@@ -37,21 +59,56 @@
 }
 .katex {
   font-size: 1.05em;
-  color: #FFFFFF;
+  color: var(--hi);
 }
 
 /* Peaceful clean cards */
 .oneplus-card {
-  background: #14161C;
-  border: 1px solid #22252C;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  transition: all 0.2s var(--ease);
 }
 .oneplus-card:hover {
-  border-color: #323642;
+  border-color: #47474E;
 }
 
 .oneplus-red-pill {
-  background: rgba(235, 0, 41, 0.12);
-  border: 1px solid rgba(235, 0, 41, 0.3);
-  color: #EB0029;
+  background: rgba(224, 86, 86, 0.12);
+  border: 1px solid rgba(224, 86, 86, 0.3);
+  color: #E05656;
+}
+
+/* Recall Mode (Inspired by evs-vit.vercel.app) */
+b.k {
+  color: var(--hi);
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 0 3px;
+  transition: background-color .22s, color .22s, box-shadow .22s;
+}
+
+body.recall b.k {
+  color: transparent !important;
+  background: var(--raised) !important;
+  box-shadow: inset 0 -1px 0 #4A4A50;
+  cursor: pointer;
+  user-select: none;
+}
+body.recall b.k:hover {
+  background: #3A3A40 !important;
+}
+body.recall b.k.shown {
+  color: var(--hi) !important;
+  background: transparent !important;
+  box-shadow: inset 0 -1px 0 #6A6A74;
+}
+
+.recall-hint {
+  display: none;
+  font-size: 13px;
+  color: var(--dim);
+}
+body.recall .recall-hint {
+  display: block;
 }

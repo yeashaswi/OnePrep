@@ -8,23 +8,36 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Peaceful Academic Low-Contrast Theme (Inspired by evs-vit.vercel.app)
+        bg: '#18181A',
+        side: '#1E1E21',
+        panel: '#232326',
+        raised: '#2C2C30',
+        line: '#36363B',
+        lineSoft: '#2A2A2E',
+        dim: '#85858D',
+        textSecondary: '#BFBFC5',
+        textPrimary: '#F4F4F6',
+        
+        // Calmer, refined OnePlus tones
         oneplus: {
-          red: '#EB0029',
-          redHover: '#D00024',
-          redMuted: 'rgba(235, 0, 41, 0.12)',
-          redGlow: 'rgba(235, 0, 41, 0.25)',
-          black: '#0B0C0E',
-          card: '#14161C',
-          cardHover: '#1B1E26',
-          border: '#22252C',
-          borderHover: '#333742',
-          textPrimary: '#FFFFFF',
-          textSecondary: '#9499A8',
-          textMuted: '#5F6370'
+          red: '#E05656',
+          redHover: '#C94545',
+          redMuted: 'rgba(224, 86, 86, 0.12)',
+          redGlow: 'rgba(224, 86, 86, 0.20)',
+          black: '#18181A',
+          card: '#232326',
+          cardHover: '#2C2C30',
+          border: '#36363B',
+          borderHover: '#47474E',
+          textPrimary: '#F4F4F6',
+          textSecondary: '#BFBFC5',
+          textMuted: '#85858D'
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['Newsreader', 'Georgia', 'serif'],
+        sans: ['Figtree', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['Fira Code', 'Courier New', 'monospace']
       }
     },

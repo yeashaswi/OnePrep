@@ -30,11 +30,11 @@ export const STATUS_CONFIG = {
     id: 'not_confident',
     label: 'Not Confident',
     color: 'red',
-    bg: 'bg-[#EB0029]/10',
-    border: 'border-[#EB0029]/40',
-    text: 'text-[#FF4A5A]',
-    badge: 'bg-[#EB0029]/15 text-[#FF6B7A] border border-[#EB0029]/30',
-    dot: 'bg-[#EB0029]',
+    bg: 'bg-[#E05656]/10',
+    border: 'border-[#E05656]/40',
+    text: 'text-[#E05656]',
+    badge: 'bg-[#E05656]/15 text-[#E05656] border border-[#E05656]/30',
+    dot: 'bg-[#E05656]',
     icon: 'AlertTriangle'
   },
   need_to_revise: {
@@ -52,11 +52,11 @@ export const STATUS_CONFIG = {
     id: 'yet_to_start',
     label: 'Yet to Start',
     color: 'slate',
-    bg: 'bg-zinc-800/40',
-    border: 'border-zinc-700/40',
-    text: 'text-zinc-300',
-    badge: 'bg-zinc-800/70 text-zinc-300 border border-zinc-700/50',
-    dot: 'bg-zinc-400',
+    bg: 'bg-[#2C2C30]/50',
+    border: 'border-[#36363B]',
+    text: 'text-[#BFBFC5]',
+    badge: 'bg-[#2C2C30] text-[#BFBFC5] border border-[#36363B]',
+    dot: 'bg-[#85858D]',
     icon: 'Clock'
   },
   strong: {

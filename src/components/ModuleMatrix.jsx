@@ -60,7 +60,7 @@ export default function ModuleMatrix({
     <div className="space-y-6 max-w-6xl mx-auto">
       
       {/* 1. Course Selector Tabs - Peaceful OnePlus Horizontal Segment */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar border-b border-[#22252C]">
+      <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar border-b border-[#36363B]">
         {courses.map(course => {
           const isSelected = course.id === activeCourse.id;
           const courseModCount = getExamModules(course).length;
@@ -70,17 +70,17 @@ export default function ModuleMatrix({
               onClick={() => setSelectedCourseId(course.id)}
               className={`flex items-center gap-2 px-4 py-3 rounded-t-lg text-xs font-semibold whitespace-nowrap transition-all border-b-2 -mb-[1px] ${
                 isSelected
-                  ? 'bg-[#14161C] border-[#EB0029] text-white shadow-sm'
-                  : 'bg-transparent border-transparent text-[#8E93A0] hover:text-white hover:bg-[#14161C]/50'
+                  ? 'bg-[#232326] border-[#E05656] text-[#F4F4F6] shadow-sm'
+                  : 'bg-transparent border-transparent text-[#85858D] hover:text-[#F4F4F6] hover:bg-[#232326]/50'
               }`}
             >
               <span>{course.shortTitle || course.title}</span>
               <span className={`text-[10px] px-1.5 py-0.2 rounded font-mono ${
-                isSelected ? 'bg-[#EB0029]/20 text-[#FF4A5A]' : 'bg-[#1E212B] text-[#656A76]'
+                isSelected ? 'bg-[#E05656]/20 text-[#E05656]' : 'bg-[#2C2C30] text-[#6E6E78]'
               }`}>
                 {course.code}
               </span>
-              <span className="text-[10px] text-[#555966] font-normal">
+              <span className="text-[10px] text-[#6E6E78] font-normal">
                 ({courseModCount} mods)
               </span>
             </button>
@@ -89,21 +89,21 @@ export default function ModuleMatrix({
       </div>
 
       {/* 2. Active Course Header Card */}
-      <div className="bg-[#14161C] border border-[#22252C] rounded-xl p-5 space-y-4">
+      <div className="bg-[#232326] border border-[#36363B] rounded-xl p-5 space-y-4">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2.5 flex-wrap">
-              <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+              <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#F4F4F6] tracking-tight">
                 {activeCourse.title}
               </h2>
-              <span className="px-2 py-0.5 text-xs font-bold font-mono rounded bg-[#1E212B] text-white border border-[#2B2F3A]">
+              <span className="px-2 py-0.5 text-xs font-bold font-mono rounded bg-[#2C2C30] text-[#F4F4F6] border border-[#36363B]">
                 {activeCourse.code}
               </span>
-              <span className="px-2 py-0.5 text-xs font-medium rounded bg-[#EB0029]/10 text-[#FF4A5A] border border-[#EB0029]/30">
+              <span className="px-2 py-0.5 text-xs font-medium rounded bg-[#E05656]/10 text-[#E05656] border border-[#E05656]/30">
                 {activeCourse.badge || `${activeCourse.modules.length} Modules`}
               </span>
             </div>
-            <p className="text-xs sm:text-sm text-[#8E93A0] mt-1 max-w-3xl">
+            <p className="text-xs sm:text-sm text-[#85858D] mt-1 max-w-3xl">
               {activeCourse.description}
             </p>
           </div>
@@ -111,7 +111,7 @@ export default function ModuleMatrix({
           {activeCourse.isMCQExam && onSwitchToMCQPractice && (
             <button
               onClick={onSwitchToMCQPractice}
-              className="px-4 py-2 rounded-lg bg-[#EB0029] hover:bg-[#D00024] text-white text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 whitespace-nowrap shrink-0"
+              className="px-4 py-2 rounded-lg bg-[#E05656] hover:bg-[#C94545] text-[#F4F4F6] text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 whitespace-nowrap shrink-0"
             >
               <GraduationCap className="w-4 h-4" />
               <span>Launch EVS CBT MCQ Simulator</span>
@@ -120,15 +120,15 @@ export default function ModuleMatrix({
         </div>
 
         {/* 3. The 3 Sections Required: Full Detailed Books | Skim Notes | FAT PYQs with Dropdown */}
-        <div className="flex items-center gap-2 pt-2 border-t border-[#1C1F26]">
-          <span className="text-xs font-semibold text-[#8E93A0] mr-1 hidden sm:inline">Section:</span>
+        <div className="flex items-center gap-2 pt-2 border-t border-[#2A2A2E]">
+          <span className="text-xs font-semibold text-[#85858D] mr-1 hidden sm:inline">Section:</span>
           
           <button
             onClick={() => setActiveSection('books')}
             className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
               activeSection === 'books'
-                ? 'bg-[#EB0029] text-white shadow-sm'
-                : 'bg-[#0B0C0E] border border-[#22252C] text-[#8E93A0] hover:text-white'
+                ? 'bg-[#E05656] text-[#F4F4F6] shadow-sm'
+                : 'bg-[#18181A] border border-[#36363B] text-[#85858D] hover:text-[#F4F4F6]'
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
@@ -139,8 +139,8 @@ export default function ModuleMatrix({
             onClick={() => setActiveSection('skim')}
             className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
               activeSection === 'skim'
-                ? 'bg-[#EB0029] text-white shadow-sm'
-                : 'bg-[#0B0C0E] border border-[#22252C] text-[#8E93A0] hover:text-white'
+                ? 'bg-[#E05656] text-[#F4F4F6] shadow-sm'
+                : 'bg-[#18181A] border border-[#36363B] text-[#85858D] hover:text-[#F4F4F6]'
             }`}
           >
             <Zap className="w-3.5 h-3.5 text-amber-400" />
@@ -151,8 +151,8 @@ export default function ModuleMatrix({
             onClick={() => setActiveSection('pyqs')}
             className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
               activeSection === 'pyqs'
-                ? 'bg-[#EB0029] text-white shadow-sm'
-                : 'bg-[#0B0C0E] border border-[#22252C] text-[#8E93A0] hover:text-white'
+                ? 'bg-[#E05656] text-[#F4F4F6] shadow-sm'
+                : 'bg-[#18181A] border border-[#36363B] text-[#85858D] hover:text-[#F4F4F6]'
             }`}
           >
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
@@ -164,7 +164,7 @@ export default function ModuleMatrix({
       {/* SECTION 1: FULL DETAILED BOOKS (MODULE-WISE) */}
       {activeSection === 'books' && (
         <div className="space-y-4">
-          <div className="flex items-center justify-between text-xs text-[#8E93A0] px-1">
+          <div className="flex items-center justify-between text-xs text-[#85858D] px-1">
             <span>Direct access to unabridged, comprehensive module textbooks:</span>
             <span>{activeCourseModules.length} Modules Available</span>
           </div>
@@ -180,20 +180,20 @@ export default function ModuleMatrix({
               return (
                 <div 
                   key={mod.id}
-                  className="bg-[#14161C] border border-[#22252C] hover:border-[#383D4D] rounded-xl p-5 flex flex-col justify-between space-y-4 transition-all"
+                  className="bg-[#232326] border border-[#36363B] hover:border-[#4A4A52] rounded-xl p-5 flex flex-col justify-between space-y-4 transition-all"
                 >
                   <div className="space-y-3">
                     {/* Top Tag Row */}
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
-                        <span className="px-2 py-0.5 rounded text-xs font-bold font-mono bg-[#1B1E26] text-white">
+                        <span className="px-2 py-0.5 rounded text-xs font-bold font-mono bg-[#2C2C30] text-[#F4F4F6]">
                           MOD {mod.moduleNum}
                         </span>
-                        <span className="text-xs font-semibold text-[#EB0029]">
+                        <span className="text-xs font-semibold text-[#E05656]">
                           {mod.co}
                         </span>
                         {mod.weightage && (
-                          <span className="text-[10px] text-[#8E93A0] font-mono">
+                          <span className="text-[10px] text-[#85858D] font-mono">
                             • {mod.weightage}
                           </span>
                         )}
@@ -206,21 +206,21 @@ export default function ModuleMatrix({
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-base font-bold text-white tracking-tight">
+                    <h3 className="text-base font-bold text-[#F4F4F6] tracking-tight">
                       {mod.title}
                     </h3>
 
                     {/* Syllabus Scope */}
-                    <p className="text-xs text-[#8E93A0] leading-relaxed line-clamp-3">
+                    <p className="text-xs text-[#85858D] leading-relaxed line-clamp-3">
                       {mod.scope}
                     </p>
                   </div>
 
                   {/* Action & Classification Footer */}
-                  <div className="pt-3 border-t border-[#1C1F26] space-y-3">
+                  <div className="pt-3 border-t border-[#2A2A2E] space-y-3">
                     
                     {/* 4 Classification Buttons */}
-                    <div className="flex items-center justify-between gap-1 bg-[#0B0C0E] p-1 rounded-lg border border-[#22252C]">
+                    <div className="flex items-center justify-between gap-1 bg-[#18181A] p-1 rounded-lg border border-[#36363B]">
                       {[
                         { id: 'not_confident', label: '🔴 Not Confident' },
                         { id: 'need_to_revise', label: '🟡 Need to Revise' },
@@ -234,8 +234,8 @@ export default function ModuleMatrix({
                             onClick={() => onUpdateModuleStatus(mod.id, cat.id)}
                             className={`flex-1 py-1 rounded text-[10px] font-medium transition-all ${
                               isSelected 
-                                ? 'bg-[#1E212B] text-white font-bold border border-[#333744]' 
-                                : 'text-[#656A76] hover:text-[#B0B5C2]'
+                                ? 'bg-[#2C2C30] text-[#F4F4F6] font-bold border border-[#333744]' 
+                                : 'text-[#6E6E78] hover:text-[#B0B5C2]'
                             }`}
                           >
                             {cat.label}
@@ -248,7 +248,7 @@ export default function ModuleMatrix({
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => onOpenModule(activeCourse.id, mod.id)}
-                        className="flex-1 py-2 px-4 rounded-lg bg-[#EB0029] hover:bg-[#D00024] text-white text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2"
+                        className="flex-1 py-2 px-4 rounded-lg bg-[#E05656] hover:bg-[#C94545] text-[#F4F4F6] text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2"
                       >
                         <BookOpen className="w-4 h-4" />
                         <span>Read Full Detailed Book</span>
@@ -259,7 +259,7 @@ export default function ModuleMatrix({
                           href={finalPdfUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 rounded-lg bg-[#1B1E26] hover:bg-[#252834] border border-[#2B2F3A] text-[#8E93A0] hover:text-white transition-colors"
+                          className="p-2 rounded-lg bg-[#2C2C30] hover:bg-[#34343A] border border-[#36363B] text-[#85858D] hover:text-[#F4F4F6] transition-colors"
                           title="Open PDF in new tab"
                         >
                           <ExternalLink className="w-4 h-4" />
@@ -278,23 +278,23 @@ export default function ModuleMatrix({
       {/* SECTION 2: SKIM NOTES (MODULE-WISE) */}
       {activeSection === 'skim' && (
         <div className="space-y-6">
-          <div className="text-xs text-[#8E93A0] px-1">
+          <div className="text-xs text-[#85858D] px-1">
             High-yield formulas, core substitution identities, and faculty exam traps for rapid revision:
           </div>
 
           <div className="space-y-6">
             {activeCourseModules.map(mod => (
-              <div key={mod.id} className="bg-[#14161C] border border-[#22252C] rounded-xl p-5 space-y-4">
+              <div key={mod.id} className="bg-[#232326] border border-[#36363B] rounded-xl p-5 space-y-4">
                 
                 {/* Module Header */}
-                <div className="flex items-center justify-between border-b border-[#1C1F26] pb-3">
+                <div className="flex items-center justify-between border-b border-[#2A2A2E] pb-3">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                    <h3 className="text-base font-bold text-white">
+                    <h3 className="text-base font-serif font-bold text-[#F4F4F6]">
                       Module {mod.moduleNum}: {mod.title}
                     </h3>
                   </div>
-                  <span className="text-xs font-mono text-[#8E93A0]">{mod.weightage}</span>
+                  <span className="text-xs font-mono text-[#85858D]">{mod.weightage}</span>
                 </div>
 
                 {/* Master Formulas Cards */}
@@ -306,12 +306,12 @@ export default function ModuleMatrix({
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {mod.formulaSheet.map((f, fIdx) => (
-                        <div key={fIdx} className="bg-[#0B0C0E] p-3 rounded-lg border border-[#22252C] space-y-1.5">
-                          <div className="flex items-center justify-between text-xs font-bold text-white">
+                        <div key={fIdx} className="bg-[#18181A] p-3 rounded-lg border border-[#36363B] space-y-1.5">
+                          <div className="flex items-center justify-between text-xs font-bold text-[#F4F4F6]">
                             <span>{f.name}</span>
-                            {f.note && <span className="text-[10px] text-[#8E93A0] italic font-normal">{f.note}</span>}
+                            {f.note && <span className="text-[10px] text-[#85858D] italic font-normal">{f.note}</span>}
                           </div>
-                          <div className="text-center p-2 bg-[#14161C] rounded border border-[#1C1F26] text-xs text-white overflow-x-auto">
+                          <div className="text-center p-2 bg-[#232326] rounded border border-[#2A2A2E] text-xs text-[#F4F4F6] overflow-x-auto">
                             <KaTeXMath math={f.formula} display={true} />
                           </div>
                         </div>
@@ -331,7 +331,7 @@ export default function ModuleMatrix({
                       {mod.examInsights.map((ins, insIdx) => (
                         <div key={insIdx} className="bg-amber-950/15 border border-amber-500/30 rounded-lg p-3 text-xs space-y-1">
                           <span className="font-bold text-amber-300 block">{ins.title}</span>
-                          <p className="text-[#D1D5DB] leading-relaxed">
+                          <p className="text-[#BFBFC5] leading-relaxed">
                             <FormattedText text={ins.desc} />
                           </p>
                         </div>
@@ -349,7 +349,7 @@ export default function ModuleMatrix({
       {/* SECTION 3: FAT PYQs (WITH DROPDOWN SOLUTIONS) */}
       {activeSection === 'pyqs' && (
         <div className="space-y-6">
-          <div className="text-xs text-[#8E93A0] px-1">
+          <div className="text-xs text-[#85858D] px-1">
             Department Question Bank and past FAT exam questions with collapsible/dropdown solutions:
           </div>
 
@@ -359,13 +359,13 @@ export default function ModuleMatrix({
               const hasMcqs = mod.mcqs && mod.mcqs.length > 0;
 
               return (
-                <div key={mod.id} className="bg-[#14161C] border border-[#22252C] rounded-xl p-5 space-y-4">
+                <div key={mod.id} className="bg-[#232326] border border-[#36363B] rounded-xl p-5 space-y-4">
                   
                   {/* Module Header */}
-                  <div className="flex items-center justify-between border-b border-[#1C1F26] pb-3">
+                  <div className="flex items-center justify-between border-b border-[#2A2A2E] pb-3">
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-                      <h3 className="text-base font-bold text-white">
+                      <h3 className="text-base font-serif font-bold text-[#F4F4F6]">
                         Module {mod.moduleNum}: {mod.title}
                       </h3>
                     </div>
@@ -380,7 +380,7 @@ export default function ModuleMatrix({
                       {mod.pyqs.map((q, qIdx) => {
                         const isExpanded = !!expandedSolutions[q.id];
                         return (
-                          <div key={q.id || qIdx} className="bg-[#0B0C0E] border border-[#22252C] rounded-lg overflow-hidden transition-all">
+                          <div key={q.id || qIdx} className="bg-[#18181A] border border-[#36363B] rounded-lg overflow-hidden transition-all">
                             
                             {/* Question Header & Toggle Bar */}
                             <div className="p-4 space-y-2.5">
@@ -389,33 +389,33 @@ export default function ModuleMatrix({
                                   <span className="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
                                     {q.marks || '10 Marks'}
                                   </span>
-                                  <span className="text-xs font-mono text-[#8E93A0]">
+                                  <span className="text-xs font-mono text-[#85858D]">
                                     {q.exam}
                                   </span>
                                 </div>
 
                                 <button
                                   onClick={() => toggleDropdownSolution(q.id)}
-                                  className="px-3 py-1 rounded bg-[#1B1E26] hover:bg-[#252834] text-xs font-semibold text-[#8E93A0] hover:text-white transition-colors flex items-center gap-1.5"
+                                  className="px-3 py-1 rounded bg-[#2C2C30] hover:bg-[#34343A] text-xs font-semibold text-[#85858D] hover:text-[#F4F4F6] transition-colors flex items-center gap-1.5"
                                 >
                                   <span>{isExpanded ? 'Hide Solution ▲' : 'View Dropdown Solution ▼'}</span>
                                 </button>
                               </div>
 
                               {/* Question Text */}
-                              <div className="text-xs sm:text-sm font-semibold text-white leading-relaxed">
+                              <div className="text-xs sm:text-sm font-semibold text-[#F4F4F6] leading-relaxed">
                                 <FormattedText text={q.question} />
                               </div>
                             </div>
 
                             {/* Dropdown Solution */}
                             {isExpanded && (
-                              <div className="bg-[#14161C] p-4 border-t border-[#1C1F26] space-y-2 animate-in fade-in duration-100">
+                              <div className="bg-[#232326] p-4 border-t border-[#2A2A2E] space-y-2 animate-in fade-in duration-100">
                                 <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
                                   <CheckCircle2 className="w-3.5 h-3.5" />
                                   <span>Complete Step-by-Step Solution & Derivations:</span>
                                 </div>
-                                <div className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed font-sans">
+                                <div className="text-xs sm:text-sm text-[#BFBFC5] leading-relaxed font-sans">
                                   <FormattedText text={q.solution} />
                                 </div>
                               </div>
@@ -431,14 +431,14 @@ export default function ModuleMatrix({
                       {mod.mcqs.map((mcq, mIdx) => {
                         const isExpanded = !!expandedSolutions[mcq.id];
                         return (
-                          <div key={mcq.id || mIdx} className="bg-[#0B0C0E] border border-[#22252C] rounded-lg p-4 space-y-3">
+                          <div key={mcq.id || mIdx} className="bg-[#18181A] border border-[#36363B] rounded-lg p-4 space-y-3">
                             <div className="flex items-start justify-between gap-3">
-                              <h4 className="text-xs sm:text-sm font-bold text-white">
+                              <h4 className="text-xs sm:text-sm font-bold text-[#F4F4F6]">
                                 {mIdx + 1}. {mcq.question}
                               </h4>
                               <button
                                 onClick={() => toggleDropdownSolution(mcq.id)}
-                                className="px-2.5 py-1 rounded bg-[#1B1E26] hover:bg-[#252834] text-[11px] font-semibold text-[#8E93A0] hover:text-white transition-colors shrink-0"
+                                className="px-2.5 py-1 rounded bg-[#2C2C30] hover:bg-[#34343A] text-[11px] font-semibold text-[#85858D] hover:text-[#F4F4F6] transition-colors shrink-0"
                               >
                                 {isExpanded ? 'Hide Answer ▲' : 'Show Answer ▼'}
                               </button>
@@ -446,7 +446,7 @@ export default function ModuleMatrix({
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                               {mcq.options.map((opt, oIdx) => (
-                                <div key={oIdx} className="p-2.5 rounded bg-[#14161C] border border-[#1C1F26] text-[#D1D5DB]">
+                                <div key={oIdx} className="p-2.5 rounded bg-[#232326] border border-[#2A2A2E] text-[#BFBFC5]">
                                   {opt}
                                 </div>
                               ))}
@@ -463,7 +463,7 @@ export default function ModuleMatrix({
                       })}
                     </div>
                   ) : (
-                    <p className="text-xs text-[#8E93A0] italic">No past paper questions recorded for this module yet.</p>
+                    <p className="text-xs text-[#85858D] italic">No past paper questions recorded for this module yet.</p>
                   )}
 
                 </div>

@@ -173,9 +173,9 @@ export default function App() {
   const readerStatus = readerModule ? (moduleStatuses[readerModule.id] || readerModule.status) : 'yet_to_start';
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0B0C0E] text-white">
+    <div className="min-h-screen flex flex-col bg-[#18181A] text-[#BFBFC5]">
       
-      {/* Global Application Header in OnePlus Aesthetic */}
+      {/* Global Application Header in Peaceful Aesthetic */}
       <Header
         selectedExam={selectedExam}
         setSelectedExam={setSelectedExam}
@@ -237,10 +237,10 @@ export default function App() {
       </main>
 
       {/* Peaceful Minimalist Footer */}
-      <footer className="border-t border-[#1C1F26] bg-[#0E1015] py-6 mt-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8E93A0]">
+      <footer className="border-t border-[#36363B] bg-[#1E1E21] py-6 mt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#85858D]">
           <div className="flex items-center gap-2">
-            <span className="font-bold text-white">OnePrep</span>
+            <span className="font-serif font-bold text-[#F4F4F6]">OnePrep</span>
             <span>• Tailored for VIT Vellore Students</span>
             <span>• Official Syllabi & Authentic Books</span>
           </div>
@@ -248,19 +248,19 @@ export default function App() {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setIsFormulaModalOpen(true)}
-              className="hover:text-white transition-colors"
+              className="hover:text-[#F4F4F6] transition-colors"
             >
               Master Formulas
             </button>
             <button
               onClick={() => setIsCourseConfigOpen(true)}
-              className="hover:text-white transition-colors"
+              className="hover:text-[#F4F4F6] transition-colors"
             >
               Enrolled Courses ({selectedCourseIds.length})
             </button>
             <button
               onClick={handleResetData}
-              className="hover:text-[#EB0029] transition-colors"
+              className="hover:text-[#E05656] transition-colors"
             >
               Reset Data
             </button>
