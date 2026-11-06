@@ -9,11 +9,11 @@ export const environmentalCourse = {
   "color": "emerald",
   "badge": "100% Online CBT MCQ Exam (21-Nov-2026, 09:00 - 10:00 AM)",
   "isMCQExam": true,
-  "description": "Complete CBT Study Textbook, Recall Study Mode & Official 4-Week MCQ Bank modeled around evs-vit.vercel.app for the semester 1 EVS Computer-Based Test.",
+  "description": "Complete CBT Study Textbook, Recall Study Mode & Official 6-Week MCQ Bank modeled around evs-vit.vercel.app for the semester 1 EVS Computer-Based Test.",
   "targetMarks": {
     "cat1": "50 Marks CBT MCQs (Weeks 1 & 2)",
     "cat2": "50 Marks CBT MCQs (Weeks 3 & 4)",
-    "fat": "100 Marks CBT MCQs (All 4 Weeks \u2014 50 to 100 Objective Questions in 60 Minutes)"
+    "fat": "100 Marks CBT MCQs (All 6 Weeks — 50 to 100 Objective Questions in 60 Minutes)"
   },
   "modules": [
     {
@@ -69,7 +69,7 @@ export const environmentalCourse = {
       "mcqs": [
         {
           "id": "evs-w1-1",
-          "question": "Who defined environmental science as \u201cthe interdisciplinary study of how the Earth works, how we are affecting the Earth's life support systems\u201d?",
+          "question": "Who defined environmental science as “the interdisciplinary study of how the Earth works, how we are affecting the Earth's life support systems”?",
           "options": [
             "A) E.P. Odum",
             "B) Charles Elton",
@@ -129,7 +129,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w1-6",
-          "question": "In the multidisciplinary table, cost\u2013benefit analysis is the contribution of:",
+          "question": "In the multidisciplinary table, cost–benefit analysis is the contribution of:",
           "options": [
             "A) Geology",
             "B) Sociology",
@@ -143,25 +143,25 @@ export const environmentalCourse = {
           "id": "evs-w1-7",
           "question": "Which greenhouse gases are named as causes of climate change in the intro lecture?",
           "options": [
-            "A) O\u2082, N\u2082, Ar",
-            "B) CO\u2082, CH\u2084, N\u2082O",
-            "C) SO\u2082, H\u2082S, NH\u2083",
+            "A) O₂, N₂, Ar",
+            "B) CO₂, CH₄, N₂O",
+            "C) SO₂, H₂S, NH₃",
             "D) He, Ne, Kr"
           ],
           "correct": "B",
-          "rationale": "Correct Option B: CO\u2082, CH\u2084, N\u2082O."
+          "rationale": "Correct Option B: CO₂, CH₄, N₂O."
         },
         {
           "id": "evs-w1-8",
           "question": "According to IPCC reports cited, the average global temperature has risen by about:",
           "options": [
-            "A) 1.1\u00b0C since pre-industrial times",
-            "B) 0.2\u00b0C since 1990",
-            "C) 3.5\u00b0C since 1900",
-            "D) 5\u00b0C since pre-industrial times"
+            "A) 1.1°C since pre-industrial times",
+            "B) 0.2°C since 1990",
+            "C) 3.5°C since 1900",
+            "D) 5°C since pre-industrial times"
           ],
           "correct": "A",
-          "rationale": "Correct Option A: 1.1\u00b0C since pre-industrial times."
+          "rationale": "Correct Option A: 1.1°C since pre-industrial times."
         },
         {
           "id": "evs-w1-9",
@@ -192,12 +192,12 @@ export const environmentalCourse = {
           "question": "Firecrackers mainly emit which toxic substances, according to the notes?",
           "options": [
             "A) CFCs and ozone",
-            "B) SO\u2082, NO and Pb",
+            "B) SO₂, NO and Pb",
             "C) Radon and asbestos",
             "D) Methane and ammonia"
           ],
           "correct": "B",
-          "rationale": "Correct Option B: SO\u2082, NO and Pb."
+          "rationale": "Correct Option B: SO₂, NO and Pb."
         },
         {
           "id": "evs-w1-12",
@@ -263,13 +263,13 @@ export const environmentalCourse = {
           "id": "evs-w1-17",
           "question": "The Paris Agreement (2015) aims to limit warming to below:",
           "options": [
-            "A) 3\u00b0C",
-            "B) 4\u00b0C",
-            "C) 0.5\u00b0C",
-            "D) 2\u00b0C"
+            "A) 3°C",
+            "B) 4°C",
+            "C) 0.5°C",
+            "D) 2°C"
           ],
           "correct": "D",
-          "rationale": "Correct Option D: 2\u00b0C."
+          "rationale": "Correct Option D: 2°C."
         },
         {
           "id": "evs-w1-18",
@@ -297,7 +297,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w1-20",
-          "question": "The word \u201csphere\u201d means:",
+          "question": "The word “sphere” means:",
           "options": [
             "A) To surround or encompass",
             "B) To rotate",
@@ -309,7 +309,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w1-21",
-          "question": "The root word \u201catmo\u201d refers to:",
+          "question": "The root word “atmo” refers to:",
           "options": [
             "A) Water",
             "B) Rocks",
@@ -527,13 +527,13 @@ export const environmentalCourse = {
           "id": "evs-w1-39",
           "question": "Correct order of the water cycle:",
           "options": [
-            "A) Condensation \u2192 evaporation \u2192 collection \u2192 precipitation",
-            "B) Evaporation \u2192 condensation \u2192 precipitation \u2192 collection",
-            "C) Precipitation \u2192 evaporation \u2192 condensation \u2192 collection",
-            "D) Collection \u2192 condensation \u2192 evaporation \u2192 precipitation"
+            "A) Condensation → evaporation → collection → precipitation",
+            "B) Evaporation → condensation → precipitation → collection",
+            "C) Precipitation → evaporation → condensation → collection",
+            "D) Collection → condensation → evaporation → precipitation"
           ],
           "correct": "B",
-          "rationale": "Correct Option B: Evaporation \u2192 condensation \u2192 precipitation \u2192 collection."
+          "rationale": "Correct Option B: Evaporation → condensation → precipitation → collection."
         },
         {
           "id": "evs-w1-40",
@@ -659,13 +659,13 @@ export const environmentalCourse = {
           "id": "evs-w1-50",
           "question": "Correct order of ecological organization, smallest to largest:",
           "options": [
-            "A) Organism \u2192 community \u2192 population \u2192 biosphere \u2192 ecosystem",
-            "B) Population \u2192 organism \u2192 ecosystem \u2192 community \u2192 biosphere",
-            "C) Organism \u2192 population \u2192 community \u2192 ecosystem \u2192 biosphere",
-            "D) Community \u2192 population \u2192 organism \u2192 ecosystem \u2192 biosphere"
+            "A) Organism → community → population → biosphere → ecosystem",
+            "B) Population → organism → ecosystem → community → biosphere",
+            "C) Organism → population → community → ecosystem → biosphere",
+            "D) Community → population → organism → ecosystem → biosphere"
           ],
           "correct": "C",
-          "rationale": "Correct Option C: Organism \u2192 population \u2192 community \u2192 ecosystem \u2192 biosphere."
+          "rationale": "Correct Option C: Organism → population → community → ecosystem → biosphere."
         },
         {
           "id": "evs-w1-51",
@@ -741,7 +741,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w1-57",
-          "question": "Conversion of NO\u2083\u207b back to N\u2082 is called:",
+          "question": "Conversion of NO₃⁻ back to N₂ is called:",
           "options": [
             "A) Assimilation",
             "B) Nitrification",
@@ -767,29 +767,29 @@ export const environmentalCourse = {
           "id": "evs-w1-59",
           "question": "Correct order of decomposition steps:",
           "options": [
-            "A) Leaching \u2192 catabolism \u2192 fragmentation",
-            "B) Fragmentation \u2192 leaching \u2192 catabolism",
-            "C) Catabolism \u2192 fragmentation \u2192 leaching",
-            "D) Fragmentation \u2192 catabolism \u2192 leaching"
+            "A) Leaching → catabolism → fragmentation",
+            "B) Fragmentation → leaching → catabolism",
+            "C) Catabolism → fragmentation → leaching",
+            "D) Fragmentation → catabolism → leaching"
           ],
           "correct": "B",
-          "rationale": "Correct Option B: Fragmentation \u2192 leaching \u2192 catabolism."
+          "rationale": "Correct Option B: Fragmentation → leaching → catabolism."
         },
         {
           "id": "evs-w1-60",
           "question": "NPP is calculated as:",
           "options": [
-            "A) GPP \u2212 respiration",
+            "A) GPP − respiration",
             "B) GPP + respiration",
-            "C) Respiration \u2212 GPP",
-            "D) GPP \u00d7 respiration"
+            "C) Respiration − GPP",
+            "D) GPP × respiration"
           ],
           "correct": "A",
-          "rationale": "Correct Option A: GPP \u2212 respiration."
+          "rationale": "Correct Option A: GPP − respiration."
         },
         {
           "id": "evs-w1-61",
-          "question": "More prey \u2192 more predators \u2192 prey falls back is an example of:",
+          "question": "More prey → more predators → prey falls back is an example of:",
           "options": [
             "A) Biomagnification",
             "B) Positive feedback",
@@ -801,7 +801,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w1-62",
-          "question": "Overgrazing \u2192 vegetation loss \u2192 more erosion \u2192 more loss is:",
+          "question": "Overgrazing → vegetation loss → more erosion → more loss is:",
           "options": [
             "A) Homeostasis",
             "B) Negative feedback",
@@ -837,7 +837,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w1-65",
-          "question": "Excess CO\u2082 absorbed by oceans leads to:",
+          "question": "Excess CO₂ absorbed by oceans leads to:",
           "options": [
             "A) Ozone depletion",
             "B) Denitrification",
@@ -909,7 +909,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w1-71",
-          "question": "Which food chain handles 80\u201390% of energy in forests and wetlands?",
+          "question": "Which food chain handles 80–90% of energy in forests and wetlands?",
           "options": [
             "A) Grazing food chain",
             "B) Detritus food chain",
@@ -1007,25 +1007,25 @@ export const environmentalCourse = {
           "id": "evs-w1-79",
           "question": "Nitrosomonas converts:",
           "options": [
-            "A) NO\u2082\u207b \u2192 NO\u2083\u207b",
-            "B) NH\u2083 \u2192 NO\u2082\u207b",
-            "C) NO\u2083\u207b \u2192 N\u2082",
-            "D) N\u2082 \u2192 NH\u2083"
+            "A) NO₂⁻ → NO₃⁻",
+            "B) NH₃ → NO₂⁻",
+            "C) NO₃⁻ → N₂",
+            "D) N₂ → NH₃"
           ],
           "correct": "B",
-          "rationale": "Correct Option B: NH\u2083 \u2192 NO\u2082\u207b."
+          "rationale": "Correct Option B: NH₃ → NO₂⁻."
         },
         {
           "id": "evs-w1-80",
           "question": "Nitrobacter converts:",
           "options": [
-            "A) NO\u2082\u207b \u2192 NO\u2083\u207b",
-            "B) NH\u2083 \u2192 NO\u2082\u207b",
-            "C) NO\u2083\u207b \u2192 N\u2082",
-            "D) Organic N \u2192 NH\u2084\u207a"
+            "A) NO₂⁻ → NO₃⁻",
+            "B) NH₃ → NO₂⁻",
+            "C) NO₃⁻ → N₂",
+            "D) Organic N → NH₄⁺"
           ],
           "correct": "A",
-          "rationale": "Correct Option A: NO\u2082\u207b \u2192 NO\u2083\u207b."
+          "rationale": "Correct Option A: NO₂⁻ → NO₃⁻."
         },
         {
           "id": "evs-w1-81",
@@ -1045,27 +1045,27 @@ export const environmentalCourse = {
           "options": [
             "A) Ozone",
             "B) Glucose",
-            "C) H\u2082S, NH\u2084, Fe\u00b2\u207a",
+            "C) H₂S, NH₄, Fe²⁺",
             "D) Chlorophyll"
           ],
           "correct": "C",
-          "rationale": "Correct Option C: H\u2082S, NH\u2084, Fe\u00b2\u207a."
+          "rationale": "Correct Option C: H₂S, NH₄, Fe²⁺."
         },
         {
           "id": "evs-w1-83",
           "question": "The Q10 rule says metabolic rate:",
           "options": [
-            "A) Halves per 10\u00b0C rise",
-            "B) Doubles per 10\u00b0C rise",
-            "C) Rises 10\u00d7 per degree",
+            "A) Halves per 10°C rise",
+            "B) Doubles per 10°C rise",
+            "C) Rises 10× per degree",
             "D) Is unaffected by temperature"
           ],
           "correct": "B",
-          "rationale": "Correct Option B: Doubles per 10\u00b0C rise."
+          "rationale": "Correct Option B: Doubles per 10°C rise."
         },
         {
           "id": "evs-w1-84",
-          "question": "Which ecosystem has the highest NPP (~2,000 g/m\u00b2/yr)?",
+          "question": "Which ecosystem has the highest NPP (~2,000 g/m²/yr)?",
           "options": [
             "A) Tropical rainforest",
             "B) Desert",
@@ -1077,7 +1077,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w1-85",
-          "question": "What was pre-industrial atmospheric CO\u2082?",
+          "question": "What was pre-industrial atmospheric CO₂?",
           "options": [
             "A) ~800 ppm",
             "B) ~422 ppm",
@@ -1128,12 +1128,12 @@ export const environmentalCourse = {
           "question": "Eating plants rather than carnivores gives roughly how much more energy?",
           "options": [
             "A) The same",
-            "B) 2\u00d7",
-            "C) 10,000\u00d7",
-            "D) 100\u00d7"
+            "B) 2×",
+            "C) 10,000×",
+            "D) 100×"
           ],
           "correct": "D",
-          "rationale": "Correct Option D: 100\u00d7."
+          "rationale": "Correct Option D: 100×."
         },
         {
           "id": "evs-w1-90",
@@ -1163,25 +1163,25 @@ export const environmentalCourse = {
           "id": "evs-w1-92",
           "question": "Secondary succession is about how much faster than primary?",
           "options": [
-            "A) 5\u201310 times",
+            "A) 5–10 times",
             "B) 2 times",
             "C) 100 times",
             "D) The same speed"
           ],
           "correct": "A",
-          "rationale": "Correct Option A: 5\u201310 times."
+          "rationale": "Correct Option A: 5–10 times."
         },
         {
           "id": "evs-w1-93",
           "question": "The correct order of succession stages is:",
           "options": [
-            "A) Climax \u2192 nudation \u2192 invasion \u2192 competition",
-            "B) Invasion \u2192 nudation \u2192 climax \u2192 competition",
-            "C) Competition \u2192 invasion \u2192 nudation \u2192 climax",
-            "D) Nudation \u2192 invasion \u2192 competition \u2192 climax"
+            "A) Climax → nudation → invasion → competition",
+            "B) Invasion → nudation → climax → competition",
+            "C) Competition → invasion → nudation → climax",
+            "D) Nudation → invasion → competition → climax"
           ],
           "correct": "D",
-          "rationale": "Correct Option D: Nudation \u2192 invasion \u2192 competition \u2192 climax."
+          "rationale": "Correct Option D: Nudation → invasion → competition → climax."
         },
         {
           "id": "evs-w1-94",
@@ -1273,11 +1273,11 @@ export const environmentalCourse = {
           "options": [
             "A) Millions of years",
             "B) 1,000+ years",
-            "C) 1\u20135 years",
-            "D) 50\u2013200 years"
+            "C) 1–5 years",
+            "D) 50–200 years"
           ],
           "correct": "D",
-          "rationale": "Correct Option D: 50\u2013200 years."
+          "rationale": "Correct Option D: 50–200 years."
         },
         {
           "id": "evs-w1-102",
@@ -1391,7 +1391,7 @@ export const environmentalCourse = {
       "examInsights": [
         {
           "title": "In-situ vs Ex-situ Classification Trap",
-          "desc": "In-situ = on-site inside natural habitat (National Park, Wildlife Sanctuary, Biosphere Reserve). Ex-situ = off-site outside natural habitat (Zoological Park, Botanical Garden, Gene Bank, Seed Bank, Cryopreservation). Cryopreservation at -196\u00b0C in liquid nitrogen is strictly Ex-situ."
+          "desc": "In-situ = on-site inside natural habitat (National Park, Wildlife Sanctuary, Biosphere Reserve). Ex-situ = off-site outside natural habitat (Zoological Park, Botanical Garden, Gene Bank, Seed Bank, Cryopreservation). Cryopreservation at -196°C in liquid nitrogen is strictly Ex-situ."
         }
       ],
       "mcqs": [
@@ -1975,13 +1975,13 @@ export const environmentalCourse = {
           "id": "evs-w2-49",
           "question": "Cryopreservation uses liquid nitrogen at about:",
           "options": [
-            "A) \u221280\u00b0C",
-            "B) \u221218\u00b0C",
-            "C) 0\u00b0C",
-            "D) \u2212196\u00b0C"
+            "A) −80°C",
+            "B) −18°C",
+            "C) 0°C",
+            "D) −196°C"
           ],
           "correct": "D",
-          "rationale": "Correct Option D: \u2212196\u00b0C."
+          "rationale": "Correct Option D: −196°C."
         },
         {
           "id": "evs-w2-50",
@@ -2189,7 +2189,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w2-67",
-          "question": "\u201cBt\u201d stands for:",
+          "question": "“Bt” stands for:",
           "options": [
             "A) Biotech trait",
             "B) Bacillus thuringiensis",
@@ -2227,13 +2227,13 @@ export const environmentalCourse = {
           "id": "evs-w2-70",
           "question": "Bt cotton reduced insecticide use against bollworm by about:",
           "options": [
-            "A) 95\u2013100%",
+            "A) 95–100%",
             "B) 5%",
-            "C) 50\u201360%",
-            "D) 10\u201315%"
+            "C) 50–60%",
+            "D) 10–15%"
           ],
           "correct": "C",
-          "rationale": "Correct Option C: 50\u201360%."
+          "rationale": "Correct Option C: 50–60%."
         },
         {
           "id": "evs-w2-71",
@@ -2467,13 +2467,13 @@ export const environmentalCourse = {
           "id": "evs-w2-90",
           "question": "Phthalates make up what share of flexible PVC by weight?",
           "options": [
-            "A) 70\u201390%",
-            "B) 1\u20132%",
-            "C) 25\u201350%",
-            "D) 5\u201310%"
+            "A) 70–90%",
+            "B) 1–2%",
+            "C) 25–50%",
+            "D) 5–10%"
           ],
           "correct": "C",
-          "rationale": "Correct Option C: 25\u201350%."
+          "rationale": "Correct Option C: 25–50%."
         },
         {
           "id": "evs-w2-91",
@@ -2501,7 +2501,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w2-93",
-          "question": "The \u201clow-dose hypothesis\u201d for BPA says it:",
+          "question": "The “low-dose hypothesis” for BPA says it:",
           "options": [
             "A) Only affects plants",
             "B) Is safe at any dose",
@@ -2621,7 +2621,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w2-103",
-          "question": "The most transmissible COVID variant listed (R\u2080 9\u201312) is:",
+          "question": "The most transmissible COVID variant listed (R₀ 9–12) is:",
           "options": [
             "A) Alpha",
             "B) Omicron",
@@ -2681,7 +2681,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w2-108",
-          "question": "The largest single use of BPA (65\u201370%) is in:",
+          "question": "The largest single use of BPA (65–70%) is in:",
           "options": [
             "A) Polycarbonates",
             "B) Epoxy resins",
@@ -2709,11 +2709,11 @@ export const environmentalCourse = {
           "options": [
             "A) Insulin receptors",
             "B) ACE2",
-            "C) ER\u03b1 and ER\u03b2",
+            "C) ERα and ERβ",
             "D) Thiol groups"
           ],
           "correct": "C",
-          "rationale": "Correct Option C: ER\u03b1 and ER\u03b2."
+          "rationale": "Correct Option C: ERα and ERβ."
         },
         {
           "id": "evs-w2-111",
@@ -2853,11 +2853,11 @@ export const environmentalCourse = {
           "options": [
             "A) Oestrogen receptors",
             "B) Carbon dioxide",
-            "C) Thiol (\u2013SH) groups of cysteine",
+            "C) Thiol (–SH) groups of cysteine",
             "D) Chlorophyll"
           ],
           "correct": "C",
-          "rationale": "Correct Option C: Thiol (\u2013SH) groups of cysteine."
+          "rationale": "Correct Option C: Thiol (–SH) groups of cysteine."
         },
         {
           "id": "evs-w2-123",
@@ -2923,13 +2923,13 @@ export const environmentalCourse = {
           "id": "evs-w2-128",
           "question": "Correct order of disaster management phases:",
           "options": [
-            "A) Prevention \u2192 preparedness \u2192 response \u2192 recovery",
-            "B) Response \u2192 prevention \u2192 recovery \u2192 preparedness",
-            "C) Recovery \u2192 response \u2192 preparedness \u2192 prevention",
-            "D) Preparedness \u2192 recovery \u2192 prevention \u2192 response"
+            "A) Prevention → preparedness → response → recovery",
+            "B) Response → prevention → recovery → preparedness",
+            "C) Recovery → response → preparedness → prevention",
+            "D) Preparedness → recovery → prevention → response"
           ],
           "correct": "A",
-          "rationale": "Correct Option A: Prevention \u2192 preparedness \u2192 response \u2192 recovery."
+          "rationale": "Correct Option A: Prevention → preparedness → response → recovery."
         },
         {
           "id": "evs-w2-129",
@@ -2947,7 +2947,7 @@ export const environmentalCourse = {
           "id": "evs-w2-130",
           "question": "Earthquake intensity is measured on the Richter or:",
           "options": [
-            "A) Saffir\u2013Simpson scale",
+            "A) Saffir–Simpson scale",
             "B) Beaufort scale",
             "C) Moment Magnitude Scale",
             "D) pH scale"
@@ -2993,7 +2993,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w2-134",
-          "question": "The 2011 T\u014dhoku earthquake led to a meltdown at:",
+          "question": "The 2011 Tōhoku earthquake led to a meltdown at:",
           "options": [
             "A) Three Mile Island",
             "B) Chernobyl",
@@ -3041,7 +3041,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w2-138",
-          "question": "Cyclones rarely form between 0\u00b0 and 5\u00b0 latitude because of a lack of:",
+          "question": "Cyclones rarely form between 0° and 5° latitude because of a lack of:",
           "options": [
             "A) Moisture",
             "B) Warm water",
@@ -3264,7 +3264,7 @@ export const environmentalCourse = {
           "id": "evs-w3-2",
           "question": "Ground-level ozone forms from:",
           "options": [
-            "A) SO\u2082 + ammonia",
+            "A) SO₂ + ammonia",
             "B) CO + water",
             "C) NOx + VOCs + sunlight",
             "D) CFCs + UV"
@@ -3288,13 +3288,13 @@ export const environmentalCourse = {
           "id": "evs-w3-4",
           "question": "Carbon monoxide binds haemoglobin about how many times more strongly than oxygen?",
           "options": [
-            "A) 200\u00d7",
-            "B) 2\u00d7",
-            "C) 20\u00d7",
-            "D) 2,000\u00d7"
+            "A) 200×",
+            "B) 2×",
+            "C) 20×",
+            "D) 2,000×"
           ],
           "correct": "A",
-          "rationale": "Correct Option A: 200\u00d7."
+          "rationale": "Correct Option A: 200×."
         },
         {
           "id": "evs-w3-5",
@@ -3312,7 +3312,7 @@ export const environmentalCourse = {
           "id": "evs-w3-6",
           "question": "The second leading cause of lung cancer after smoking is:",
           "options": [
-            "A) CO\u2082",
+            "A) CO₂",
             "B) Ozone",
             "C) Radon",
             "D) Ammonia"
@@ -3334,7 +3334,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w3-8",
-          "question": "An AQI of 401\u2013500 is categorized as:",
+          "question": "An AQI of 401–500 is categorized as:",
           "options": [
             "A) Hazardous (maroon)",
             "B) Very unhealthy (purple)",
@@ -3346,7 +3346,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w3-9",
-          "question": "An AQI of 0\u201350 is shown in which colour?",
+          "question": "An AQI of 0–50 is shown in which colour?",
           "options": [
             "A) Blue",
             "B) Yellow",
@@ -3358,7 +3358,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w3-10",
-          "question": "The largest emitters of SO\u2082, NOx and mercury are:",
+          "question": "The largest emitters of SO₂, NOx and mercury are:",
           "options": [
             "A) Forest fires",
             "B) Two-wheelers",
@@ -3370,7 +3370,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w3-11",
-          "question": "Cement production contributes about what share of global CO\u2082?",
+          "question": "Cement production contributes about what share of global CO₂?",
           "options": [
             "A) ~30%",
             "B) ~8%",
@@ -3495,34 +3495,34 @@ export const environmentalCourse = {
             "A) VOCs",
             "B) NOx",
             "C) CO",
-            "D) SO\u2082"
+            "D) SO₂"
           ],
           "correct": "D",
-          "rationale": "Correct Option D: SO\u2082."
+          "rationale": "Correct Option D: SO₂."
         },
         {
           "id": "evs-w3-22",
           "question": "Selective catalytic reduction converts NOx into:",
           "options": [
-            "A) O\u2083",
-            "B) NH\u2083 only",
-            "C) N\u2082 and H\u2082O",
-            "D) HNO\u2083"
+            "A) O₃",
+            "B) NH₃ only",
+            "C) N₂ and H₂O",
+            "D) HNO₃"
           ],
           "correct": "C",
-          "rationale": "Correct Option C: N\u2082 and H\u2082O."
+          "rationale": "Correct Option C: N₂ and H₂O."
         },
         {
           "id": "evs-w3-23",
           "question": "India's NAAQS annual limit for PM2.5 is:",
           "options": [
-            "A) 5 \u00b5g/m\u00b3",
-            "B) 40 \u00b5g/m\u00b3",
-            "C) 15 \u00b5g/m\u00b3",
-            "D) 100 \u00b5g/m\u00b3"
+            "A) 5 µg/m³",
+            "B) 40 µg/m³",
+            "C) 15 µg/m³",
+            "D) 100 µg/m³"
           ],
           "correct": "B",
-          "rationale": "Correct Option B: 40 \u00b5g/m\u00b3."
+          "rationale": "Correct Option B: 40 µg/m³."
         },
         {
           "id": "evs-w3-24",
@@ -3589,12 +3589,12 @@ export const environmentalCourse = {
           "question": "WHO-acceptable pH for drinking water is:",
           "options": [
             "A) 7.0 only",
-            "B) 4.0\u20135.5",
-            "C) 9.0\u201311.0",
-            "D) 6.5\u20138.5"
+            "B) 4.0–5.5",
+            "C) 9.0–11.0",
+            "D) 6.5–8.5"
           ],
           "correct": "D",
-          "rationale": "Correct Option D: 6.5\u20138.5."
+          "rationale": "Correct Option D: 6.5–8.5."
         },
         {
           "id": "evs-w3-30",
@@ -3732,13 +3732,13 @@ export const environmentalCourse = {
           "id": "evs-w3-41",
           "question": "The Gulf of Mexico dead zone is roughly:",
           "options": [
-            "A) 22 km\u00b2",
-            "B) 227 km\u00b2",
-            "C) 2,272,000 km\u00b2",
-            "D) 22,720 km\u00b2"
+            "A) 22 km²",
+            "B) 227 km²",
+            "C) 2,272,000 km²",
+            "D) 22,720 km²"
           ],
           "correct": "D",
-          "rationale": "Correct Option D: 22,720 km\u00b2."
+          "rationale": "Correct Option D: 22,720 km²."
         },
         {
           "id": "evs-w3-42",
@@ -3768,13 +3768,13 @@ export const environmentalCourse = {
           "id": "evs-w3-44",
           "question": "Secondary treatment removes about what share of BOD?",
           "options": [
-            "A) 85\u201395%",
+            "A) 85–95%",
             "B) 30%",
             "C) 10%",
             "D) 50%"
           ],
           "correct": "A",
-          "rationale": "Correct Option A: 85\u201395%."
+          "rationale": "Correct Option A: 85–95%."
         },
         {
           "id": "evs-w3-45",
@@ -4248,13 +4248,13 @@ export const environmentalCourse = {
           "id": "evs-w3-84",
           "question": "Even a rise of about how much reduces oxygen solubility?",
           "options": [
-            "A) 1\u20131.5\u00b0C",
-            "B) 10\u00b0C",
-            "C) 0.01\u00b0C",
-            "D) 25\u00b0C"
+            "A) 1–1.5°C",
+            "B) 10°C",
+            "C) 0.01°C",
+            "D) 25°C"
           ],
           "correct": "A",
-          "rationale": "Correct Option A: 1\u20131.5\u00b0C."
+          "rationale": "Correct Option A: 1–1.5°C."
         },
         {
           "id": "evs-w3-85",
@@ -4438,7 +4438,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w3-100",
-          "question": "Cape Town's \u201cDay Zero\u201d water crisis happened in:",
+          "question": "Cape Town's “Day Zero” water crisis happened in:",
           "options": [
             "A) 2018",
             "B) 2011",
@@ -4596,13 +4596,13 @@ export const environmentalCourse = {
           "id": "evs-w3-113",
           "question": "The linear economy follows:",
           "options": [
-            "A) Recycle \u2192 reduce \u2192 reuse",
-            "B) Reduce \u2192 reuse \u2192 recycle",
-            "C) Make \u2192 reuse \u2192 regenerate",
-            "D) Take \u2192 make \u2192 dispose"
+            "A) Recycle → reduce → reuse",
+            "B) Reduce → reuse → recycle",
+            "C) Make → reuse → regenerate",
+            "D) Take → make → dispose"
           ],
           "correct": "D",
-          "rationale": "Correct Option D: Take \u2192 make \u2192 dispose."
+          "rationale": "Correct Option D: Take → make → dispose."
         },
         {
           "id": "evs-w3-114",
@@ -4680,13 +4680,13 @@ export const environmentalCourse = {
           "id": "evs-w3-120",
           "question": "Incineration temperatures are about:",
           "options": [
-            "A) 800\u20131000\u00b0C",
-            "B) 100\u2013200\u00b0C",
-            "C) 2,000\u20133,000\u00b0C",
-            "D) 50\u00b0C"
+            "A) 800–1000°C",
+            "B) 100–200°C",
+            "C) 2,000–3,000°C",
+            "D) 50°C"
           ],
           "correct": "A",
-          "rationale": "Correct Option A: 800\u20131000\u00b0C."
+          "rationale": "Correct Option A: 800–1000°C."
         },
         {
           "id": "evs-w3-121",
@@ -4800,13 +4800,13 @@ export const environmentalCourse = {
           "id": "evs-w3-130",
           "question": "Food waste makes up about what share of Indian household MSW?",
           "options": [
-            "A) 80\u201390%",
-            "B) 5\u201310%",
-            "C) 50\u201360%",
+            "A) 80–90%",
+            "B) 5–10%",
+            "C) 50–60%",
             "D) 20%"
           ],
           "correct": "C",
-          "rationale": "Correct Option C: 50\u201360%."
+          "rationale": "Correct Option C: 50–60%."
         },
         {
           "id": "evs-w3-131",
@@ -4867,7 +4867,7 @@ export const environmentalCourse = {
       "examScope": "CAT-2 & FAT (CBT MCQ)",
       "weightage": "25% of CBT Exam (approx 25 MCQs)",
       "status": "not_confident",
-      "scope": "Major Indian environmental legislation: Wildlife Protection Act 1972, Water (Prevention and Control of Pollution) Act 1974, Air Act 1981 (Noise included as pollutant in 1987 amendment), Environment Protection Act 1986 (Umbrella Act enacted post-Bhopal gas tragedy), Forest Conservation Act 1980, Biological Diversity Act 2002, National Green Tribunal (NGT) Act 2010; International conventions: Stockholm 1972, Montreal Protocol 1987 (Ozone depleting substances), Rio Earth Summit 1992 (Agenda 21, UNFCCC, CBD), Kyoto Protocol 1997 (CDM, Annex-I carbon reduction targets), Paris Agreement 2015 (Limit warming well below 2\u00b0C, aim for 1.5\u00b0C); Sustainable Development: Brundtland Commission 1987 ('Our Common Future'), 17 UN SDGs (2015-2030); Environmental Impact Assessment (EIA 4 steps: Screening, Scoping, Public Consultation, Appraisal); Carbon credits and carbon footprint.",
+      "scope": "Major Indian environmental legislation: Wildlife Protection Act 1972, Water (Prevention and Control of Pollution) Act 1974, Air Act 1981 (Noise included as pollutant in 1987 amendment), Environment Protection Act 1986 (Umbrella Act enacted post-Bhopal gas tragedy), Forest Conservation Act 1980, Biological Diversity Act 2002, National Green Tribunal (NGT) Act 2010; International conventions: Stockholm 1972, Montreal Protocol 1987 (Ozone depleting substances), Rio Earth Summit 1992 (Agenda 21, UNFCCC, CBD), Kyoto Protocol 1997 (CDM, Annex-I carbon reduction targets), Paris Agreement 2015 (Limit warming well below 2°C, aim for 1.5°C); Sustainable Development: Brundtland Commission 1987 ('Our Common Future'), 17 UN SDGs (2015-2030); Environmental Impact Assessment (EIA 4 steps: Screening, Scoping, Public Consultation, Appraisal); Carbon credits and carbon footprint.",
       "blueprint": {
         "marksTotal": "25 Marks in FAT CBT",
         "questionTypes": [
@@ -4877,7 +4877,7 @@ export const environmentalCourse = {
           },
           {
             "type": "Protocol Targets & SDG Numbers",
-            "desc": "Montreal 1987 (Ozone/CFCs) vs Kyoto 1997 (GHGs) vs Paris 2015 (2\u00b0C target); matching SDG 6 (Clean water), SDG 13 (Climate action), SDG 14 (Life below water), SDG 15 (Life on land)."
+            "desc": "Montreal 1987 (Ozone/CFCs) vs Kyoto 1997 (GHGs) vs Paris 2015 (2°C target); matching SDG 6 (Clean water), SDG 13 (Climate action), SDG 14 (Life below water), SDG 15 (Life on land)."
           }
         ]
       },
@@ -5045,13 +5045,13 @@ export const environmentalCourse = {
           "id": "evs-w4-12",
           "question": "A limitation of the checklist method is that it:",
           "options": [
-            "A) Shows no cause\u2013effect relationships",
+            "A) Shows no cause–effect relationships",
             "B) Needs supercomputers",
             "C) Is too quantitative",
             "D) Cannot list air impacts"
           ],
           "correct": "A",
-          "rationale": "Correct Option A: Shows no cause\u2013effect relationships."
+          "rationale": "Correct Option A: Shows no cause–effect relationships."
         },
         {
           "id": "evs-w4-13",
@@ -5139,7 +5139,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w4-20",
-          "question": "Road construction \u2192 deforestation \u2192 erosion \u2192 river sedimentation illustrates:",
+          "question": "Road construction → deforestation → erosion → river sedimentation illustrates:",
           "options": [
             "A) Network analysis",
             "B) Leopold matrix",
@@ -5297,13 +5297,13 @@ export const environmentalCourse = {
           "id": "evs-w4-33",
           "question": "The maximum EPA penalty for a first violation is:",
           "options": [
-            "A) 7 years + \u20b910 lakh",
-            "B) 3 months + \u20b910,000",
-            "C) 6 years + \u20b95,000/day",
-            "D) 5 years + \u20b91 lakh"
+            "A) 7 years + ₹10 lakh",
+            "B) 3 months + ₹10,000",
+            "C) 6 years + ₹5,000/day",
+            "D) 5 years + ₹1 lakh"
           ],
           "correct": "D",
-          "rationale": "Correct Option D: 5 years + \u20b91 lakh."
+          "rationale": "Correct Option D: 5 years + ₹1 lakh."
         },
         {
           "id": "evs-w4-34",
@@ -5417,13 +5417,13 @@ export const environmentalCourse = {
           "id": "evs-w4-43",
           "question": "The Air Act penalty is up to:",
           "options": [
-            "A) 5 years + \u20b91 lakh",
-            "B) 3 months + \u20b910,000",
-            "C) 1.5\u20136 years",
+            "A) 5 years + ₹1 lakh",
+            "B) 3 months + ₹10,000",
+            "C) 1.5–6 years",
             "D) 7 years"
           ],
           "correct": "B",
-          "rationale": "Correct Option B: 3 months + \u20b910,000."
+          "rationale": "Correct Option B: 3 months + ₹10,000."
         },
         {
           "id": "evs-w4-44",
@@ -5669,25 +5669,25 @@ export const environmentalCourse = {
           "id": "evs-w4-64",
           "question": "The punishment for breaking Section 24 (Section 43) is:",
           "options": [
-            "A) 1.5\u20136 years + fine",
+            "A) 1.5–6 years + fine",
             "B) Up to 3 months",
-            "C) \u20b95,000 only",
+            "C) ₹5,000 only",
             "D) Warning only"
           ],
           "correct": "A",
-          "rationale": "Correct Option A: 1.5\u20136 years + fine."
+          "rationale": "Correct Option A: 1.5–6 years + fine."
         },
         {
           "id": "evs-w4-65",
           "question": "The additional fine for continuing violations (Section 45) is up to:",
           "options": [
-            "A) \u20b9500 per day",
-            "B) \u20b910,000 per day",
-            "C) \u20b91 lakh per day",
-            "D) \u20b95,000 per day"
+            "A) ₹500 per day",
+            "B) ₹10,000 per day",
+            "C) ₹1 lakh per day",
+            "D) ₹5,000 per day"
           ],
           "correct": "D",
-          "rationale": "Correct Option D: \u20b95,000 per day."
+          "rationale": "Correct Option D: ₹5,000 per day."
         },
         {
           "id": "evs-w4-66",
@@ -5779,11 +5779,11 @@ export const environmentalCourse = {
           "options": [
             "A) 7 years",
             "B) 6 years",
-            "C) \u20b95,000/day",
-            "D) 3 months or \u20b910,000 or both"
+            "C) ₹5,000/day",
+            "D) 3 months or ₹10,000 or both"
           ],
           "correct": "D",
-          "rationale": "Correct Option D: 3 months or \u20b910,000 or both."
+          "rationale": "Correct Option D: 3 months or ₹10,000 or both."
         },
         {
           "id": "evs-w4-74",
@@ -6019,7 +6019,7 @@ export const environmentalCourse = {
           "options": [
             "A) Life imprisonment",
             "B) Up to 3 months",
-            "C) \u20b910,000 fine only",
+            "C) ₹10,000 fine only",
             "D) Minimum 3 years, up to 7 years"
           ],
           "correct": "D",
@@ -6149,13 +6149,13 @@ export const environmentalCourse = {
           "id": "evs-w4-104",
           "question": "Without the greenhouse effect, Earth's average temperature would be about:",
           "options": [
-            "A) \u221218\u00b0C",
-            "B) 0\u00b0C",
-            "C) 15\u00b0C",
-            "D) \u2212100\u00b0C"
+            "A) −18°C",
+            "B) 0°C",
+            "C) 15°C",
+            "D) −100°C"
           ],
           "correct": "A",
-          "rationale": "Correct Option A: \u221218\u00b0C."
+          "rationale": "Correct Option A: −18°C."
         },
         {
           "id": "evs-w4-105",
@@ -6245,13 +6245,13 @@ export const environmentalCourse = {
           "id": "evs-w4-112",
           "question": "Kyoto's first commitment period was:",
           "options": [
-            "A) 2008\u20132012",
-            "B) 2013\u20132020",
-            "C) 1997\u20132005",
-            "D) 2015\u20132030"
+            "A) 2008–2012",
+            "B) 2013–2020",
+            "C) 1997–2005",
+            "D) 2015–2030"
           ],
           "correct": "A",
-          "rationale": "Correct Option A: 2008\u20132012."
+          "rationale": "Correct Option A: 2008–2012."
         },
         {
           "id": "evs-w4-113",
@@ -6293,13 +6293,13 @@ export const environmentalCourse = {
           "id": "evs-w4-116",
           "question": "Methane's warming potential over 100 years is about:",
           "options": [
-            "A) 28\u201336\u00d7 CO\u2082",
-            "B) 2\u00d7 CO\u2082",
-            "C) 300\u00d7 CO\u2082",
-            "D) Equal to CO\u2082"
+            "A) 28–36× CO₂",
+            "B) 2× CO₂",
+            "C) 300× CO₂",
+            "D) Equal to CO₂"
           ],
           "correct": "A",
-          "rationale": "Correct Option A: 28\u201336\u00d7 CO\u2082."
+          "rationale": "Correct Option A: 28–36× CO₂."
         },
         {
           "id": "evs-w4-117",
@@ -6509,17 +6509,17 @@ export const environmentalCourse = {
           "id": "evs-w4-134",
           "question": "The Paris goal is to keep warming:",
           "options": [
-            "A) Exactly at 1\u00b0C",
-            "B) Below 4\u00b0C",
-            "C) Well below 2\u00b0C, pursuing 1.5\u00b0C",
-            "D) Below 3\u00b0C"
+            "A) Exactly at 1°C",
+            "B) Below 4°C",
+            "C) Well below 2°C, pursuing 1.5°C",
+            "D) Below 3°C"
           ],
           "correct": "C",
-          "rationale": "Correct Option C: Well below 2\u00b0C, pursuing 1.5\u00b0C."
+          "rationale": "Correct Option C: Well below 2°C, pursuing 1.5°C."
         },
         {
           "id": "evs-w4-135",
-          "question": "The 1.5\u00b0C target was pushed by:",
+          "question": "The 1.5°C target was pushed by:",
           "options": [
             "A) The USA",
             "B) Small Island Developing States",
@@ -6543,7 +6543,7 @@ export const environmentalCourse = {
         },
         {
           "id": "evs-w4-137",
-          "question": "At 2\u00b0C of warming, coral reefs are:",
+          "question": "At 2°C of warming, coral reefs are:",
           "options": [
             "A) Only slightly stressed",
             "B) Unaffected",
@@ -6629,13 +6629,13 @@ export const environmentalCourse = {
           "id": "evs-w4-144",
           "question": "India's NDC extra carbon sink target is:",
           "options": [
-            "A) 2.5\u20133 billion t CO\u2082e",
-            "B) 25\u201330 million t",
+            "A) 2.5–3 billion t CO₂e",
+            "B) 25–30 million t",
             "C) 100 billion t",
             "D) 1 billion t"
           ],
           "correct": "A",
-          "rationale": "Correct Option A: 2.5\u20133 billion t CO\u2082e."
+          "rationale": "Correct Option A: 2.5–3 billion t CO₂e."
         },
         {
           "id": "evs-w4-145",
@@ -6761,13 +6761,13 @@ export const environmentalCourse = {
           "id": "evs-w4-155",
           "question": "If all current NDCs are met, warming would still reach about:",
           "options": [
-            "A) 1.0\u00b0C",
-            "B) 2.5\u20133\u00b0C",
-            "C) 1.5\u00b0C",
-            "D) 5\u00b0C"
+            "A) 1.0°C",
+            "B) 2.5–3°C",
+            "C) 1.5°C",
+            "D) 5°C"
           ],
           "correct": "B",
-          "rationale": "Correct Option B: 2.5\u20133\u00b0C."
+          "rationale": "Correct Option B: 2.5–3°C."
         },
         {
           "id": "evs-w4-156",
@@ -7056,6 +7056,863 @@ export const environmentalCourse = {
           ],
           "correct": "B",
           "rationale": "Correct Option B: A process of change, not a fixed state."
+        }
+      ]
+    },
+    {
+      "id": "evs-m5",
+      "moduleNum": 5,
+      "pdfUrl": "/pdfs/environmental/EVS_MOD-5.pdf",
+      "title": "Week 5: Climate Change and Emerging Environmental Issues",
+      "co": "CO: 5",
+      "examScope": "FAT (CBT MCQ)",
+      "weightage": "15-20% of CBT Exam",
+      "status": "yet_to_start",
+      "scope": "Climate change science, Enhanced greenhouse effect, Greenhouse gases and Global Warming Potential (GWP rankings: SF6 > N2O > CH4 > CO2), Radiative forcing, IPCC temperature limits (1.5 °C & 2.0 °C), Sea level rise and melting polar ice caps, Ocean acidification (pH decline from 8.2 to 8.1, carbonic acid formation dissolving aragonite coral skeletons), Extreme meteorological events and climate refugees, Acid deposition (SO2, NOx, pH < 5.6, marble stone leprosy on Taj Mahal, toxic Al3+ soil leaching), Stratospheric ozone layer depletion (Dobson units, Chapman cycle, Cl/Br catalytic halogen cycles, Polar Stratospheric Clouds, Montreal Protocol 1987 & Kigali Amendment 2016), and Environmental Impact Assessment (EIA Notification 2006, Category A vs B1/B2, 4-stage process: Screening, Scoping with ToR, Public Consultation, Appraisal, Environmental Management Plan EMP).",
+      "blueprint": {
+        "marksTotal": "15 to 20 Marks in FAT CBT",
+        "questionTypes": [
+          {
+            "type": "Greenhouse Gases & GWP Rankings",
+            "desc": "Comparative GWP values over 100-year timescale (SF6 = 23,500, N2O = 265-298, CH4 = 28-36, CO2 = 1) and atmospheric lifetimes."
+          },
+          {
+            "type": "Ocean Acidification & Acid Rain Chemistry",
+            "desc": "Carbonic acid dissociation reducing marine carbonate ions, and sulfuric/nitric acid formation causing Taj Mahal marble erosion and soil toxic Al3+ leaching."
+          },
+          {
+            "type": "Ozone Hole & Montreal Protocol",
+            "desc": "Chlorofluorocarbon catalytic breakdown of O3, role of type-I/II PSCs in Antarctic spring, and international phase-out treaties."
+          },
+          {
+            "type": "EIA 4-Stage Regulatory Workflow",
+            "desc": "Chronological order (Screening -> Scoping -> Public Consultation -> Appraisal), MoEFCC Central Category A vs SEIAA State Category B."
+          }
+        ]
+      },
+      "formulaSheet": [
+        {
+          "name": "Global Warming Potential (100-yr Horizon)",
+          "formula": "\\text{GWP}: \\; \\text{SF}_6 (23,500) > \\text{CFC-12} (10,200) > \\text{N}_2\\text{O} (265) > \\text{CH}_4 (28) > \\text{CO}_2 (1)",
+          "note": "CO2 is standard reference gas with GWP = 1"
+        },
+        {
+          "name": "Ocean Acidification Equilibrium",
+          "formula": "\\text{CO}_2 + \\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_2\\text{CO}_3 \\rightleftharpoons \\text{H}^+ + \\text{HCO}_3^-, \\quad \\text{H}^+ + \\text{CO}_3^{2-} \\rightleftharpoons \\text{HCO}_3^-",
+          "note": "Drops seawater pH and deprives corals of CO3(2-) for CaCO3 calcification"
+        },
+        {
+          "name": "Acid Deposition Marble Erosion (Stone Leprosy)",
+          "formula": "\\text{CaCO}_3 + \\text{H}_2\\text{SO}_4 \\rightarrow \\text{CaSO}_4 + \\text{H}_2\\text{O} + \\text{CO}_2 \\uparrow",
+          "note": "Converts insoluble CaCO3 into soluble gypsum CaSO4"
+        },
+        {
+          "name": "Catalytic Ozone Depletion by CFCs",
+          "formula": "\\text{CF}_2\\text{Cl}_2 \\xrightarrow{h\\nu} \\text{CF}_2\\text{Cl}^\\bullet + \\text{Cl}^\\bullet, \\quad \\text{Cl}^\\bullet + \\text{O}_3 \\rightarrow \\text{ClO}^\\bullet + \\text{O}_2, \\quad \\text{ClO}^\\bullet + \\text{O} \\rightarrow \\text{Cl}^\\bullet + \\text{O}_2",
+          "note": "1 chlorine radical can destroy up to 100,000 ozone molecules"
+        }
+      ],
+      "examInsights": [
+        {
+          "title": "Highest GWP Gas Trap (VIT CBT Classic)",
+          "desc": "Sulfur hexafluoride (SF6) has the highest known GWP of approximately 23,500 and an atmospheric lifetime exceeding 3,000 years. It is widely used as a dielectric insulating gas in high-voltage circuit breakers."
+        },
+        {
+          "title": "Strict 4-Stage EIA Chronology",
+          "desc": "VIT examiners repeatedly ask for the exact statutory chronological sequence of EIA under Notification 2006: (1) Screening -> (2) Scoping -> (3) Public Consultation -> (4) Appraisal. Scoping is where the Terms of Reference (ToR) are formulated."
+        },
+        {
+          "title": "Acid Rain pH Cutoff",
+          "desc": "Normal unpolluted rainwater has a pH of approximately 5.6 due to dissolution of natural atmospheric CO2 forming weak carbonic acid. Any precipitation with pH < 5.6 is officially defined as Acid Rain."
+        },
+        {
+          "title": "Dobson Unit (DU) Definition",
+          "desc": "1 Dobson Unit represents a 0.01 mm thickness of pure ozone gas layer compressed to standard temperature and pressure (STP). Normal stratospheric ozone is ~300 DU; an 'ozone hole' is declared when levels drop below 220 DU."
+        }
+      ],
+      "topics": [
+        {
+          "id": "evs-t5-1",
+          "title": "Topic 1: Climate Change Science & Greenhouse Potentials",
+          "theory": "Enhanced greenhouse effect, GWP of gases (SF6, N2O, CH4, CO2), radiative forcing, IPCC temperature goals (1.5 °C & 2.0 °C)."
+        },
+        {
+          "id": "evs-t5-2",
+          "title": "Topic 2: Ocean Acidification, Cryosphere Melting & Acid Rain",
+          "theory": "Seawater pH drop from 8.2 to 8.1, aragonite undersaturation, coral bleaching. Acid rain SO2/NOx mechanisms, Taj Mahal marble leprosy (CaSO4), soil leaching of Al3+."
+        },
+        {
+          "id": "evs-t5-3",
+          "title": "Topic 3: Stratospheric Ozone Depletion & Montreal Protocol",
+          "theory": "Chapman cycle, chlorofluorocarbons Cl radical catalytic destruction, Antarctic polar vortex and PSCs (type I & II), Dobson Units (<220 DU hole), Montreal Protocol 1987 & Kigali Amendment."
+        },
+        {
+          "id": "evs-t5-4",
+          "title": "Topic 4: Environmental Impact Assessment (EIA 2006)",
+          "theory": "Objectives of EIA. Category A (Central MoEFCC) vs Category B (State SEIAA). 4 canonical stages: Screening, Scoping (ToR), Public Consultation (Public Hearing), Appraisal (EAC). Environmental Management Plan (EMP)."
+        }
+      ],
+      "mcqs": [
+        {
+          "id": "evs-w5-1",
+          "question": "Which greenhouse gas exhibits the highest Global Warming Potential (GWP) over a 100-year time horizon?",
+          "options": [
+            "A) Carbon dioxide (CO2)",
+            "B) Methane (CH4)",
+            "C) Nitrous oxide (N2O)",
+            "D) Sulfur hexafluoride (SF6)"
+          ],
+          "correct": "D",
+          "rationale": "Correct Option D: Sulfur hexafluoride (SF6) has a GWP of approximately 23,500, the highest known of any greenhouse gas."
+        },
+        {
+          "id": "evs-w5-2",
+          "question": "What is the baseline reference gas assigned a Global Warming Potential (GWP) of exactly 1?",
+          "options": [
+            "A) Methane",
+            "B) Water vapor",
+            "C) Carbon dioxide",
+            "D) Ozone"
+          ],
+          "correct": "C",
+          "rationale": "Correct Option C: Carbon dioxide (CO2) is the universal reference standard against which all other greenhouse gas GWPs are measured (GWP = 1)."
+        },
+        {
+          "id": "evs-w5-3",
+          "question": "What is the approximate Global Warming Potential (GWP) of methane (CH4) over a 100-year period according to recent IPCC reports?",
+          "options": [
+            "A) 1",
+            "B) 10",
+            "C) 28 to 36",
+            "D) 265"
+          ],
+          "correct": "C",
+          "rationale": "Correct Option C: Methane has a GWP of 28 to 36 over a 100-year timescale, trapping about 30 times more heat per molecule than CO2."
+        },
+        {
+          "id": "evs-w5-4",
+          "question": "Nitrous oxide (N2O) has a 100-year GWP of approximately:",
+          "options": [
+            "A) 1",
+            "B) 28",
+            "C) 265 to 298",
+            "D) 10,200"
+          ],
+          "correct": "C",
+          "rationale": "Correct Option C: Nitrous oxide (N2O) has a 100-year GWP of ~265 to 298, largely emitted from agricultural fertilizers and microbial denitrification."
+        },
+        {
+          "id": "evs-w5-5",
+          "question": "Which gas is primarily used as an electrical insulating dielectric medium in high-voltage circuit breakers?",
+          "options": [
+            "A) Argon",
+            "B) Sulfur hexafluoride (SF6)",
+            "C) Nitrogen dioxide",
+            "D) CFC-11"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: SF6 is an exceptional dielectric gas with high electronegativity used to quench high-voltage electrical arcs."
+        },
+        {
+          "id": "evs-w5-6",
+          "question": "The statutory chronological order of the 4 stages in the Indian EIA Notification 2006 is:",
+          "options": [
+            "A) Scoping -> Screening -> Appraisal -> Public Consultation",
+            "B) Screening -> Scoping -> Public Consultation -> Appraisal",
+            "C) Public Consultation -> Screening -> Scoping -> Appraisal",
+            "D) Screening -> Appraisal -> Scoping -> Public Consultation"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Under EIA Notification 2006, the sequential stages are: (1) Screening, (2) Scoping, (3) Public Consultation, (4) Appraisal."
+        },
+        {
+          "id": "evs-w5-7",
+          "question": "In the EIA framework, the Terms of Reference (ToR) are formulated during which stage?",
+          "options": [
+            "A) Screening",
+            "B) Scoping",
+            "C) Public Consultation",
+            "D) Baseline Monitoring"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: During the Scoping stage, the Expert Appraisal Committee (EAC) defines the comprehensive Terms of Reference (ToR) for the EIA study."
+        },
+        {
+          "id": "evs-w5-8",
+          "question": "Under the Indian EIA Notification 2006, Category A projects are evaluated and cleared at which level?",
+          "options": [
+            "A) District Collectorate",
+            "B) State Environmental Impact Assessment Authority (SEIAA)",
+            "C) Ministry of Environment, Forest and Climate Change (MoEFCC), Central Government",
+            "D) Gram Panchayat"
+          ],
+          "correct": "C",
+          "rationale": "Correct Option C: Category A developmental projects require environmental clearance from the central MoEFCC at New Delhi upon recommendation of the central EAC."
+        },
+        {
+          "id": "evs-w5-9",
+          "question": "Under the EIA Notification 2006, Category B projects are appraised by:",
+          "options": [
+            "A) Central Pollution Control Board (CPCB)",
+            "B) State Environment Impact Assessment Authority (SEIAA)",
+            "C) United Nations Environment Programme (UNEP)",
+            "D) National Green Tribunal (NGT)"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Category B projects are appraised at the state level by the State Environment Impact Assessment Authority (SEIAA) and SEAC."
+        },
+        {
+          "id": "evs-w5-10",
+          "question": "Which category of projects under EIA Notification 2006 is completely exempt from conducting an Environmental Impact Assessment?",
+          "options": [
+            "A) Category A",
+            "B) Category B1",
+            "C) Category B2",
+            "D) Category C"
+          ],
+          "correct": "C",
+          "rationale": "Correct Option C: Category B projects are screened into B1 (which requires a full EIA) and B2 (which does not require an EIA study)."
+        },
+        {
+          "id": "evs-w5-11",
+          "question": "Which component of an EIA report specifies the mitigation budget, operational controls, and monitoring schedule during project execution?",
+          "options": [
+            "A) Terms of Reference (ToR)",
+            "B) Environmental Management Plan (EMP)",
+            "C) Rapid EIA summary",
+            "D) Baseline meteorology"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: The Environmental Management Plan (EMP) details specific mitigation measures, implementation timelines, and environmental monitoring protocols."
+        },
+        {
+          "id": "evs-w5-12",
+          "question": "Precipitation is scientifically categorized as 'Acid Rain' when its pH value falls below:",
+          "options": [
+            "A) 7.0",
+            "B) 6.5",
+            "C) 5.6",
+            "D) 4.0"
+          ],
+          "correct": "C",
+          "rationale": "Correct Option C: Natural unpolluted rain is mildly acidic (pH ≈ 5.6) due to dissolved atmospheric CO2. Rain with pH < 5.6 is classified as acid rain."
+        },
+        {
+          "id": "evs-w5-13",
+          "question": "The two primary atmospheric precursor gases responsible for acid rain formation are:",
+          "options": [
+            "A) CO2 and CH4",
+            "B) SO2 and NOx",
+            "C) O3 and CFCs",
+            "D) NH3 and H2S"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Sulfur dioxide (SO2) and Nitrogen oxides (NOx) undergo atmospheric oxidation and hydrolysis to form sulfuric acid (H2SO4) and nitric acid (HNO3)."
+        },
+        {
+          "id": "evs-w5-14",
+          "question": "The corrosion and yellowing of the marble facade of the Taj Mahal due to acidic pollutants is known as:",
+          "options": [
+            "A) Green decay",
+            "B) Stone leprosy (or stone cancer)",
+            "C) Silicosis",
+            "D) Marble vitrification"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Stone leprosy (or marble cancer) refers to the acid-rain conversion of insoluble calcium carbonate (CaCO3) into soluble calcium sulfate dihydrate (gypsum, CaSO4·2H2O)."
+        },
+        {
+          "id": "evs-w5-15",
+          "question": "Which metal ion is mobilized and leached from soil minerals into aquatic bodies when soil is acidified by acid rain, causing toxicity to fish gills?",
+          "options": [
+            "A) Sodium (Na+)",
+            "B) Calcium (Ca2+)",
+            "C) Aluminum (Al3+)",
+            "D) Potassium (K+)"
+          ],
+          "correct": "C",
+          "rationale": "Correct Option C: Acidification mobilizes toxic trivalent aluminum (Al3+) from aluminosilicate clay minerals, which precipitates onto fish gills and causes asphyxiation."
+        },
+        {
+          "id": "evs-w5-16",
+          "question": "Ocean acidification is predominantly driven by seawater absorption of anthropogenic:",
+          "options": [
+            "A) Methane",
+            "B) Sulfur dioxide",
+            "C) Carbon dioxide",
+            "D) Chlorofluorocarbons"
+          ],
+          "correct": "C",
+          "rationale": "Correct Option C: The oceans absorb approximately 25-30% of anthropogenic CO2 emissions, forming carbonic acid (H2CO3) and lowering ocean pH."
+        },
+        {
+          "id": "evs-w5-17",
+          "question": "Since the pre-industrial era, average surface ocean water pH has dropped from approximately 8.2 to 8.1. Because pH is logarithmic, this represents an increase in hydrogen ion acidity of approximately:",
+          "options": [
+            "A) 1%",
+            "B) 10%",
+            "C) 30%",
+            "D) 100%"
+          ],
+          "correct": "C",
+          "rationale": "Correct Option C: A decrease of 0.1 pH units corresponds to a ~26-30% increase in hydrogen ion [H+] concentration."
+        },
+        {
+          "id": "evs-w5-18",
+          "question": "Ocean acidification threatens calcifying marine organisms such as corals and mollusks by decreasing the availability of which dissolved ion?",
+          "options": [
+            "A) Chloride (Cl-)",
+            "B) Carbonate (CO3^2-)",
+            "C) Sulfate (SO4^2-)",
+            "D) Nitrate (NO3-)"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Excess H+ ions react with carbonate ions (H+ + CO3^2- -> HCO3-), depleting the carbonate required to build aragonite and calcite shells."
+        },
+        {
+          "id": "evs-w5-19",
+          "question": "Coral bleaching occurs when corals expel which photosynthetic symbiotic algae in response to thermal or chemical stress?",
+          "options": [
+            "A) Diatoms",
+            "B) Zooxanthellae",
+            "C) Spirulina",
+            "D) Chlorella"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Elevated sea surface temperatures cause corals to expel their symbiotic dinoflagellates (zooxanthellae), turning the coral white and leading to starvation."
+        },
+        {
+          "id": "evs-w5-20",
+          "question": "Stratospheric ozone is measured vertically in units called:",
+          "options": [
+            "A) Becquerel (Bq)",
+            "B) Dobson Units (DU)",
+            "C) Decibels (dB)",
+            "D) Roentgen (R)"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Total vertical atmospheric column ozone is measured in Dobson Units (DU). 1 DU = 0.01 mm thickness at STP."
+        },
+        {
+          "id": "evs-w5-21",
+          "question": "An 'Ozone Hole' over the Antarctic region is scientifically defined when total column ozone falls below:",
+          "options": [
+            "A) 500 DU",
+            "B) 300 DU",
+            "C) 220 DU",
+            "D) 100 DU"
+          ],
+          "correct": "C",
+          "rationale": "Correct Option C: A threshold of 220 Dobson Units (DU) is universally recognized by NASA/WMO as the boundary defining severe ozone depletion (the ozone hole)."
+        },
+        {
+          "id": "evs-w5-22",
+          "question": "The primary catalyst responsible for anthropogenic stratospheric ozone destruction is the free radical:",
+          "options": [
+            "A) Chlorine radical (Cl•)",
+            "B) Sodium radical (Na•)",
+            "C) Neon radical (Ne•)",
+            "D) Carbon radical (C•)"
+          ],
+          "correct": "A",
+          "rationale": "Correct Option A: Photolysis of CFCs releases reactive chlorine radicals (Cl•), where a single chlorine atom can catalytically destroy up to 100,000 ozone molecules."
+        },
+        {
+          "id": "evs-w5-23",
+          "question": "The international environmental treaty adopted in 1987 to phase out Ozone Depleting Substances (ODS) such as CFCs and halons is the:",
+          "options": [
+            "A) Kyoto Protocol",
+            "B) Montreal Protocol",
+            "C) Paris Agreement",
+            "D) Basel Convention"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: The Montreal Protocol on Substances that Deplete the Ozone Layer (signed in 1987) is the landmark treaty phasing out CFCs and halons."
+        },
+        {
+          "id": "evs-w5-24",
+          "question": "The Kigali Amendment (2016) to the Montreal Protocol aims to phase down which family of potent greenhouse gases?",
+          "options": [
+            "A) Hydrofluorocarbons (HFCs)",
+            "B) Carbon monoxide (CO)",
+            "C) Lead particulates",
+            "D) Methane"
+          ],
+          "correct": "A",
+          "rationale": "Correct Option A: The Kigali Amendment targets the phase-down of Hydrofluorocarbons (HFCs), which replaced CFCs but have high global warming potentials."
+        },
+        {
+          "id": "evs-w5-25",
+          "question": "Which clouds form in the extreme cold (-80 °C) of the winter Antarctic stratosphere, providing solid surfaces for chlorine activation reactions?",
+          "options": [
+            "A) Cumulonimbus clouds",
+            "B) Polar Stratospheric Clouds (PSCs)",
+            "C) Cirrus fibratus",
+            "D) Altostratus clouds"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Polar Stratospheric Clouds (PSCs, or nacreous clouds) provide ice crystal surfaces that convert benign chlorine reservoirs (HCl, ClONO2) into active Cl2."
+        },
+        {
+          "id": "evs-w5-26",
+          "question": "The Paris Agreement (2015) sets a long-term goal to limit global average temperature rise to well below:",
+          "options": [
+            "A) 5.0 °C",
+            "B) 3.5 °C",
+            "C) 2.0 °C above pre-industrial levels, pursuing efforts to limit it to 1.5 °C",
+            "D) 0.5 °C"
+          ],
+          "correct": "C",
+          "rationale": "Correct Option C: The Paris Agreement aims to keep global temperature rise well below 2.0 °C above pre-industrial baselines and pursue 1.5 °C."
+        },
+        {
+          "id": "evs-w5-27",
+          "question": "The Intergovernmental Panel on Climate Change (IPCC) was established in 1988 by which two international organizations?",
+          "options": [
+            "A) UNESCO and WHO",
+            "B) UNEP and WMO",
+            "C) WTO and IMF",
+            "D) FAO and UNICEF"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: The IPCC was created in 1988 by the United Nations Environment Programme (UNEP) and the World Meteorological Organization (WMO)."
+        },
+        {
+          "id": "evs-w5-28",
+          "question": "Which of the following is considered the most significant contributor to sea-level rise in the 21st century?",
+          "options": [
+            "A) Deep ocean volcanic outgassing",
+            "B) Thermal expansion of ocean water and melting of land-based ice sheets",
+            "C) River sedimentation",
+            "D) Increased precipitation over the ocean"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Thermal expansion of warming seawater along with runoff from melting glaciers and ice sheets (Greenland/Antarctica) drive sea level rise."
+        },
+        {
+          "id": "evs-w5-29",
+          "question": "People forced to abandon their homes due to rising sea levels, desertification, or extreme storms caused by climate change are known as:",
+          "options": [
+            "A) Economic migrants",
+            "B) Climate refugees (or environmental displaced persons)",
+            "C) Urban settlers",
+            "D) Seasonal nomads"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Climate refugees are individuals displaced due to environmental changes and natural disasters exacerbated by climate change."
+        },
+        {
+          "id": "evs-w5-30",
+          "question": "The concept that low-income communities and developing nations often bear the harshest impacts of climate change despite contributing the least emissions is called:",
+          "options": [
+            "A) Environmental Darwinism",
+            "B) Climate Justice",
+            "C) Ecological Hegemony",
+            "D) Green Protectionism"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Climate Justice frames global warming as an ethical and human rights issue, advocating for equity between historically polluting and vulnerable nations."
+        }
+      ]
+    },
+    {
+      "id": "evs-m6",
+      "moduleNum": 6,
+      "pdfUrl": "/pdfs/environmental/EVS_MOD-6.pdf",
+      "title": "Week 6: Contemporary Topics in Environmental Sciences",
+      "co": "CO: 6",
+      "examScope": "FAT (CBT MCQ)",
+      "weightage": "15-20% of CBT Exam",
+      "status": "yet_to_start",
+      "scope": "Carbon Footprint accounting under GHG Protocol (Scope 1 direct emissions, Scope 2 indirect energy emissions, Scope 3 supply chain & value chain emissions); Clean Development Mechanism (CDM), carbon offsetting, Certified Emission Reductions (1 CER = 1 metric tonne CO2e); Green building architecture and rating systems (GRIHA by TERI & MNRE, 100-point scale with 5-star rating for 86-100 pts, LEED); Circular Economy vs Linear Economy (5R framework: Reduce, Reuse, Recycle, Remanufacture, Recover; Cradle-to-Cradle C2C design; Kalundborg industrial symbiosis); Microplastics and Nanoplastics (particle size < 5 mm, primary microbeads/nurdles vs secondary weathering fragments, persistent organic pollutant POP adsorption, endocrine-disrupting chemicals BPA & phthalates); E-Waste Management Rules (India 2016 & 2022 amendments, hazardous constituents: Lead Pb in CRT glass/solder, Mercury Hg in backlights, Cadmium Cd in Ni-Cd batteries, Hexavalent Chromium Cr(VI) for passivating metal chassis, Brominated Flame Retardants BFRs, Extended Producer Responsibility EPR mandates for manufacturers, and Urban Mining of Gold, Silver, Copper from discarded electronics).",
+      "blueprint": {
+        "marksTotal": "15 to 20 Marks in FAT CBT",
+        "questionTypes": [
+          {
+            "type": "Carbon Scopes & CER Calculation",
+            "desc": "Distinguishing Scope 1 (direct), Scope 2 (purchased power), and Scope 3 (indirect value chain), and 1 CER = 1 tonne CO2e credit accounting."
+          },
+          {
+            "type": "GRIHA Green Building Ratings",
+            "desc": "TERI and MNRE development, 100-point criteria, star thresholds (5-Star = 86-100 points, 1-Star = 25-40 points)."
+          },
+          {
+            "type": "Circular Economy & Microplastics",
+            "desc": "Linear vs circular material flows, primary vs secondary microplastics (< 5 mm), and marine trophic biomagnification."
+          },
+          {
+            "type": "E-Waste Toxicity & EPR Rules",
+            "desc": "Health effects of Lead (CRT/solder), Mercury (switches/CCFL), Cadmium (batteries), Hexavalent Chromium, and EPR legal obligations on producers."
+          }
+        ]
+      },
+      "formulaSheet": [
+        {
+          "name": "Certified Emission Reduction (CER)",
+          "formula": "1\\text{ CER} = 1\\text{ metric tonne of } \\text{CO}_2\\text{ equivalent mitigated / avoided}",
+          "note": "Tradable carbon credit unit under Kyoto CDM"
+        },
+        {
+          "name": "Total Organizational Carbon Footprint",
+          "formula": "\\text{Carbon Footprint} = \\text{Scope 1 (Direct)} + \\text{Scope 2 (Purchased Electricity)} + \\text{Scope 3 (Value Chain)}",
+          "note": "Measured in metric tonnes of CO2 equivalent (tCO2e)"
+        },
+        {
+          "name": "GRIHA Star Rating Scale (100 Points Total)",
+          "formula": "5\\text{-Star: } 86-100\\text{ pts}, \\quad 4\\text{-Star: } 71-85\\text{ pts}, \\quad 3\\text{-Star: } 56-70\\text{ pts}, \\quad 1\\text{-Star: } 25-40\\text{ pts}",
+          "note": "Developed by TERI & adopted by MNRE India"
+        },
+        {
+          "name": "Microplastic Size Upper Threshold",
+          "formula": "\\text{Particle Diameter } d < 5\\text{ mm}, \\quad \\text{Nanoplastics: } d < 1\\,\\mu\\text{m}",
+          "note": "Primary (microbeads) vs Secondary (weathered fragments)"
+        }
+      ],
+      "examInsights": [
+        {
+          "title": "Scope 1 vs Scope 2 vs Scope 3 (VIT CBT Trap)",
+          "desc": "Scope 1 is direct emissions from company-owned furnaces/vehicles. Scope 2 is indirect emissions solely from purchased grid electricity/steam. Scope 3 covers all other upstream and downstream supply-chain activities, business flights, and employee commuting."
+        },
+        {
+          "title": "1 CER Credit Value Definition",
+          "desc": "One Certified Emission Reduction (CER) credit generated under the Clean Development Mechanism is equal to exactly 1 metric tonne (1,000 kg) of CO2 equivalent reduced or sequestered."
+        },
+        {
+          "title": "GRIHA Developer & Rating Agency",
+          "desc": "GRIHA (Green Rating for Integrated Habitat Assessment) was conceived and developed by TERI (The Energy and Resources Institute) and endorsed by the Ministry of New and Renewable Energy (MNRE)."
+        },
+        {
+          "title": "Lead (Pb) in CRT Monitors",
+          "desc": "Older computer monitors and televisions with Cathode Ray Tubes (CRTs) contain up to 2 kg of lead in their glass to shield against X-rays, making CRT glass disposal a severe neurotoxic hazard."
+        }
+      ],
+      "topics": [
+        {
+          "id": "evs-t6-1",
+          "title": "Topic 1: Carbon Footprinting & Carbon Credit Trading",
+          "theory": "GHG Protocol scopes 1, 2, 3. Clean Development Mechanism (CDM), carbon offsets, Certified Emission Reductions (1 CER = 1 tonne CO2e)."
+        },
+        {
+          "id": "evs-t6-2",
+          "title": "Topic 2: Green Buildings & GRIHA Certification",
+          "theory": "Environmental impact of buildings. GRIHA rating system by TERI & MNRE (100-point scale, 5 stars for 86-100 pts). Energy conservation, rainwater harvesting, AAC/fly-ash bricks."
+        },
+        {
+          "id": "evs-t6-3",
+          "title": "Topic 3: Circular Economy & Industrial Symbiosis",
+          "theory": "Linear 'take-make-dispose' vs circular 'cradle-to-cradle'. 5R framework: Reduce, Reuse, Recycle, Remanufacture, Recover. Kalundborg industrial symbiosis."
+        },
+        {
+          "id": "evs-t6-4",
+          "title": "Topic 4: Microplastics, Nanoplastics & Marine Pollution",
+          "theory": "Size classification (<5 mm). Primary microbeads/nurdles vs secondary weathering fragments. POP adsorption, marine food web biomagnification, endocrine disruptors (BPA, phthalates)."
+        },
+        {
+          "id": "evs-t6-5",
+          "title": "Topic 5: E-Waste Management & Extended Producer Responsibility",
+          "theory": "Toxic heavy metals: Lead (CRT/solder), Mercury (CCFL/relays), Cadmium (batteries), Cr(VI). India's E-Waste Rules 2016/2022. Extended Producer Responsibility (EPR) mandates and Urban Mining of precious metals (Au, Ag, Cu)."
+        }
+      ],
+      "mcqs": [
+        {
+          "id": "evs-w6-1",
+          "question": "Under the Greenhouse Gas (GHG) Protocol, direct emissions from fuel burned in company-owned boilers and delivery trucks are categorized as:",
+          "options": [
+            "A) Scope 1 emissions",
+            "B) Scope 2 emissions",
+            "C) Scope 3 emissions",
+            "D) Biogenic offsets"
+          ],
+          "correct": "A",
+          "rationale": "Correct Option A: Scope 1 encompasses all direct greenhouse gas emissions from sources that are owned or controlled by the reporting organization."
+        },
+        {
+          "id": "evs-w6-2",
+          "question": "Indirect greenhouse gas emissions resulting specifically from the generation of purchased electricity consumed by an organization are categorized as:",
+          "options": [
+            "A) Scope 1 emissions",
+            "B) Scope 2 emissions",
+            "C) Scope 3 emissions",
+            "D) Fugitive emissions"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Scope 2 accounts for indirect emissions associated with the production of purchased electricity, steam, heat, or cooling consumed by the organization."
+        },
+        {
+          "id": "evs-w6-3",
+          "question": "Emissions from employee business travel via commercial airlines, employee commuting, and third-party supply chain transport are classified as:",
+          "options": [
+            "A) Scope 1 emissions",
+            "B) Scope 2 emissions",
+            "C) Scope 3 emissions",
+            "D) Zero-emission activities"
+          ],
+          "correct": "C",
+          "rationale": "Correct Option C: Scope 3 covers all other indirect emissions throughout the organization's upstream and downstream value chain."
+        },
+        {
+          "id": "evs-w6-4",
+          "question": "One Certified Emission Reduction (CER) credit issued under the Clean Development Mechanism (CDM) represents the reduction or avoidance of:",
+          "options": [
+            "A) 1 kilogram of CO2",
+            "B) 1 metric tonne of CO2 equivalent",
+            "C) 10 metric tonnes of CO2 equivalent",
+            "D) 1000 metric tonnes of CO2 equivalent"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: 1 CER is equal to 1 metric tonne (1,000 kg) of carbon dioxide equivalent (tCO2e) reduced or sequestered."
+        },
+        {
+          "id": "evs-w6-5",
+          "question": "The Clean Development Mechanism (CDM) was established under which landmark international climate treaty?",
+          "options": [
+            "A) Montreal Protocol",
+            "B) Kyoto Protocol",
+            "C) Ramsar Convention",
+            "D) Stockholm Convention"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: The Clean Development Mechanism (CDM) was created under Article 12 of the Kyoto Protocol (1997) to allow developed countries to invest in emission-reduction projects in developing nations."
+        },
+        {
+          "id": "evs-w6-6",
+          "question": "GRIHA, India's national green building rating system, was developed by:",
+          "options": [
+            "A) Indian Institute of Science (IISc)",
+            "B) The Energy and Resources Institute (TERI) in association with MNRE",
+            "C) Central Public Works Department (CPWD) alone",
+            "D) United States Green Building Council (USGBC)"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: GRIHA was developed by TERI (The Energy and Resources Institute) and officially adopted as the national rating system by the Ministry of New and Renewable Energy (MNRE)."
+        },
+        {
+          "id": "evs-w6-7",
+          "question": "What is the maximum score on the evaluation scale used by the GRIHA green building rating system?",
+          "options": [
+            "A) 50 points",
+            "B) 100 points",
+            "C) 500 points",
+            "D) 1000 points"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: GRIHA evaluates buildings on a comprehensive 100-point scale across categories such as site planning, energy efficiency, and water management."
+        },
+        {
+          "id": "evs-w6-8",
+          "question": "To achieve the highest rating of '5 Stars' under the GRIHA framework, a building must score a minimum of:",
+          "options": [
+            "A) 50 points",
+            "B) 71 points",
+            "C) 86 points out of 100",
+            "D) 100 points exactly"
+          ],
+          "correct": "C",
+          "rationale": "Correct Option C: GRIHA awards a 5-Star rating to projects scoring between 86 and 100 points on the 100-point scale."
+        },
+        {
+          "id": "evs-w6-9",
+          "question": "The economic paradigm that replaces the traditional 'Take-Make-Dispose' linear model with closed loops of material reuse is called the:",
+          "options": [
+            "A) Planned obsolescence model",
+            "B) Circular Economy",
+            "C) Mercantilist economy",
+            "D) Industrial colonialism"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: The Circular Economy focuses on designing out waste and pollution, keeping products and materials in high-value circular use."
+        },
+        {
+          "id": "evs-w6-10",
+          "question": "The 'Cradle-to-Cradle' (C2C) design philosophy emphasizes that products should be manufactured so that at end-of-life they become:",
+          "options": [
+            "A) Incinerated for ash disposal",
+            "B) Buried in secure sanitary landfills",
+            "C) Biological or technical nutrients for new cycles",
+            "D) Ocean dumping materials"
+          ],
+          "correct": "C",
+          "rationale": "Correct Option C: Cradle-to-Cradle design ensures materials endlessly circulate as biological nutrients (biodegradable) or technical nutrients (infinitely recyclable)."
+        },
+        {
+          "id": "evs-w6-11",
+          "question": "What is the standard scientific upper size threshold defining 'Microplastics'?",
+          "options": [
+            "A) Less than 0.1 mm",
+            "B) Less than 1.0 mm",
+            "C) Less than 5.0 mm",
+            "D) Less than 25.0 mm"
+          ],
+          "correct": "C",
+          "rationale": "Correct Option C: Microplastics are particles of synthetic polymer measuring less than 5 mm (0.2 inches) in diameter."
+        },
+        {
+          "id": "evs-w6-12",
+          "question": "Microbeads intentionally added to exfoliating skin scrubs, facial cleansers, and toothpastes are examples of:",
+          "options": [
+            "A) Primary microplastics",
+            "B) Secondary microplastics",
+            "C) Biodegradable bioplastics",
+            "D) Macroplastics"
+          ],
+          "correct": "A",
+          "rationale": "Correct Option A: Primary microplastics are manufactured directly at microscopic dimensions (<5 mm), such as cosmetic microbeads and industrial nurdles."
+        },
+        {
+          "id": "evs-w6-13",
+          "question": "Microplastics that originate from the physical weathering, fragmentation, and UV photo-oxidation of macroscopic plastic bottles and bags are called:",
+          "options": [
+            "A) Primary microplastics",
+            "B) Secondary microplastics",
+            "C) Virgin resin pellets",
+            "D) Macrofibers"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Secondary microplastics result from the progressive fragmentation of larger plastic waste through physical, chemical, and biological weathering."
+        },
+        {
+          "id": "evs-w6-14",
+          "question": "Which chemical compound commonly added to plastics as a plasticizer is known to act as an endocrine disruptor mimicking estrogen?",
+          "options": [
+            "A) Sodium chloride",
+            "B) Bisphenol A (BPA) and Phthalates",
+            "C) Calcium carbonate",
+            "D) Ascorbic acid"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Bisphenol A (BPA) and phthalates leach from plastics into food and marine ecosystems, acting as endocrine disrupting chemicals (EDCs)."
+        },
+        {
+          "id": "evs-w6-15",
+          "question": "Under India's E-Waste (Management) Rules, the policy principle holding electronics manufacturers legally and financially accountable for product end-of-life collection is:",
+          "options": [
+            "A) Polluter Pays Exemption",
+            "B) Extended Producer Responsibility (EPR)",
+            "C) Municipal Waste Mandate",
+            "D) Voluntary Take-Back Scheme"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Extended Producer Responsibility (EPR) requires producers and importers to finance and establish designated channelization mechanisms for e-waste recycling."
+        },
+        {
+          "id": "evs-w6-16",
+          "question": "Which hazardous heavy metal is present in large quantities in the funnel glass of older Cathode Ray Tube (CRT) computer monitors?",
+          "options": [
+            "A) Aluminum",
+            "B) Lead (Pb)",
+            "C) Iron",
+            "D) Gold"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: CRT glass contains up to 2 kg of lead (Pb) to shield viewers from internal X-rays; improper dumping leads to severe groundwater lead contamination."
+        },
+        {
+          "id": "evs-w6-17",
+          "question": "In electronic waste, toxic Mercury (Hg) is most commonly found in:",
+          "options": [
+            "A) Copper wiring insulation",
+            "B) Cold cathode fluorescent lamps (CCFL) used in display backlights and tilt switches",
+            "C) Plastic outer keyboards",
+            "D) Aluminum heat sinks"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Mercury is present in fluorescent backlights (CCFL) of older flat-panel screens, switches, and printed circuit board relays."
+        },
+        {
+          "id": "evs-w6-18",
+          "question": "Which toxic heavy metal used in rechargeable Ni-Cd batteries and surface-mount chip resistors is associated with kidney damage and osteomalacia (Itai-Itai disease)?",
+          "options": [
+            "A) Cadmium (Cd)",
+            "B) Silver (Ag)",
+            "C) Tin (Sn)",
+            "D) Silicon (Si)"
+          ],
+          "correct": "A",
+          "rationale": "Correct Option A: Cadmium is a bioaccumulative heavy metal used in Ni-Cd batteries that damages renal tubule function and causes severe bone demineralization."
+        },
+        {
+          "id": "evs-w6-19",
+          "question": "The practice of recovering valuable precious metals such as Gold (Au), Silver (Ag), and Copper (Cu) from discarded electronic waste is known as:",
+          "options": [
+            "A) Open-cast mining",
+            "B) Urban Mining",
+            "C) Placer mining",
+            "D) Ocean bed trawling"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Urban Mining refers to the process of reclaiming precious metals and rare earth elements from spent e-waste, which has significantly higher metal concentrations than raw natural ores."
+        },
+        {
+          "id": "evs-w6-20",
+          "question": "Which toxic compound is added to printed circuit boards and electronic plastic casings to prevent fire ignition, but emits toxic dioxins when burned?",
+          "options": [
+            "A) Cellulose acetate",
+            "B) Brominated Flame Retardants (BFRs)",
+            "C) Sodium silicate",
+            "D) Starch polymer"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Brominated Flame Retardants (BFRs) resist ignition but release highly toxic and bioaccumulative polybrominated dibenzodioxins and furans during uncontrolled burning."
+        },
+        {
+          "id": "evs-w6-21",
+          "question": "Which of the following is a key feature of passive solar building architecture in sustainable green buildings?",
+          "options": [
+            "A) Installing oversized diesel generators",
+            "B) Building orientation and window placement to maximize winter sunlight and minimize summer heat gain",
+            "C) Using incandescent light bulbs exclusively",
+            "D) Eliminating all natural cross-ventilation"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Passive solar design utilizes building orientation, thermal mass, and solar shading to regulate indoor temperature naturally without active mechanical power."
+        },
+        {
+          "id": "evs-w6-22",
+          "question": "Industrial Symbiosis, as exemplified by the eco-industrial park in Kalundborg, Denmark, involves:",
+          "options": [
+            "A) Completely independent isolated factories with zero interaction",
+            "B) Industries sharing and exchanging waste byproducts, wastewater, and excess steam as raw inputs for one another",
+            "C) Dumping combined industrial effluents into public rivers",
+            "D) Relocating all manufacturing plants to offshore locations"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Industrial symbiosis creates cooperative networks where one industry's waste heat, steam, or byproduct becomes another industry's valuable feedstock."
+        },
+        {
+          "id": "evs-w6-23",
+          "question": "Fly ash generated by coal-fired thermal power stations is sustainably utilized in green construction primarily as:",
+          "options": [
+            "A) Paint pigment",
+            "B) Pozzolanic replacement for Portland cement and in fly-ash bricks",
+            "C) Window glass sealant",
+            "D) Electrical wiring conductor"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Fly ash has pozzolanic properties, reacting with calcium hydroxide to form cementitious compounds, reducing clinker production and energy consumption."
+        },
+        {
+          "id": "evs-w6-24",
+          "question": "Under the GHG Protocol, what is the key difference between Scope 1 and Scope 2 emissions?",
+          "options": [
+            "A) Scope 1 is indirect while Scope 2 is direct",
+            "B) Scope 1 covers on-site direct combustion while Scope 2 covers off-site purchased electricity generation",
+            "C) Scope 1 includes business air travel while Scope 2 includes waste disposal",
+            "D) Scope 1 is completely biogenic and non-polluting"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Scope 1 represents direct emissions from sources owned/controlled on-site; Scope 2 represents indirect emissions from off-site purchased electricity generation."
+        },
+        {
+          "id": "evs-w6-25",
+          "question": "What term describes the concentration of microplastics and persistent chemical toxins increasing progressively at higher trophic levels in a food web?",
+          "options": [
+            "A) Bioassimilation",
+            "B) Biomagnification (or biological amplification)",
+            "C) Biodegradation",
+            "D) Bioremediation"
+          ],
+          "correct": "B",
+          "rationale": "Correct Option B: Biomagnification is the increase in concentration of recalcitrant, fat-soluble substances (like POPs and microplastic additives) at successively higher steps of a food chain."
         }
       ]
     }

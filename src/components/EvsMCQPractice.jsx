@@ -114,7 +114,7 @@ export default function EvsMCQPractice({ onOpenModule }) {
               Environmental Sciences (BCHY102) CBT MCQ Practice
             </h2>
             <p className="text-xs sm:text-sm text-[#85858D] mt-1 max-w-2xl leading-relaxed">
-              Modeled around <strong className="text-[#BFBFC5]">evs-vit.vercel.app</strong>. 570 authentic questions organized across 4 syllabus weeks with interactive Recall self-testing mode.
+              Modeled around <strong className="text-[#BFBFC5]">evs-vit.vercel.app</strong>. 625 authentic questions organized across all 6 syllabus weeks with interactive Recall self-testing mode.
             </p>
           </div>
 
@@ -168,7 +168,7 @@ export default function EvsMCQPractice({ onOpenModule }) {
                 : 'bg-[#18181A] border-[#36363B] text-[#85858D] hover:text-[#F4F4F6]'
             }`}
           >
-            All 4 Weeks (570 MCQs)
+            All 6 Weeks ({environmentalCourse.modules.reduce((acc, m) => acc + (m.mcqs?.length || 0), 0)} MCQs)
           </button>
           {environmentalCourse.modules.map(mod => {
             const isSelected = selectedModuleNum === mod.moduleNum;
