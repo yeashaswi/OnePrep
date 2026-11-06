@@ -10,9 +10,16 @@ import {
   ArrowRight,
   GraduationCap,
   Sparkles,
-  Layers
+  Layers,
+  FileText,
+  ChevronDown,
+  ChevronUp,
+  Award,
+  Zap,
+  BookMarked
 } from 'lucide-react';
 import { allCourses, STATUS_CONFIG } from '../data/courses/index.js';
+import KaTeXMath, { FormattedText } from './KaTeXMath.jsx';
 
 export default function ModuleMatrix({
   courses = allCourses,
@@ -24,8 +31,12 @@ export default function ModuleMatrix({
   onSwitchToMCQPractice
 }) {
   const [selectedCourseId, setSelectedCourseId] = useState(() => {
-    return courses[0]?.id || 'BMAT101L';
+    return courses[0]?.id || 'BAMAT101';
   });
+
+  // Exactly the 3 sections requested: 'books' | 'skim' | 'pyqs'
+  const [activeSection, setActiveSection] = useState('books');
+  const [expandedSolutions, setExpandedSolutions] = useState({});
 
   // Filter modules based on selected exam mode
   const getExamModules = (course) => {
@@ -38,25 +49,17 @@ export default function ModuleMatrix({
   const activeCourse = courses.find(c => c.id === selectedCourseId) || courses[0];
   const activeCourseModules = activeCourse ? getExamModules(activeCourse) : [];
 
-  // Calculate status counts for active course
-  const statusCounts = {
-    not_confident: 0,
-    need_to_revise: 0,
-    yet_to_start: 0,
-    strong: 0
+  const toggleDropdownSolution = (id) => {
+    setExpandedSolutions(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
   };
-
-  activeCourseModules.forEach(mod => {
-    const st = moduleStatuses[mod.id] || mod.status || 'yet_to_start';
-    if (statusCounts[st] !== undefined) {
-      statusCounts[st]++;
-    }
-  });
 
   return (
     <div className="space-y-6 max-w-6xl mx-auto">
       
-      {/* Course Selector Tabs - Peaceful OnePlus Horizontal Segment */}
+      {/* 1. Course Selector Tabs - Peaceful OnePlus Horizontal Segment */}
       <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar border-b border-[#22252C]">
         {courses.map(course => {
           const isSelected = course.id === activeCourse.id;
@@ -85,7 +88,7 @@ export default function ModuleMatrix({
         })}
       </div>
 
-      {/* Active Course Overview Banner */}
+      {/* 2. Active Course Header Card */}
       <div className="bg-[#14161C] border border-[#22252C] rounded-xl p-5 space-y-4">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
@@ -99,164 +102,376 @@ export default function ModuleMatrix({
               <span className="px-2 py-0.5 text-xs font-medium rounded bg-[#EB0029]/10 text-[#FF4A5A] border border-[#EB0029]/30">
                 {activeCourse.badge || `${activeCourse.modules.length} Modules`}
               </span>
-              {activeCourse.isMCQExam && (
-                <span className="px-2.5 py-0.5 text-xs font-bold rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 flex items-center gap-1">
-                  <GraduationCap className="w-3.5 h-3.5" />
-                  CBT MCQ Online Exam
-                </span>
-              )}
             </div>
-            <p className="text-xs sm:text-sm text-[#8E93A0] mt-1">
+            <p className="text-xs sm:text-sm text-[#8E93A0] mt-1 max-w-3xl">
               {activeCourse.description}
             </p>
           </div>
 
-          {/* Quick Practice Mode for EVS or Master Formulas */}
           {activeCourse.isMCQExam && onSwitchToMCQPractice && (
             <button
               onClick={onSwitchToMCQPractice}
-              className="px-4 py-2 rounded-lg bg-[#EB0029] hover:bg-[#D00024] text-white text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 whitespace-nowrap"
+              className="px-4 py-2 rounded-lg bg-[#EB0029] hover:bg-[#D00024] text-white text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 whitespace-nowrap shrink-0"
             >
               <GraduationCap className="w-4 h-4" />
-              <span>Launch EVS CBT MCQ Drill</span>
+              <span>Launch EVS CBT MCQ Simulator</span>
             </button>
           )}
         </div>
 
-        {/* Category Status Tally */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-[#1C1F26]">
-          {[
-            { id: 'not_confident', label: 'Not Confident', count: statusCounts.not_confident, color: 'text-[#FF4A5A]', dot: 'bg-[#EB0029]' },
-            { id: 'need_to_revise', label: 'Need to Revise', count: statusCounts.need_to_revise, color: 'text-amber-400', dot: 'bg-amber-400' },
-            { id: 'yet_to_start', label: 'Yet to Start', count: statusCounts.yet_to_start, color: 'text-zinc-300', dot: 'bg-zinc-400' },
-            { id: 'strong', label: 'Strong', count: statusCounts.strong, color: 'text-emerald-400', dot: 'bg-emerald-400' }
-          ].map(cat => (
-            <div key={cat.id} className="flex items-center gap-2 bg-[#0B0C0E]/60 border border-[#22252C] rounded-lg px-3 py-2">
-              <span className={`w-2 h-2 rounded-full ${cat.dot}`} />
-              <span className="text-xs text-[#8E93A0]">{cat.label}:</span>
-              <span className={`text-xs font-bold font-mono ml-auto ${cat.color}`}>{cat.count}</span>
-            </div>
-          ))}
+        {/* 3. The 3 Sections Required: Full Detailed Books | Skim Notes | FAT PYQs with Dropdown */}
+        <div className="flex items-center gap-2 pt-2 border-t border-[#1C1F26]">
+          <span className="text-xs font-semibold text-[#8E93A0] mr-1 hidden sm:inline">Section:</span>
+          
+          <button
+            onClick={() => setActiveSection('books')}
+            className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
+              activeSection === 'books'
+                ? 'bg-[#EB0029] text-white shadow-sm'
+                : 'bg-[#0B0C0E] border border-[#22252C] text-[#8E93A0] hover:text-white'
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>📚 Full Detailed Books (Module-wise)</span>
+          </button>
+
+          <button
+            onClick={() => setActiveSection('skim')}
+            className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
+              activeSection === 'skim'
+                ? 'bg-[#EB0029] text-white shadow-sm'
+                : 'bg-[#0B0C0E] border border-[#22252C] text-[#8E93A0] hover:text-white'
+            }`}
+          >
+            <Zap className="w-3.5 h-3.5 text-amber-400" />
+            <span>⚡ Skim Notes (Module-wise)</span>
+          </button>
+
+          <button
+            onClick={() => setActiveSection('pyqs')}
+            className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
+              activeSection === 'pyqs'
+                ? 'bg-[#EB0029] text-white shadow-sm'
+                : 'bg-[#0B0C0E] border border-[#22252C] text-[#8E93A0] hover:text-white'
+            }`}
+          >
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+            <span>🎯 FAT PYQs (with Dropdown Solutions)</span>
+          </button>
         </div>
       </div>
 
-      {/* Module Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {activeCourseModules.map(mod => {
-          const currentStatus = moduleStatuses[mod.id] || mod.status || 'yet_to_start';
-          const statusMeta = STATUS_CONFIG[currentStatus] || STATUS_CONFIG.yet_to_start;
+      {/* SECTION 1: FULL DETAILED BOOKS (MODULE-WISE) */}
+      {activeSection === 'books' && (
+        <div className="space-y-4">
+          <div className="flex items-center justify-between text-xs text-[#8E93A0] px-1">
+            <span>Direct access to unabridged, comprehensive module textbooks:</span>
+            <span>{activeCourseModules.length} Modules Available</span>
+          </div>
 
-          return (
-            <div 
-              key={mod.id} 
-              className="bg-[#14161C] border border-[#22252C] hover:border-[#303442] rounded-xl p-5 flex flex-col justify-between transition-all duration-200 group"
-            >
-              <div className="space-y-3.5">
-                
-                {/* Header: Module Number & Status Indicator */}
-                <div className="flex items-start justify-between gap-3">
-                  <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 text-xs font-bold font-mono rounded bg-[#1B1E26] text-white border border-[#2B2F3A]">
-                      MOD {mod.moduleNum}
-                    </span>
-                    <span className="px-1.5 py-0.5 text-[10px] font-semibold text-[#8E93A0] rounded bg-[#1B1E26]">
-                      {mod.co}
-                    </span>
-                    <span className="text-[11px] text-[#656A76]">
-                      {mod.weightage}
-                    </span>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {activeCourseModules.map(mod => {
+              const currentStatus = moduleStatuses[mod.id] || mod.status || 'yet_to_start';
+              const statusMeta = STATUS_CONFIG[currentStatus] || STATUS_CONFIG.yet_to_start;
+              const baseUrl = import.meta.env.BASE_URL || '/';
+              const rawUrl = mod.pdfUrl || '';
+              const finalPdfUrl = rawUrl.startsWith('/') ? `${baseUrl.replace(/\/$/, '')}${rawUrl}` : rawUrl;
 
-                  {/* Current Active Status Pill */}
-                  <span className={`px-2.5 py-0.5 text-[11px] font-semibold rounded-md border flex items-center gap-1.5 ${statusMeta.badge}`}>
-                    <span className={`w-1.5 h-1.5 rounded-full ${statusMeta.dot || 'bg-white'}`} />
-                    <span>{statusMeta.label}</span>
-                  </span>
-                </div>
-
-                {/* Module Title */}
-                <h3 className="text-base font-bold text-white group-hover:text-white transition-colors">
-                  {mod.title}
-                </h3>
-
-                {/* Syllabus Scope Summary */}
-                <p className="text-xs text-[#8E93A0] leading-relaxed line-clamp-3">
-                  {mod.scope}
-                </p>
-
-                {/* 4 Category Quick Switcher Buttons */}
-                <div className="pt-2">
-                  <div className="text-[10px] text-[#656A76] uppercase tracking-wider font-semibold mb-1.5">
-                    Categorize Status:
-                  </div>
-                  <div className="grid grid-cols-4 gap-1.5">
-                    {[
-                      { id: 'not_confident', label: 'Not Confident', dot: 'bg-[#EB0029]' },
-                      { id: 'need_to_revise', label: 'Need Revise', dot: 'bg-amber-400' },
-                      { id: 'yet_to_start', label: 'Yet to Start', dot: 'bg-zinc-400' },
-                      { id: 'strong', label: 'Strong', dot: 'bg-emerald-400' }
-                    ].map(st => {
-                      const isSelected = currentStatus === st.id;
-                      return (
-                        <button
-                          key={st.id}
-                          onClick={() => onUpdateModuleStatus(mod.id, st.id)}
-                          className={`px-2 py-1.5 rounded-md text-[10px] font-medium transition-all flex items-center justify-center gap-1 border ${
-                            isSelected
-                              ? 'bg-[#1E212B] border-white/30 text-white font-bold shadow-sm'
-                              : 'bg-[#0B0C0E]/50 border-[#22252C] text-[#8E93A0] hover:text-white hover:border-[#333744]'
-                          }`}
-                        >
-                          <span className={`w-1.5 h-1.5 rounded-full ${st.dot}`} />
-                          <span className="truncate">{st.label}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Actions: Open Full PDF Book (1-Click) */}
-              <div className="pt-4 mt-4 border-t border-[#1C1F26] flex items-center justify-between gap-2">
-                <button
-                  onClick={() => onOpenModule(activeCourse.id, mod.id)}
-                  className="flex-1 px-4 py-2 rounded-lg bg-[#EB0029] hover:bg-[#D00024] text-white text-xs font-bold transition-all flex items-center justify-center gap-2 shadow-sm"
+              return (
+                <div 
+                  key={mod.id}
+                  className="bg-[#14161C] border border-[#22252C] hover:border-[#383D4D] rounded-xl p-5 flex flex-col justify-between space-y-4 transition-all"
                 >
-                  <BookOpen className="w-4 h-4" />
-                  <span>Open Official PDF Book</span>
-                </button>
+                  <div className="space-y-3">
+                    {/* Top Tag Row */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2">
+                        <span className="px-2 py-0.5 rounded text-xs font-bold font-mono bg-[#1B1E26] text-white">
+                          MOD {mod.moduleNum}
+                        </span>
+                        <span className="text-xs font-semibold text-[#EB0029]">
+                          {mod.co}
+                        </span>
+                        {mod.weightage && (
+                          <span className="text-[10px] text-[#8E93A0] font-mono">
+                            • {mod.weightage}
+                          </span>
+                        )}
+                      </div>
 
-                {mod.pdfUrl && (() => {
-                  const bUrl = import.meta.env.BASE_URL || '/';
-                  const resolvedUrl = mod.pdfUrl.startsWith('/') ? `${bUrl.replace(/\/$/, '')}${mod.pdfUrl}` : mod.pdfUrl;
-                  return (
-                    <>
-                      <a
-                        href={resolvedUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-lg bg-[#1B1E26] hover:bg-[#252834] border border-[#2B2F3A] text-[#8E93A0] hover:text-white transition-colors"
-                        title="Open PDF in browser tab"
+                      {/* Mastery Pill */}
+                      <span className={`px-2 py-0.5 rounded text-[10px] font-semibold border ${statusMeta.badge}`}>
+                        {statusMeta.label}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-base font-bold text-white tracking-tight">
+                      {mod.title}
+                    </h3>
+
+                    {/* Syllabus Scope */}
+                    <p className="text-xs text-[#8E93A0] leading-relaxed line-clamp-3">
+                      {mod.scope}
+                    </p>
+                  </div>
+
+                  {/* Action & Classification Footer */}
+                  <div className="pt-3 border-t border-[#1C1F26] space-y-3">
+                    
+                    {/* 4 Classification Buttons */}
+                    <div className="flex items-center justify-between gap-1 bg-[#0B0C0E] p-1 rounded-lg border border-[#22252C]">
+                      {[
+                        { id: 'not_confident', label: '🔴 Not Confident' },
+                        { id: 'need_to_revise', label: '🟡 Need to Revise' },
+                        { id: 'yet_to_start', label: '⚪ Yet to Start' },
+                        { id: 'strong', label: '🟢 Strong' }
+                      ].map(cat => {
+                        const isSelected = currentStatus === cat.id;
+                        return (
+                          <button
+                            key={cat.id}
+                            onClick={() => onUpdateModuleStatus(mod.id, cat.id)}
+                            className={`flex-1 py-1 rounded text-[10px] font-medium transition-all ${
+                              isSelected 
+                                ? 'bg-[#1E212B] text-white font-bold border border-[#333744]' 
+                                : 'text-[#656A76] hover:text-[#B0B5C2]'
+                            }`}
+                          >
+                            {cat.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Primary Button: Read Full Detailed Book */}
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => onOpenModule(activeCourse.id, mod.id)}
+                        className="flex-1 py-2 px-4 rounded-lg bg-[#EB0029] hover:bg-[#D00024] text-white text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2"
                       >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                      <a
-                        href={resolvedUrl}
-                        download
-                        className="p-2 rounded-lg bg-[#1B1E26] hover:bg-[#252834] border border-[#2B2F3A] text-[#8E93A0] hover:text-white transition-colors"
-                        title="Download PDF"
-                      >
-                        <Download className="w-4 h-4" />
-                      </a>
-                    </>
-                  );
-                })()}
+                        <BookOpen className="w-4 h-4" />
+                        <span>Read Full Detailed Book</span>
+                      </button>
+
+                      {finalPdfUrl && (
+                        <a
+                          href={finalPdfUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 rounded-lg bg-[#1B1E26] hover:bg-[#252834] border border-[#2B2F3A] text-[#8E93A0] hover:text-white transition-colors"
+                          title="Open PDF in new tab"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      )}
+                    </div>
+
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* SECTION 2: SKIM NOTES (MODULE-WISE) */}
+      {activeSection === 'skim' && (
+        <div className="space-y-6">
+          <div className="text-xs text-[#8E93A0] px-1">
+            High-yield formulas, core substitution identities, and faculty exam traps for rapid revision:
+          </div>
+
+          <div className="space-y-6">
+            {activeCourseModules.map(mod => (
+              <div key={mod.id} className="bg-[#14161C] border border-[#22252C] rounded-xl p-5 space-y-4">
+                
+                {/* Module Header */}
+                <div className="flex items-center justify-between border-b border-[#1C1F26] pb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+                    <h3 className="text-base font-bold text-white">
+                      Module {mod.moduleNum}: {mod.title}
+                    </h3>
+                  </div>
+                  <span className="text-xs font-mono text-[#8E93A0]">{mod.weightage}</span>
+                </div>
+
+                {/* Master Formulas Cards */}
+                {mod.formulaSheet && mod.formulaSheet.length > 0 && (
+                  <div className="space-y-2">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
+                      <FileText className="w-3.5 h-3.5" />
+                      <span>Key Formulas & Master Substitution Cards</span>
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {mod.formulaSheet.map((f, fIdx) => (
+                        <div key={fIdx} className="bg-[#0B0C0E] p-3 rounded-lg border border-[#22252C] space-y-1.5">
+                          <div className="flex items-center justify-between text-xs font-bold text-white">
+                            <span>{f.name}</span>
+                            {f.note && <span className="text-[10px] text-[#8E93A0] italic font-normal">{f.note}</span>}
+                          </div>
+                          <div className="text-center p-2 bg-[#14161C] rounded border border-[#1C1F26] text-xs text-white overflow-x-auto">
+                            <KaTeXMath math={f.formula} display={true} />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Faculty Traps & Warnings */}
+                {mod.examInsights && mod.examInsights.length > 0 && (
+                  <div className="space-y-2 pt-2">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+                      <AlertTriangle className="w-3.5 h-3.5" />
+                      <span>Faculty Exam Insights & High-Scoring Techniques</span>
+                    </h4>
+                    <div className="space-y-2">
+                      {mod.examInsights.map((ins, insIdx) => (
+                        <div key={insIdx} className="bg-amber-950/15 border border-amber-500/30 rounded-lg p-3 text-xs space-y-1">
+                          <span className="font-bold text-amber-300 block">{ins.title}</span>
+                          <p className="text-[#D1D5DB] leading-relaxed">
+                            <FormattedText text={ins.desc} />
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
               </div>
+            ))}
+          </div>
+        </div>
+      )}
 
-            </div>
-          );
-        })}
-      </div>
+      {/* SECTION 3: FAT PYQs (WITH DROPDOWN SOLUTIONS) */}
+      {activeSection === 'pyqs' && (
+        <div className="space-y-6">
+          <div className="text-xs text-[#8E93A0] px-1">
+            Department Question Bank and past FAT exam questions with collapsible/dropdown solutions:
+          </div>
+
+          <div className="space-y-6">
+            {activeCourseModules.map(mod => {
+              const hasPyqs = mod.pyqs && mod.pyqs.length > 0;
+              const hasMcqs = mod.mcqs && mod.mcqs.length > 0;
+
+              return (
+                <div key={mod.id} className="bg-[#14161C] border border-[#22252C] rounded-xl p-5 space-y-4">
+                  
+                  {/* Module Header */}
+                  <div className="flex items-center justify-between border-b border-[#1C1F26] pb-3">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                      <h3 className="text-base font-bold text-white">
+                        Module {mod.moduleNum}: {mod.title}
+                      </h3>
+                    </div>
+                    <span className="text-xs font-mono text-emerald-400 font-bold">
+                      {(mod.pyqs?.length || mod.mcqs?.length || 0)} Solved Problems
+                    </span>
+                  </div>
+
+                  {/* Question Cards with Dropdown Solutions */}
+                  {hasPyqs ? (
+                    <div className="space-y-3">
+                      {mod.pyqs.map((q, qIdx) => {
+                        const isExpanded = !!expandedSolutions[q.id];
+                        return (
+                          <div key={q.id || qIdx} className="bg-[#0B0C0E] border border-[#22252C] rounded-lg overflow-hidden transition-all">
+                            
+                            {/* Question Header & Toggle Bar */}
+                            <div className="p-4 space-y-2.5">
+                              <div className="flex items-center justify-between gap-2 flex-wrap">
+                                <div className="flex items-center gap-2">
+                                  <span className="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                                    {q.marks || '10 Marks'}
+                                  </span>
+                                  <span className="text-xs font-mono text-[#8E93A0]">
+                                    {q.exam}
+                                  </span>
+                                </div>
+
+                                <button
+                                  onClick={() => toggleDropdownSolution(q.id)}
+                                  className="px-3 py-1 rounded bg-[#1B1E26] hover:bg-[#252834] text-xs font-semibold text-[#8E93A0] hover:text-white transition-colors flex items-center gap-1.5"
+                                >
+                                  <span>{isExpanded ? 'Hide Solution ▲' : 'View Dropdown Solution ▼'}</span>
+                                </button>
+                              </div>
+
+                              {/* Question Text */}
+                              <div className="text-xs sm:text-sm font-semibold text-white leading-relaxed">
+                                <FormattedText text={q.question} />
+                              </div>
+                            </div>
+
+                            {/* Dropdown Solution */}
+                            {isExpanded && (
+                              <div className="bg-[#14161C] p-4 border-t border-[#1C1F26] space-y-2 animate-in fade-in duration-100">
+                                <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                                  <CheckCircle2 className="w-3.5 h-3.5" />
+                                  <span>Complete Step-by-Step Solution & Derivations:</span>
+                                </div>
+                                <div className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed font-sans">
+                                  <FormattedText text={q.solution} />
+                                </div>
+                              </div>
+                            )}
+
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : hasMcqs ? (
+                    /* EVS / CBT MCQ Dropdown Questions */
+                    <div className="space-y-3">
+                      {mod.mcqs.map((mcq, mIdx) => {
+                        const isExpanded = !!expandedSolutions[mcq.id];
+                        return (
+                          <div key={mcq.id || mIdx} className="bg-[#0B0C0E] border border-[#22252C] rounded-lg p-4 space-y-3">
+                            <div className="flex items-start justify-between gap-3">
+                              <h4 className="text-xs sm:text-sm font-bold text-white">
+                                {mIdx + 1}. {mcq.question}
+                              </h4>
+                              <button
+                                onClick={() => toggleDropdownSolution(mcq.id)}
+                                className="px-2.5 py-1 rounded bg-[#1B1E26] hover:bg-[#252834] text-[11px] font-semibold text-[#8E93A0] hover:text-white transition-colors shrink-0"
+                              >
+                                {isExpanded ? 'Hide Answer ▲' : 'Show Answer ▼'}
+                              </button>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                              {mcq.options.map((opt, oIdx) => (
+                                <div key={oIdx} className="p-2.5 rounded bg-[#14161C] border border-[#1C1F26] text-[#D1D5DB]">
+                                  {opt}
+                                </div>
+                              ))}
+                            </div>
+
+                            {isExpanded && (
+                              <div className="bg-emerald-950/20 border border-emerald-500/30 rounded p-3 text-xs space-y-1">
+                                <span className="text-emerald-400 font-bold block">Correct Option: {mcq.correct}</span>
+                                <p className="text-[#B0B5C2]">{mcq.rationale}</p>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <p className="text-xs text-[#8E93A0] italic">No past paper questions recorded for this module yet.</p>
+                  )}
+
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
     </div>
   );
