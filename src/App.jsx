@@ -11,7 +11,8 @@ import EvsMCQPractice from './components/EvsMCQPractice.jsx';
 import { 
   allCourses, 
   courseMap, 
-  generateAdaptiveSchedule 
+  generateAdaptiveSchedule,
+  resolveCourseAndModule 
 } from './data/courses/index.js';
 import { officialFatRoadmap } from './data/courses/fatSchedulePreset.js';
 
@@ -59,6 +60,59 @@ export default function App() {
     return saved ? JSON.parse(saved) : {};
   });
 
+  // User-Created Study Checklist State (Persisted in localStorage)
+  const [customChecklist, setCustomChecklist] = useState(() => {
+    const saved = localStorage.getItem('oneprep_custom_checklist_v3');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      } catch (e) {}
+    }
+    // Default starter tasks for today to give the student an immediate actionable baseline
+    return [
+      {
+        id: 'task-chem-m1',
+        courseId: 'BACHY101',
+        courseCode: 'BACHY105',
+        courseTitle: 'Applied Chemistry',
+        moduleId: 'bchy-m1',
+        moduleTitle: 'Mod 1: Chemical Thermodynamics & Reaction Kinetics',
+        task: 'Study 4-Stroke Carnot Cycle derivation & Arrhenius two-temp formula in Argon PDF',
+        dayLabel: 'Today (Nov 7)',
+        timeSlot: 'Morning (2.5 hrs)',
+        completed: false,
+        createdAt: Date.now() - 3000
+      },
+      {
+        id: 'task-eng-m1',
+        courseId: 'BAENG101',
+        courseCode: 'BAENG101',
+        courseTitle: 'Technical English',
+        moduleId: 'baeng-m1',
+        moduleTitle: 'Mod 1: 5 Cs Case Study & Business Writing',
+        task: 'Memorize 20 high-frequency definition terms from the 100-word bank (Satellite to Cylinder)',
+        dayLabel: 'Today (Nov 7)',
+        timeSlot: 'Afternoon (2 hrs)',
+        completed: false,
+        createdAt: Date.now() - 2000
+      },
+      {
+        id: 'task-calc-m1',
+        courseId: 'BMAT101L',
+        courseCode: 'BAMAT101',
+        courseTitle: 'Multivariable Calculus',
+        moduleId: 'bamat-m1',
+        moduleTitle: 'Mod 1: Euler\'s Theorem & Partial Derivatives',
+        task: 'Practice Euler theorem questions and Taylor series expansions',
+        dayLabel: 'Today (Nov 7)',
+        timeSlot: 'Evening (1.5 hrs)',
+        completed: false,
+        createdAt: Date.now() - 1000
+      }
+    ];
+  });
+
   const [activeTab, setActiveTab] = useState('modules'); // 'modules' is default!
   const [activeReader, setActiveReader] = useState(null); // { courseId, moduleId }
   const [isFormulaModalOpen, setIsFormulaModalOpen] = useState(false);
@@ -84,6 +138,10 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('fatkilla_completed_tasks_v4', JSON.stringify(completedTasks));
   }, [completedTasks]);
+
+  useEffect(() => {
+    localStorage.setItem('oneprep_custom_checklist_v3', JSON.stringify(customChecklist));
+  }, [customChecklist]);
 
   // Generate Adaptive Schedule based on days, exam, courses, and module statuses
   const schedule = useMemo(() => {
@@ -131,7 +189,12 @@ export default function App() {
 
   // Handlers
   const handleOpenModule = (courseId, moduleId) => {
-    setActiveReader({ courseId, moduleId });
+    const resolved = resolveCourseAndModule(courseId, moduleId);
+    if (resolved.course && resolved.module) {
+      setActiveReader({ courseId: resolved.course.id, moduleId: resolved.module.id });
+    } else {
+      setActiveReader({ courseId, moduleId });
+    }
   };
 
   const handleUpdateModuleStatus = (moduleId, newStatus) => {
@@ -146,6 +209,62 @@ export default function App() {
       ...prev,
       [taskId]: !prev[taskId]
     }));
+  };
+
+  // Custom Checklist Handlers (Empowers student to build their own schedule)
+  const handleAddChecklistTask = (taskData) => {
+    const newTask = {
+      id: `task-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`,
+      completed: false,
+      createdAt: Date.now(),
+      ...taskData
+    };
+    setCustomChecklist(prev => [newTask, ...prev]);
+  };
+
+  const handleToggleChecklistTask = (taskId) => {
+    setCustomChecklist(prev => prev.map(t => 
+      t.id === taskId ? { ...t, completed: !t.completed } : t
+    ));
+  };
+
+  const handleDeleteChecklistTask = (taskId) => {
+    setCustomChecklist(prev => prev.filter(t => t.id !== taskId));
+  };
+
+  const handleClearCompletedChecklist = () => {
+    setCustomChecklist(prev => prev.filter(t => !t.completed));
+  };
+
+  const handleImportSessionsToChecklist = (sessions, dayLabel) => {
+    if (!sessions || sessions.length === 0) return;
+    const newTasks = sessions.map((s, idx) => ({
+      id: `task-imported-${Date.now()}-${idx}`,
+      courseId: s.courseId,
+      courseCode: s.courseCode,
+      courseTitle: s.courseTitle,
+      moduleId: s.moduleId,
+      moduleTitle: s.moduleTitle,
+      task: s.task,
+      dayLabel: dayLabel || s.dateLabel || 'Today (Nov 7)',
+      timeSlot: s.timeSlot,
+      completed: false,
+      createdAt: Date.now() + idx
+    }));
+    setCustomChecklist(prev => [...newTasks, ...prev]);
+  };
+
+  const handleQuickAddModuleToToday = (course, module) => {
+    handleAddChecklistTask({
+      courseId: course.id,
+      courseCode: course.code,
+      courseTitle: course.title,
+      moduleId: module.id,
+      moduleTitle: `Mod ${module.moduleNum}: ${module.title}`,
+      task: `Master textbook theory, derivations, and question bank PYQs for ${module.title}`,
+      dayLabel: 'Today (Nov 7)',
+      timeSlot: 'Flexible'
+    });
   };
 
   const handleToggleCourse = (courseId) => {
@@ -165,17 +284,12 @@ export default function App() {
     }
   };
 
-  // Active module reader object
-  const readerCourse = activeReader 
-    ? (courseMap[activeReader.courseId] || allCourses.find(c => c.id === activeReader.courseId || c.code.includes(activeReader.courseId)))
-    : null;
-  const readerModule = readerCourse && activeReader 
-    ? (readerCourse.modules.find(m => m.id === activeReader.moduleId) ||
-       readerCourse.modules.find(m => {
-         const mNum = activeReader.moduleId?.match(/\d+/)?.[0];
-         return mNum && m.moduleNum === parseInt(mNum, 10);
-       }))
-    : null;
+  // Active module reader object (Universal resolution guaranteed never to return null if any info is provided)
+  const { course: readerCourse, module: readerModule } = useMemo(() => {
+    if (!activeReader) return { course: null, module: null };
+    return resolveCourseAndModule(activeReader.courseId, activeReader.moduleId);
+  }, [activeReader]);
+
   const readerStatus = readerModule ? (moduleStatuses[readerModule.id] || readerModule.status) : 'yet_to_start';
 
   return (
@@ -207,10 +321,11 @@ export default function App() {
             readinessPercentage={readinessPercentage}
             selectedExam={selectedExam}
             onSwitchToMCQPractice={() => setActiveTab('evs_cbt')}
+            onQuickAddToChecklist={handleQuickAddModuleToToday}
           />
         )}
 
-        {/* TAB 2: TODAY'S 1-CLICK SCHEDULE */}
+        {/* TAB 2: TODAY'S 1-CLICK SCHEDULE & CUSTOM CHECKLIST */}
         {activeTab === 'today' && (
           <TodayScheduleCard
             todaySchedule={todaySchedule}
@@ -218,6 +333,12 @@ export default function App() {
             onToggleTaskComplete={handleToggleTaskComplete}
             completedTasks={completedTasks}
             onOpenFormulaModal={() => setIsFormulaModalOpen(true)}
+            customChecklist={customChecklist}
+            onAddChecklistTask={handleAddChecklistTask}
+            onToggleChecklistTask={handleToggleChecklistTask}
+            onDeleteChecklistTask={handleDeleteChecklistTask}
+            onClearCompletedChecklist={handleClearCompletedChecklist}
+            onImportSessionsToChecklist={handleImportSessionsToChecklist}
           />
         )}
 
@@ -228,7 +349,7 @@ export default function App() {
           />
         )}
 
-        {/* TAB 4: FULL ADAPTIVE STUDY ROADMAP */}
+        {/* TAB 4: FULL ADAPTIVE STUDY ROADMAP & MASTER CHECKLIST */}
         {activeTab === 'schedule' && (
           <SchedulePlanner
             schedule={schedule}
@@ -237,6 +358,12 @@ export default function App() {
             onOpenModule={handleOpenModule}
             onToggleTaskComplete={handleToggleTaskComplete}
             completedTasks={completedTasks}
+            customChecklist={customChecklist}
+            onAddChecklistTask={handleAddChecklistTask}
+            onToggleChecklistTask={handleToggleChecklistTask}
+            onDeleteChecklistTask={handleDeleteChecklistTask}
+            onClearCompletedChecklist={handleClearCompletedChecklist}
+            onImportSessionsToChecklist={handleImportSessionsToChecklist}
           />
         )}
 
@@ -282,6 +409,7 @@ export default function App() {
         module={readerModule}
         currentStatus={readerStatus}
         onUpdateStatus={handleUpdateModuleStatus}
+        onSwitchModule={(newModuleId) => handleOpenModule(readerCourse?.id, newModuleId)}
       />
 
       {/* Master Formula Sheet Modal */}

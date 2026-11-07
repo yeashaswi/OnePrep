@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { 
   X, 
   ExternalLink, 
@@ -7,17 +7,20 @@ import {
   BookOpen, 
   ChevronDown,
   ChevronUp,
-  CheckCircle2,
-  AlertTriangle,
-  Lightbulb,
-  Search,
-  Book,
-  Sparkles,
-  HelpCircle,
-  ArrowRight,
-  ListOrdered,
-  Layers,
-  Award
+  ChevronLeft,
+  ChevronRight,
+  CheckCircle2, 
+  AlertTriangle, 
+  Search, 
+  Sparkles, 
+  ArrowRight, 
+  Award,
+  Maximize2,
+  Minimize2,
+  Eye,
+  Sun,
+  Moon,
+  Layers
 } from 'lucide-react';
 import { STATUS_CONFIG } from '../data/courses/index.js';
 import KaTeXMath, { FormattedText } from './KaTeXMath.jsx';
@@ -29,23 +32,83 @@ export default function ModuleReaderModal({
   course,
   module,
   currentStatus,
-  onUpdateStatus
+  onUpdateStatus,
+  onSwitchModule
 }) {
   const [activeTab, setActiveTab] = useState('pdf'); // 'pdf' | 'skim' | 'pyqs'
   const [expandedSolutions, setExpandedSolutions] = useState({});
   const [wordBankSearch, setWordBankSearch] = useState('');
   const [selectedCluster, setSelectedCluster] = useState('All');
-  const [mcqAnswers, setMcqAnswers] = useState({});
-  const [revealedRationales, setRevealedRationales] = useState({});
+  
+  // Custom reading mode controls
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isFocusReadingMode, setIsFocusReadingMode] = useState(false);
+  const [readingFilter, setReadingFilter] = useState('normal'); // 'normal' | 'dark' | 'sepia'
+  const [zoomLevel, setZoomLevel] = useState('FitH'); // 'FitH' | 'Fit' | '100' | '125' | '150'
+  
+  const backdropRef = useRef(null);
+
+  // Module navigation within course
+  const allModules = course?.modules || [];
+  const currentModIndex = allModules.findIndex(m => m.id === module?.id);
+  const prevModule = currentModIndex > 0 ? allModules[currentModIndex - 1] : null;
+  const nextModule = currentModIndex >= 0 && currentModIndex < allModules.length - 1 ? allModules[currentModIndex + 1] : null;
+
+  const toggleFullscreen = () => {
+    if (!isFullscreen) {
+      setIsFullscreen(true);
+      if (document.documentElement.requestFullscreen && !document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      }
+    } else {
+      setIsFullscreen(false);
+      if (document.exitFullscreen && document.fullscreenElement) {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+  };
+
+  useEffect(() => {
+    const handleFsChange = () => {
+      if (!document.fullscreenElement && isFullscreen) {
+        setIsFullscreen(false);
+      }
+    };
+    document.addEventListener('fullscreenchange', handleFsChange);
+    return () => document.removeEventListener('fullscreenchange', handleFsChange);
+  }, [isFullscreen]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        if (isFocusReadingMode) {
+          setIsFocusReadingMode(false);
+        } else if (isFullscreen) {
+          toggleFullscreen();
+        } else {
+          onClose();
+        }
+      } else if (e.key === 'f' || e.key === 'F') {
+        if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          toggleFullscreen();
+        }
+      } else if (e.key === '[' || (e.altKey && e.key === 'ArrowLeft')) {
+        if (prevModule && onSwitchModule) {
+          e.preventDefault();
+          onSwitchModule(prevModule.id);
+        }
+      } else if (e.key === ']' || (e.altKey && e.key === 'ArrowRight')) {
+        if (nextModule && onSwitchModule) {
+          e.preventDefault();
+          onSwitchModule(nextModule.id);
+        }
+      }
     };
     if (isOpen) {
       window.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
-      // Reset default tab to PDF when opening a new module
+      // Reset tab to PDF when opening new module
       setActiveTab('pdf');
       setExpandedSolutions({});
     }
@@ -53,7 +116,7 @@ export default function ModuleReaderModal({
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'auto';
     };
-  }, [isOpen, module?.id, onClose]);
+  }, [isOpen, module?.id, onClose, isFullscreen, isFocusReadingMode, prevModule, nextModule, onSwitchModule]);
 
   if (!isOpen || !course || !module) return null;
 
@@ -65,6 +128,19 @@ export default function ModuleReaderModal({
   const finalPdfUrl = rawUrl.startsWith('/')
     ? `${baseUrl.replace(/\/$/, '')}${rawUrl}`
     : rawUrl;
+
+  const pdfViewParam = zoomLevel === 'FitH' ? 'view=FitH' : zoomLevel === 'Fit' ? 'view=Fit' : `zoom=${zoomLevel}`;
+  const iframeSrc = finalPdfUrl ? `${finalPdfUrl}#toolbar=1&navpanes=1&${pdfViewParam}` : '';
+
+  const getFilterStyle = () => {
+    if (readingFilter === 'dark') {
+      return { filter: 'invert(0.9) hue-rotate(180deg) brightness(0.95) contrast(1.05)' };
+    }
+    if (readingFilter === 'sepia') {
+      return { filter: 'sepia(0.35) contrast(1.05) brightness(0.95)' };
+    }
+    return {};
+  };
 
   const handleOpenNewTab = () => {
     if (finalPdfUrl) {
@@ -79,20 +155,7 @@ export default function ModuleReaderModal({
     }));
   };
 
-  const handleSelectMCQ = (qId, optionKey) => {
-    setMcqAnswers(prev => ({
-      ...prev,
-      [qId]: optionKey
-    }));
-    setRevealedRationales(prev => ({
-      ...prev,
-      [qId]: true
-    }));
-  };
-
   const isEnglishCourse = course.id === 'BAENG101' || course.code === 'BAENG101';
-  const isEvsCourse = course.id === 'BCHY102' || course.id === 'BACHY101' || course.code.includes('CHY10') || course.isMCQExam;
-
   const pyqCount = module.pyqs ? module.pyqs.length : 0;
   const mcqCount = module.mcqs ? module.mcqs.length : 0;
 
@@ -110,175 +173,344 @@ export default function ModuleReaderModal({
   });
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/90 backdrop-blur-md animate-in fade-in duration-150">
+    <div 
+      ref={backdropRef}
+      onClick={(e) => {
+        if (e.target === backdropRef.current && !isFullscreen) {
+          onClose();
+        }
+      }}
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md transition-all duration-150 ${
+        isFullscreen ? 'p-0' : 'p-2 sm:p-4'
+      }`}
+    >
       
-      {/* Fullscreen PDF Textbook Viewer Modal */}
-      <div className="relative w-full max-w-7xl h-[96vh] flex flex-col bg-[#18181A] border border-[#36363B] rounded-xl shadow-2xl overflow-hidden font-sans">
+      {/* Top-Right Floating Controls Pill (Always right at top-right edge of browser viewport!) */}
+      <div className="fixed top-3 right-4 z-[60] flex items-center gap-2">
+        <button
+          onClick={toggleFullscreen}
+          className="px-3 py-1.5 rounded-lg bg-[#232326]/95 hover:bg-[#2C2C30] text-[#85858D] hover:text-[#F4F4F6] border border-[#36363B] shadow-xl transition-all flex items-center gap-1.5 text-xs font-medium backdrop-blur-md"
+          title={isFullscreen ? "Exit Fullscreen (F / Esc)" : "True Fullscreen Reading Mode (F)"}
+        >
+          {isFullscreen ? <Minimize2 className="w-4 h-4 text-[#E05656]" /> : <Maximize2 className="w-4 h-4 text-[#E05656]" />}
+          <span className="hidden sm:inline">{isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}</span>
+          <kbd className="hidden md:inline text-[9px] px-1 py-0.2 rounded bg-[#18181A] border border-[#36363B] font-mono text-[#85858D]">F</kbd>
+        </button>
+
+        <button
+          onClick={onClose}
+          className="px-3 py-1.5 rounded-lg bg-[#232326]/95 hover:bg-[#E05656] text-[#85858D] hover:text-[#F4F4F6] border border-[#36363B] hover:border-[#E05656] shadow-xl transition-all flex items-center gap-1.5 text-xs font-bold backdrop-blur-md group"
+          title="Close Reader (Esc)"
+        >
+          <X className="w-4 h-4 transition-transform group-hover:rotate-90" />
+          <span>Close</span>
+          <kbd className="hidden sm:inline text-[9px] px-1 py-0.2 rounded bg-[#18181A] border border-[#36363B] font-mono text-[#85858D] group-hover:text-white">Esc</kbd>
+        </button>
+      </div>
+
+      {/* Main Reader Box */}
+      <div 
+        className={`relative flex flex-col bg-[#18181A] shadow-2xl overflow-hidden font-sans transition-all duration-150 ${
+          isFullscreen 
+            ? 'w-screen h-screen rounded-none border-0' 
+            : 'w-full max-w-7xl h-[96vh] border border-[#36363B] rounded-xl'
+        }`}
+      >
         
-        {/* Top Header Bar */}
-        <div className="flex-shrink-0 bg-[#232326] border-b border-[#36363B] px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
-          
-          {/* Module Identification */}
-          <div className="flex items-center gap-3">
-            <span className="px-2 py-0.5 rounded text-xs font-bold font-mono uppercase bg-[#2C2C30] text-[#F4F4F6] border border-[#36363B]">
-              {course.code}
-            </span>
-            <div>
-              <div className="flex items-center gap-2">
-                <h3 className="text-sm sm:text-base font-serif font-bold text-[#F4F4F6] tracking-tight">
-                  Module {module.moduleNum}: {module.title}
-                </h3>
-                <span className="text-xs font-semibold text-[#E05656]">
+        {/* Top Header Bar (collapsible if in Focus Reading Mode) */}
+        {!isFocusReadingMode && (
+          <div className="flex-shrink-0 bg-[#232326] border-b border-[#36363B] px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-3">
+            
+            {/* Left: Course Badge + Module Title + Navigation Switcher */}
+            <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+              <span className="px-2 py-0.5 rounded text-xs font-bold font-mono uppercase bg-[#2C2C30] text-[#F4F4F6] border border-[#36363B]">
+                {course.code}
+              </span>
+              
+              {/* Module Selector & Prev/Next Quick Navigation */}
+              <div className="flex items-center gap-1.5 bg-[#18181A] p-1 rounded-lg border border-[#36363B]">
+                <button
+                  disabled={!prevModule}
+                  onClick={() => prevModule && onSwitchModule && onSwitchModule(prevModule.id)}
+                  className="p-1 rounded hover:bg-[#2C2C30] disabled:opacity-30 disabled:cursor-not-allowed text-[#85858D] hover:text-[#F4F4F6] transition-colors"
+                  title={prevModule ? `Go to Mod ${prevModule.moduleNum} (${prevModule.title})` : 'No previous module'}
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+
+                <div className="relative">
+                  <select
+                    value={module.id}
+                    onChange={(e) => onSwitchModule && onSwitchModule(e.target.value)}
+                    className="bg-transparent text-xs font-bold text-[#F4F4F6] pr-4 py-0.5 focus:outline-none cursor-pointer"
+                    title="Jump directly to any module of this course"
+                  >
+                    {allModules.map(m => (
+                      <option key={m.id} value={m.id} className="bg-[#1E1E21] text-[#F4F4F6]">
+                        Module {m.moduleNum}: {m.title.length > 36 ? m.title.slice(0, 36) + '...' : m.title}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <button
+                  disabled={!nextModule}
+                  onClick={() => nextModule && onSwitchModule && onSwitchModule(nextModule.id)}
+                  className="p-1 rounded hover:bg-[#2C2C30] disabled:opacity-30 disabled:cursor-not-allowed text-[#85858D] hover:text-[#F4F4F6] transition-colors"
+                  title={nextModule ? `Go to Mod ${nextModule.moduleNum} (${nextModule.title})` : 'No next module'}
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+
+              {module.co && (
+                <span className="text-xs font-semibold text-[#E05656] hidden lg:inline">
                   ({module.co})
                 </span>
+              )}
+            </div>
+
+            {/* Right: Status Pills & Action Buttons */}
+            <div className="flex flex-wrap items-center gap-2 pr-28 sm:pr-36">
+              
+              {/* 4 Status Buttons */}
+              <div className="flex items-center gap-1 bg-[#18181A] p-0.5 rounded-lg border border-[#36363B]">
+                {[
+                  { id: 'not_confident', label: '🔴 Not Confident' },
+                  { id: 'need_to_revise', label: '🟡 Revise' },
+                  { id: 'yet_to_start', label: '⚪ New' },
+                  { id: 'strong', label: '🟢 Strong' }
+                ].map(cat => {
+                  const isSelected = currentStatus === cat.id;
+                  const cfg = STATUS_CONFIG[cat.id];
+                  return (
+                    <button
+                      key={cat.id}
+                      onClick={() => onUpdateStatus(module.id, cat.id)}
+                      className={`px-2 py-0.5 rounded text-[10px] sm:text-xs font-medium transition-all ${
+                        isSelected 
+                          ? `${cfg.bg} ${cfg.text} font-bold shadow-sm border border-[#4A4A52]` 
+                          : 'text-[#85858D] hover:text-[#F4F4F6]'
+                      }`}
+                      title={`Classify module as ${cat.label}`}
+                    >
+                      {cat.label}
+                    </button>
+                  );
+                })}
               </div>
-              <div className="text-[11px] text-[#85858D] flex items-center gap-2">
-                <span>VIT Complete Textbook</span>
-                <span className="text-[#6E6E78]">•</span>
-                <span className="text-[#B0B5C2] font-mono text-[10px]">{pdfFileName}</span>
-              </div>
+
+              {/* Focus Reading Mode Toggle */}
+              <button
+                onClick={() => setIsFocusReadingMode(!isFocusReadingMode)}
+                className="p-1 sm:px-2.5 sm:py-1 rounded-lg bg-[#2C2C30] hover:bg-[#34343A] text-[#85858D] hover:text-[#F4F4F6] border border-[#36363B] transition-colors flex items-center gap-1 text-xs font-medium"
+                title="Distraction-Free Focus Reading (Maximizes book canvas)"
+              >
+                <Eye className="w-3.5 h-3.5 text-[#E05656]" />
+                <span className="hidden md:inline">Focus Mode</span>
+              </button>
+
+              {/* Open in New Window/Tab */}
+              <button
+                onClick={handleOpenNewTab}
+                className="p-1 sm:px-2.5 sm:py-1 rounded-lg bg-[#2C2C30] hover:bg-[#34343A] text-[#85858D] hover:text-[#F4F4F6] border border-[#36363B] transition-colors flex items-center gap-1 text-xs font-medium"
+                title="Open full PDF in a new tab"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span className="hidden xl:inline">New Tab</span>
+              </button>
+
+              {/* Direct PDF Download */}
+              <a
+                href={finalPdfUrl}
+                download={pdfFileName}
+                className="p-1 sm:px-2.5 sm:py-1 rounded-lg bg-[#2C2C30] hover:bg-[#34343A] text-[#85858D] hover:text-[#F4F4F6] border border-[#36363B] transition-colors flex items-center gap-1 text-xs font-medium"
+                title="Download module PDF notes"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span className="hidden xl:inline">Download</span>
+              </a>
             </div>
           </div>
+        )}
 
-          {/* Action & Category Controls */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+        {/* Focus Reading Mode Slim Floating Bar */}
+        {isFocusReadingMode && (
+          <div className="flex-shrink-0 bg-[#232326] border-b border-[#36363B] px-4 py-2 flex items-center justify-between text-xs text-[#F4F4F6] pr-28 sm:pr-36">
+            <div className="flex items-center gap-3">
+              <span className="px-2 py-0.5 rounded font-mono text-[10px] bg-[#E05656]/20 text-[#E05656] font-bold">
+                FOCUS READING MODE
+              </span>
+              <span className="font-bold">
+                {course.code} • Module {module.moduleNum}: {module.title}
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                disabled={!prevModule}
+                onClick={() => prevModule && onSwitchModule && onSwitchModule(prevModule.id)}
+                className="px-2 py-1 rounded bg-[#18181A] disabled:opacity-30 border border-[#36363B] hover:bg-[#2C2C30] flex items-center gap-1"
+                title="Previous Module ([)"
+              >
+                <ChevronLeft className="w-3.5 h-3.5" />
+                <span>Prev</span>
+              </button>
+              <button
+                disabled={!nextModule}
+                onClick={() => nextModule && onSwitchModule && onSwitchModule(nextModule.id)}
+                className="px-2 py-1 rounded bg-[#18181A] disabled:opacity-30 border border-[#36363B] hover:bg-[#2C2C30] flex items-center gap-1"
+                title="Next Module (])"
+              >
+                <span>Next</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+              <button
+                onClick={() => setIsFocusReadingMode(false)}
+                className="px-2.5 py-1 rounded bg-[#2C2C30] hover:bg-[#34343A] border border-[#36363B] text-xs font-medium"
+              >
+                Show Tabs
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Strict 3-Category Navigation Tab Bar (Hidden in Focus Mode) */}
+        {!isFocusReadingMode && (
+          <div className="flex-shrink-0 bg-[#1E1E21] border-b border-[#36363B] px-4 sm:px-6 flex items-center gap-2 overflow-x-auto no-scrollbar">
             
-            {/* The 4 Category Selection Buttons */}
-            <div className="flex items-center gap-1 bg-[#18181A] p-1 rounded-lg border border-[#36363B]">
-              <span className="text-[10px] text-[#6E6E78] pl-1.5 font-medium hidden md:inline">Status:</span>
-              {[
-                { id: 'not_confident', label: '🔴 Not Confident' },
-                { id: 'need_to_revise', label: '🟡 Need to Revise' },
-                { id: 'yet_to_start', label: '⚪ Yet to Start' },
-                { id: 'strong', label: '🟢 Strong' }
-              ].map(cat => {
-                const isSelected = currentStatus === cat.id;
-                const cfg = STATUS_CONFIG[cat.id];
-                return (
-                  <button
-                    key={cat.id}
-                    onClick={() => onUpdateStatus(module.id, cat.id)}
-                    className={`px-2.5 py-1 rounded text-[10px] sm:text-xs font-medium transition-all border ${
-                      isSelected 
-                        ? `${cfg.bg} ${cfg.text} ${cfg.border} font-bold shadow-sm` 
-                        : 'bg-[#232326] border-[#36363B] text-[#85858D] hover:text-[#F4F4F6]'
-                    }`}
-                    title={`Classify module as ${cat.label}`}
-                  >
-                    {cat.label}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Open in New Window/Tab */}
+            {/* Category 1: Full Detailed Books (Unabridged PDF) */}
             <button
-              onClick={handleOpenNewTab}
-              className="p-1.5 sm:px-3 sm:py-1 rounded-lg bg-[#2C2C30] hover:bg-[#34343A] text-[#85858D] hover:text-[#F4F4F6] border border-[#36363B] transition-colors flex items-center gap-1.5 text-xs font-medium"
-              title="Open full PDF textbook in a new tab"
+              onClick={() => setActiveTab('pdf')}
+              className={`py-2 px-3 text-xs font-bold whitespace-nowrap transition-all border-b-2 -mb-[1px] flex items-center gap-2 ${
+                activeTab === 'pdf'
+                  ? 'border-[#E05656] text-[#F4F4F6] bg-[#232326]/50'
+                  : 'border-transparent text-[#85858D] hover:text-[#F4F4F6]'
+              }`}
             >
-              <ExternalLink className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Open in New Tab</span>
+              <BookOpen className="w-3.5 h-3.5 text-[#E05656]" />
+              <span>📚 Full Detailed Book</span>
             </button>
 
-            {/* Direct PDF Download */}
-            <a
-              href={finalPdfUrl}
-              download={pdfFileName}
-              className="p-1.5 sm:px-3 sm:py-1 rounded-lg bg-[#2C2C30] hover:bg-[#34343A] text-[#85858D] hover:text-[#F4F4F6] border border-[#36363B] transition-colors flex items-center gap-1.5 text-xs font-medium"
-              title="Download module PDF notes"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Download</span>
-            </a>
-
-            {/* Close Button */}
+            {/* Category 2: Skim Notes (Formulas + Blueprint + Faculty Traps) */}
             <button
-              onClick={onClose}
-              className="p-1.5 rounded-lg bg-[#2C2C30] hover:bg-[#E05656]/20 text-[#85858D] hover:text-[#F4F4F6] border border-[#36363B] transition-colors"
-              title="Close PDF Viewer (Esc)"
+              onClick={() => setActiveTab('skim')}
+              className={`py-2 px-3 text-xs font-bold whitespace-nowrap transition-all border-b-2 -mb-[1px] flex items-center gap-2 ${
+                activeTab === 'skim'
+                  ? 'border-[#E05656] text-[#F4F4F6] bg-[#232326]/50'
+                  : 'border-transparent text-[#85858D] hover:text-[#F4F4F6]'
+              }`}
             >
-              <X className="w-4 h-4" />
+              <FileText className="w-3.5 h-3.5 text-blue-400" />
+              <span>⚡ Skim Notes</span>
+            </button>
+
+            {/* Category 3: FAT PYQ with Dropdown Solutions */}
+            <button
+              onClick={() => setActiveTab('pyqs')}
+              className={`py-2 px-3 text-xs font-bold whitespace-nowrap transition-all border-b-2 -mb-[1px] flex items-center gap-2 ${
+                activeTab === 'pyqs'
+                  ? 'border-[#E05656] text-[#F4F4F6] bg-[#232326]/50'
+                  : 'border-transparent text-[#85858D] hover:text-[#F4F4F6]'
+              }`}
+            >
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+              <span>🎯 FAT PYQ with Dropdown Solutions</span>
+              <span className="text-[10px] px-1.5 py-0.2 rounded font-mono bg-[#2C2C30] text-emerald-300">
+                {pyqCount || mcqCount} Solved
+              </span>
             </button>
           </div>
-        </div>
-
-        {/* Strict 3-Category Navigation Tab Bar */}
-        <div className="flex-shrink-0 bg-[#1E1E21] border-b border-[#36363B] px-4 sm:px-6 flex items-center gap-2 overflow-x-auto no-scrollbar">
-          
-          {/* Category 1: Full Detailed Books (Unabridged PDF) */}
-          <button
-            onClick={() => setActiveTab('pdf')}
-            className={`py-2.5 px-4 text-xs font-bold whitespace-nowrap transition-all border-b-2 -mb-[1px] flex items-center gap-2 ${
-              activeTab === 'pdf'
-                ? 'border-[#E05656] text-[#F4F4F6] bg-[#232326]/50'
-                : 'border-transparent text-[#85858D] hover:text-[#F4F4F6]'
-            }`}
-          >
-            <BookOpen className="w-3.5 h-3.5 text-[#E05656]" />
-            <span>📚 Full Detailed Book</span>
-          </button>
-
-          {/* Category 2: Skim Notes (Formulas + Blueprint + Faculty Traps) */}
-          <button
-            onClick={() => setActiveTab('skim')}
-            className={`py-2.5 px-4 text-xs font-bold whitespace-nowrap transition-all border-b-2 -mb-[1px] flex items-center gap-2 ${
-              activeTab === 'skim'
-                ? 'border-[#E05656] text-[#F4F4F6] bg-[#232326]/50'
-                : 'border-transparent text-[#85858D] hover:text-[#F4F4F6]'
-            }`}
-          >
-            <FileText className="w-3.5 h-3.5 text-blue-400" />
-            <span>⚡ Skim Notes</span>
-          </button>
-
-          {/* Category 3: FAT PYQ with Dropdown Solutions */}
-          <button
-            onClick={() => setActiveTab('pyqs')}
-            className={`py-2.5 px-4 text-xs font-bold whitespace-nowrap transition-all border-b-2 -mb-[1px] flex items-center gap-2 ${
-              activeTab === 'pyqs'
-                ? 'border-[#E05656] text-[#F4F4F6] bg-[#232326]/50'
-                : 'border-transparent text-[#85858D] hover:text-[#F4F4F6]'
-            }`}
-          >
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-            <span>🎯 FAT PYQ with Dropdown Solutions</span>
-            <span className="text-[10px] px-1.5 py-0.2 rounded font-mono bg-[#2C2C30] text-emerald-300">
-              {pyqCount || mcqCount} Solved
-            </span>
-          </button>
-
-        </div>
+        )}
 
         {/* Modal Main Body Content */}
         <div className="relative flex-1 w-full h-full bg-[#18181A] overflow-hidden flex flex-col">
           
-          {/* TAB 1: PDF Viewer View with Quick Jump Banner */}
+          {/* TAB 1: PDF Viewer View with Custom Reading Toolbar */}
           {activeTab === 'pdf' && (
             <div className="relative w-full h-full flex flex-col">
               
-              {/* Quick Jump Bar directly linking to Worked Questions & PYQs */}
-              <div className="flex-shrink-0 bg-[#232326] border-b border-[#36363B] px-4 py-2 flex items-center justify-between text-xs">
-                <span className="text-[#85858D] flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#E05656]" />
-                  <span>Viewing authentic unabridged PDF textbook for <strong>Module {module.moduleNum}</strong>.</span>
-                </span>
-                <button
-                  onClick={() => setActiveTab('pyqs')}
-                  className="px-3 py-1 rounded bg-[#E05656] hover:bg-[#C94545] text-[#F4F4F6] font-bold transition-all flex items-center gap-1.5 shadow-sm"
-                >
-                  <span>Go to Question Bank & Worked PYQs</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+              {/* Custom Reading Mode Toolbar */}
+              <div className="flex-shrink-0 bg-[#232326] border-b border-[#36363B] px-4 py-2 flex flex-wrap items-center justify-between gap-3 text-xs">
+                
+                {/* Left: Reading Theme / Tint Controller */}
+                <div className="flex items-center gap-2">
+                  <span className="text-[#85858D] font-medium hidden sm:inline">Theme:</span>
+                  <div className="flex items-center gap-1 bg-[#18181A] p-0.5 rounded-lg border border-[#36363B]">
+                    <button
+                      onClick={() => setReadingFilter('normal')}
+                      className={`px-2 py-0.5 rounded text-[11px] font-medium transition-all ${
+                        readingFilter === 'normal' 
+                          ? 'bg-[#2C2C30] text-[#F4F4F6] font-bold shadow-sm' 
+                          : 'text-[#85858D] hover:text-[#F4F4F6]'
+                      }`}
+                      title="Authentic original PDF colors"
+                    >
+                      Default
+                    </button>
+                    <button
+                      onClick={() => setReadingFilter('dark')}
+                      className={`px-2 py-0.5 rounded text-[11px] font-medium transition-all flex items-center gap-1 ${
+                        readingFilter === 'dark' 
+                          ? 'bg-[#2C2C30] text-[#F4F4F6] font-bold shadow-sm' 
+                          : 'text-[#85858D] hover:text-[#F4F4F6]'
+                      }`}
+                      title="Soft inverted dark reading filter for night study"
+                    >
+                      <Moon className="w-3 h-3 text-blue-400" />
+                      <span>Night Dark</span>
+                    </button>
+                    <button
+                      onClick={() => setReadingFilter('sepia')}
+                      className={`px-2 py-0.5 rounded text-[11px] font-medium transition-all flex items-center gap-1 ${
+                        readingFilter === 'sepia' 
+                          ? 'bg-[#2C2C30] text-[#F4F4F6] font-bold shadow-sm' 
+                          : 'text-[#85858D] hover:text-[#F4F4F6]'
+                      }`}
+                      title="Warm paper tone for easy eye strain relief"
+                    >
+                      <Sun className="w-3 h-3 text-amber-400" />
+                      <span>Sepia</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Center / Right: Zoom & Navigation jump */}
+                <div className="flex items-center gap-2.5">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[#85858D] text-[11px] hidden md:inline">Fit:</span>
+                    <select
+                      value={zoomLevel}
+                      onChange={(e) => setZoomLevel(e.target.value)}
+                      className="bg-[#18181A] border border-[#36363B] text-[11px] text-[#F4F4F6] rounded-md px-2 py-1 focus:outline-none focus:border-[#E05656] cursor-pointer"
+                    >
+                      <option value="FitH">Fit Width</option>
+                      <option value="Fit">Fit Page</option>
+                      <option value="100">100%</option>
+                      <option value="125">125%</option>
+                      <option value="150">150%</option>
+                    </select>
+                  </div>
+
+                  <button
+                    onClick={() => setActiveTab('pyqs')}
+                    className="px-2.5 py-1 rounded bg-[#E05656] hover:bg-[#C94545] text-[#F4F4F6] font-bold transition-all flex items-center gap-1 shadow-sm text-[11px]"
+                  >
+                    <span>Practice FAT PYQs</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
+                </div>
               </div>
 
               {/* Embedded PDF iframe */}
               <div className="relative flex-1 w-full h-full bg-[#18181A] overflow-hidden">
                 {finalPdfUrl ? (
                   <iframe
-                    src={`${finalPdfUrl}#toolbar=1&navpanes=1&view=FitH`}
+                    key={`${finalPdfUrl}-${zoomLevel}`}
+                    src={iframeSrc}
                     title={`Module ${module.moduleNum} Textbook`}
-                    className="w-full h-full border-0"
+                    className="w-full h-full border-0 transition-all duration-200"
+                    style={getFilterStyle()}
                   />
                 ) : (
                   <div className="flex flex-col items-center justify-center h-full text-center p-8 space-y-4">
@@ -458,14 +690,11 @@ export default function ModuleReaderModal({
                           <h4 className="text-sm sm:text-base font-bold text-[#F4F4F6]">
                             BAENG101 Complete 100-Word Definition Bank (Semantic Clusters)
                           </h4>
+                          <span className="text-xs text-[#85858D]">
+                            Official syllabus words classified by domain. Includes pronunciation and formal 3-part definition.
+                          </span>
                         </div>
-                        <p className="text-xs text-[#85858D]">
-                          FAT Question 5 carries 10 Marks. Definitions are clustered by theme with confusable pairs placed adjacent for easy contrast learning.
-                        </p>
                       </div>
-                      <span className="text-xs font-mono font-bold px-3 py-1.5 rounded-lg bg-pink-950/40 text-pink-300 border border-pink-500/30 shrink-0">
-                        {filteredWords.length} / 100 Words Matching
-                      </span>
                     </div>
 
                     {/* Semantic Cluster Filter Pills */}

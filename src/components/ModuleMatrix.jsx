@@ -16,7 +16,9 @@ import {
   ChevronUp,
   Award,
   Zap,
-  BookMarked
+  BookMarked,
+  Plus,
+  Check
 } from 'lucide-react';
 import { allCourses, STATUS_CONFIG } from '../data/courses/index.js';
 import KaTeXMath, { FormattedText } from './KaTeXMath.jsx';
@@ -28,11 +30,14 @@ export default function ModuleMatrix({
   onOpenModule,
   readinessPercentage,
   selectedExam,
-  onSwitchToMCQPractice
+  onSwitchToMCQPractice,
+  onQuickAddToChecklist
 }) {
   const [selectedCourseId, setSelectedCourseId] = useState(() => {
     return courses[0]?.id || 'BAMAT101';
   });
+
+  const [addedNoticeModuleId, setAddedNoticeModuleId] = useState(null);
 
   // Exactly the 3 sections requested: 'books' | 'skim' | 'pyqs'
   const [activeSection, setActiveSection] = useState('books');
@@ -244,15 +249,39 @@ export default function ModuleMatrix({
                       })}
                     </div>
 
-                    {/* Primary Button: Read Full Detailed Book */}
+                    {/* Primary Button: Read Full Detailed Book + Add to Checklist */}
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => onOpenModule(activeCourse.id, mod.id)}
-                        className="flex-1 py-2 px-4 rounded-lg bg-[#E05656] hover:bg-[#C94545] text-[#F4F4F6] text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2"
+                        className="flex-1 py-2 px-3 sm:px-4 rounded-lg bg-[#E05656] hover:bg-[#C94545] text-[#F4F4F6] text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2"
                       >
                         <BookOpen className="w-4 h-4" />
-                        <span>Read Full Detailed Book</span>
+                        <span>Read Full Book</span>
                       </button>
+
+                      {onQuickAddToChecklist && (
+                        <button
+                          onClick={() => {
+                            onQuickAddToChecklist(activeCourse, mod);
+                            setAddedNoticeModuleId(mod.id);
+                            setTimeout(() => setAddedNoticeModuleId(null), 1500);
+                          }}
+                          className="py-2 px-2.5 rounded-lg bg-[#2C2C30] hover:bg-[#36363B] border border-[#36363B] text-xs font-semibold text-[#BFBFC5] hover:text-[#F4F4F6] transition-colors flex items-center gap-1.5 shrink-0"
+                          title="Add this module to Today's Checklist"
+                        >
+                          {addedNoticeModuleId === mod.id ? (
+                            <>
+                              <Check className="w-3.5 h-3.5 text-emerald-400" />
+                              <span className="text-emerald-400 text-[11px]">Added!</span>
+                            </>
+                          ) : (
+                            <>
+                              <Plus className="w-3.5 h-3.5" />
+                              <span className="hidden sm:inline text-[11px]">Checklist</span>
+                            </>
+                          )}
+                        </button>
+                      )}
 
                       {finalPdfUrl && (
                         <a
@@ -287,14 +316,36 @@ export default function ModuleMatrix({
               <div key={mod.id} className="bg-[#232326] border border-[#36363B] rounded-xl p-5 space-y-4">
                 
                 {/* Module Header */}
-                <div className="flex items-center justify-between border-b border-[#2A2A2E] pb-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#2A2A2E] pb-3 gap-2">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
                     <h3 className="text-base font-serif font-bold text-[#F4F4F6]">
                       Module {mod.moduleNum}: {mod.title}
                     </h3>
                   </div>
-                  <span className="text-xs font-mono text-[#85858D]">{mod.weightage}</span>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => onOpenModule(activeCourse.id, mod.id)}
+                      className="px-2.5 py-1 rounded bg-[#E05656]/15 hover:bg-[#E05656] text-[#E05656] hover:text-[#F4F4F6] text-xs font-bold transition-all flex items-center gap-1 border border-[#E05656]/30"
+                    >
+                      <BookOpen className="w-3.5 h-3.5" />
+                      <span>Launch Book</span>
+                    </button>
+                    {onQuickAddToChecklist && (
+                      <button
+                        onClick={() => {
+                          onQuickAddToChecklist(activeCourse, mod);
+                          setAddedNoticeModuleId(mod.id);
+                          setTimeout(() => setAddedNoticeModuleId(null), 1500);
+                        }}
+                        className="px-2.5 py-1 rounded bg-[#2C2C30] hover:bg-[#36363B] text-xs font-medium text-[#BFBFC5] hover:text-[#F4F4F6] transition-colors border border-[#36363B] flex items-center gap-1"
+                      >
+                        {addedNoticeModuleId === mod.id ? <Check className="w-3 h-3 text-emerald-400" /> : <Plus className="w-3 h-3" />}
+                        <span>{addedNoticeModuleId === mod.id ? 'Added!' : 'Checklist'}</span>
+                      </button>
+                    )}
+                    <span className="text-xs font-mono text-[#85858D]">{mod.weightage}</span>
+                  </div>
                 </div>
 
                 {/* Master Formulas Cards */}
@@ -362,16 +413,38 @@ export default function ModuleMatrix({
                 <div key={mod.id} className="bg-[#232326] border border-[#36363B] rounded-xl p-5 space-y-4">
                   
                   {/* Module Header */}
-                  <div className="flex items-center justify-between border-b border-[#2A2A2E] pb-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#2A2A2E] pb-3 gap-2">
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
                       <h3 className="text-base font-serif font-bold text-[#F4F4F6]">
                         Module {mod.moduleNum}: {mod.title}
                       </h3>
                     </div>
-                    <span className="text-xs font-mono text-emerald-400 font-bold">
-                      {(mod.pyqs?.length || mod.mcqs?.length || 0)} Solved Problems
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => onOpenModule(activeCourse.id, mod.id)}
+                        className="px-2.5 py-1 rounded bg-[#E05656]/15 hover:bg-[#E05656] text-[#E05656] hover:text-[#F4F4F6] text-xs font-bold transition-all flex items-center gap-1 border border-[#E05656]/30"
+                      >
+                        <BookOpen className="w-3.5 h-3.5" />
+                        <span>Launch Book</span>
+                      </button>
+                      {onQuickAddToChecklist && (
+                        <button
+                          onClick={() => {
+                            onQuickAddToChecklist(activeCourse, mod);
+                            setAddedNoticeModuleId(mod.id);
+                            setTimeout(() => setAddedNoticeModuleId(null), 1500);
+                          }}
+                          className="px-2.5 py-1 rounded bg-[#2C2C30] hover:bg-[#36363B] text-xs font-medium text-[#BFBFC5] hover:text-[#F4F4F6] transition-colors border border-[#36363B] flex items-center gap-1"
+                        >
+                          {addedNoticeModuleId === mod.id ? <Check className="w-3 h-3 text-emerald-400" /> : <Plus className="w-3 h-3" />}
+                          <span>{addedNoticeModuleId === mod.id ? 'Added!' : 'Checklist'}</span>
+                        </button>
+                      )}
+                      <span className="text-xs font-mono text-emerald-400 font-bold">
+                        {(mod.pyqs?.length || mod.mcqs?.length || 0)} Solved Problems
+                      </span>
+                    </div>
                   </div>
 
                   {/* Question Cards with Dropdown Solutions */}

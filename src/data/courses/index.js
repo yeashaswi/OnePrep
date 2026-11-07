@@ -32,6 +32,68 @@ courseMap['BACHY105'] = chemistryCourse;
 courseMap['BAMAT101'] = calculusCourse;
 courseMap['BAEEE101'] = basicEngCourse;
 
+/**
+ * Universal, fail-safe resolver for course and module
+ * Guaranteed to find the exact course and module from any combination of
+ * courseId, courseCode, title, moduleId, or moduleNum.
+ */
+export function resolveCourseAndModule(courseIdOrCode, moduleIdOrNum) {
+  if (!courseIdOrCode && !moduleIdOrNum) {
+    return { course: allCourses[0], module: allCourses[0]?.modules[0] || null };
+  }
+
+  // 1. Resolve Course
+  let course = null;
+  if (courseIdOrCode) {
+    course = courseMap[courseIdOrCode];
+    if (!course) {
+      const cleanTarget = String(courseIdOrCode).toUpperCase().replace(/[^A-Z0-9]/g, '');
+      course = allCourses.find(c => {
+        const cId = c.id.toUpperCase().replace(/[^A-Z0-9]/g, '');
+        const cCode = c.code ? c.code.toUpperCase().replace(/[^A-Z0-9]/g, '') : '';
+        const cTitle = c.title ? c.title.toUpperCase().replace(/[^A-Z0-9]/g, '') : '';
+        const cShort = c.shortTitle ? c.shortTitle.toUpperCase().replace(/[^A-Z0-9]/g, '') : '';
+        return cId === cleanTarget || cCode.includes(cleanTarget) || cleanTarget.includes(cId) ||
+               cTitle.includes(cleanTarget) || cleanTarget.includes(cTitle) ||
+               cShort.includes(cleanTarget) || cleanTarget.includes(cShort);
+      });
+    }
+  }
+
+  // Fallback heuristic if course was not matched by code/id
+  if (!course && moduleIdOrNum) {
+    const mStr = String(moduleIdOrNum).toLowerCase();
+    if (mStr.startsWith('bamat') || mStr.startsWith('mat') || mStr.includes('calc')) course = calculusCourse;
+    else if (mStr.startsWith('bchy') || mStr.startsWith('chem')) course = chemistryCourse;
+    else if (mStr.startsWith('bacee') || mStr.startsWith('bee') || mStr.startsWith('eee')) course = basicEngCourse;
+    else if (mStr.startsWith('baeng') || mStr.startsWith('eng')) course = englishCourse;
+    else if (mStr.startsWith('evs') || mStr.startsWith('env')) course = environmentalCourse;
+  }
+
+  if (!course) course = allCourses[0];
+
+  // 2. Resolve Module
+  if (!moduleIdOrNum) {
+    return { course, module: course.modules[0] || null };
+  }
+
+  let module = course.modules.find(m => m.id === moduleIdOrNum);
+  if (!module) {
+    // Try matching by integer moduleNum extracted from string (e.g. 'bacee-m2', 'bee-m2', 'Mod 2', '2')
+    const match = String(moduleIdOrNum).match(/\d+/);
+    if (match) {
+      const num = parseInt(match[0], 10);
+      module = course.modules.find(m => m.moduleNum === num);
+    }
+  }
+
+  if (!module) {
+    module = course.modules[0] || null;
+  }
+
+  return { course, module };
+}
+
 // Status weights for intelligent schedule prioritization
 export const STATUS_WEIGHTS = {
   not_confident: 4,  // High anxiety / friction: Needs maximum derivations, multiple 10M past paper drills

@@ -235,7 +235,7 @@ export default function EvsMCQPractice({ onOpenModule }) {
                 </div>
 
                 <button
-                  onClick={() => onOpenModule('BCHY102', mcq.moduleId)}
+                  onClick={() => onOpenModule('BCHY102', mcq.moduleId || `evs-m${mcq.moduleNum}` || mcq.moduleNum)}
                   className="text-[11px] text-[#E05656] hover:underline flex items-center gap-1 font-semibold"
                 >
                   <BookOpen className="w-3.5 h-3.5" />
