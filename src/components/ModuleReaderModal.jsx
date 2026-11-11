@@ -596,7 +596,7 @@ export default function ModuleReaderModal({
                     {module.topics.map((top, tIdx) => (
                       <div key={tIdx} className="bg-[#18181A] px-3.5 py-2.5 rounded-lg border border-[#36363B] flex items-center gap-2.5 text-xs text-[#D1D1D6]">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
-                        <span>{top}</span>
+                        <span>{typeof top === 'string' ? top : top.title || top.name}</span>
                       </div>
                     ))}
                   </div>

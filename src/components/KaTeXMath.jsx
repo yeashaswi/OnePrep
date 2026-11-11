@@ -55,6 +55,9 @@ export function FormattedText({ text, className = '' }) {
                     // Check if line is a prominent step or boxed answer
                     const isStep = /^(\s*Step \d+:|\s*Part \([a-z]\)|\s*Boxed Answer:|\s*Conclusion:)/i.test(line);
                     const isBoxed = /^\s*Boxed Answer:/i.test(line);
+                    const numDefMatch = line.match(/^(\s*\d+\.\s+[^—–-]+?)\s*([—–-])\s*(.*)$/);
+                    const bulletMatch = line.match(/^(\s*[-•]\s*)([^:]+?:\s*)(.*)$/);
+
                     return (
                       <React.Fragment key={lIdx}>
                         {lIdx > 0 && <br />}
@@ -65,6 +68,17 @@ export function FormattedText({ text, className = '' }) {
                         ) : isStep ? (
                           <span className="font-bold text-[#F4F4F6] block mt-2 mb-1 text-sm sm:text-base">
                             {line}
+                          </span>
+                        ) : numDefMatch ? (
+                          <span className="block mt-2 mb-1 leading-relaxed">
+                            <strong className="text-[#F4F4F6] font-bold">{numDefMatch[1]} — </strong>
+                            <span className="text-[#D1D1D6]">{numDefMatch[3]}</span>
+                          </span>
+                        ) : bulletMatch ? (
+                          <span className="block pl-4 my-1 leading-relaxed text-sm sm:text-[15px]">
+                            <span className="text-emerald-400 font-bold mr-1">•</span>
+                            <strong className="text-[#F4F4F6] font-medium">{bulletMatch[2]}</strong>
+                            <span className="text-[#D1D1D6]">{bulletMatch[3]}</span>
                           </span>
                         ) : (
                           <span>{line}</span>
