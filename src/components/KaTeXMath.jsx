@@ -31,13 +31,13 @@ export function FormattedText({ text, className = '' }) {
   const paragraphs = text.split(/\n\n+/);
 
   return (
-    <div className={`space-y-3.5 leading-relaxed text-[#D1D1D6] font-sans ${className}`}>
+    <div className={`space-y-4 leading-relaxed text-[#D1D1D6] font-sans ${className}`}>
       {paragraphs.map((para, pIdx) => {
         // Highlight step indicators (e.g. "Step 1:", "Part (a)", "Boxed Answer:")
         const parts = para.split(/(\$\$[\s\S]*?\$\$|\$[^$\n]+\$)/g);
 
         return (
-          <div key={pIdx} className="leading-relaxed text-sm sm:text-[15px]">
+          <div key={pIdx} className="leading-relaxed text-sm sm:text-base">
             {parts.map((part, idx) => {
               if (part.startsWith('$$') && part.endsWith('$$')) {
                 const rawMath = part.slice(2, -2);
@@ -54,15 +54,20 @@ export function FormattedText({ text, className = '' }) {
                   {lines.map((line, lIdx) => {
                     // Check if line is a prominent step or boxed answer
                     const isStep = /^(\s*Step \d+:|\s*Part \([a-z]\)|\s*Boxed Answer:|\s*Conclusion:)/i.test(line);
+                    const isBoxed = /^\s*Boxed Answer:/i.test(line);
                     return (
                       <React.Fragment key={lIdx}>
                         {lIdx > 0 && <br />}
-                        {isStep ? (
-                          <span className="font-bold text-[#F4F4F6] block mt-1.5 mb-0.5">
-                            <span dangerouslySetInnerHTML={{ __html: line }} />
+                        {isBoxed ? (
+                          <span className="block mt-2.5 mb-1 p-2.5 rounded-lg bg-[#18181A] border border-emerald-500/30 text-emerald-300 font-bold text-sm sm:text-base">
+                            {line}
+                          </span>
+                        ) : isStep ? (
+                          <span className="font-bold text-[#F4F4F6] block mt-2 mb-1 text-sm sm:text-base">
+                            {line}
                           </span>
                         ) : (
-                          <span dangerouslySetInnerHTML={{ __html: line }} />
+                          <span>{line}</span>
                         )}
                       </React.Fragment>
                     );

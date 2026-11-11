@@ -583,6 +583,26 @@ export default function ModuleReaderModal({
                 </div>
               )}
 
+              {/* Syllabus Topics Checklist */}
+              {module.topics && module.topics.length > 0 && (
+                <div className="bg-[#232326] border border-[#36363B] rounded-xl p-5 space-y-3">
+                  <div className="flex items-center gap-2">
+                    <Layers className="w-4 h-4 text-emerald-400" />
+                    <h4 className="text-xs font-bold text-[#F4F4F6] uppercase tracking-wider">
+                      Official Syllabus Topics Covered ({module.topics.length} Sections)
+                    </h4>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 pt-1">
+                    {module.topics.map((top, tIdx) => (
+                      <div key={tIdx} className="bg-[#18181A] px-3.5 py-2.5 rounded-lg border border-[#36363B] flex items-center gap-2.5 text-xs text-[#D1D1D6]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                        <span>{top}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* 2. Master Formulas Sheet */}
               {module.formulaSheet && module.formulaSheet.length > 0 && (
                 <div className="space-y-3">

@@ -215,10 +215,25 @@ export default function ModuleMatrix({
                       {mod.title}
                     </h3>
 
-                    {/* Syllabus Scope */}
-                    <p className="text-sm text-[#D1D1D6] leading-relaxed line-clamp-4">
-                      {mod.scope}
-                    </p>
+                    {/* Syllabus Overview & Key Topics */}
+                    <div className="space-y-2.5">
+                      <p className="text-sm text-[#D1D1D6] leading-relaxed">
+                        {mod.summary || (mod.scope?.length > 180 ? `${mod.scope.slice(0, 180)}...` : mod.scope)}
+                      </p>
+                      
+                      {mod.topics && mod.topics.length > 0 && (
+                        <div className="flex flex-wrap gap-1.5 pt-1">
+                          {mod.topics.map((t, tIdx) => (
+                            <span 
+                              key={tIdx} 
+                              className="px-2 py-0.5 rounded text-[11px] font-medium bg-[#1C1C1F] text-[#BFBFC5] border border-[#2E2E33]"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   {/* Action & Classification Footer */}
@@ -347,6 +362,24 @@ export default function ModuleMatrix({
                     <span className="text-xs font-mono text-[#85858D]">{mod.weightage}</span>
                   </div>
                 </div>
+
+                {/* Syllabus Topics Breakdown */}
+                {mod.topics && mod.topics.length > 0 && (
+                  <div className="space-y-2 pt-1">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                      <Layers className="w-4 h-4" />
+                      <span>Syllabus Breakdown ({mod.topics.length} Key Topics)</span>
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {mod.topics.map((top, tIdx) => (
+                        <div key={tIdx} className="bg-[#18181A] px-3 py-2 rounded-lg border border-[#36363B] flex items-center gap-2 text-xs text-[#D1D1D6]">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                          <span>{top}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {/* Master Formulas Cards */}
                 {mod.formulaSheet && mod.formulaSheet.length > 0 && (

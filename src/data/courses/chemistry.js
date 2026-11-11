@@ -7,7 +7,7 @@ export const chemistryCourse = {
   "credits": 4,
   "semester": "Fall Semester 2026-27",
   "color": "red",
-  "badge": "Official Argon Master Textbooks (Modules 1-5)",
+  "badge": "Official Argon Textbooks (Modules 1-5)",
   "description": "Complete Argon Publication-Grade Textbooks, Derivations, Visual Summaries, Worked Numericals & VIT Official Question Bank Blueprints aligned 100% with VIT Course Syllabus.",
   "targetMarks": {
     "cat1": "50 Marks (Modules 1 & 2)",
@@ -103,36 +103,13 @@ export const chemistryCourse = {
         }
       ],
       "topics": [
-        {
-          "id": "bchy-t1-1",
-          "title": "M1S1: Thermodynamic Systems, Zeroth & First Law",
-          "theory": "Open vs Closed vs Isolated systems. Intensive vs extensive properties. State vs path functions. Zeroth Law thermometry basis. First Law ΔU = q + w and sign conventions."
-        },
-        {
-          "id": "bchy-t1-2",
-          "title": "M1S2: Enthalpy, Mayer's Relation & All Four P-V Processes",
-          "theory": "Isochoric heat qV = ΔU. Isobaric enthalpy qP = ΔH = ΔU + PΔV. 3-line derivation of Cp - Cv = R. Reversible and irreversible adiabatic expansions (TV^(γ-1) = C)."
-        },
-        {
-          "id": "bchy-t1-3",
-          "title": "M1S3: Second Law, Entropy & 4-Stroke Carnot Cycle",
-          "theory": "Kelvin-Planck and Clausius statements. Entropy Clausius inequality dS >= dq/T. Ideal gas entropy formulas. 4-stroke Carnot cycle (AB isothermal exp, BC adiabatic exp, CD isothermal comp, DA adiabatic comp) and η = 1 - Tc/Th."
-        },
-        {
-          "id": "bchy-t1-4",
-          "title": "M1S4: Free Energy (ΔA, ΔG), Spontaneity Table & Third Law",
-          "theory": "Helmholtz work function A = U - TS. Gibbs free energy G = H - TS. Gibbs-Helmholtz equation. 4-quadrant spontaneity table (combustion, Haber synthesis, ice melting, endothermic non-spontaneous). Third Law S(0 K) = 0."
-        },
-        {
-          "id": "bchy-t1-5",
-          "title": "M1S5: Chemical Kinetics: Rate Laws & Integrated Equations",
-          "theory": "Differential vs integrated rate laws for 0th, 1st, pseudo-1st, and 2nd order. Linear plot slopes (-k vs +k). General half-life scaling rule t1/2 ∝ [A]0^(1-n)."
-        },
-        {
-          "id": "bchy-t1-6",
-          "title": "M1S6: Collision Theory, Arrhenius Equation & Catalysis",
-          "theory": "Two criteria: E >= Ea and steric factor p. Arrhenius k = A exp(-Ea/RT). Homogeneous (mineral acid, Cl2), heterogeneous (Fe in Haber, V2O5 in Contact), and enzyme (Michaelis-Menten) catalysis."
-        }
+        "Thermodynamic Systems & First Law (ΔU = q + w)",
+        "Enthalpy & Mayer's Relation Proof (Cp - Cv = R)",
+        "Reversible & Irreversible Adiabatic Expansions (PV^γ = C)",
+        "4-Stroke Carnot Cycle & Engine Efficiency (η = 1 - Tc/Th)",
+        "Gibbs-Helmholtz Equation & 4-Quadrant Spontaneity Table",
+        "Integrated Rate Laws (0th, 1st & 2nd Order) & Half-Life",
+        "Collision Theory, Catalysts & Arrhenius Equation (k = A e^(-Ea/RT))"
       ],
       "pyqs": [
         {
@@ -170,13 +147,14 @@ export const chemistryCourse = {
           "question": "(a) In the 1st-order decay of C4H9Cl, concentration drops from 0.100 M to 0.050 M in 340 s. Find rate constant k.\n(b) A bimolecular reaction follows Rate = k[A][B]. If k = 5.7×10^-2 M^-1 s^-1, find Rate when [A] = 5.0×10^-3 M and [B] = 2.0×10^-2 M.\n(c) Calculate the Arrhenius rate constant k at 300 K given Ea = 30 kJ/mol and A = 5.0×10^10 M^-1 s^-1.\n(d) The rate of a reaction quadruples (k2/k1 = 4) when temperature increases from 300 K to 320 K. Calculate activation energy Ea.",
           "solution": "Part (a) First-Order Decay Rate Constant:\nThe drop from 0.100 M to 0.050 M is exactly one half-life (t1/2 = 340 s).\nk = 0.69315 / t1/2 = 0.69315 / 340 s = 2.039 × 10^-3 s^-1.\n\nPart (b) Bimolecular Rate:\nRate = k [A] [B] = (5.7 × 10^-2 M^-1 s^-1)(5.0 × 10^-3 M)(2.0 × 10^-2 M) = 5.70 × 10^-6 M/s.\n\nPart (c) Arrhenius Rate Constant at 300 K:\nk = A exp(-Ea / RT)\nExponent: -Ea / (RT) = -30,000 J / (8.314 J/(mol·K) × 300 K) = -30,000 / 2,494.2 = -12.0279\nk = (5.0 × 10^10) × exp(-12.0279) = (5.0 × 10^10) × (5.975 × 10^-6) = 2.988 × 10^5 M^-1 s^-1.\n\nPart (d) Activation Energy from Rate Ratio:\nln(k2 / k1) = (Ea / R) × [(T2 - T1) / (T1 T2)]\nln(4) = 1.3863 = (Ea / 8.314) × [(320 - 300) / (300 × 320)] = (Ea / 8.314) × [20 / 96,000] = Ea × (2.506 × 10^-5)\nEa = 1.3863 / (2.506 × 10^-5) = 55,319 J/mol = 55.32 kJ/mol.\nBoxed Answer: (a) k = 2.04×10^-3 s^-1, (b) Rate = 5.70×10^-6 M/s, (c) k = 2.99×10^5 M^-1 s^-1, (d) Ea = 55.32 kJ/mol."
         }
-      ]
+      ],
+      "summary": "Fundamental principles of energy conversion, work derivations, heat capacities, Carnot cyclic efficiency, Gibbs free energy spontaneity criteria, and chemical reaction rates."
     },
     {
       "id": "bchy-m2",
       "moduleNum": 2,
       "pdfUrl": "/pdfs/chemistry/Chemistry_MOD-2.pdf",
-      "title": "Energy Devices",
+      "title": "Energy Devices & Semiconductor Electrodes",
       "co": "CO: 2",
       "examScope": "CAT-1 & FAT",
       "weightage": "15-20 Marks in FAT",
@@ -250,36 +228,13 @@ export const chemistryCourse = {
         }
       ],
       "topics": [
-        {
-          "id": "bchy-t2-1",
-          "title": "M2S1: Electrochemical vs. Electrolytic Cells & Salt Bridge",
-          "theory": "8-point comparison table. Daniell cell Zn/Cu reactions. 3 salt bridge functions: complete internal circuit, maintain electroneutrality, eliminate liquid junction potential Ej. Opposing voltage Eext behavior."
-        },
-        {
-          "id": "bchy-t2-2",
-          "title": "M2S2: Nernst Equation & Industrial Electrolysis",
-          "theory": "Step-by-step thermodynamic derivation from van 't Hoff isotherm. Downs cell molten NaCl electrolysis (>4.07 V) with steel gauze diaphragm. Acidic and alkaline water splitting mechanisms (2:1 H2:O2)."
-        },
-        {
-          "id": "bchy-t2-3",
-          "title": "M2S3: Semiconductor Electrodes & 3-Stage Silicon Growth",
-          "theory": "Intrinsic Group IV (Si/Ge) vs Extrinsic n-type (P donor) and p-type (B acceptor). III-V and II-VI compound semiconductors. Polymorphs c-Si, mc-Si, a-Si:H. 3-stage purification: Siemens distillation -> Zone refining (k < 1) -> Czochralski 1425 °C boule pulling."
-        },
-        {
-          "id": "bchy-t2-4",
-          "title": "M2S4: Lithium-Ion Secondary Batteries (LIB)",
-          "theory": "3 reasons why Li is ideal. Architecture: Graphite/Cu anode, LiCoO2/Al cathode, LiPF6 in EC+DMC, SEI passivating layer. Rocking-chair equations. 7 advantages. 3 causes of thermal runaway. 6 cathode/anode variants (LCO, LMO, LFP, NMC, NCA, LTO)."
-        },
-        {
-          "id": "bchy-t2-5",
-          "title": "M2S5: Fuel Cells: PEMFC & SOFC",
-          "theory": "Primary vs secondary vs fuel cells. 8 fuel cell families. Low-temp PEMFC (Nafion membrane, Pt catalyst, CO poisoning, water management). High-temp SOFC (dense YSZ ceramic, O2- vacancy hopping, Ni-YSZ anode, dual-fuel syngas oxidation)."
-        },
-        {
-          "id": "bchy-t2-6",
-          "title": "M2S6: Solar Conversion: Silicon p-n PV, PEC & Grätzel DSSC",
-          "theory": "Silicon p-n junction built-in depletion field. Photoelectrochemical liquid junction (LJSC) and photoelectrosynthetic (PES) cells. Dye-sensitized solar cell (DSSC): 5 components and 4-step operating cycle. 10-point comparison table."
-        }
+        "Electrochemical vs. Electrolytic Cells & Salt Bridge Functions",
+        "Nernst Equation Thermodynamic Derivation & EMF Numericals",
+        "Industrial Electrolysis: Downs Cell & Water Splitting",
+        "Semiconductor Electrodes & 3-Stage Silicon Crystal Growth",
+        "Lithium-Ion Batteries: Intercalation Chemistry, SEI Layer & Safety",
+        "Fuel Cells: Low-Temp PEMFC vs. High-Temp SOFC",
+        "Solar Conversion: Silicon p-n Photovoltaics & Grätzel DSSC"
       ],
       "pyqs": [
         {
@@ -310,13 +265,14 @@ export const chemistryCourse = {
           "question": "(a) A 4 cm² silicon solar cell under 100 mW/cm² illumination gives Voc = 0.62 V, Isc = 140 mA, Vmp = 0.50 V, and Imp = 128 mA. Calculate Fill Factor (FF) and power conversion efficiency (η).\n(b) A 3.7 V LiCoO2 pouch cell delivers 4.0 Ah and weighs 74 g. Calculate stored energy (Wh) and specific energy (Wh/kg).",
           "solution": "Part (a) Solar Cell Fill Factor & Efficiency:\nMaximum electrical power: Pmax = Vmp × Imp = 0.50 V × 128 mA = 64.0 mW.\nFill Factor: FF = Pmax / (Voc × Isc) = 64.0 / (0.62 V × 140 mA) = 64.0 / 86.8 = 0.7373 (73.73%).\nIncident solar power: Pin = 100 mW/cm² × 4 cm² = 400 mW.\nEfficiency: η = (Pmax / Pin) × 100% = (64.0 / 400) × 100% = 16.0%.\n\nPart (b) Lithium-Ion Battery Specific Energy:\nStored energy: E = V × Q = 3.7 V × 4.0 Ah = 14.8 Wh.\nSpecific energy: Gravimetric Energy Density = E / mass = 14.8 Wh / 0.074 kg = 200.0 Wh/kg.\nBoxed Answer: (a) FF = 0.737, η = 16.0%; (b) Stored Energy = 14.8 Wh, Specific Energy = 200 Wh/kg."
         }
-      ]
+      ],
+      "summary": "Electrochemical thermodynamics, Nernst equation derivations, industrial electrolysis, modern Lithium-ion battery chemistry, fuel cell mechanisms, and solar energy conversion."
     },
     {
       "id": "bchy-m3",
       "moduleNum": 3,
       "pdfUrl": "/pdfs/chemistry/Chemistry_MOD-3.pdf",
-      "title": "Functional Materials and Coolants",
+      "title": "Functional Materials & Liquid Coolants",
       "co": "CO: 2",
       "examScope": "CAT-2 & FAT",
       "weightage": "15-20 Marks in FAT",
@@ -390,41 +346,13 @@ export const chemistryCourse = {
         }
       ],
       "topics": [
-        {
-          "id": "bchy-t3-1",
-          "title": "M3S1: Ohm's Law, Resistance vs Resistivity & 6 Factors",
-          "theory": "Macroscopic vs microscopic Ohm's law. Extrinsic resistance vs intrinsic resistivity. 6 governing factors: nature/electronic configuration, temperature PTC/NTC, Matthiessen's rule alloying, cold working, annealing, mechanical stress."
-        },
-        {
-          "id": "bchy-t3-2",
-          "title": "M3S2: Energy Band Theory & Material Classification",
-          "theory": "Pauli exclusion band splitting. Valence band, conduction band, forbidden bandgap Eg. 10-point comparison table of Conductors vs Semiconductors vs Insulators."
-        },
-        {
-          "id": "bchy-t3-3",
-          "title": "M3S3: Low-Resistivity Conductors & Electrical Insulators",
-          "theory": "Why Cu is exceptional ([Ar]3d10 4s1, FCC, 401 W/(m·K)). Hard-drawn vs annealed Cu. Aluminum and ACSR cable architecture. 5 classes of electrical insulators (dry air, SF6, mineral oil, XLPE/PTFE, porcelain/mica)."
-        },
-        {
-          "id": "bchy-t3-4",
-          "title": "M3S4: Semiconductors: Typewise Classification & Lattices",
-          "theory": "Type 1: Intrinsic Group IV (Si/Ge). Type 2: Extrinsic n-type (P donor, Ed) and p-type (B acceptor, Ea). Type 3: Compound III-V (GaAs, InP, GaN) and II-VI (CdS, ZnO). 8-point comparison table."
-        },
-        {
-          "id": "bchy-t3-5",
-          "title": "M3S5: Superconductors: Meissner Effect & High-Tc YBCO",
-          "theory": "Kamerlingh Onnes (1911) zero DC resistivity. Cooper pairs BCS theory. Meissner effect B = 0 => χ = -1. Type-I vs Type-II mixed state. YBCO YBa2Cu3O7-δ 1:2:3 perovskite, solid-state synthesis, oxygen stoichiometry δ = 0.07-0.15, 6 applications."
-        },
-        {
-          "id": "bchy-t3-6",
-          "title": "M3S6: Magnetic Materials & 4 Data Storage Technologies",
-          "theory": "Orbital, spin, and nuclear magnetic dipoles. Spin-only formula μeff = √[n(n+2)] μB. 5 magnetic classes (Dia, Para, Ferro, Antiferro, Ferri). Soft vs hard magnets. 4 storage systems: HDD Co-Cr-Pt, Tape, MO discs Curie-point writing, MRAM MTJ."
-        },
-        {
-          "id": "bchy-t3-7",
-          "title": "M3S7: Nanomaterials & Advanced Liquid Coolants",
-          "theory": "Exponential S/V ratio and quantum confinement. Surface plasmon resonance in gold and CdSe QDs. Top-down planetary ball milling vs Bottom-up Stöber sol-gel TEOS synthesis. Liquid cooling 1000 W/cm²: DI+BTA, glycols, brines, dielectric HFEs."
-        }
+        "Band Theory of Solids & Ohm's Law (Microscopic J = σE)",
+        "6 Factors Governing Resistivity & Matthiessen's Rule",
+        "Extrinsic Semiconductors & Superconductors (Meissner Effect χ = -1)",
+        "High-Tc Ceramic YBCO Superconductor (Tc = 92 K > 77 K LN2)",
+        "5 Magnetic Material Classes & Spin-Only Moment (μeff = √[n(n+2)])",
+        "Magnetic Recording & MRAM (Tunnel Magnetoresistance)",
+        "Nanomaterials Synthesis (Sol-Gel TEOS) & High-Flux Liquid Coolants"
       ],
       "pyqs": [
         {
@@ -448,13 +376,14 @@ export const chemistryCourse = {
           "question": "(a) A superconductor has Tc = 9.2 K and H0 = 0.196 T at 0 K. Find its critical magnetic field Hc at 4.2 K.\n(b) Calculate spin-only magnetic moments (μeff) for Ti3+ (Z=22), Fe2+ (Z=26), Fe3+ (Z=26), and Cu2+ (Z=29).",
           "solution": "Part (a) Critical Magnetic Field at 4.2 K:\nHc(T) = H0 [ 1 - (T / Tc)² ]\nHc(4.2 K) = 0.196 × [ 1 - (4.2 / 9.2)² ] = 0.196 × [ 1 - (0.4565)² ] = 0.196 × [ 1 - 0.2084 ] = 0.196 × 0.7916 = 0.1552 T (155.2 mT).\n\nPart (b) Spin-Only Magnetic Moments (μeff = √[n(n+2)] μB):\n1. Ti3+ (Z=22, [Ar] 3d¹): n = 1 unpaired electron => μeff = √(1 × 3) = √3 = 1.732 μB.\n2. Fe2+ (Z=26, [Ar] 3d⁶): 6 electrons in 5 d-orbitals => 1 pair, 4 unpaired (n = 4) => μeff = √(4 × 6) = √24 = 4.899 μB.\n3. Fe3+ (Z=26, [Ar] 3d⁵): 5 unpaired electrons (n = 5) => μeff = √(5 × 7) = √35 = 5.916 μB.\n4. Cu2+ (Z=29, [Ar] 3d⁹): 4 pairs, 1 unpaired electron (n = 1) => μeff = √(1 × 3) = √3 = 1.732 μB.\nBoxed Answer: (a) Hc(4.2 K) = 0.155 T; (b) Ti3+: 1.732 μB, Fe2+: 4.899 μB, Fe3+: 5.916 μB, Cu2+: 1.732 μB."
         }
-      ]
+      ],
+      "summary": "Band theory of electrical conduction, factors governing resistivity, intrinsic/extrinsic semiconductors, high-Tc YBCO superconductors, magnetic data storage, and advanced liquid coolants."
     },
     {
       "id": "bchy-m4",
       "moduleNum": 4,
       "pdfUrl": "/pdfs/chemistry/Chemistry_MOD-4.pdf",
-      "title": "Spectroscopic and Diffraction Techniques",
+      "title": "Spectroscopic & Diffraction Techniques",
       "co": "CO: 3",
       "examScope": "CAT-2 & FAT",
       "weightage": "15-20 Marks in FAT",
@@ -523,31 +452,12 @@ export const chemistryCourse = {
         }
       ],
       "topics": [
-        {
-          "id": "bchy-t4-1",
-          "title": "M4S1: EM Spectrum & Space Exploration Spectrometers",
-          "theory": "7-region EM spectrum. 6 ways EM interacts with matter. Atomic line vs Molecular band spectra. NASA Mars Rovers (Mini-TES, Mössbauer, APXS) & ISRO Chandrayaan-3 Pragyan Rover LIBS detecting Sulfur on lunar south pole."
-        },
-        {
-          "id": "bchy-t4-2",
-          "title": "M4S2: UV-Vis: 4 Transitions, Selection Rules & Shifts",
-          "theory": "Strict energy order: σ->σ* > n->σ* ≈ π->π* > n->π*. Selection rules: spin ΔS = 0 and Laporte spatial overlap. Chromophore vs auxochrome. 4 shifts: bathochromic, hypsochromic, hyperchromic, hypochromic. Aniline acid shift. Color wheel."
-        },
-        {
-          "id": "bchy-t4-3",
-          "title": "M4S3: Beer-Lambert Law, Instrumentation & Applications",
-          "theory": "A = log(I0/I) = ε L c. Limitations and deviations. Double-beam spectrophotometer chopper optical layout. Fused quartz cuvette rule. 5 applications: trace analysis, keto-enol tautomerism in ethyl acetoacetate, cis/trans stilbene."
-        },
-        {
-          "id": "bchy-t4-4",
-          "title": "M4S4: X-Ray Generation, Crystalline Order & Bragg's Law",
-          "theory": "X-ray tube Bremsstrahlung continuous vs characteristic Cu Kα (1.5406 Å) lines. Crystalline quartz vs amorphous silica halo. Step-by-step 5-mark geometric proof of Bragg's law 2d sin θ = nλ."
-        },
-        {
-          "id": "bchy-t4-5",
-          "title": "M4S5: Powder Diffractometer & Debye-Scherrer Equation",
-          "theory": "θ-2θ Bragg-Brentano goniometer. Hierarchy: unit cell, crystallite, grain, particle. Debye-Scherrer equation D = (kλ)/(β cos θ). Strengths and limitations of powder XRD."
-        }
+        "Electromagnetic Spectrum & 4 Electronic Transitions (σ→σ*, n→σ*, π→π*, n→π*)",
+        "Chromophores, Auxochromes & 4 Spectral Shifts (Red/Blue Shifts)",
+        "Beer-Lambert Law (A = ε L c) & Double-Beam UV-Vis Spectrophotometer",
+        "Analytical Applications: Keto-Enol Tautomerism & Isomer Distinction",
+        "Powder XRD Principle & Bragg's Law Geometric Derivation (2d sin θ = nλ)",
+        "Debye-Scherrer Nanocrystallite Size Determination (D = kλ / β cos θ)"
       ],
       "pyqs": [
         {
@@ -571,13 +481,14 @@ export const chemistryCourse = {
           "question": "An XRD peak of TiO2 nanoparticles recorded with Cu Kα radiation (λ = 0.15406 nm) appears at 2θ = 25.30° with a Full Width at Half Maximum (FWHM) of β = 0.45°. Taking shape factor k = 0.90, calculate the average crystallite size D in nm.",
           "solution": "Step 1: Bragg Angle θ:\n2θ = 25.30° => θ = 25.30° / 2 = 12.65°.\ncos(12.65°) = 0.97573.\n\nStep 2: Convert FWHM β from Degrees to Radians:\nβ(rad) = β(deg) × (π / 180°) = 0.45° × (3.14159 / 180°) = 0.45 × 0.017453 = 7.854 × 10^-3 radians.\n\nStep 3: Debye-Scherrer Formula Evaluation:\nD = (k × λ) / (β × cos θ)\nNumerator: k × λ = 0.90 × 0.15406 nm = 0.138654 nm.\nDenominator: β × cos θ = (7.854 × 10^-3 rad) × 0.97573 = 7.663 × 10^-3.\nD = 0.138654 nm / (7.663 × 10^-3) = 18.094 nm.\nBoxed Answer: The average TiO2 nanocrystallite size D is 18.09 nm."
         }
-      ]
+      ],
+      "summary": "Analytical light-matter interactions, UV-Visible spectroscopy, selection rules, auxochromic shifts, Beer-Lambert quantitative analysis, and Powder X-Ray Diffraction for crystallite sizing."
     },
     {
       "id": "bchy-m5",
       "moduleNum": 5,
       "pdfUrl": "/pdfs/chemistry/Chemistry_MOD-5.pdf",
-      "title": "Introduction to Computational Chemistry & Molecular Modeling",
+      "title": "Computational Chemistry & AI Material Discovery",
       "co": "CO: 4",
       "examScope": "FAT Only",
       "weightage": "15-20 Marks in FAT",
@@ -646,26 +557,13 @@ export const chemistryCourse = {
         }
       ],
       "topics": [
-        {
-          "id": "bchy-t5-1",
-          "title": "M5S1: Computational Chemistry Hierarchy & Methods",
-          "theory": "QM vs Classical MM/MD vs Hybrid QM/MM. 7 merits over experiment. TDSE vs TISE. Born-Oppenheimer approximation. HF, DFT (B3LYP), MP2, CI, CCSD(T), CASSCF. 6 basis set families: STO-3G, 6-31G, 6-31G(d,p), 6-31+G(d,p), cc-pVDZ, LANL2DZ."
-        },
-        {
-          "id": "bchy-t5-2",
-          "title": "M5S2: Atomic Orbitals & LCAO-MO Theory (H2 vs NO)",
-          "theory": "3 LCAO rules: comparable energy, spatial overlap, identical symmetry. Bonding vs antibonding. Homonuclear H2 (BO = 1.0, diamagnetic). Heteronuclear NO (11 valence e-, oxygen lower, polarized MOs, BO = 2.5, paramagnetic radical)."
-        },
-        {
-          "id": "bchy-t5-3",
-          "title": "M5S3: Potential Energy Curves (PEC) vs Surfaces (PES)",
-          "theory": "1D PEC (H2, HCl) vs Multi-D PES (Ozone open C2v vs cyclic D3h, Water H2O). Harmonic parabola vs Anharmonic Morse potential. Stationary points: Minima (0 imag freq) vs Transition States (1 imag freq)."
-        },
-        {
-          "id": "bchy-t5-4",
-          "title": "M5S4: MEP Maps, Geometry Optimization & SN2 Profiles",
-          "theory": "MEP surface of NH3 (Red lone pair cap, Blue H atoms). 4-step geometry optimization loop. Vibrational modes 3N-6 / 3N-5. 5-step mechanism protocol. Cl- + CH3Cl gas-phase double-well vs aqueous unimodal profile."
-        }
+        "Born-Oppenheimer Approximation & Electronic Structure Methods (HF, DFT)",
+        "Gaussian Basis Sets: Minimal (STO-3G), Split-Valence (6-31G), Diffuse & ECP",
+        "LCAO Molecular Orbital Theory: Homonuclear H2 vs. Heteronuclear NO",
+        "Potential Energy Surfaces (PES): Minima (0 imag freq) vs. Transition States (1 imag freq)",
+        "Molecular Electrostatic Potential (MEP) & Vibrational Normal Modes (3N-6 / 3N-5)",
+        "Reaction Coordinate SN2 Profiles (Gas-Phase Double-Well vs. Aqueous Barrier)",
+        "Force Fields & AI/Machine Learning for Screening Functional Materials"
       ],
       "pyqs": [
         {
@@ -689,7 +587,8 @@ export const chemistryCourse = {
           "question": "(a) Differentiate between a 1D Potential Energy Curve (PEC) and a Multi-D Potential Energy Surface (PES).\n(b) Explain the PEC of H2/HCl and the PES of Ozone (O3) and Water (H2O).\n(c) Calculate vibrational degrees of freedom for H2O, CO2, NH3, CH4, and Benzene (C6H6), and state the Hessian matrix test for stationary points.",
           "solution": "Part (a) PEC vs PES:\n- 1D PEC: Diatomic molecules (N = 2) have only 1 internal coordinate (internuclear distance r); energy is plotted as a 2D curve E(r).\n- Multi-D PES: Polyatomic molecules (N >= 3) have 3N - 6 (or 3N - 5) internal coordinates; energy is mapped across a multi-dimensional hypersurface.\n\nPart (b) Slide Case Studies:\n- H2 and HCl PEC: Follows an anharmonic Morse curve V(r) = De[1 - exp(-a(r - re))]²; at r < re, nuclear repulsion dominates; at r = re, minimum energy well; at r -> ∞, dissociates into neutral radicals.\n- Ozone (O3) PES: Plots energy vs O-O-O bond angle θ; Global Minimum at open bent ozone (θ = 120.9°, C2v) and higher-energy Local Minimum at cyclic iso-ozone (θ = 60.0°, D3h) separated by a transition state saddle point at θ ≈ 84°.\n- Water (H2O) PES: 3D surface over rOH and θHOH locates global minimum at rOH = 0.958 Å and θ = 104.5°, with an inversion barrier of ~11,000 cm^-1 at θ = 180°.\n\nPart (c) Vibrational Degrees of Freedom & Hessian Rule:\n- Linear molecules have 3N - 5 modes; Non-linear have 3N - 6 modes:\n  • H2O (non-linear, N=3): 3(3) - 6 = 3 modes (symmetric stretch 3657 cm^-1, asymmetric stretch 3756 cm^-1, bend 1595 cm^-1).\n  • CO2 (linear, N=3): 3(3) - 5 = 4 modes (symmetric stretch 1388 cm^-1, asymmetric stretch 2349 cm^-1, degenerate bend 667 cm^-1 × 2).\n  • NH3 (non-linear, N=4): 3(4) - 6 = 6 modes.\n  • CH4 (non-linear, N=5): 3(5) - 6 = 9 modes.\n  • Benzene C6H6 (non-linear, N=12): 3(12) - 6 = 30 modes.\n- Hessian Matrix Test: Gradient ∇E = 0 at all stationary points. A local/global minimum has ZERO imaginary frequencies (all positive force constants). A transition state has EXACTLY ONE imaginary frequency (one negative eigenvalue along the reaction coordinate)."
         }
-      ]
+      ],
+      "summary": "In silico molecular modeling, Born-Oppenheimer decoupling, LCAO Molecular Orbital theory for H2 and NO, Potential Energy Surfaces, vibrational modes, and AI screening of materials."
     }
   ]
 };
