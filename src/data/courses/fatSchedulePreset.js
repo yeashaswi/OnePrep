@@ -434,9 +434,9 @@ export const officialFatRoadmap = [
         courseId: 'BCHY102',
         courseTitle: 'Environmental Sciences',
         courseCode: 'BACHY101',
-        moduleId: 'evs-m6',
-        moduleTitle: 'Week 6: Contemporary Topics (Carbon Scopes, GRIHA & E-Waste EPR)',
-        task: 'Moodle quiz practice: Scope 1 (direct) vs Scope 2 (purchased electricity) vs Scope 3 (supply chain); 1 CER = 1 tonne CO2; GRIHA 5-star rating; microplastics < 5 mm; EPR rules.',
+        moduleId: 'evs-m5',
+        moduleTitle: 'Week 5: Climate Change & Emerging Environmental Issues',
+        task: 'Moodle CBT practice: Global warming potential, Kyoto Protocol gases, carbon offsets, acid rain pH, and Montreal Protocol ODS phase-out.',
         durationMinutes: 90,
         status: 'yet_to_start',
         completed: false

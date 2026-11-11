@@ -7,12 +7,12 @@ export const chemistryCourse = {
   "credits": 4,
   "semester": "Fall Semester 2026-27",
   "color": "red",
-  "badge": "Official Argon Master Textbooks (Modules 1-6)",
+  "badge": "Official Argon Master Textbooks (Modules 1-5)",
   "description": "Complete Argon Publication-Grade Textbooks, Derivations, Visual Summaries, Worked Numericals & VIT Official Question Bank Blueprints aligned 100% with VIT Course Syllabus.",
   "targetMarks": {
     "cat1": "50 Marks (Modules 1 & 2)",
     "cat2": "50 Marks (Modules 3 & 4)",
-    "fat": "100 Marks (All 6 Modules: 1-5 + Module 6 Contemporary AI & Materials)"
+    "fat": "100 Marks (All 5 Modules: 1-5)"
   },
   "modules": [
     {
@@ -576,8 +576,8 @@ export const chemistryCourse = {
     {
       "id": "bchy-m5",
       "moduleNum": 5,
-      "pdfUrl": "/pdfs/chemistry/Chemistry_MOD-5_6.pdf",
-      "title": "Introduction to Computational Chemistry",
+      "pdfUrl": "/pdfs/chemistry/Chemistry_MOD-5.pdf",
+      "title": "Introduction to Computational Chemistry & Molecular Modeling",
       "co": "CO: 4",
       "examScope": "FAT Only",
       "weightage": "15-20 Marks in FAT",
@@ -688,78 +688,6 @@ export const chemistryCourse = {
           "marks": "10 Marks",
           "question": "(a) Differentiate between a 1D Potential Energy Curve (PEC) and a Multi-D Potential Energy Surface (PES).\n(b) Explain the PEC of H2/HCl and the PES of Ozone (O3) and Water (H2O).\n(c) Calculate vibrational degrees of freedom for H2O, CO2, NH3, CH4, and Benzene (C6H6), and state the Hessian matrix test for stationary points.",
           "solution": "Part (a) PEC vs PES:\n- 1D PEC: Diatomic molecules (N = 2) have only 1 internal coordinate (internuclear distance r); energy is plotted as a 2D curve E(r).\n- Multi-D PES: Polyatomic molecules (N >= 3) have 3N - 6 (or 3N - 5) internal coordinates; energy is mapped across a multi-dimensional hypersurface.\n\nPart (b) Slide Case Studies:\n- H2 and HCl PEC: Follows an anharmonic Morse curve V(r) = De[1 - exp(-a(r - re))]²; at r < re, nuclear repulsion dominates; at r = re, minimum energy well; at r -> ∞, dissociates into neutral radicals.\n- Ozone (O3) PES: Plots energy vs O-O-O bond angle θ; Global Minimum at open bent ozone (θ = 120.9°, C2v) and higher-energy Local Minimum at cyclic iso-ozone (θ = 60.0°, D3h) separated by a transition state saddle point at θ ≈ 84°.\n- Water (H2O) PES: 3D surface over rOH and θHOH locates global minimum at rOH = 0.958 Å and θ = 104.5°, with an inversion barrier of ~11,000 cm^-1 at θ = 180°.\n\nPart (c) Vibrational Degrees of Freedom & Hessian Rule:\n- Linear molecules have 3N - 5 modes; Non-linear have 3N - 6 modes:\n  • H2O (non-linear, N=3): 3(3) - 6 = 3 modes (symmetric stretch 3657 cm^-1, asymmetric stretch 3756 cm^-1, bend 1595 cm^-1).\n  • CO2 (linear, N=3): 3(3) - 5 = 4 modes (symmetric stretch 1388 cm^-1, asymmetric stretch 2349 cm^-1, degenerate bend 667 cm^-1 × 2).\n  • NH3 (non-linear, N=4): 3(4) - 6 = 6 modes.\n  • CH4 (non-linear, N=5): 3(5) - 6 = 9 modes.\n  • Benzene C6H6 (non-linear, N=12): 3(12) - 6 = 30 modes.\n- Hessian Matrix Test: Gradient ∇E = 0 at all stationary points. A local/global minimum has ZERO imaginary frequencies (all positive force constants). A transition state has EXACTLY ONE imaginary frequency (one negative eigenvalue along the reaction coordinate)."
-        }
-      ]
-    },
-    {
-      "id": "bchy-m6",
-      "moduleNum": 6,
-      "pdfUrl": "/pdfs/chemistry/Chemistry_MOD-5_6.pdf",
-      "title": "Contemporary Topics: AI in Material Discovery",
-      "co": "CO: 2",
-      "examScope": "FAT Only",
-      "weightage": "5-10 Marks in FAT",
-      "status": "strong",
-      "scope": "Sections M5S5–M5S6: Why combine DFT with AI / Machine Learning (10^6× speedup, screening millions of candidate crystals in milliseconds), 8 Target semiconductor properties predicted by AI (bandgap Eg direct vs indirect, thermodynamic stability Ehull & ΔHf, carrier effective masses m*e/m*h and mobilities, dielectric constant & breakdown field, optical absorption α(ω), dopability & defect tolerance, lattice thermal conductivity κL, elastic moduli), 6-Stage AI High-Throughput Discovery Workflow (Stage 1 Data curation from Materials Project/OQMD >150,000 compounds, Stage 2 Featurization into Magpie composition vectors and 3D crystal graphs, Stage 3 ML training of GNNs CGCNN/MEGNet/ALIGNN, Stage 4 High-throughput screening & inverse design filtering 10^6 compositions down to top 10-50 candidates, Stage 5 DFT verification with HSE06 hybrid functionals and phonon calculations, Stage 6 Robotic synthesis and active learning feedback loop), Molecular Electrostatic Potential (MEP) of NH3 (Red electrophilic lone pair cap vs Blue nucleophilic H atoms), Gas-phase vs Aqueous solution SN2 reaction profiles (Cl- + CH3Cl double-well vs unimodal single barrier), and Official Model Question Bank Q6 & Q7.",
-      "blueprint": {
-        "marksTotal": "5 to 10 Marks in FAT",
-        "questionTypes": [
-          {
-            "type": "6-Stage AI Semiconductor Discovery Pipeline (10 Marks)",
-            "desc": "Data curation, crystal graph featurization, GNN training, high-throughput screening, hybrid DFT validation, and robotic synthesis loop."
-          },
-          {
-            "type": "MEP Surface & SN2 Reaction Profiles (10 Marks)",
-            "desc": "Ammonia MEP color interpretation and why SN2 reactions exhibit a double-well profile in gas phase but a high single unimodal barrier in water."
-          }
-        ]
-      },
-      "formulaSheet": [
-        {
-          "name": "AI Computational Speedup",
-          "formula": "\\text{Speedup} \\approx 10^6\\times \\quad (\\text{Milliseconds per structure vs. hours/days in DFT})",
-          "note": "Enables screening 10^6 hypothetical compositions"
-        },
-        {
-          "name": "Target Semiconductor Filter Criteria",
-          "formula": "E_{\\text{hull}} < 25\\text{ meV/atom}, \\quad E_g = 1.3 - 1.5\\text{ eV (direct bandgap)}",
-          "note": "Non-toxic, earth-abundant elements"
-        },
-        {
-          "name": "Crystal Graph Representation",
-          "formula": "\\mathcal{G} = (\\mathcal{V}, \\mathcal{E}), \\quad \\mathcal{V} = \\text{Atoms (Nodes)}, \\quad \\mathcal{E} = \\text{Chemical Bonds (Edges)}",
-          "note": "Used in CGCNN, MEGNet, ALIGNN"
-        }
-      ],
-      "examInsights": [
-        {
-          "title": "Why DFT Alone Fails for Mega-Screening",
-          "desc": "First-principles DFT scales as O(N^3) to O(N^4), taking hours to days per unit cell. AI Graph Neural Networks approximate the DFT energy-force surface in milliseconds, allowing researchers to evaluate millions of solar cell and battery candidates in days."
-        },
-        {
-          "title": "Active Learning Feedback Loop (Stage 6)",
-          "desc": "In modern autonomous materials discovery, robotic synthesis platforms synthesize the top ML candidate hits. Experimental performance data is immediately fed back into the training set to iteratively improve model prediction accuracy."
-        }
-      ],
-      "topics": [
-        {
-          "id": "bchy-t6-1",
-          "title": "M5S5: AI & Machine Learning in Semiconductor Discovery",
-          "theory": "Why combine DFT with AI. 8 target semiconductor properties. 6-stage high-throughput workflow: data curation -> crystal graph featurization -> GNN training -> high-throughput screening -> hybrid DFT verification -> robotic synthesis."
-        },
-        {
-          "id": "bchy-t6-2",
-          "title": "M5S6: Solved Model Questions Q6 & Q7",
-          "theory": "NH3 MEP color mapping (Red negative, Blue positive). Gas phase double-well vs solution unimodal SN2 profiles. Complete exam blueprint for AI materials screening."
-        }
-      ],
-      "pyqs": [
-        {
-          "id": "bchy-q6-1",
-          "exam": "Official VIT Model Q6 & Q7 — NH3 MEP Map, SN2 Profile & AI Discovery — 10 Marks",
-          "marks": "10 Marks",
-          "question": "(a) Explain the Molecular Electrostatic Potential (MEP) surface of NH3 and its color scale.\n(b) Compare the potential energy profile of the bimolecular nucleophilic substitution reaction Cl- + CH3Cl -> ClCH3 + Cl- in the gas phase versus aqueous solution.\n(c) Describe the 6-stage AI/ML + DFT workflow for discovering new semiconductors.",
-          "solution": "Part (a) MEP Surface of Ammonia (NH3):\n1. Definition: MEP V(r) maps the electrostatic interaction energy between a molecule's charge distribution (nuclei + electron density) and a unit positive test charge (+1e) projected onto an electron density isosurface.\n2. Color Scale: Red (Most Negative V < 0, electron-rich, electrophilic attack / H-bond acceptor site) < Green (Neutral V ≈ 0) < Blue (Most Positive V > 0, electron-deficient, nucleophilic attack / H-bond donor site).\n3. Ammonia Features: Intense Red cap centered over the Nitrogen lone pair (site of basic protonation) and Blue positive regions capping the three δ+ Hydrogen atoms.\n\nPart (b) Gas Phase vs. Aqueous Solution SN2 Reaction Profiles:\n1. Gas Phase (Double-Well Profile): As bare Cl- approaches CH3Cl in vacuum, strong ion-dipole attraction forms a stable pre-reaction complex [Cl-···CH3Cl] (energy minimum below reactants). It then crosses the central pentacoordinate trigonal-bipyramidal transition state [Cl···CH3···Cl]-‡ and falls into a post-reaction complex before separating. This creates a symmetric Double-Well with a low central barrier.\n2. Aqueous Solution (Unimodal Single Barrier): Water strongly solvates the compact charge of free Cl- via hydrogen bonding much more effectively than the charge-dispersed [Cl···CH3···Cl]-‡ transition state. Desolvating Cl- requires significant energy, abolishing the ion-dipole wells and creating a single, very high unimodal activation barrier (ΔG‡_aq >> ΔG‡_gas). Consequently, SN2 reactions proceed 10^12 to 10^15× slower in water than in the gas phase!\n\nPart (c) 6-Stage AI/ML + DFT High-Throughput Semiconductor Discovery Workflow:\n1. Stage 1 (Data Curation): Harvest 150,000+ DFT-calculated crystal structures from Materials Project / OQMD.\n2. Stage 2 (Featurization): Convert structures into Magpie elemental vectors and 3D crystal graphs (atoms = nodes, bonds = edges).\n3. Stage 3 (ML Training): Train Graph Neural Networks (CGCNN, MEGNet) using cross-validation.\n4. Stage 4 (Screening & Inverse Design): Screen 10^6 hypothetical crystal compositions down to top 10-50 candidates meeting targets (Ehull < 25 meV/atom, direct Eg = 1.3-1.5 eV, non-toxic elements).\n5. Stage 5 (DFT Verification): Validate top hits using hybrid HSE06 DFT and phonon band structures.\n6. Stage 6 (Robotic Synthesis & Active Learning): Synthesize candidates using automated robotic labs and feed experimental results back to refine the ML model."
         }
       ]
     }

@@ -586,18 +586,18 @@ export default function ModuleReaderModal({
               {/* 2. Master Formulas Sheet */}
               {module.formulaSheet && module.formulaSheet.length > 0 && (
                 <div className="space-y-3">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#F4F4F6] flex items-center gap-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-blue-400 flex items-center gap-2">
                     <FileText className="w-4 h-4 text-blue-400" />
                     <span>Master Formulas & Substitution Identities</span>
                   </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {module.formulaSheet.map((f, fIdx) => (
-                      <div key={fIdx} className="bg-[#232326] rounded-xl p-4 border border-[#36363B] space-y-2">
-                        <div className="flex items-center justify-between text-xs font-bold text-[#F4F4F6]">
+                      <div key={fIdx} className="bg-[#232326] rounded-xl p-4 sm:p-5 border border-[#36363B] space-y-2.5">
+                        <div className="flex items-center justify-between text-sm font-bold text-[#F4F4F6] flex-wrap gap-1">
                           <span>{f.name}</span>
-                          {f.note && <span className="text-[10px] text-[#85858D] italic font-normal">{f.note}</span>}
+                          {f.note && <span className="text-xs text-[#A1A1AA] italic font-normal">{f.note}</span>}
                         </div>
-                        <div className="bg-[#18181A] p-3 rounded-lg border border-[#36363B] overflow-x-auto text-center text-xs text-[#F4F4F6]">
+                        <div className="bg-[#18181A] p-3.5 rounded-lg border border-[#2E2E33] overflow-x-auto text-center text-sm sm:text-base text-[#F4F4F6]">
                           <KaTeXMath math={f.formula} display={true} />
                         </div>
                       </div>
@@ -615,12 +615,12 @@ export default function ModuleReaderModal({
                   </h4>
                   <div className="space-y-3">
                     {module.examInsights.map((ins, insIdx) => (
-                      <div key={insIdx} className="bg-[#232326] border border-amber-500/20 rounded-xl p-4 sm:p-5 space-y-2">
-                        <div className="flex items-center gap-2 text-amber-400 font-bold text-xs sm:text-sm">
+                      <div key={insIdx} className="bg-[#232326] border border-amber-500/25 rounded-xl p-5 space-y-2">
+                        <div className="flex items-center gap-2 text-amber-400 font-bold text-sm sm:text-base">
                           <AlertTriangle className="w-4 h-4 shrink-0" />
                           <span>{ins.title}</span>
                         </div>
-                        <div className="text-xs text-[#BFBFC5] leading-relaxed pl-6">
+                        <div className="text-sm text-[#E4E4E7] leading-relaxed pl-6">
                           <FormattedText text={ins.desc} />
                         </div>
                       </div>
@@ -823,20 +823,20 @@ export default function ModuleReaderModal({
                           </div>
 
                           {/* The Problem Statement with KaTeX math */}
-                          <div className="text-xs sm:text-sm font-semibold text-[#F4F4F6] leading-relaxed">
+                          <div className="text-sm sm:text-base font-semibold text-[#F4F4F6] leading-relaxed pt-1">
                             <FormattedText text={q.question} />
                           </div>
                         </div>
 
                         {/* Dropdown Step-by-Step Solution */}
                         {isExpanded && (
-                          <div className="bg-[#18181A] p-4 sm:p-5 border-t border-[#2A2A2E] space-y-3 animate-in fade-in duration-100">
-                            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400">
-                              <Sparkles className="w-3.5 h-3.5" />
+                          <div className="bg-[#18181A] p-5 sm:p-6 border-t border-[#36363B] space-y-3.5 animate-in fade-in duration-150">
+                            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400 pb-1 border-b border-[#2A2A2E]">
+                              <Sparkles className="w-4 h-4" />
                               <span>Step-by-Step Rigorous Derivation / Solution:</span>
                             </div>
                             
-                            <div className="text-xs sm:text-sm text-[#BFBFC5] leading-relaxed font-sans space-y-2">
+                            <div className="text-sm sm:text-[15px] text-[#D1D1D6] leading-relaxed font-sans">
                               <FormattedText text={q.solution} />
                             </div>
                           </div>
