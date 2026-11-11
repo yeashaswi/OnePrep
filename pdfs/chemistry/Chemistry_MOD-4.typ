@@ -102,23 +102,8 @@ Molecular orbitals are classified in order of increasing ground-state energy:
 $ sigma < pi < n < pi^* < sigma^* $
 
 #align(center)[
-  ```
-  Energy (E)
-      ^       Anti-Bonding (sigma*)   ------------------------
-      |                                    ^             ^
-      |                                    |             |
-      |       Anti-Bonding (pi*)      -----+-------------+----
-      |                                    |   ^     ^   |
-      |                                    |   |     |   |
-      |       Non-Bonding (n)         -----+---+-----+---+---- (Lone pairs)
-      |                                    |   |     |
-      |       Bonding (pi)            -----+---+-----+--------
-      |                                    |   |
-      |       Bonding (sigma)         -----+---+--------------
-      |                                    |
-      +------------------------------------+--------------------
-                                   sigma->sigma*  pi->pi*  n->pi*  n->sigma*
-  ```
+  #image("figures/m4_electronic_transitions.png", width: 85%) \
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 4.1: Energy levels of molecular orbitals ($sigma, pi, n, pi^*, sigma^*$) and relative energy requirements for electronic transitions.]
 ]
 
 1. *Transition $sigma arrow.r sigma^*$ (High Energy, Vacuum UV $< 200 "nm"$):*
@@ -145,19 +130,8 @@ $ sigma < pi < n < pi^* < sigma^* $
 
 === 2.3 The Four Types of Spectral Shifts
 #align(center)[
-  ```
-                        HYPERCHROMIC SHIFT
-                       (Intensity epsilon increases)
-                                ^
-                                |
-     BLUE SHIFT                 |                 RED SHIFT
-  (Hypsochromic)  <-------------+-------------> (Bathochromic)
-  Shorter Wavelength            |               Longer Wavelength
-  Higher Frequency              |               Lower Frequency
-                                v
-                        HYPOCHROMIC SHIFT
-                       (Intensity epsilon decreases)
-  ```
+  #image("figures/m4_chromophores.png", width: 75%) \
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 4.2: Classification of spectral shifts: Bathochromic (red shift), Hypsochromic (blue shift), Hyperchromic (intensity increase), and Hypochromic (intensity decrease).]
 ]
 
 1. *Bathochromic Shift (Red Shift):* Shift of an absorption band toward a *longer wavelength* (lower frequency / lower energy).
@@ -256,6 +230,15 @@ where:
 4. *Photodetector:* Photomultiplier Tube (PMT) or Silicon Photodiode Array (PDA) generating an electrical photocurrent directly proportional to the incident photon flux.
 
 === 4.2 Single-Beam vs. Double-Beam Optical Designs
+#align(center)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 10pt,
+    image("figures/m4_single_beam.png", width: 95%),
+    image("figures/m4_double_beam.png", width: 95%)
+  )
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 4.3: Optical layouts: (Left) Single-beam spectrophotometer; (Right) Double-beam in-time spectrophotometer with rotating chopper mirror.]
+]
 #table(
   columns: (2fr, 2.5fr, 2.5fr),
   fill: (x, y) => if y == 0 { rgb("#f1f5f9") } else { none },
@@ -283,21 +266,8 @@ X-rays are energetic, high-frequency electromagnetic waves discovered by Wilhelm
 
 === 5.2 The Dual X-Ray Emission Spectrum
 #align(center)[
-  ```
-  X-Ray Intensity
-       ^                 K_alpha Peak (Cu: 1.5418 A)
-       |                     /\
-       |                    /  \    K_beta Peak (Cu: 1.3922 A)
-       |                   /    \       /\
-       |                  /      \     /  \
-       |                 /        \   /    \
-       |   Continuous   /          \ /      \
-       |  Bremsstrahlung                         Characteristic Peaks
-       |   +-----------/                        \--------------------+
-       |  /
-       +--+------------------------------------------------------------> Wavelength lambda
-         lambda_min = hc / eV
-  ```
+  #image("figures/m4_xray_spectrum.png", width: 75%) \
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 4.4: Dual X-ray emission spectrum displaying continuous Bremsstrahlung background and sharp characteristic $K_alpha, K_beta$ emission lines.]
 ]
 
 1. *Continuous Spectrum (Bremsstrahlung / Braking Radiation):* Fast electrons decelerate rapidly in the strong Coulomb electric fields of target nuclei. Emits a continuous background spectrum with a sharp short-wavelength cutoff ($lambda_"min" = h c / e V$).
@@ -316,19 +286,13 @@ In 1913, William Henry Bragg and William Lawrence Bragg formulated the fundament
 Consider a collimated monochromatic beam of X-rays of wavelength $lambda$ striking a family of parallel crystal lattice planes with interplanar spacing $d$ at an incident glancing angle $theta$:
 
 #align(center)[
-  ```
-  Incident Beam 1                Diffracted Beam 1'
-         \                              /
-          \                            /
-  ---------\--------------------------/----------- Plane 1
-            \          theta         /
-             \                      /
-  Incident    \   A            C   /      Diffracted
-  Beam 2       \  |            |  /       Beam 2'
-                \ |            | /
-  ---------------+B------------+------------------ Plane 2
-                 <------ d ----->
-  ```
+  #grid(
+    columns: (1fr, 1.2fr),
+    gutter: 10pt,
+    image("figures/m4_interference.png", width: 95%),
+    image("figures/m4_bragg_derivation.png", width: 95%)
+  )
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 4.5: (Left) Constructive vs destructive wave interference; (Right) Step-by-step geometric derivation of Bragg's Law ($n lambda = 2 d sin theta$).]
 ]
 
 1. Ray 1 scatters from the top lattice plane at point $D$.
@@ -351,6 +315,15 @@ Consider a collimated monochromatic beam of X-rays of wavelength $lambda$ striki
 == 7. Powder Diffractometer & Crystallite Sizing (Debye-Scherrer Formula)
 
 === 7.1 Powder XRD Instrumentation and Diffraction Patterns
+#align(center)[
+  #grid(
+    columns: (1.2fr, 1fr),
+    gutter: 10pt,
+    image("figures/m4_pxrd_diffractogram.png", width: 95%),
+    image("figures/m4_crystallite_broadening.png", width: 95%)
+  )
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 4.6: (Left) Representative Powder XRD diffractogram showing intensity peaks as a function of $2 theta$; (Right) Effect of crystallite size reduction on diffraction peak line broadening.]
+]
 In a Powder X-Ray Diffractometer (p-XRD), the crystalline sample is ground into a fine powder containing millions of microscopic crystallites. Because millions of tiny crystallites are randomly oriented in all possible spatial directions, every possible $(h k l)$ lattice plane orientation automatically satisfies the Bragg condition ($n lambda = 2 d sin theta$) at some angle.
 - *Goniometer Operation:* The X-ray detector sweeps continuously around a central goniometer circle at angular rate $2 theta$, while the sample rotates at $theta$.
 - *Diffractogram Readout:* Signal Intensity (Counts per second) plotted against $2 theta$ (Degrees):

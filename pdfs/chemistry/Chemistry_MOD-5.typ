@@ -57,6 +57,15 @@ Computational chemistry utilizes computer simulations based on the fundamental l
 - *Molecular Modeling & Graphical User Interfaces:* Gabedit, Avogadro, GaussView, ChemCraft, VMD (Visual Molecular Dynamics), PyMOL.
 
 === 1.2 Comparison of the Four Major Computational Method Classes
+#align(center)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 10pt,
+    image("figures/m5_methods_hierarchy.png", width: 95%),
+    image("figures/m5_force_fields_mm.png", width: 95%)
+  )
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 5.1: (Left) Computational method hierarchy from empirical MM to high-level DFT/ab initio; (Right) Force field potential energy components (bonds, angles, torsions, non-bonded) in Molecular Mechanics.]
+]
 #table(
   columns: (1.5fr, 2.5fr, 2.5fr, 2.5fr),
   fill: (x, y) => if y == 0 { rgb("#f1f5f9") } else { none },
@@ -70,6 +79,10 @@ Computational chemistry utilizes computer simulations based on the fundamental l
 )
 
 === 1.3 The Schrödinger Equation and the Born-Oppenheimer Approximation
+#align(center)[
+  #image("figures/m5_schrodinger_equations.png", width: 80%) \
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 5.2: Mathematical structure of the Time-Independent Schrödinger Equation ($hat(H) Psi = E Psi$) and Born-Oppenheimer potential energy decoupling.]
+]
 - *Time-Dependent Schrödinger Equation (TDSE):*
   $ i h / (2 pi) frac(partial Psi(bold(r), t), partial t) = hat(H) Psi(bold(r), t) $
 - *Time-Independent Schrödinger Equation (TISE):*
@@ -113,6 +126,15 @@ $ psi_i = sum_mu c_(mu i) phi_mu $
   - *Diffuse Functions (6-31+G\*):* Adds large, slowly decaying Gaussian functions to accurately describe loosely held electron densities in anions, lone pairs, and Rydberg excited states.
 
 === 2.2 Molecular Orbital Theory: LCAO Principles
+#align(center)[
+  #grid(
+    columns: (1fr, 1.2fr),
+    gutter: 10pt,
+    image("figures/m5_atomic_orbital_shapes.png", width: 95%),
+    image("figures/m5_molecular_orbital_diagrams.png", width: 95%)
+  )
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 5.3: (Left) Spatial boundary shapes of atomic orbitals ($s, p_x, p_y, p_z, d$); (Right) LCAO-MO constructive and destructive interference generating bonding and anti-bonding molecular orbitals.]
+]
 When two atomic orbitals combine:
 1. *Bonding Molecular Orbital ($psi_B$):* In-phase constructive overlap ($psi_B = phi_A + phi_B$). Electron density accumulates between nuclei, shielding nuclear repulsion; lower energy than parent atomic orbitals.
 2. *Anti-Bonding Molecular Orbital ($psi_A^*$):* Out-of-phase destructive overlap ($psi_A^* = phi_A - phi_B$). A nodal plane ($psi = 0$) exists between nuclei; higher energy than parent atomic orbitals.
@@ -135,6 +157,10 @@ When two atomic orbitals combine:
    - $"Bond Order" = (10 - 5) / 2 = bold(2.5)$ (Paramagnetic radical with 1 unpaired electron in $pi^*$).
 
 === 2.4 Frontier Molecular Orbitals: HOMO and LUMO
+#align(center)[
+  #image("figures/m5_methane_homo_lumo.png", width: 75%) \
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 5.4: Frontier molecular orbital isosurfaces for Methane ($C H_4$): degenerate $1 t_2$ bonding HOMO and $2 a_1$ anti-bonding LUMO.]
+]
 - *HOMO (Highest Occupied Molecular Orbital):* The highest-energy orbital containing electrons; represents the electron donor or nucleophilic center.
 - *LUMO (Lowest Unoccupied Molecular Orbital):* The lowest-energy vacant orbital; represents the electron acceptor or electrophilic center.
 - *HOMO-LUMO Energy Gap ($Delta E$):* Governs chemical reactivity and kinetic stability:
@@ -147,6 +173,15 @@ When two atomic orbitals combine:
 == 3. Potential Energy Curves (PEC) and Potential Energy Surfaces (PES)
 
 === 3.1 Potential Energy Curves (Diatomic Molecules)
+#align(center)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 10pt,
+    image("figures/m5_pec_morse_harmonic.png", width: 95%),
+    image("figures/m5_pes_contour.png", width: 95%)
+  )
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 5.5: (Left) Harmonic oscillator parabola vs realistic anharmonic Morse potential energy curve; (Right) Topographical Potential Energy Surface (PES) contour map showing reactants, products, and transition state saddle point.]
+]
 For a diatomic molecule, internal geometry is described by a single coordinate: the internuclear separation distance ($R$).
 - *Harmonic Oscillator Model:* Near equilibrium bond distance ($R_e$), potential energy approximates a parabola:
   $ V(R) = frac(1, 2) k (R - R_e)^2 $
@@ -177,6 +212,15 @@ For a molecule containing $N$ atoms, its 3D spatial geometry is described by $3 
 == 4. Molecular Electrostatic Potential (MEP) and Geometry Optimization
 
 === 4.1 Molecular Electrostatic Potential (MEP) Maps
+#align(center)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 10pt,
+    image("figures/m5_mep_ammonia.png", width: 95%),
+    image("figures/m5_geometry_optimization.png", width: 95%)
+  )
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 5.6: (Left) Molecular Electrostatic Potential (MEP) map of Ammonia ($N H_3$) showing negative red lone pair region and positive blue hydrogens; (Right) Geometry optimization iterative descent trajectory navigating down potential gradient to local minimum.]
+]
 An MEP map projects the electrostatic potential experienced by a hypothetical positive test charge onto a surface of constant electron density (typically the $0.001 "a.u."$ isosurface enclosing $> 95%$ of molecular electron density):
 - *Color Coding Standards:*
   - *Red / Deep Orange (Negative Potential):* Regions of high electron density, lone pairs, and partial negative charge ($delta^-$). Represents nucleophilic attack sites and Lewis basic centers (e.g., Nitrogen atom in Ammonia $N H_3$, Carbonyl Oxygen in Acetone).
@@ -203,6 +247,15 @@ Following geometry optimization, a *frequency calculation* diagonalizes the mass
 == 5. Reaction Mechanisms: Gas-Phase vs. Solution-Phase $S_N 2$ and AI/ML
 
 === 5.1 Nucleophilic Substitution ($S_N 2$) Pathways
+#align(center)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 10pt,
+    image("figures/m5_sn2_gas_double_well.png", width: 95%),
+    image("figures/m5_sn2_solvent_effect.png", width: 95%)
+  )
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 5.7: (Left) Gas-phase $S_N 2$ double-well potential curve with ion-dipole precursor/successor complexes; (Right) Solution-phase desolvation effect elevating activation barrier in polar protic solvents.]
+]
 Reaction: $Y^- + R-X arrow.r Y-R + X^-$
 - *Gas-Phase $S_N 2$ Reaction (Double-Well PES):*
   - In the gas phase without solvent, the reaction profile exhibits a characteristic *double-well potential energy curve*:
