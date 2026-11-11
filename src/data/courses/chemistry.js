@@ -18,7 +18,7 @@ export const chemistryCourse = {
     {
       "id": "bchy-m1",
       "moduleNum": 1,
-      summary: "Laws of thermodynamics, Mayer's relation, Carnot cycle efficiency, and chemical reaction kinetics.'s relation, Carnot cycle efficiency, and chemical reaction kinetics.",
+      summary: "Laws of thermodynamics, Mayer's relation, Carnot cycle efficiency, and chemical reaction kinetics.",
       "pdfUrl": "/pdfs/chemistry/Chemistry_MOD-1.pdf",
       "title": "Chemical Thermodynamics & Kinetics",
       "co": "CO: 1",
@@ -275,9 +275,9 @@ export const chemistryCourse = {
     {
       "id": "bchy-m3",
       "moduleNum": 3,
-      summary: "Band theory of conduction, low resistivity conductors, superconductivity, Meissner effect, and magnetic materials.",
+      summary: "Electrical band theory, high-Tc superconductors, magnetic hysteresis, nanomaterials synthesis, and liquid coolants.",
       "pdfUrl": "/pdfs/chemistry/Chemistry_MOD-3.pdf",
-      "title": "Functional Materials & Liquid Coolants",
+      "title": "Functional Materials, Nanomaterials & Coolants",
       "co": "CO: 2",
       "examScope": "CAT-2 & FAT",
       "weightage": "15-20 Marks in FAT",

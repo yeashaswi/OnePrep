@@ -76,24 +76,7 @@ Invented by John Frederic Daniell in 1836, the cell consists of:
 - *Salt Bridge:* Inverted U-tube containing agar-agar gel saturated with inert $K C l$ or $K N O_3$.
 
 #align(center)[
-  ```
-       [e- flow --->]           Voltmeter (1.10 V)          [e- flow --->]
-      +----------------------------- (V) -----------------------------+
-      |                                                               |
-  [Zn Anode (-)]                                                [Cu Cathode (+)]
-      |                                                               |
-      |       +----------------- Salt Bridge -----------------+       |
-      |       |  Inverted U-tube: Agar-Agar gel + KCl/KNO3   |       |
-      |       |  K+ ions ---> Cathode  |  Cl- ions ---> Anode|       |
-  +---+-------+-----------------------------------------------+-------+---+
-  |   |       |                                               |       |   |
-  | [Zn2+]    +---\                                       /---+    [Cu2+] |
-  |   |           v                                       v           |   |
-  | 1.0 M ZnSO4 solution                              1.0 M CuSO4 solution |
-  +-----------------------------------------------------------------------+
-     Anode Half-Reaction:                               Cathode Half-Reaction:
-     Zn(s) ---> Zn2+(aq) + 2e- (Oxidation)              Cu2+(aq) + 2e- ---> Cu(s) (Reduction)
-  ```
+  #image("figures/m2_daniell_cell.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.1: Construction, electrode half-cells, salt bridge, and redox electron flow in the standard Daniell Galvanic Cell.]
 ]
 
 - *Overall Cell Reaction:* $Z n (s) + C u^(2+) (a q) arrow.r Z n^(2+) (a q) + C u (s)$
@@ -151,6 +134,9 @@ $ bold(E_"cell" = E_"cell"^circle - frac(0.05916, n) log_10 Q) $
 = 2. Industrial Electrolysis: Downs Cell & Water Splitting
 
 === 2.1 The Downs Cell for Sodium Extraction
+#align(center)[
+  #image("figures/m2_downs_cell.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.2: Industrial Downs Cell architecture showing central graphite anode, steel cylindrical cathode, and steel wire gauze diaphragm for molten $N a C l$ electrolysis.]
+]
 The commercial electrochemical extraction of metallic sodium by the electrolysis of molten sodium chloride ($N a C l$).
 - *Raw Material Mixture:* Molten $N a C l$ ($40%$) fluxed with Calcium Chloride ($C a C l_2$, $60%$).
   - *Function of $C a C l_2$ Flux:* Lowers the melting point of the electrolyte from $801 degree "C"$ (pure $N a C l$) down to $approx 580 - 600 degree "C"$. This prevents sodium metal from vaporizing (bp of Na is $883 degree "C"$) and prevents sodium from forming a colloidal fog in the melt.
@@ -166,6 +152,9 @@ The commercial electrochemical extraction of metallic sodium by the electrolysis
   - Operating cell voltage: $approx 4.0 - 4.5 "V"$; Operating current: up to $40000 "A"$.
 
 === 2.2 Electrolytic Decomposition of Water (Water Splitting)
+#align(center)[
+  #image("figures/m2_water_splitting.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.3: Water splitting electrolytic cell showing stoichiometric decomposition into hydrogen and oxygen ($2:1$ volume ratio).]
+]
 The stoichiometric decomposition of water into hydrogen and oxygen gases:
 $ 2 H_2 O (l) arrow.r 2 H_2 (g) + O_2 (g) $
 - *Theoretical Decomposition Voltage:* $E_"cell"^circle = 1.23 "V"$ at $298 "K"$ (practical overvoltage requires $1.8 - 2.0 "V"$).
@@ -184,6 +173,9 @@ $ 2 H_2 O (l) arrow.r 2 H_2 (g) + O_2 (g) $
 A semiconductor is a solid whose electrical conductivity lies between that of a metallic conductor ($sigma > 10^4 "S cm"^(-1)$) and an electrical insulator ($sigma < 10^(-10) "S cm"^(-1)$).
 
 === 3.1 Energy Band Theory
+#align(center)[
+  #image("figures/m2_semiconductor_bands.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.4: Energy band structure and temperature dependence of electrical conductivity in semiconductors.]
+]
 - *Valence Band (VB):* The highest range of electron energies in which electrons are present in the ground state.
 - *Conduction Band (CB):* The lowest range of vacant, unoccupied electron energy levels.
 - *Forbidden Bandgap ($E_g$):* The forbidden energy separation between the top of the VB and bottom of the CB:
@@ -231,6 +223,9 @@ High-efficiency semiconductor electronics require electronic-grade silicon (EGS)
    $ S i H C l_3 (g) + H_2 (g) arrow.r S i (s, "electronic grade") + 3 H C l (g) $
 
 === 4.2 Stage 2: Zone Refining Technique
+#align(center)[
+  #image("figures/m2_zone_refining.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.5: Zone refining apparatus showing moving RF induction heater coil sweeping impurities along molten zone.]
+]
 Invented by William Gardner Pfann at Bell Labs, zone refining utilizes the physical principle that *impurities are significantly more soluble in the liquid (molten) phase than in the solid phase*.
 - *Segregation Coefficient ($k$):* Defined as the ratio of impurity concentration in the freezing solid ($C_s$) to that in the molten liquid ($C_l$):
   $ k = frac(C_s, C_l) $
@@ -244,6 +239,9 @@ Invented by William Gardner Pfann at Bell Labs, zone refining utilizes the physi
   - Repeating multiple passes (10 to 20 passes) in the same direction concentrates all impurities at the terminal end, which is cropped off and discarded, leaving silicon of $99.9999999%$ (9N) purity.
 
 === 4.3 Stage 3: Czochralski (CZ) Single-Crystal Pulling
+#align(center)[
+  #image("figures/m2_czochralski.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.6: Czochralski crystal pulling furnace showing rotating seed crystal pulling dislocation-free silicon boule from melt at $1425degree "C"$.]
+]
 Zone-refined silicon is polycrystalline. To make microchips and high-efficiency solar cells, it must be converted into a continuous single crystal.
 - *Apparatus & Operation:*
   - Electronic-grade polysilicon is placed in a high-purity fused silica quartz crucible inside an argon-purged vacuum furnace and heated to $1425 degree "C"$ (silicon melting point $1414 degree "C"$).
@@ -285,19 +283,13 @@ Zone-refined silicon is polycrystalline. To make microchips and high-efficiency 
 Lithium-ion batteries operate via insertion and extraction (*intercalation/de-intercalation*) of $L i^+$ ions shuttling back and forth across the electrolyte:
 
 #align(center)[
-  ```
-               [<--- Discharge (e- to load) ---]
-               [--- Charge (e- from charger) --->]
-     Anode (-) [Copper Foil]                  Cathode (+) [Aluminium Foil]
-     +-------------------+                      +-------------------+
-     | Graphite Layers   |   Li+ (Discharge)    | Transition Metal  |
-     | [C] [C] [C] [C]   |  =================>  | Oxide Layers      |
-     |   *Li*  *Li*  *Li*|                      | [CoO2] [CoO2]     |
-     | [C] [C] [C] [C]   |   <================  | *Li*  *Li*  *Li*  |
-     +-------------------+    Li+ (Charging)    +-------------------+
-        Lithium Intercalated                       Lithium Intercalated
-        Graphite (Li_x C6)                         Cathode (LiCoO2)
-  ```
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 10pt,
+    image("figures/m2_li_ion_construction.png", width: 95%),
+    image("figures/m2_li_ion_reactions.png", width: 95%)
+  )
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.7: (Left) Lithium-ion cell internal construction and layered electrodes; (Right) Rocking-chair $L i^+$ intercalation/de-intercalation charge and discharge mechanisms.]
 ]
 
 - *Discharge Reactions (Spontaneous Cell Operation, $E_"cell" approx 3.7 "V"$):*
@@ -320,6 +312,9 @@ Lithium-ion batteries operate via insertion and extraction (*intercalation/de-in
 A fuel cell is an electrochemical energy conversion device that converts the chemical energy of a fuel ($H_2$, natural gas) and an oxidant ($O_2$, air) directly into electrical energy via continuous catalytic redox reactions.
 
 === 6.1 Proton Exchange Membrane Fuel Cell (PEMFC)
+#align(center)[
+  #image("figures/m2_pemfc.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.8: Proton Exchange Membrane Fuel Cell (PEMFC) construction showing Nafion membrane, Pt/C catalysts, and gas diffusion channels.]
+]
 - *Operating Temperature:* $60 - 80 degree "C"$ (Low temperature; enables rapid startup within seconds).
 - *Solid Polymer Electrolyte:* Perfluorosulfonic acid membrane (*Nafion*), which selectively conducts hydrated $H^+$ protons via sulfonic acid groups ($- S O_3^- H^+$) while blocking electrons and reactant gases.
 - *Electrode Catalysts:* High-surface-area Platinum nanoparticles dispersed on carbon black ($P t / C$) hot-pressed onto porous carbon cloth/paper gas diffusion layers (GDL).
@@ -331,6 +326,9 @@ A fuel cell is an electrochemical energy conversion device that converts the che
 - *Disadvantages:* Highly expensive platinum catalyst; severe poisoning of Pt catalyst by trace carbon monoxide ($C O > 10 "ppm"$); membrane requires delicate humidification management.
 
 === 6.2 Solid Oxide Fuel Cell (SOFC)
+#align(center)[
+  #image("figures/m2_sofc.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.9: Solid Oxide Fuel Cell (SOFC) ceramic architecture showing YSZ solid electrolyte conducting $O^{2-}$ oxide ions at $800-1000degree "C"$.]
+]
 - *Operating Temperature:* $700 - 1000 degree "C"$ (High temperature; solid ceramic materials).
 - *Solid Ceramic Electrolyte:* Dense, non-porous *Yttria-Stabilized Zirconia (YSZ)* ($Z r O_2$ doped with $8 "mol"% thin Y_2 O_3$). At high temperatures, oxygen vacancies in the cubic fluorite lattice facilitate rapid conduction of oxide ions ($O^(2-)$).
 - *Electrode Materials:*
@@ -349,6 +347,9 @@ A fuel cell is an electrochemical energy conversion device that converts the che
 = 7. Solar Energy Conversion & Dye-Sensitized Solar Cells (DSSC)
 
 === 7.1 Photovoltaic (PV) vs. Photoelectrochemical (PEC) vs. DSSC
+#align(center)[
+  #image("figures/m2_solar_pv.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.10: Photovoltaic conversion in silicon p-n junction solar cell.]
+]
 #table(
   columns: (1.5fr, 2.5fr, 2.5fr, 2.5fr),
   fill: (x, y) => if y == 0 { rgb("#f1f5f9") } else { none },
@@ -374,20 +375,13 @@ Invented in 1991 by Brian O'Regan and Michael Grätzel, the DSSC mimics natural 
 
 === 7.3 Four-Step Working Mechanism of DSSC
 #align(center)[
-  ```
-  [Photon hv] ---> Enters via Transparent FTO Glass
-       |
-  (1) [Dye Photoexcitation]:     D + hv ---> D* (Electron promoted to LUMO)
-       |
-  (2) [Electron Injection]:      D* ---> D+ + e-(CB of TiO2) [Femtosecond scale]
-       |
-  (3) [Electron Transport]:      e- diffuses through mesoporous TiO2 to FTO Anode
-       |                         Flows through external load ---> performs WORK ---> Pt Counter Electrode
-       |
-  (4) [Regeneration Cycle]:
-       * Dye Regeneration:       2 D+ + 3 I- ---> 2 D + I3- (Iodide restores ground state dye)
-       * Triiodide Reduction:    I3- + 2 e- (from counter electrode) ---> 3 I- (Pt catalyzes reduction)
-  ```
+  #grid(
+    columns: (1fr, 1.1fr),
+    gutter: 10pt,
+    image("figures/m2_dssc_graetzel.png", width: 95%),
+    image("figures/m2_dssc_mechanism.png", width: 95%)
+  )
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.11: (Left) Dye-Sensitized Solar Cell 5-layer sandwich structure; (Right) 4-step photoelectric conversion mechanism and redox regeneration cycle.]
 ]
 
 - *Energy Level Hierarchy Requirement:*

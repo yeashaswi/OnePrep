@@ -308,25 +308,13 @@ The Carnot cycle consists of 4 reversible operations using 1 mole of an ideal ga
 #rect(width: 100%, fill: rgb("#fafafa"), stroke: 0.8pt + rgb("#64748b"), radius: 4pt, inset: 8pt)[
   *Carnot Engine PV Indicator Diagram (Schematic Representation):* \
   #align(center)[
-    ```
-    Pressure (P)
-        ^
-        |     A (P1, V1, Th)
-        |       *
-        |        \  Stroke 1: Isothermal Expansion at Th (q_h absorbed)
-        |         \
-        |          * B (P2, V2, Th)
-        |           \
-        |            \  Stroke 2: Reversible Adiabatic Expansion (q = 0, Th -> Tc)
-        |             \
-        |              * C (P3, V3, Tc)
-        |             /
-        |   Stroke 4 /  Stroke 3: Isothermal Compression at Tc (q_c rejected)
-        |   Adiabatic/
-        |  Comp.    * D (P4, V4, Tc)
-        |
-        +----------------------------------------------------> Volume (V)
-    ```
+    #grid(
+      columns: (1fr, 1fr),
+      gutter: 10pt,
+      image("figures/m1_carnot_engine_scheme.png", width: 95%),
+      image("figures/m1_carnot_cycle.png", width: 95%)
+    )
+    #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 1.1: (Left) Working principle of cyclic Carnot heat engine; (Right) Official PV Indicator Diagram across Strokes AB, BC, CD, and DA.]
   ]
   *Stroke 1 (Curve AB):* Reversible Isothermal Expansion at source temperature $T_h$.
   - Heat absorbed from source: $q_h = - w_1 = R T_h ln(V_2 / V_1)$.
@@ -502,6 +490,11 @@ where:
   [*2*], [$- d [A]/d t = k [A]^2$], [$frac(1, [A]_t) = frac(1, [A]_0) + k t$], [$frac(1, k [A]_0)$], [$"L mol"^(-1) "s"^(-1)$]
 )
 
+
+#align(center)[
+  #image("figures/m1_rate_plots.png", width: 85%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 1.4: Linear graphical plots derived from integrated rate equations: (Left) Zero-order $[A]_t$ vs $t$; (Center) First-order $ln [A]_t$ vs $t$; (Right) Second-order $1/[A]_t$ vs $t$.]
+]
+
 === 10.1 Step-by-Step Derivation: First-Order Reaction
 1. Differential rate expression:
    $ - frac(d [A], d t) = k [A] ==> frac(d [A], [A]) = - k d t $
@@ -640,21 +633,7 @@ A catalyst is a chemical substance that increases the rate of a chemical reactio
   3. A catalyst speeds up both forward and reverse reaction rates by the exact same factor, thereby helping the system achieve dynamic equilibrium faster without altering equilibrium yield.
 
 #align(center)[
-  ```
-  Potential Energy
-      ^                  Uncatalyzed Transition State (E_a)
-      |                         /\
-      |                        /  \      Catalyzed Transition State (E_a')
-      |                       /    \           /\
-      |                      /      \         /  \
-      |   Reactants         /        \       /    \
-      |   [A + B]          /          \     /      \
-      |    +----------+   /            \---/        \
-      |    |          |  /       Intermediate        +----------+ Products
-      |    +----------+ /                             |          | [C + D]
-      |                                               +----------+
-      +------------------------------------------------------------------> Reaction Coordinate
-  ```
+  #image("figures/m1_catalysis_profile.png", width: 75%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 1.3: Potential energy diagram comparing the uncatalyzed reaction path ($E_a$) with the catalyzed path ($E_a'$) showing lowered activation energy barrier.]
 ]
 
 === 13.2 Homogeneous vs. Heterogeneous Catalysis

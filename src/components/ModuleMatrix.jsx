@@ -50,8 +50,10 @@ export default function ModuleMatrix({
     return course.modules;
   };
 
-  // Find active course
-  const activeCourse = courses.find(c => c.id === selectedCourseId) || courses[0];
+  // Find active course with bulletproof fallback
+  const activeCourse = (courses && courses.length > 0)
+    ? (courses.find(c => c.id === selectedCourseId) || courses[0])
+    : allCourses[0];
   const activeCourseModules = activeCourse ? getExamModules(activeCourse) : [];
 
   const toggleDropdownSolution = (id) => {
@@ -67,7 +69,7 @@ export default function ModuleMatrix({
       {/* 1. Course Selector Tabs - Peaceful OnePlus Horizontal Segment */}
       <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar border-b border-[#36363B]">
         {courses.map(course => {
-          const isSelected = course.id === activeCourse.id;
+          const isSelected = activeCourse && course.id === activeCourse.id;
           const courseModCount = getExamModules(course).length;
           return (
             <button
@@ -217,8 +219,8 @@ export default function ModuleMatrix({
 
                     {/* Card Summary & Key Topics */}
                     <div className="space-y-2.5">
-                      <p className="text-sm text-[#D1D1D6] leading-relaxed line-clamp-3">
-                        {mod.summary || mod.description || mod.scope}
+                      <p className="text-sm text-[#D1D1D6] leading-relaxed line-clamp-2">
+                        {mod.summary || mod.description || (typeof mod.scope === 'string' ? mod.scope.split('\n')[0] : '')}
                       </p>
                       
                       {mod.topics && mod.topics.length > 0 && (
