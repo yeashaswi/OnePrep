@@ -215,11 +215,11 @@ export default function ModuleMatrix({
                       {mod.title}
                     </h3>
 
-                    {/* Syllabus Overview & Key Topics */}
-                    <div className="space-y-3">
-                      <div className="text-sm text-[#D1D1D6] leading-relaxed">
-                        <FormattedText text={mod.scope || mod.summary} />
-                      </div>
+                    {/* Card Summary & Key Topics */}
+                    <div className="space-y-2.5">
+                      <p className="text-sm text-[#D1D1D6] leading-relaxed line-clamp-3">
+                        {mod.summary || mod.description || mod.scope}
+                      </p>
                       
                       {mod.topics && mod.topics.length > 0 && (
                         <div className="flex flex-wrap gap-1.5 pt-1">

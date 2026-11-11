@@ -43,6 +43,7 @@ export default function ModuleReaderModal({
   // Custom reading mode controls
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isFocusReadingMode, setIsFocusReadingMode] = useState(false);
+  const [bookViewMode, setBookViewMode] = useState('interactive'); // 'interactive' | 'pdf'
   const [readingFilter, setReadingFilter] = useState('normal'); // 'normal' | 'dark' | 'sepia'
   const [zoomLevel, setZoomLevel] = useState('FitH'); // 'FitH' | 'Fit' | '100' | '125' | '150'
   
@@ -426,71 +427,102 @@ export default function ModuleReaderModal({
         {/* Modal Main Body Content */}
         <div className="relative flex-1 w-full h-full bg-[#18181A] overflow-hidden flex flex-col">
           
-          {/* TAB 1: PDF Viewer View with Custom Reading Toolbar */}
+          {/* TAB 1: Detailed Textbook View (Dual-Mode: Interactive In-App Book vs PDF) */}
           {activeTab === 'pdf' && (
             <div className="relative w-full h-full flex flex-col">
               
-              {/* Custom Reading Mode Toolbar */}
+              {/* Reading Mode Toolbar */}
               <div className="flex-shrink-0 bg-[#232326] border-b border-[#36363B] px-4 py-2 flex flex-wrap items-center justify-between gap-3 text-xs">
                 
-                {/* Left: Reading Theme / Tint Controller */}
+                {/* Left: Dual View Mode Switcher (Interactive vs PDF) */}
                 <div className="flex items-center gap-2">
-                  <span className="text-[#85858D] font-medium hidden sm:inline">Theme:</span>
                   <div className="flex items-center gap-1 bg-[#18181A] p-0.5 rounded-lg border border-[#36363B]">
                     <button
-                      onClick={() => setReadingFilter('normal')}
-                      className={`px-2 py-0.5 rounded text-[11px] font-medium transition-all ${
-                        readingFilter === 'normal' 
-                          ? 'bg-[#2C2C30] text-[#F4F4F6] font-bold shadow-sm' 
+                      onClick={() => setBookViewMode('interactive')}
+                      className={`px-2.5 py-1 rounded text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                        bookViewMode === 'interactive'
+                          ? 'bg-[#E05656] text-[#F4F4F6] shadow-sm'
                           : 'text-[#85858D] hover:text-[#F4F4F6]'
                       }`}
-                      title="Authentic original PDF colors"
+                      title="Read complete chapter in clean, spacious in-app typography"
                     >
-                      Default
+                      <BookOpen className="w-3.5 h-3.5" />
+                      <span>📖 In-App Book</span>
                     </button>
+
                     <button
-                      onClick={() => setReadingFilter('dark')}
-                      className={`px-2 py-0.5 rounded text-[11px] font-medium transition-all flex items-center gap-1 ${
-                        readingFilter === 'dark' 
-                          ? 'bg-[#2C2C30] text-[#F4F4F6] font-bold shadow-sm' 
+                      onClick={() => setBookViewMode('pdf')}
+                      className={`px-2.5 py-1 rounded text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                        bookViewMode === 'pdf'
+                          ? 'bg-[#E05656] text-[#F4F4F6] shadow-sm'
                           : 'text-[#85858D] hover:text-[#F4F4F6]'
                       }`}
-                      title="Soft inverted dark reading filter for night study"
+                      title="View original compiled PDF document"
                     >
-                      <Moon className="w-3 h-3 text-blue-400" />
-                      <span>Night Dark</span>
-                    </button>
-                    <button
-                      onClick={() => setReadingFilter('sepia')}
-                      className={`px-2 py-0.5 rounded text-[11px] font-medium transition-all flex items-center gap-1 ${
-                        readingFilter === 'sepia' 
-                          ? 'bg-[#2C2C30] text-[#F4F4F6] font-bold shadow-sm' 
-                          : 'text-[#85858D] hover:text-[#F4F4F6]'
-                      }`}
-                      title="Warm paper tone for easy eye strain relief"
-                    >
-                      <Sun className="w-3 h-3 text-amber-400" />
-                      <span>Sepia</span>
+                      <FileText className="w-3.5 h-3.5" />
+                      <span>📄 PDF Document</span>
                     </button>
                   </div>
+
+                  {bookViewMode === 'pdf' && (
+                    <div className="hidden sm:flex items-center gap-1 bg-[#18181A] p-0.5 rounded-lg border border-[#36363B] ml-2">
+                      <button
+                        onClick={() => setReadingFilter('normal')}
+                        className={`px-2 py-0.5 rounded text-[11px] font-medium transition-all ${
+                          readingFilter === 'normal' 
+                            ? 'bg-[#2C2C30] text-[#F4F4F6] font-bold shadow-sm' 
+                            : 'text-[#85858D] hover:text-[#F4F4F6]'
+                        }`}
+                        title="Authentic original PDF colors"
+                      >
+                        Default
+                      </button>
+                      <button
+                        onClick={() => setReadingFilter('dark')}
+                        className={`px-2 py-0.5 rounded text-[11px] font-medium transition-all flex items-center gap-1 ${
+                          readingFilter === 'dark' 
+                            ? 'bg-[#2C2C30] text-[#F4F4F6] font-bold shadow-sm' 
+                            : 'text-[#85858D] hover:text-[#F4F4F6]'
+                        }`}
+                        title="Soft inverted dark reading filter for night study"
+                      >
+                        <Moon className="w-3 h-3 text-blue-400" />
+                        <span>Night</span>
+                      </button>
+                      <button
+                        onClick={() => setReadingFilter('sepia')}
+                        className={`px-2 py-0.5 rounded text-[11px] font-medium transition-all flex items-center gap-1 ${
+                          readingFilter === 'sepia' 
+                            ? 'bg-[#2C2C30] text-[#F4F4F6] font-bold shadow-sm' 
+                            : 'text-[#85858D] hover:text-[#F4F4F6]'
+                        }`}
+                        title="Warm paper tone for easy eye strain relief"
+                      >
+                        <Sun className="w-3 h-3 text-amber-400" />
+                        <span>Sepia</span>
+                      </button>
+                    </div>
+                  )}
                 </div>
 
-                {/* Center / Right: Zoom & Navigation jump */}
+                {/* Right: Zoom & Navigation jump */}
                 <div className="flex items-center gap-2.5">
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-[#85858D] text-[11px] hidden md:inline">Fit:</span>
-                    <select
-                      value={zoomLevel}
-                      onChange={(e) => setZoomLevel(e.target.value)}
-                      className="bg-[#18181A] border border-[#36363B] text-[11px] text-[#F4F4F6] rounded-md px-2 py-1 focus:outline-none focus:border-[#E05656] cursor-pointer"
-                    >
-                      <option value="FitH">Fit Width</option>
-                      <option value="Fit">Fit Page</option>
-                      <option value="100">100%</option>
-                      <option value="125">125%</option>
-                      <option value="150">150%</option>
-                    </select>
-                  </div>
+                  {bookViewMode === 'pdf' && (
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[#85858D] text-[11px] hidden md:inline">Fit:</span>
+                      <select
+                        value={zoomLevel}
+                        onChange={(e) => setZoomLevel(e.target.value)}
+                        className="bg-[#18181A] border border-[#36363B] text-[11px] text-[#F4F4F6] rounded-md px-2 py-1 focus:outline-none focus:border-[#E05656] cursor-pointer"
+                      >
+                        <option value="FitH">Fit Width</option>
+                        <option value="Fit">Fit Page</option>
+                        <option value="100">100%</option>
+                        <option value="125">125%</option>
+                        <option value="150">150%</option>
+                      </select>
+                    </div>
+                  )}
 
                   <button
                     onClick={() => setActiveTab('pyqs')}
@@ -502,30 +534,153 @@ export default function ModuleReaderModal({
                 </div>
               </div>
 
-              {/* Embedded PDF iframe */}
-              <div className="relative flex-1 w-full h-full bg-[#18181A] overflow-hidden">
-                {finalPdfUrl ? (
-                  <iframe
-                    key={`${finalPdfUrl}-${zoomLevel}`}
-                    src={iframeSrc}
-                    title={`Module ${module.moduleNum} Textbook`}
-                    className="w-full h-full border-0 transition-all duration-200"
-                    style={getFilterStyle()}
-                  />
-                ) : (
-                  <div className="flex flex-col items-center justify-center h-full text-center p-8 space-y-4">
-                    <BookOpen className="w-16 h-16 text-[#E05656] opacity-40" />
-                    <div>
-                      <h4 className="text-base font-bold text-[#F4F4F6] mb-1">
-                        PDF Textbook Compiling
-                      </h4>
-                      <p className="text-xs text-[#85858D] max-w-md">
-                        This module's textbook is being formatted according to the official VIT syllabus.
+              {/* View 1: Interactive In-App Book */}
+              {bookViewMode === 'interactive' && (
+                <div className="relative flex-1 w-full h-full bg-[#18181A] overflow-y-auto p-4 sm:p-8 space-y-6 max-w-4xl mx-auto font-sans leading-relaxed">
+                  
+                  {/* Module Header */}
+                  <div className="border-b border-[#36363B] pb-5 space-y-2.5">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="px-2.5 py-1 rounded text-xs font-bold font-mono bg-[#E05656]/20 text-[#E05656] border border-[#E05656]/30">
+                        Module {module.moduleNum}
+                      </span>
+                      {module.co && (
+                        <span className="px-2 py-0.5 rounded text-xs font-bold font-mono bg-[#2C2C30] text-[#F4F4F6]">
+                          {module.co}
+                        </span>
+                      )}
+                      {module.weightage && (
+                        <span className="text-xs text-[#85858D] font-mono">
+                          • {module.weightage}
+                        </span>
+                      )}
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#F4F4F6] tracking-tight">
+                      {module.title}
+                    </h2>
+                    {module.summary && (
+                      <p className="text-sm text-[#A0A5B5] leading-relaxed">
+                        {module.summary}
                       </p>
+                    )}
+                  </div>
+
+                  {/* Core Definitions & Concepts (Line-by-Line with Paragraph Spacing) */}
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between gap-2 border-b border-[#2E2E33] pb-2">
+                      <div className="flex items-center gap-2">
+                        <Layers className="w-4 h-4 text-[#E05656]" />
+                        <h3 className="text-xs font-bold uppercase tracking-wider text-[#F4F4F6]">
+                          Chapter Syllabus & Core Definitions (Line-by-Line)
+                        </h3>
+                      </div>
+                      <span className="text-[11px] text-[#85858D]">
+                        Clear paragraph separation
+                      </span>
+                    </div>
+
+                    <div className="bg-[#232326] border border-[#36363B] rounded-xl p-6 sm:p-7 space-y-4">
+                      <FormattedText text={module.scope} className="text-sm sm:text-base leading-relaxed" />
                     </div>
                   </div>
-                )}
-              </div>
+
+                  {/* Key Formulas Section */}
+                  {module.formulaSheet && module.formulaSheet.length > 0 && (
+                    <div className="space-y-3 pt-3">
+                      <div className="flex items-center gap-2">
+                        <FileText className="w-4 h-4 text-blue-400" />
+                        <h3 className="text-xs font-bold uppercase tracking-wider text-blue-400">
+                          Master Formulas & Governing Equations
+                        </h3>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {module.formulaSheet.map((f, fIdx) => (
+                          <div key={fIdx} className="bg-[#232326] rounded-xl p-4 sm:p-5 border border-[#36363B] space-y-2">
+                            <div className="flex items-center justify-between text-sm font-bold text-[#F4F4F6] flex-wrap gap-1">
+                              <span>{f.name}</span>
+                              {f.note && <span className="text-xs text-[#A1A1AA] italic font-normal">{f.note}</span>}
+                            </div>
+                            <div className="bg-[#18181A] p-3.5 rounded-lg border border-[#2E2E33] overflow-x-auto text-center text-sm sm:text-base text-[#F4F4F6]">
+                              <KaTeXMath math={f.formula} display={true} />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Faculty Exam Insights */}
+                  {module.examInsights && module.examInsights.length > 0 && (
+                    <div className="space-y-3 pt-3">
+                      <div className="flex items-center gap-2">
+                        <AlertTriangle className="w-4 h-4 text-amber-400" />
+                        <h3 className="text-xs font-bold uppercase tracking-wider text-amber-400">
+                          Faculty Exam Traps & High-Scoring Tips
+                        </h3>
+                      </div>
+                      <div className="space-y-3">
+                        {module.examInsights.map((ins, insIdx) => (
+                          <div key={insIdx} className="bg-[#232326] border border-amber-500/25 rounded-xl p-5 space-y-2">
+                            <div className="flex items-center gap-2 text-amber-400 font-bold text-sm sm:text-base">
+                              <AlertTriangle className="w-4 h-4 shrink-0" />
+                              <span>{ins.title}</span>
+                            </div>
+                            <div className="text-sm text-[#E4E4E7] leading-relaxed pl-6">
+                              <FormattedText text={ins.desc} />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Bottom Navigation */}
+                  <div className="pt-6 border-t border-[#36363B] flex items-center justify-between flex-wrap gap-3 pb-8">
+                    <button
+                      onClick={() => setBookViewMode('pdf')}
+                      className="px-3.5 py-2 rounded-lg bg-[#2C2C30] hover:bg-[#34343A] text-xs font-semibold text-[#BFBFC5] hover:text-[#F4F4F6] border border-[#36363B] transition-colors flex items-center gap-2"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      <span>Switch to Embedded PDF Document</span>
+                    </button>
+
+                    <button
+                      onClick={() => setActiveTab('pyqs')}
+                      className="px-4 py-2 rounded-lg bg-[#E05656] hover:bg-[#C94545] text-xs font-bold text-[#F4F4F6] transition-all flex items-center gap-2 shadow-sm"
+                    >
+                      <span>Solve FAT PYQs with Dropdown Solutions</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* View 2: Embedded PDF iframe */}
+              {bookViewMode === 'pdf' && (
+                <div className="relative flex-1 w-full h-full bg-[#18181A] overflow-hidden">
+                  {finalPdfUrl ? (
+                    <iframe
+                      key={`${finalPdfUrl}-${zoomLevel}`}
+                      src={iframeSrc}
+                      title={`Module ${module.moduleNum} Textbook`}
+                      className="w-full h-full border-0 transition-all duration-200"
+                      style={getFilterStyle()}
+                    />
+                  ) : (
+                    <div className="flex flex-col items-center justify-center h-full text-center p-8 space-y-4">
+                      <BookOpen className="w-16 h-16 text-[#E05656] opacity-40" />
+                      <div>
+                        <h4 className="text-base font-bold text-[#F4F4F6] mb-1">
+                          PDF Textbook Compiling
+                        </h4>
+                        <p className="text-xs text-[#85858D] max-w-md">
+                          This module's textbook is being formatted according to the official VIT syllabus.
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           )}
 
