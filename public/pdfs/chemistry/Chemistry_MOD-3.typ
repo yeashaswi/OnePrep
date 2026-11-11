@@ -1,103 +1,194 @@
-
 #set page(
   paper: "a4",
-  margin: (top: 2.2cm, bottom: 2.2cm, left: 2.2cm, right: 2.2cm),
+  margin: (top: 2.2cm, bottom: 2.2cm, left: 2.4cm, right: 2.4cm),
   header: context {
     if here().page() > 1 {
       grid(
         columns: (1fr, 1fr),
-        align(left)[#text(size: 8.5pt, fill: luma(90))[VIT BACHY101 --- Module 3: Functional Materials]],
-        align(right)[#text(size: 8.5pt, fill: luma(90), style: "italic")[VIT FAT Study Textbook]]
+        align(left)[#text(size: 8.5pt, fill: rgb("#64748b"))[VIT Applied Chemistry (BACHY101) --- Module 3: Functional Materials]],
+        align(right)[#text(size: 8.5pt, fill: rgb("#64748b"), style: "italic")[VIT FAT Comprehensive Study Textbook]]
       )
-      line(length: 100%, stroke: 0.4pt + luma(180))
+      line(length: 100%, stroke: 0.5pt + rgb("#cbd5e1"))
     }
   },
   footer: context {
-    align(center)[#text(size: 9pt)[#here().page()]]
+    align(center)[#text(size: 9pt, fill: rgb("#64748b"))[Page #here().page()]]
   }
 )
-#set text(font: "New Computer Modern", size: 10pt)
-#set par(justify: true, leading: 0.65em)
-#set heading(numbering: "1.1")
+#set text(font: "New Computer Modern", size: 10.5pt, fill: rgb("#0f172a"))
+#set par(justify: true, leading: 0.82em)
 
 #align(center)[
-  #text(size: 10pt, weight: "bold", tracking: 0.5pt)[VIT BACHY101 --- Module 3: Functional Materials] \
+  #text(size: 9.5pt, weight: "bold", fill: rgb("#64748b"), tracking: 1pt)[VIT VELLORE --- DEPARTMENT OF CHEMISTRY] \
   #v(2mm)
-  #text(size: 15pt, weight: "black")[MODULE 3: FUNCTIONAL MATERIALS] \
-  #text(size: 12pt, weight: "bold", fill: rgb("#0369a1"))[(CO: 2)] \
+  #text(size: 16pt, weight: "bold", fill: rgb("#0f172a"))[MODULE 3: FUNCTIONAL MATERIALS & LIQUID COOLANTS] \
   #v(1mm)
-  #text(size: 11pt, weight: "bold")[Complete Study Textbook, Step-by-Step Derivations & VIT FAT Question Bank] \
-  #text(size: 9pt, fill: luma(100))[Aligned with Official VIT BACHY101 Course Page Syllabus, Question Bank, and Past FAT Papers]
+  #text(size: 11.5pt, weight: "bold", fill: rgb("#b91c1c"))[Official FAT Study Textbook & Step-by-Step Question Bank Solutions (CO: 3)] \
+  #v(1mm)
+  #text(size: 9pt, fill: rgb("#64748b"))[Aligned with Official VIT BACHY101 Syllabus, Department Question Bank, and Past FAT Papers]
 ]
 
 #v(3mm)
 
-#rect(width: 100%, fill: rgb("#f8fafc"), stroke: 0.6pt + rgb("#cbd5e1"), radius: 4pt, inset: 9pt)[
-  #text(weight: "bold", fill: rgb("#0f172a"))[Scope of This Textbook (Official VIT Syllabus - All 10 Topics):]
-  (1) Electrical materials: Ohm's law and resistivity, (2) Classification: metals and semiconductors, (3) Intrinsic and extrinsic semiconductors, superconductors, (4) Magnetic materials: para and dia, (5) Ferromagnetic materials, (6) Antiferromagnetism and applications in storage devices, (7) Liquid cooling: types of coolants, thermal conductivity, applications, (8) Nanomaterials introduction, (9) Top-down and bottom-up synthesis, and (10) Bulk vs. nano (gold), quantum dots.
+#rect(width: 100%, fill: rgb("#f8fafc"), stroke: 0.8pt + rgb("#cbd5e1"), radius: 5pt, inset: 11pt)[
+  #text(weight: "bold", fill: rgb("#0f172a"), size: 10pt)[Scope of Module 3 (Official VIT Syllabus - All 9 Topics):] \
+  #v(1.5mm)
+  #text(size: 9.5pt, fill: rgb("#334155"))[
+    (1) Electrical materials and band theory, (2) Factors affecting electrical conductivity, (3) Superconductors and Meissner effect, (4) High-Tc cuprate superconductors (YBCO), (5) Magnetic materials: Diamagnetism, paramagnetism, and ferromagnetism, (6) Magnetic hysteresis loop and magnetic data storage, (7) Nanomaterials and quantum confinement, (8) Carbon allotropes (CNTs and graphene), and (9) Liquid coolants and nanofluids.
+  ]
+]
+
+#v(4mm)
+
+= 1. Core Syllabus Definitions & Theoretical Foundations (Line-by-Line)
+
+#v(2mm)
+
+*1. Band Theory of Conduction* \
+A quantum mechanical model where large numbers of overlapping atomic orbitals in a solid condense into continuous energy bands:
+- *Valence Band (VB):* The highest occupied energy band filled with valence electrons.
+- *Conduction Band (CB):* The lowest unoccupied energy band where delocalized electrons can migrate freely under an electric field.
+- *Forbidden Bandgap ($E_g$):* The energy difference between the top of the valence band and the bottom of the conduction band. Metals have overlapping bands ($E_g = 0 "eV"$); Semiconductors have narrow gaps ($0.1 < E_g < 3.0 "eV"$); Insulators have wide gaps ($E_g > 3.0 "eV"$).
+
+#v(3.5mm)
+
+*2. Electrical Conductivity & Resistivity* \
+Ohmic relationship $rho = (R A) / l$. At the microscopic level, electrical conductivity $sigma$ depends on carrier concentration $n$, fundamental electronic charge $e$, and carrier mobility $mu$:
+$ sigma = 1 / rho = n e mu $
+
+#v(3.5mm)
+
+*3. Temperature Coefficient of Resistance (TCR)* \
+The fractional rate of change of electrical resistance with temperature ($alpha = (1 / R_0) (d R / d T)$):
+- *Positive Temperature Coefficient (PTC):* In metals, thermal vibrations of lattice ions increase electron scattering, causing resistance to increase as temperature rises ($d R / d T > 0$).
+- *Negative Temperature Coefficient (NTC):* In semiconductors, thermal energy promotes exponential numbers of electrons across the bandgap into the conduction band, causing electrical resistance to drop sharply as temperature rises ($d R / d T < 0$).
+
+#v(3.5mm)
+
+*4. Superconductivity* \
+A macroscopic quantum phenomenon discovered by Heike Kamerlingh Onnes where electrical resistance vanishes completely ($R = 0$) below a material-specific critical transition temperature $T_c$, enabling continuous persistent current flow without thermal Joule dissipation ($I^2 R = 0$).
+
+#v(3.5mm)
+
+*5. The Meissner Effect* \
+The complete expulsion of magnetic flux lines from the interior of a superconducting material when cooled below its critical transition temperature $T_c$ in the presence of an applied magnetic field:
+$ bold(B) = bold(0), quad chi = -1 $
+Demonstrates that superconductors are intrinsically perfect diamagnets, physically distinct from hypothetical ideal zero-resistance conductors.
+
+#v(3.5mm)
+
+*6. High-Tc Cuprate Ceramic Superconductors (YBCO)* \
+Layered perovskite ceramic copper oxides of formula $Y B a_2 C u_3 O_(7-x)$ (where $0 < x < 0.5$) possessing a critical temperature $T_c = 93 "K"$. Operating above the boiling point of cheap liquid nitrogen ($77 "K"$), YBCO enabled practical magnetic levitation (maglev), lossless power transmission cables, and high-field MRI magnets.
+
+#v(3.5mm)
+
+*7. Diamagnetic Materials* \
+Substances containing exclusively paired electrons with zero net permanent magnetic dipole moments. When placed in an external magnetic field, induced orbital currents weakly oppose the field; magnetic susceptibility $chi$ is small, negative ($chi approx -10^(-5)$), and completely independent of temperature (e.g. $C u, B i, A u, H_2 O$).
+
+#v(3.5mm)
+
+*8. Paramagnetic Materials* \
+Substances possessing permanent unpaired electron spins with localized magnetic moments. In the absence of an external field, thermal agitation randomizes the dipoles; in an external magnetic field, dipoles partially align parallel to the field. Magnetic susceptibility $chi$ is positive ($chi approx 10^(-4)$) and inversely proportional to absolute temperature via Curie's Law: $chi = C / T$ (e.g. $A l, P t, M n^(2+)$, liquid $O_2$).
+
+#v(3.5mm)
+
+*9. Ferromagnetic Materials* \
+Substances possessing strong quantum parallel exchange coupling between unpaired spins across macroscopic magnetic domains. They exhibit strong spontaneous magnetization, are powerfully attracted into magnetic fields, retain permanent magnetization after removing the external field, and follow the Curie-Weiss law $chi = C / (T - theta)$ above their Curie temperature $T_c$ (e.g. $F e, C o, N i, N d_2 F e_(14) B$).
+
+#v(3.5mm)
+
+*10. Magnetic Hysteresis Loop & Data Storage* \
+The non-linear, lagging relationship between magnetic flux density $B$ and applied magnetic field $H$ during cyclic magnetization:
+- *Retentivity (Remanence $B_r$):* The residual magnetic flux remaining inside the material when the applied field $H$ is returned to zero; forms the physical foundation for binary 0/1 non-volatile storage in hard disk drives and magnetic tapes.
+- *Coercivity ($H_c$):* The reverse demagnetizing field required to reduce residual magnetization back to zero.
+- *Soft Magnetic Materials:* Characterized by low coercivity $H_c$, high permeability, and narrow hysteresis loops with minimal heat dissipation; ideal for transformer cores and electromagnets.
+- *Hard Magnetic Materials:* Characterized by high coercivity $H_c$, high retentivity, and broad hysteresis loops; resistant to demagnetization; ideal for permanent magnets and magnetic recording media.
+
+#v(3.5mm)
+
+*11. Nanomaterials & Quantum Confinement* \
+Materials engineered with at least one dimension in the nanoscale regime ($1 - 100 "nm"$):
+- *Quantum Confinement:* When physical spatial dimensions become comparable to or smaller than the de Broglie wavelength of conduction electrons, continuous energy bands collapse into discrete, quantized energy levels, widening the effective bandgap $E_g$.
+- *Surface-to-Volume Ratio:* As particle size decreases, the fraction of surface atoms increases exponentially ($"Ratio" prop 1/r$), dramatically enhancing chemical reactivity, catalytic efficiency, and adsorption capacity.
+
+#v(3.5mm)
+
+*12. Carbon Nanotubes (CNTs) & Graphene* \
+Allotropes of $s p^2$ hybridized carbon:
+- *Graphene:* A two-dimensional planar honeycomb lattice of single-atom thickness exhibiting ballistic electronic transport, zero effective mass charge carriers (Dirac fermions), and extraordinary tensile strength ($130 "GPa"$).
+- *Single-Walled Carbon Nanotubes (SWCNTs):* Seamless cylindrical tubes rolled from graphene sheets with diameter $approx 1 - 2 "nm"$; display metallic or semiconducting behavior governed by their chiral wrapping vector indices $(n, m)$.
+
+#v(3.5mm)
+
+*13. Advanced Liquid Coolants & Nanofluids* \
+Engineered heat transfer liquids engineered for thermal management in EV battery packs, avionics, and high-performance microprocessors:
+- *Essential Thermophysical Properties:* High specific heat capacity $C_p$, high thermal conductivity $k$, low kinematic viscosity $nu$, high dielectric breakdown strength, non-flammability, and low corrosive potential.
+- *Nanofluids:* Stable colloidal suspensions of metallic or metal oxide nanoparticles ($A l_2 O_3, C u O, T i O_2$, or functionalized CNTs) dispersed in base fluids (water, ethylene glycol) providing $20 - 50%$ enhancement in convective heat transfer coefficients.
+
+#v(5mm)
+
+= 2. In-Depth Chemical Theory & Step-by-Step Derivations
+
+#v(2mm)
+
+== Crystal Chemistry & Mechanism of YBCO Superconductors
+$Y B a_2 C u_3 O_(7-x)$ adopts an oxygen-deficient, triple-cell layered perovskite structure consisting of alternating $C u-O$ planes ($C u O_2$) and $C u-O$ chains ($C u O$):
+1. Superconductivity occurs predominantly within the two-dimensional $C u O_2$ planes through Cooper pairing mediated by lattice vibrations (phonons) and antiferromagnetic spin fluctuations.
+2. The oxygen stoichiometry index $(7 - x)$ directly controls superconducting transition temperature:
+   - For $x approx 0.05$ to $0.1$ ($Y B a_2 C u_3 O_(6.93)$), the crystal is orthorhombic and exhibits maximum $T_c = 93 "K"$.
+   - When oxygen is lost ($x > 0.6$), the material undergoes an orthorhombic-to-tetragonal phase transition, $C u-O$ chains are depleted of oxygen, and the material becomes an electrical insulator!
+
+#v(5mm)
+
+= 3. VIT FAT Exam Blueprint & Master Formula Sheet
+
+#table(
+  columns: (1.5fr, 2.2fr, 2fr),
+  inset: 7pt,
+  stroke: 0.5pt + rgb("#cbd5e1"),
+  align: (left, left, left),
+  [*Property / Law*], [*Governing Equation / Formula*], [*VIT Exam Key Insight*],
+  [Ohm's Microscopic Law], [$J = sigma E = n e mu E$], [$sigma = n e mu$; carrier density $n$ and mobility $mu$.],
+  [Resistance vs Temp], [$R(T) = R_0 [1 + alpha(T - T_0)]$], [$alpha > 0$ for metals; $alpha < 0$ for semiconductors.],
+  [Meissner Magnetic Flux], [$bold(B) = mu_0 (bold(H) + bold(M)) = bold(0) arrow.r.double chi = bold(M)/bold(H) = -1$], [Superconductors are perfect diamagnets below $T_c$.],
+  [Curie's Law (Paramagnets)], [$chi = C / T$], [Susceptibility decreases inversely with absolute temperature.],
+  [Curie-Weiss Law (Ferromagnets)], [$chi = C / (T - theta)$], [Valid for $T > T_c$; $theta$ is the Weiss paramagnetic temperature.],
+  [Nanomaterial Surface Fraction], [$"Fraction of surface atoms" prop 1 / r$], [Surface energy dominates over bulk cohesion below $10 "nm"$.]
+)
+
+#v(5mm)
+
+= 4. Worked VIT Question Bank & Past FAT Numerical Problems
+
+#v(2mm)
+
+#rect(width: 100%, fill: rgb("#fef2f2"), stroke: 0.8pt + rgb("#f87171"), radius: 5pt, inset: 10pt)[
+  #text(weight: "bold", fill: rgb("#991b1b"))[VIT FAT Problem 1 (10 Marks): Superconductors & Meissner Effect] \
+  #v(1mm)
+  (a) Distinguish between Type I and Type II superconductors based on critical magnetic field behavior, vortex states, and engineering applications. \
+  (b) A superconducting lead wire has critical temperature $T_c = 7.2 "K"$ at zero magnetic field, and critical magnetic field $H_c(0) = 0.080 "Tesla"$ at $0 "K"$. \
+  Calculate the critical magnetic field $H_c(T)$ of this lead superconductor at $T = 4.2 "K"$ (boiling point of liquid helium).
 ]
 
 #v(2mm)
-= VIT FAT Exam Blueprint & Master Formula Sheet
 
-Module 3 carries *15 to 20 marks* in BACHY101 FAT papers:
-1. *Question Type A (10 Marks):* Band Theory of solids (metals, semiconductors, insulators) and derivation of conductivity $sigma = n e mu_e + p e mu_h$ for intrinsic vs extrinsic semiconductors.
-2. *Question Type B (10 Marks):* Magnetic classification (dia, para, ferro, antiferro, ferri) with spin alignment diagrams, hysteresis curve (coercivity, remanence), and hard vs soft magnetic storage devices.
-3. *Question Type C (10 Marks):* Nanotechnology: Top-down vs bottom-up synthesis, quantum confinement in quantum dots, and surface plasmon resonance in nano gold vs bulk gold.
+*Step-by-Step Solution:*
+- *Part (a): Type I vs Type II Superconductors:*
+  - *Type I Superconductors:* Exhibit a single critical magnetic field $H_c$. Below $H_c$, complete Meissner effect occurs; above $H_c$, superconductivity is abruptly destroyed (e.g. pure $P b, H g, S n$). Low $H_c$ limits use in high-current electromagnets.
+  - *Type II Superconductors:* Exhibit two critical fields, $H_(c 1)$ and $H_(c 2)$. Below $H_(c 1)$, perfect diamagnetism occurs. Between $H_(c 1)$ and $H_(c 2)$, the material enters the *mixed / vortex state* where magnetic flux lines penetrate as quantized vortices without destroying bulk superconductivity (e.g. $N b_3 S n, Y B C O$). $H_(c 2)$ exceeds $20 - 100 "Tesla"$, making them ideal for high-field MRI magnets.
 
-#table(
-  columns: (1.5fr, 2fr, 2fr),
-  inset: 6pt,
-  stroke: 0.4pt + luma(180),
-  align: (left, left, left),
-  [*Concept*], [*Governing Equation / Relation*], [*VIT Exam Key Insight*],
-  [Ohm's Law & Conductivity], [$J = sigma E, quad sigma = 1 / rho = n e mu$], [Conductivity decreases with T in metals; increases exponentially with T in semiconductors.],
-  [Intrinsic Carrier Concentration], [$n_i = p_i = sqrt(N_c N_v) e^(-E_g / (2 k_B T))$], [Fermi level lies exactly at mid-gap: $E_F = (E_c + E_v)/2$.],
-  [Curie-Weiss Law (Ferro)], [$chi = C / (T - theta) quad (T > T_C)$], [Above Curie temperature $T_C$, ferromagnets become paramagnetic.],
-  [Meissner Effect (Superconductors)], [$B = mu_0 (H + M) = 0 arrow.r.double chi = -1$], [Superconductors exhibit perfect diamagnetism below $T_c$.],
-  [Thermal Conductivity], [$q = -k A (d T) / (d x)$ (Fourier's Law)], [Nanofluids suspend metal/oxide nanoparticles to boost heat transfer by 40%.],
-  [Brus Equation (Quantum Dots)], [$E_g^"nano" = E_g^"bulk" + (h^2) / (8 m^* R^2) - (1.8 e^2) / (4 pi epsilon R)$], [Bandgap widens as nanoparticle radius $R$ decreases (blue shift).]
-)
+- *Part (b): Parabolic Critical Magnetic Field Calculation:*
+  The temperature dependence of critical magnetic field is given by Tuyn's empirical relation:
+  $ H_c(T) = H_c(0) [ 1 - (T / T_c)^2 ] $
+  Substitute $H_c(0) = 0.080 "Tesla"$, $T = 4.2 "K"$, and $T_c = 7.2 "K"$:
+  $ T / T_c = 4.2 / 7.2 = 0.58333 $
+  $ (T / T_c)^2 = (0.58333)^2 = 0.34028 $
+  $ 1 - (T / T_c)^2 = 1 - 0.34028 = 0.65972 $
+  $ H_c(4.2 "K") = 0.080 times 0.65972 = bold(0.05278 "Tesla") quad (bold(52.78 "mT")) $
 
-= Electrical & Semiconductor Materials
+#v(2mm)
 
-== Band Theory of Solids & Ohm's Law
-In isolated atoms, electrons occupy discrete atomic orbitals. In crystalline solids, atomic orbitals overlap to form continuous energy bands:
-- *Valence Band (VB):* Highest occupied band containing valence electrons.
-- *Conduction Band (CB):* Lowest empty or partially filled band.
-- *Forbidden Bandgap ($E_g$):* Energy separation between VB maximum and CB minimum.
-1. *Metals (Conductors):* VB and CB overlap ($E_g = 0$) or CB is partially filled. Resistivity increases linearly with temperature due to increased electron-phonon scattering.
-2. *Semiconductors:* Moderate bandgap ($E_g approx 0.7 "to" 2.0 "eV"$). At $0 "K"$, they are insulators; at room temperature, thermal excitation excites electrons across $E_g$.
-3. *Insulators:* Extremely wide bandgap ($E_g > 5.0 "eV"$).
-
-== Extrinsic Semiconductors & Superconductors
-- *n-type Semiconductor:* Silicon ($"Group IV"$) doped with pentavalent donors (P, As, Sb). Extra electron occupies donor energy level $E_d$ right below $E_c$. Majority carriers: electrons ($n approx N_d$).
-- *p-type Semiconductor:* Silicon doped with trivalent acceptors (B, Al, Ga). Acceptor level $E_a$ lies right above $E_v$. Majority carriers: holes ($p approx N_a$).
-- *Superconductivity:* Phenomenon where electrical resistance vanishes completely ($rho = 0$) below a critical temperature $T_c$. In the superconducting state, magnetic field lines are completely expelled from the bulk interior (*Meissner Effect*).
-
-= Magnetic Materials & Data Storage
-
-== Classification by Magnetic Dipole Ordering
-1. *Diamagnetism:* Atoms possess no permanent magnetic dipole moment. When exposed to external magnetic field $H$, induced magnetic moments oppose $H$ ($chi < 0$, small and temperature independent). Examples: $"Bi", "Cu", H_2 O$.
-2. *Paramagnetism:* Permanent atomic magnetic moments exist due to unpaired electrons, but are randomly oriented by thermal agitation. External $H$ aligns dipoles ($chi > 0$, obeys Curie's Law: $chi = C / T$). Examples: $"Al", O_2, "Ti"$.
-3. *Ferromagnetism:* Permanent dipoles exhibit spontaneous parallel alignment within localized microscopic regions called *magnetic domains* via quantum mechanical exchange interaction. Large positive susceptibility ($chi >> 1$). Examples: $"Fe", "Co", "Ni"$.
-4. *Antiferromagnetism:* Adjacent magnetic dipoles align anti-parallel with equal magnitude, resulting in zero net spontaneous magnetization below Neel temperature $T_N$. Example: $"MnO", "FeO"$.
-5. *Ferrimagnetism:* Adjacent dipoles align anti-parallel with unequal magnitudes, yielding net spontaneous magnetization. Examples: Ferrites ($"Fe"_3 "O"_4, "NiFe"_2 "O"_4$) used in high-frequency transformer cores and microwave circulators.
-
-== Hysteresis Loop & Magnetic Recording
-When a ferromagnet is cycled through a magnetic field:
-- *Remanence ($B_r$):* Residual magnetic induction remaining when $H$ is reduced to zero.
-- *Coercivity ($H_c$):* Reverse magnetic field required to demagnetize the material to zero.
-- *Hard Magnetic Materials:* High coercivity and high remanence with broad hysteresis loops (e.g., Alnico, NdFeB). Used in permanent magnets and magnetic hard disk drive (HDD) recording platters.
-- *Soft Magnetic Materials:* Low coercivity and narrow hysteresis loops with minimal hysteresis energy loss (e.g., Silicon steel, Permalloy). Used in transformer cores and motor stators.
-
-= Nanomaterials & Quantum Confinement
-
-== Synthesis: Top-Down vs. Bottom-Up
-- *Top-Down Approaches:* Bulk macroscopic material is progressively reduced down to nanoscale dimensions via mechanical or chemical etching (e.g., High-energy ball milling, photolithography, electron beam lithography).
-- *Bottom-Up Approaches:* Nanostructures are built atom-by-atom or molecule-by-molecule via controlled chemical assembly (e.g., Sol-gel processing, chemical vapor deposition [CVD], hydrothermal synthesis).
-
-== Bulk vs. Nano Gold & Quantum Dots
-- *Surface-to-Volume Ratio:* As particle diameter drops from $100 "nm"$ to $2 "nm"$, the proportion of surface atoms surges from $1%$ to over $50%$, drastically lowering the melting point and boosting catalytic activity.
-- *Surface Plasmon Resonance (SPR):* Bulk gold is shiny yellow and chemically inert. Gold nanoparticles ($10 - 30 "nm"$) exhibit collective oscillation of conduction electrons in resonance with visible light, absorbing green-blue photons and displaying intense ruby-red color (used in biosensors and lateral flow assays).
-- *Quantum Dots:* Semiconductor nanocrystals ($2 - 10 "nm"$) exhibiting 3D quantum confinement. Because particle size is smaller than the exciton Bohr radius, continuous energy bands collapse into discrete atom-like energy levels. The emission wavelength can be precisely tuned across the entire spectrum by tuning crystal size.
+#rect(width: 100%, fill: rgb("#f0fdf4"), stroke: 0.8pt + rgb("#86efac"), radius: 4pt, inset: 8pt)[
+  *Boxed Final Answer:* \
+  Critical magnetic field at $4.2 "K"$: $H_c(4.2 "K") = bold(0.0528 "Tesla")$ ($52.8 "mT"$).
+]
