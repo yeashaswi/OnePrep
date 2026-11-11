@@ -76,7 +76,8 @@ Invented by John Frederic Daniell in 1836, the cell consists of:
 - *Salt Bridge:* Inverted U-tube containing agar-agar gel saturated with inert $K C l$ or $K N O_3$.
 
 #align(center)[
-  #image("figures/m2_daniell_cell.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.1: Construction, electrode half-cells, salt bridge, and redox electron flow in the standard Daniell Galvanic Cell.]
+  #image("figures/m2_daniell_cell.png", width: 80%) \
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.1: Construction, electrode half-cells, salt bridge, and redox electron flow in the standard Daniell Galvanic Cell.]
 ]
 
 - *Overall Cell Reaction:* $Z n (s) + C u^(2+) (a q) arrow.r Z n^(2+) (a q) + C u (s)$
@@ -135,7 +136,8 @@ $ bold(E_"cell" = E_"cell"^circle - frac(0.05916, n) log_10 Q) $
 
 === 2.1 The Downs Cell for Sodium Extraction
 #align(center)[
-  #image("figures/m2_downs_cell.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.2: Industrial Downs Cell architecture showing central graphite anode, steel cylindrical cathode, and steel wire gauze diaphragm for molten $N a C l$ electrolysis.]
+  #image("figures/m2_downs_cell.png", width: 80%) \
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.2: Industrial Downs Cell architecture showing central graphite anode, steel cylindrical cathode, and steel wire gauze diaphragm for molten $N a C l$ electrolysis.]
 ]
 The commercial electrochemical extraction of metallic sodium by the electrolysis of molten sodium chloride ($N a C l$).
 - *Raw Material Mixture:* Molten $N a C l$ ($40%$) fluxed with Calcium Chloride ($C a C l_2$, $60%$).
@@ -153,7 +155,8 @@ The commercial electrochemical extraction of metallic sodium by the electrolysis
 
 === 2.2 Electrolytic Decomposition of Water (Water Splitting)
 #align(center)[
-  #image("figures/m2_water_splitting.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.3: Water splitting electrolytic cell showing stoichiometric decomposition into hydrogen and oxygen ($2:1$ volume ratio).]
+  #image("figures/m2_water_splitting.png", width: 80%) \
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.3: Water splitting electrolytic cell showing stoichiometric decomposition into hydrogen and oxygen ($2:1$ volume ratio).]
 ]
 The stoichiometric decomposition of water into hydrogen and oxygen gases:
 $ 2 H_2 O (l) arrow.r 2 H_2 (g) + O_2 (g) $
@@ -174,7 +177,8 @@ A semiconductor is a solid whose electrical conductivity lies between that of a 
 
 === 3.1 Energy Band Theory
 #align(center)[
-  #image("figures/m2_semiconductor_bands.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.4: Energy band structure and temperature dependence of electrical conductivity in semiconductors.]
+  #image("figures/m2_semiconductor_bands.png", width: 80%) \
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.4: Energy band structure and temperature dependence of electrical conductivity in semiconductors.]
 ]
 - *Valence Band (VB):* The highest range of electron energies in which electrons are present in the ground state.
 - *Conduction Band (CB):* The lowest range of vacant, unoccupied electron energy levels.
@@ -224,7 +228,8 @@ High-efficiency semiconductor electronics require electronic-grade silicon (EGS)
 
 === 4.2 Stage 2: Zone Refining Technique
 #align(center)[
-  #image("figures/m2_zone_refining.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.5: Zone refining apparatus showing moving RF induction heater coil sweeping impurities along molten zone.]
+  #image("figures/m2_zone_refining.png", width: 80%) \
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.5: Zone refining apparatus showing moving RF induction heater coil sweeping impurities along molten zone.]
 ]
 Invented by William Gardner Pfann at Bell Labs, zone refining utilizes the physical principle that *impurities are significantly more soluble in the liquid (molten) phase than in the solid phase*.
 - *Segregation Coefficient ($k$):* Defined as the ratio of impurity concentration in the freezing solid ($C_s$) to that in the molten liquid ($C_l$):
@@ -240,7 +245,8 @@ Invented by William Gardner Pfann at Bell Labs, zone refining utilizes the physi
 
 === 4.3 Stage 3: Czochralski (CZ) Single-Crystal Pulling
 #align(center)[
-  #image("figures/m2_czochralski.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.6: Czochralski crystal pulling furnace showing rotating seed crystal pulling dislocation-free silicon boule from melt at $1425degree "C"$.]
+  #image("figures/m2_czochralski.png", width: 80%) \
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.6: Czochralski crystal pulling furnace showing rotating seed crystal pulling dislocation-free silicon boule from melt at $1425degree "C"$.]
 ]
 Zone-refined silicon is polycrystalline. To make microchips and high-efficiency solar cells, it must be converted into a continuous single crystal.
 - *Apparatus & Operation:*
@@ -313,7 +319,8 @@ A fuel cell is an electrochemical energy conversion device that converts the che
 
 === 6.1 Proton Exchange Membrane Fuel Cell (PEMFC)
 #align(center)[
-  #image("figures/m2_pemfc.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.8: Proton Exchange Membrane Fuel Cell (PEMFC) construction showing Nafion membrane, Pt/C catalysts, and gas diffusion channels.]
+  #image("figures/m2_pemfc.png", width: 80%) \
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.8: Proton Exchange Membrane Fuel Cell (PEMFC) construction showing Nafion membrane, Pt/C catalysts, and gas diffusion channels.]
 ]
 - *Operating Temperature:* $60 - 80 degree "C"$ (Low temperature; enables rapid startup within seconds).
 - *Solid Polymer Electrolyte:* Perfluorosulfonic acid membrane (*Nafion*), which selectively conducts hydrated $H^+$ protons via sulfonic acid groups ($- S O_3^- H^+$) while blocking electrons and reactant gases.
@@ -327,7 +334,8 @@ A fuel cell is an electrochemical energy conversion device that converts the che
 
 === 6.2 Solid Oxide Fuel Cell (SOFC)
 #align(center)[
-  #image("figures/m2_sofc.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.9: Solid Oxide Fuel Cell (SOFC) ceramic architecture showing YSZ solid electrolyte conducting $O^{2-}$ oxide ions at $800-1000degree "C"$.]
+  #image("figures/m2_sofc.png", width: 80%) \
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.9: Solid Oxide Fuel Cell (SOFC) ceramic architecture showing YSZ solid electrolyte conducting $O^{2-}$ oxide ions at $800-1000degree "C"$.]
 ]
 - *Operating Temperature:* $700 - 1000 degree "C"$ (High temperature; solid ceramic materials).
 - *Solid Ceramic Electrolyte:* Dense, non-porous *Yttria-Stabilized Zirconia (YSZ)* ($Z r O_2$ doped with $8 "mol"% thin Y_2 O_3$). At high temperatures, oxygen vacancies in the cubic fluorite lattice facilitate rapid conduction of oxide ions ($O^(2-)$).
@@ -348,7 +356,8 @@ A fuel cell is an electrochemical energy conversion device that converts the che
 
 === 7.1 Photovoltaic (PV) vs. Photoelectrochemical (PEC) vs. DSSC
 #align(center)[
-  #image("figures/m2_solar_pv.png", width: 80%)   #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.10: Photovoltaic conversion in silicon p-n junction solar cell.]
+  #image("figures/m2_solar_pv.png", width: 80%) \
+  #text(size: 8pt, style: "italic", fill: rgb("#64748b"))[Figure 2.10: Photovoltaic conversion in silicon p-n junction solar cell.]
 ]
 #table(
   columns: (1.5fr, 2.5fr, 2.5fr, 2.5fr),
