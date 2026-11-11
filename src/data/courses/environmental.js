@@ -19,6 +19,7 @@ export const environmentalCourse = {
     {
       "id": "evs-m1",
       "moduleNum": 1,
+      summary: "Ecosystem structure, biotic and abiotic interactions, trophic food webs, and biogeochemical nutrient cycles.",
       "pdfUrl": "/pdfs/environmental/EVS_MOD-1.pdf",
       "title": "Week 1: Fundamentals of Environment and Ecosystems",
       "co": "CO: 1",
@@ -1356,6 +1357,7 @@ export const environmentalCourse = {
     {
       "id": "evs-m2",
       "moduleNum": 2,
+      summary: "Global and Indian biodiversity hotspots, species conservation strategies, and natural resource management.",
       "pdfUrl": "/pdfs/environmental/EVS_MOD-2.pdf",
       "title": "Week 2: Biodiversity and Natural Resources / Environmental Quality",
       "co": "CO: 2",
@@ -3200,6 +3202,7 @@ export const environmentalCourse = {
     {
       "id": "evs-m3",
       "moduleNum": 3,
+      summary: "Air, water, and soil pollution mechanisms, control technologies, and municipal solid waste management.",
       "pdfUrl": "/pdfs/environmental/EVS_MOD-3.pdf",
       "title": "Week 3: Environmental Pollution and Waste Management Techniques",
       "co": "CO: 3",
@@ -4861,6 +4864,7 @@ export const environmentalCourse = {
     {
       "id": "evs-m4",
       "moduleNum": 4,
+      summary: "Indian environmental protection legislation, EIA clearance protocols, and UN Sustainable Development Goals.",
       "pdfUrl": "/pdfs/environmental/EVS_MOD-4.pdf",
       "title": "Week 4: Environmental Laws, Policies and Sustainable Development Goals",
       "co": "CO: 4",
@@ -7062,6 +7066,7 @@ export const environmentalCourse = {
     {
       "id": "evs-m5",
       "moduleNum": 5,
+      summary: "Climate change science, enhanced greenhouse effect, global warming potentials, and carbon sequestration.",
       "pdfUrl": "/pdfs/environmental/EVS_MOD-5.pdf",
       "title": "Week 5: Climate Change and Emerging Environmental Issues",
       "co": "CO: 5",
@@ -7518,6 +7523,7 @@ export const environmentalCourse = {
     {
       "id": "evs-m6",
       "moduleNum": 6,
+      summary: "Carbon footprint accounting, renewable energy transitions, green building standards, and disaster management.",
       "pdfUrl": "/pdfs/environmental/EVS_MOD-6.pdf",
       "title": "Week 6: Contemporary Topics in Environmental Sciences",
       "co": "CO: 6",

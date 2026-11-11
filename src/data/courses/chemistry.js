@@ -18,6 +18,7 @@ export const chemistryCourse = {
     {
       "id": "bchy-m1",
       "moduleNum": 1,
+      summary: "Laws of thermodynamics, Mayer's relation, Carnot cycle efficiency, and chemical reaction kinetics.'s relation, Carnot cycle efficiency, and chemical reaction kinetics.",
       "pdfUrl": "/pdfs/chemistry/Chemistry_MOD-1.pdf",
       "title": "Chemical Thermodynamics & Kinetics",
       "co": "CO: 1",
@@ -154,6 +155,7 @@ export const chemistryCourse = {
     {
       "id": "bchy-m2",
       "moduleNum": 2,
+      summary: "Electrochemical cells, Nernst equation, industrial electrolysis, lithium-ion batteries, fuel cells, and DSSCs.",
       "pdfUrl": "/pdfs/chemistry/Chemistry_MOD-2.pdf",
       "title": "Energy Devices & Semiconductor Electrodes",
       "co": "CO: 2",
@@ -273,6 +275,7 @@ export const chemistryCourse = {
     {
       "id": "bchy-m3",
       "moduleNum": 3,
+      summary: "Band theory of conduction, low resistivity conductors, superconductivity, Meissner effect, and magnetic materials.",
       "pdfUrl": "/pdfs/chemistry/Chemistry_MOD-3.pdf",
       "title": "Functional Materials & Liquid Coolants",
       "co": "CO: 2",
@@ -385,6 +388,7 @@ export const chemistryCourse = {
     {
       "id": "bchy-m4",
       "moduleNum": 4,
+      summary: "UV-Visible spectroscopy, electronic transitions, Beer-Lambert law, and powder X-ray diffraction.",
       "pdfUrl": "/pdfs/chemistry/Chemistry_MOD-4.pdf",
       "title": "Spectroscopic & Diffraction Techniques",
       "co": "CO: 3",
@@ -491,6 +495,7 @@ export const chemistryCourse = {
     {
       "id": "bchy-m5",
       "moduleNum": 5,
+      summary: "Computational chemistry methods, Schrödinger equation, molecular orbitals, PES, and geometry optimization.",
       "pdfUrl": "/pdfs/chemistry/Chemistry_MOD-5.pdf",
       "title": "Computational Chemistry & AI Material Discovery",
       "co": "CO: 4",

@@ -18,6 +18,7 @@ export const calculusCourse = {
     {
       id: 'bamat-m1',
       moduleNum: 1,
+      summary: "Partial derivatives, Euler's theorem on homogeneous functions, Jacobian, and Lagrange multipliers.",
       pdfUrl: '/pdfs/calculus/Math_MOD-1.pdf',
       title: 'Differential Calculus & Functions of Several Variables',
       co: 'CO: 1',
@@ -144,6 +145,7 @@ export const calculusCourse = {
     {
       id: 'bamat-m2',
       moduleNum: 2,
+      summary: "Double and triple integrals, change of order, area, volume, and beta-gamma functions.",
       pdfUrl: '/pdfs/calculus/Math_MOD-2.pdf',
       title: 'Multiple Integrals (CO: 2)',
       co: 'CO: 2',
@@ -275,6 +277,7 @@ export const calculusCourse = {
     {
       id: 'bamat-m3',
       moduleNum: 3,
+      summary: "Vector differentiation, gradient, divergence, curl, line integrals, and Green's theorem.",
       pdfUrl: '/pdfs/calculus/Math_MOD-3.pdf',
       title: 'Vector Differentiation and Integration (CO: 3)',
       co: 'CO: 3',
@@ -407,6 +410,7 @@ export const calculusCourse = {
     {
       id: 'bamat-m4',
       moduleNum: 4,
+      summary: "Higher-order linear ODEs with constant coefficients, Cauchy-Euler equations, and variation of parameters.",
       pdfUrl: '/pdfs/calculus/Math_MOD-4.pdf',
       title: 'Ordinary Differential Equations (ODEs) (CO: 4)',
       co: 'CO: 4',
@@ -537,6 +541,7 @@ export const calculusCourse = {
     {
       id: 'bamat-m5',
       moduleNum: 5,
+      summary: "First-order PDEs, Lagrange's linear equation, Charpit's method, and separation of variables.",
       pdfUrl: '/pdfs/calculus/Math_MOD-5.pdf',
       title: 'Partial Differential Equations (PDEs) (CO: 5)',
       co: 'CO: 5',

@@ -18,6 +18,7 @@ export const basicEngCourse = {
     {
       "id": "bacee-m1",
       "moduleNum": 1,
+      summary: "DC and AC circuit laws, mesh and nodal analysis, single-phase transformers, and electric machines.",
       "pdfUrl": "/pdfs/basic_eng/BEEE_MOD-1.pdf",
       "title": "Electrical Circuits, AC Phasors, Machines & Safety",
       "co": "CO: 1",
@@ -181,6 +182,7 @@ export const basicEngCourse = {
     {
       "id": "bacee-m2",
       "moduleNum": 2,
+      summary: "PN junction diodes, bipolar junction transistors, operational amplifiers, and digital logic gates.",
       "pdfUrl": "/pdfs/basic_eng/BEEE_MOD-2.pdf",
       "title": "Semiconductors, Transistors, Op-Amps & Communications",
       "co": "CO: 2",
@@ -344,6 +346,7 @@ export const basicEngCourse = {
     {
       "id": "bacee-m3",
       "moduleNum": 3,
+      summary: "Engineering drawing standards, orthographic projections, isometric views, and CAD drafting tools.",
       "pdfUrl": "/pdfs/basic_eng/BEEE_MOD-3.pdf",
       "title": "Engineering Graphics: Projections, Solids, Isometric & CAD",
       "co": "CO: 3",
@@ -462,6 +465,7 @@ export const basicEngCourse = {
     {
       "id": "bacee-m4",
       "moduleNum": 4,
+      summary: "Manufacturing processes, metal casting, welding operations, lathe machining, and power transmission mechanisms.",
       "pdfUrl": "/pdfs/basic_eng/BEEE_MOD-4.pdf",
       "title": "Manufacturing Processes, Energy Conversions & Mechanisms",
       "co": "CO: 4",

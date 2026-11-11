@@ -33,6 +33,7 @@ export const englishCourse = {
     {
       id: 'baeng-m1',
       moduleNum: 1,
+      summary: "Principles of technical writing, formal communication barriers, and 5 Cs of technical reporting.",
       pdfUrl: '/pdfs/english/English_MOD-1.pdf',
       title: 'Introduction to Technical Communication & 5 Cs',
       co: 'CO: 2',
@@ -96,6 +97,7 @@ export const englishCourse = {
     {
       id: 'baeng-m2',
       moduleNum: 2,
+      summary: "Essential English grammar, subject-verb agreement concord, active and passive voices, and conditionals.",
       pdfUrl: '/pdfs/english/English_MOD-2.pdf',
       title: 'Grammar (Concord, Tenses, Conditionals & Voices)',
       co: 'CO: 3',
@@ -160,6 +162,7 @@ export const englishCourse = {
     {
       id: 'baeng-m3',
       moduleNum: 3,
+      summary: "Critical reading strategies, technical definition structures, and 100 high-frequency engineering vocabulary terms.",
       pdfUrl: '/pdfs/english/English_MOD-3.pdf',
       title: 'Reading, Definitions & 100-Word Bank',
       co: 'CO: 4',
@@ -217,6 +220,7 @@ export const englishCourse = {
     {
       id: 'baeng-m4',
       moduleNum: 4,
+      summary: "Formal technical proposal drafting, research literature review synthesis, and IEEE citation formatting.",
       pdfUrl: '/pdfs/english/English_MOD-4.pdf',
       title: 'Writing & Literature Review Synthesis',
       co: 'CO: 1',
@@ -272,6 +276,7 @@ export const englishCourse = {
     {
       id: 'baeng-m5',
       moduleNum: 5,
+      summary: "Interpersonal communication dynamics, leadership styles, active listening, and workplace negotiation strategies.",
       pdfUrl: '/pdfs/english/English_MOD-5.pdf',
       title: 'Interpersonal Communication & Leadership/Negotiation Case Studies',
       co: 'CO: 6',
