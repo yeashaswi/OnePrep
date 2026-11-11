@@ -565,23 +565,60 @@ export default function ModuleReaderModal({
                     )}
                   </div>
 
-                  {/* Core Definitions & Concepts (Line-by-Line with Paragraph Spacing) */}
+                  {/* Core Definitions & Concepts (Line-by-Line with Clear Paragraph Separation) */}
                   <div className="space-y-4">
                     <div className="flex items-center justify-between gap-2 border-b border-[#2E2E33] pb-2">
                       <div className="flex items-center gap-2">
                         <Layers className="w-4 h-4 text-[#E05656]" />
                         <h3 className="text-xs font-bold uppercase tracking-wider text-[#F4F4F6]">
-                          Chapter Syllabus & Core Definitions (Line-by-Line)
+                          Core Concepts & Definitions (Line-by-Line Reference)
                         </h3>
                       </div>
                       <span className="text-[11px] text-[#85858D]">
-                        Clear paragraph separation
+                        Spacious, uncrowded layout
                       </span>
                     </div>
 
-                    <div className="bg-[#232326] border border-[#36363B] rounded-xl p-6 sm:p-7 space-y-4">
-                      <FormattedText text={module.scope} className="text-sm sm:text-base leading-relaxed" />
-                    </div>
+                    {(() => {
+                      const content = module.theoryNotes || module.scope || '';
+                      const paragraphs = content.split(/\n\n+/);
+                      
+                      return (
+                        <div className="space-y-3.5">
+                          {paragraphs.map((para, pIdx) => {
+                            // Match numbered definition pattern: "1. Concept Title — Body"
+                            const match = para.match(/^(\d+)\.\s+([^—–-]+?)\s*[—–-]\s*([\s\S]*)$/);
+                            if (match) {
+                              const num = match[1];
+                              const title = match[2].trim();
+                              const body = match[3].trim();
+                              return (
+                                <div key={pIdx} className="bg-[#232326] rounded-xl p-4 sm:p-5 border border-[#36363B] space-y-2.5 transition-colors hover:border-[#4A4A52]">
+                                  <div className="flex items-baseline gap-2.5 flex-wrap sm:flex-nowrap">
+                                    <span className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#E05656]/15 text-[#E05656] border border-[#E05656]/30 shrink-0">
+                                      {num}
+                                    </span>
+                                    <h4 className="text-sm sm:text-base font-bold text-[#F4F4F6]">
+                                      {title}
+                                    </h4>
+                                  </div>
+                                  <div className="text-sm sm:text-[15px] text-[#D1D1D6] leading-relaxed pl-0 sm:pl-7">
+                                    <FormattedText text={body} />
+                                  </div>
+                                </div>
+                              );
+                            }
+
+                            // Standard paragraph / theory block
+                            return (
+                              <div key={pIdx} className="bg-[#232326] rounded-xl p-4 sm:p-5 border border-[#36363B]">
+                                <FormattedText text={para} className="text-sm sm:text-base leading-relaxed" />
+                              </div>
+                            );
+                          })}
+                        </div>
+                      );
+                    })()}
                   </div>
 
                   {/* Key Formulas Section */}
