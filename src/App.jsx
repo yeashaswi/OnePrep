@@ -56,8 +56,12 @@ export default function App() {
   });
 
   const [completedTasks, setCompletedTasks] = useState(() => {
-    const saved = localStorage.getItem('fatkilla_completed_tasks_v4');
-    return saved ? JSON.parse(saved) : {};
+    try {
+      const saved = localStorage.getItem('fatkilla_completed_tasks_v4');
+      return saved ? JSON.parse(saved) : {};
+    } catch (e) {
+      return {};
+    }
   });
 
   // User-Created Study Checklist State (Persisted in localStorage)

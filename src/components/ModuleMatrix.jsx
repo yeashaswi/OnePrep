@@ -45,6 +45,7 @@ export default function ModuleMatrix({
 
   // Filter modules based on selected exam mode
   const getExamModules = (course) => {
+    if (!course || !Array.isArray(course.modules)) return [];
     if (selectedExam === 'cat1') return course.modules.filter(m => m.moduleNum <= 2);
     if (selectedExam === 'cat2') return course.modules.filter(m => m.moduleNum === 3 || m.moduleNum === 4);
     return course.modules;
